@@ -1,0 +1,39 @@
+@import './views/Home.scss';
+@import './views/Footer.scss';
+@import './views/Loading.scss';
+@import './views/Modal.scss';
+@import './views/Navigation.scss';
+@import './views/Order.scss';
+@import './views/Menu/Menu.scss';
+@import './views/Menu/MenuComponents/Cart.scss';
+@import './views/Menu/MenuComponents/CustomizeMenu.scss';
+@import './views/Menu/MenuComponents/MenuCard.scss';
+@import './views/Menu/MenuComponents/MenuFooter.scss';
+@import './views/Menu/MenuComponents/MenuHeader.scss';
+@import './views/Menu/MenuComponents/MenuItem.scss';
+@import './views/Info/Info.scss';
+@import './views/Info/InfoComponents/About.scss';
+@import './views/Info/InfoComponents/Terms.scss';
+@import './views/Info/InfoComponents/Contact.scss';
+
+
+
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    #nav {
+      padding: 30px;
+    }
+    
+    #nav a {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    
+    #nav a.router-link-exact-active {
+      color: #42b983;
+    }
+}

@@ -1,12 +1,11 @@
 <template>
-    <div class='footer'>
+    <div class='contact'>
         
     </div>
 </template>
-
 <script>
 
 export default {
-  name: 'footer',
+  name: 'contact',
 };
 </script>

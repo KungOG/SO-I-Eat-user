@@ -13,7 +13,7 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      component: () => import('./views/info/About.vue'),
+      component: () => import('./components/info/About.vue'),
     },
   ],
 });
