@@ -1,3 +1,10 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap-grid';
+
+@import './components/variables';
+@import './components/typography';
+@import './components/functions';
+
+
 @import './views/Home.scss';
 @import './views/Footer.scss';
 @import './views/Loading.scss';
@@ -15,25 +22,3 @@
 @import './views/Info/InfoComponents/About.scss';
 @import './views/Info/InfoComponents/Terms.scss';
 @import './views/Info/InfoComponents/Contact.scss';
-
-
-
-#app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: black;
-    #nav {
-      padding: 30px;
-    }
-    
-    #nav a {
-      font-weight: bold;
-      color: #2c3e50;
-    }
-    
-    #nav a.router-link-exact-active {
-      color: #42b983;
-    }
-}

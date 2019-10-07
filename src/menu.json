@@ -1,0 +1,39 @@
+{
+  "menu": {
+    "swedishMenu": {
+      "category": {
+        "1": "Förätter",
+        "2": "Currygrytor",
+        "3": "Soppor",
+        "4": "Wokat och Stekt",
+        "5": "Ris och Nudlar",
+        "6": "Barnmeny",
+        "7": "Efterätter"
+      },
+      "menuItem": [
+        {
+          "category": 1,
+          "dishName": "Pad Mee",
+          "number": 16,
+          "text": "Steka äggnudlar",
+          "protein": [
+            { "kyckling": false },
+            { "biff": false },
+            { "fläsk": false }
+          ],
+          "included": [
+            { "Broccoli": true },
+            { "Morot": true }
+          ],
+          "extra": [
+            { "Extra Kyckling": false }
+          ],
+          "allergy": [
+            { "Mjölk": false },
+            { "Gluten": false }
+          ]
+        }
+      ]
+    }
+  }
+}
