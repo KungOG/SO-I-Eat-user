@@ -43,9 +43,5 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  background: black;
-  color: white;
-}
 @import '@/assets/css/app.scss';
 </style>
