@@ -1,0 +1,18 @@
+<svg width="30" height="34" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 1C10.6 1 11.1666 3.33333 12 4.5H18C19.1667 3.33333 19.4 1 15 1Z" stroke="white"/>
+<circle cx="15" cy="19" r="14.315" stroke="white" stroke-width="1.37"/>
+<circle cx="15" cy="19" r="2" fill="white"/>
+<line x1="15.255" y1="5" x2="15.255" y2="9" stroke="white" stroke-width="0.51"/>
+<line x1="15.255" y1="29" x2="15.255" y2="33" stroke="white" stroke-width="0.51"/>
+<line x1="22.0547" y1="6.90472" x2="20.1026" y2="10.3961" stroke="white" stroke-width="0.51"/>
+<line x1="10.3425" y1="27.8528" x2="8.39048" y2="31.3442" stroke="white" stroke-width="0.51"/>
+<line x1="26.9942" y1="11.7748" x2="23.606" y2="13.9008" stroke="white" stroke-width="0.51"/>
+<line x1="6.66508" y1="24.5312" x2="3.27689" y2="26.6572" stroke="white" stroke-width="0.51"/>
+<line x1="8.04021" y1="6.8499" x2="10.0913" y2="10.284" stroke="white" stroke-width="0.51"/>
+<line x1="20.3465" y1="27.4546" x2="22.3976" y2="30.8887" stroke="white" stroke-width="0.51"/>
+<line x1="3.01299" y1="11.7629" x2="6.47437" y2="13.7676" stroke="white" stroke-width="0.51"/>
+<line x1="23.7812" y1="23.7911" x2="27.2426" y2="25.7958" stroke="white" stroke-width="0.51"/>
+<line x1="29" y1="19.255" x2="25" y2="19.255" stroke="white" stroke-width="0.51"/>
+<line x1="5" y1="19.255" x2="1" y2="19.255" stroke="white" stroke-width="0.51"/>
+<line x1="22.735" y1="23.424" x2="14.735" y2="18.424" stroke="white"/>
+</svg>

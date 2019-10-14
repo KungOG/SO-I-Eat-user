@@ -1,4 +1,5 @@
 import Vue from 'vue';
+
 import Router from 'vue-router';
 
 Vue.use(Router);
@@ -18,17 +19,17 @@ export default new Router({
         {
           path: '/about',
           name: 'about',
-          component: () => import('./components/info/About.vue'),
+          component: () => import('./components/Info/About.vue'),
         },
         {
           path: '/contact',
           name: 'contact',
-          component: () => import('./components/info/Contact.vue'),
+          component: () => import('./components/Info/Contact.vue'),
         },
         {
           path: '/terms',
           name: 'terms',
-          component: () => import('./components/info/Terms.vue'),
+          component: () => import('./components/Info/Terms.vue'),
         },
       ],
     },
