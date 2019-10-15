@@ -1,6 +1,11 @@
 .icon-wrapper {
-  margin-left: 39px;
   > img {
+    width: auto;
+    height: 26px;
+    margin-left: 10px;
+
+    &:first-child {
       margin-left: 10px;
+    }
   }
 }

@@ -1,58 +1,72 @@
 .content-text-wrapper {
-  display: flex;
-  flex-direction: column;
   background: #fff;
-  padding: 30px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 45px 235px 55px;
+  grid-template-rows: 55px 86px 30px;
+  grid-template-areas:
+  'filler name price'
+  'number content content'
+  'number icon .';
 
-  @media (max-width: $screen-sm-md) {
-    padding: 30px 10px;
+  .content-filler {
+    grid-area: filler;
+    border-bottom: 1px solid $main-secondary-color;
   }
 
-  .dish-title {
+  .dish-name {
+    grid-area: name;
     display: flex;
-    flex-direction: row;
     align-items: flex-end;
-    margin-right: 2rem;
+    border-bottom: 1px solid $main-secondary-color;
+    border-left: 1px solid $main-secondary-color;
+
+
+    > h3 {
+      margin: 0;
+      margin-left: 10px;
+      line-height: .8;
+    }
+  }
+
+  .dish-price {
+    grid-area: price;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .dish-number {
+    grid-area: number;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 
     h4 {
-        margin: 0;
-        line-height: .8;
-    }
-
-    .dish-name {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-
-      h3 {
-        margin: 0;
-        margin-left: 49px;
-        line-height: .8;
-      }
-
-      .line {
-        height: 1.5px;
-        margin-right: 20px;
-        background: $main-secondary-color;
-      }
-    }
+      color: #676565;
+    }  
   }
 
   .dish-content {
+    grid-area: content;
     display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
     flex-direction: row;
-    margin-left: 15px;
+    border-left: 1px solid $main-secondary-color;
+    
+    p {
+      margin: 10px 0 0 10px;
+    }
+  }
 
-    h4,
-    p {
-        margin: 0;
-    }
-    p {
-      margin: 5px 0 10px 20px;
-    }
-    h4 {
-        margin-top: 5px;
-        color: #676565;
-    }
+  h4 {
+    margin: 0;
+    line-height: 1;
+  }
+
+  .icon-wrapper {
+    grid-area: icon;
+    border-left: 1px solid $main-secondary-color;
   }
 }

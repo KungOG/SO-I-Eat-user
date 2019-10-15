@@ -1,16 +1,17 @@
 .menu-section {
-    background: white;
-    padding: 3rem 1rem;
-    margin-bottom: 1rem;
+  background: white;
+  padding: 3rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
 
-    @media (min-width: $screen-sm-md) {
-        padding: 2rem;
-        max-width: 49.5vw;
+  @media (min-width: $screen-sm-md) {
+      max-width: 49.5vw;
+    }
+
+  .wrapper {
+      h1 {
+          color: $main-secondary-color;
+          margin-left: 35px; 
       }
-
-    .wrapper {
-        h1 {
-            color: $main-secondary-color;
-        }
     }
   }
