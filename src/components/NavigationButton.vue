@@ -1,13 +1,15 @@
 <template>
-  <div clas='navigation-button'>
-    <img src="" alt="">
+  <div class='navigation-button'>
+    <img :src="imageSrc" alt="">
+    <span>{{title}}</span>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    img: String
+    imageSrc: String,
+    title: String,
   }
 };
 </script>
