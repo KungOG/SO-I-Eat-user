@@ -11,10 +11,11 @@ $screen-sm-xl: map-get($grid-breakpoints, xl); // 1200px
 
 $main-color: #AA0909;
 $secondary-color: #AC9416;
-$main-base-color: #c4c4c4;
+$main-secondary-color: #c4c4c4;
+$main-base-color: #131313;
 // $secondary-base-color: ;
 $regular-font: 'Carrois Gothic', sans-serif;
-$header-font-family: 'News Cycle', sans-serif;
+$header-font: 'News Cycle', sans-serif;
 
 #app {
   width: 100vw;

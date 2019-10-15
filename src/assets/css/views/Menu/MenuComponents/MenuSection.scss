@@ -1,3 +1,16 @@
-#app > .menu-section {
-    background: pink;
+.menu-section {
+    background: white;
+    padding: 3rem 1rem;
+    margin-bottom: 1rem;
+
+    @media (min-width: $screen-sm-md) {
+        padding: 2rem;
+        max-width: 49.5vw;
+      }
+
+    .wrapper {
+        h1 {
+            color: $main-secondary-color;
+        }
+    }
   }

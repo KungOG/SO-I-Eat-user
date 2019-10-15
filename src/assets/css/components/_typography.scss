@@ -3,22 +3,24 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: $regular-font;
-  text-transform: uppercase;  
+  font-family: $header-font;
+  text-transform: uppercase; 
+  letter-spacing: 0.05em; 
 }
 
 p,
 span {
-  font-family: $header-font-family;
+  font-family: $regular-font;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 30px;
   line-height: 42px;
-  color: $main-base-color;
+  color: $main-secondary-color;
+  font-weight: 400;
 
-  @media (min-width: $screen-sm-md) {
-    font-size: 70px;
+  @media (min-width: $screen-sm-lg) {
+    font-size: 40px;
     line-height: 75px;
   }
 }
@@ -39,17 +41,25 @@ h3 {
   color: $main-color;
 
   @media (min-width: $screen-sm-md) {
-    font-size: 35px;
+    font-size: 30px;
+    line-height: 40px;
+  }
+  @media (max-width: $screen-sm-md) {
+    font-size: 20px;
     line-height: 40px;
   }
 }
   
 h4 {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 24px;
 
   @media (min-width: $screen-sm-md) {
-    font-size: 26px;
+    font-size: 30px;
+    line-height: 30px;
+  }
+  @media (max-width: $screen-sm-md) {
+    font-size: 20px;
     line-height: 30px;
   }
 }
@@ -65,11 +75,11 @@ h5 {
 }
 
 p {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
 
-  @media (min-width: $screen-sm-md) {
-    font-size: 18px;
+  @media (min-width: $screen-sm-lg) {
+    font-size: 16px;
     line-height: 26px;
   }
 }

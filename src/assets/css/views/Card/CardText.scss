@@ -4,6 +4,10 @@
   background: #fff;
   padding: 30px;
 
+  @media (max-width: $screen-sm-md) {
+    padding: 30px 10px;
+  }
+
   .dish-title {
     display: flex;
     flex-direction: row;
@@ -12,9 +16,8 @@
 
     h4 {
         margin: 0;
-        line-height: .7;
+        line-height: .8;
     }
-
 
     .dish-name {
       display: flex;
@@ -24,13 +27,13 @@
       h3 {
         margin: 0;
         margin-left: 49px;
-        line-height: .7;
+        line-height: .8;
       }
 
       .line {
         height: 1.5px;
         margin-right: 20px;
-        background: $main-base-color;
+        background: $main-secondary-color;
       }
     }
   }
@@ -45,7 +48,7 @@
         margin: 0;
     }
     p {
-      margin: 5px 0 0 20px;
+      margin: 5px 0 10px 20px;
     }
     h4 {
         margin-top: 5px;

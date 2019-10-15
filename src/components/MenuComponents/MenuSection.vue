@@ -1,7 +1,7 @@
 <template>
     <div class='menu-section'>
       <div class='wrapper'>
-        <h2>{{category}}</h2>
+        <h1>{{category}}</h1>
         <CardText v-for="(item, i) in filteredItems" :key="i" :item="item"/>
       </div>
     </div>

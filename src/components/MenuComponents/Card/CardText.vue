@@ -9,10 +9,10 @@
     </div>
     <div class='dish-content'>
       <h4>1</h4>
-      <p>Gröncurrygryta med kycklingbiff, limeblad, chili, bambuskott, thaibasilika, grönsaker och kokosmjölk</p>
+      <p>{{item.description}}</p>
     </div>
-    <Icons />
-  </div> 
+    <Icons :proteinItems="item.protein"/>
+  </div>
 </template>
 
 <script>

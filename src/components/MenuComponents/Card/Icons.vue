@@ -1,8 +1,15 @@
 <template>
   <div class='icon-wrapper'>
-    <img src="@/assets/icons/Pork.svg" alt="Pork icon">
-    <img src="@/assets/icons/Chicken.svg" alt="Chicken icon">
-    <img src="@/assets/icons/Beef.svg" alt="Beef icon">
-    <img src="@/assets/icons/Shrimp.svg" alt="Schrimp icon">
+    <img v-for="(item, i) in proteinItems" :key="i" :src="require('@/assets/icons/' + item.imgUrl)" alt="item.name">
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    proteinItems: {
+      type: Array,
+    },
+  },
+}
+</script>

@@ -1,7 +1,9 @@
 <template>
     <div class='menu'>
       <MenuHeader />
-      <MenuSection v-for="(category, i) in categories" :key="i" :items="menuItems" :category="category"/>
+      <div class="sections-wrapper">
+        <MenuSection v-for="(category, i) in categories" :key="i" :items="menuItems" :category="category"/>
+      </div>
       <MenuFooter />
       <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText"/>
       <NavigationButton :imageSrc="MenuIcon" :title="MenuIconText"/>
@@ -14,23 +16,20 @@ import MenuHeader from '@/components/MenuComponents/MenuHeader.vue';
 import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
 import MenuSection from '@/components/MenuComponents/MenuSection.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
-import TakeAway from '@/assets/icons/TakeAway.svg';
-import MenuIcon from '@/assets/icons/MenuIcon.svg';
-import Maps from '@/assets/icons/Maps.svg';
-import EatHere from '@/assets/icons/EatHere.svg';
 
 export default {
   name: 'menu',
   data() {
     return {
-      TakeAway: TakeAway,
+      TakeAway: require('@/assets/icons/TakeAway.svg'),
       TakeAwayText: 'Ta med',
-      MenuIcon: MenuIcon,
+      MenuIcon: require('@/assets/icons/MenuIcon.svg'),
       MenuIconText: 'Se Menyn',
-      Maps: Maps,
+      Maps: require('@/assets/icons/Maps.svg'),
       MapsText: 'Hitta hit',
-      EatHere: EatHere,
+      EatHere: require('@/assets/icons/EatHere.svg'),
       EatHereText: 'Äta här',
+      categories: ['Förrätter', 'Varmrätter', 'Dessert']
     }
   },
   components: {
@@ -41,11 +40,6 @@ export default {
   },
   beforeMount () {
     this.$store.dispatch('getMenuItems')
-  },
-  data () {
-    return {
-      categories: ['Förrätter', 'Varmrätter', 'Dessert']
-    }
   },
   computed: {
     menuItems () {
