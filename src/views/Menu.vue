@@ -1,7 +1,7 @@
 <template>
     <div class='menu'>
       <MenuHeader />
-      <MenuSection />
+      <MenuSection v-for="(category, i) in categories" :key="i" :items="menuItems" :category="category"/>
       <MenuFooter />
     </div>
 </template>
@@ -16,6 +16,19 @@ export default {
     MenuHeader,
     MenuFooter,
     MenuSection,
+  },
+  beforeMount () {
+    this.$store.dispatch('getMenuItems')
+  },
+  data () {
+    return {
+      categories: ['Förrätter', 'Varmrätter', 'Dessert']
+    }
+  },
+  computed: {
+    menuItems () {
+      return this.$store.state.menuItems;
+    },
   },
 };
 </script>

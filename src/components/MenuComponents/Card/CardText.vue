@@ -2,10 +2,10 @@
   <div class='content-text-wrapper'>
     <div class='dish-title'>
       <div class='dish-name'>
-        <h3>Mat namn</h3>
+        <h3>{{item.name}}</h3>
         <div class="line" />
       </div>
-      <h4>110:-</h4>
+      <h4>{{item.price}}:-</h4>
     </div>
     <div class='dish-content'>
       <h4>1</h4>
@@ -16,10 +16,17 @@
 </template>
 
 <script>
-import Icons from './Icons.vue'
+import Icons from './Icons.vue';
+
 export default {
   components: {
-    Icons
-  }
-}
+    Icons,
+  },
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>

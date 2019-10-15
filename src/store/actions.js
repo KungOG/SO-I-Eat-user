@@ -1,9 +1,15 @@
+import axios from 'axios'
+
 export default {
-  getMenuItems () {
-    const url = 'https://my-json-server.typicode.com/kungog/mockserver';
-      var menuItems =
+   getMenuItems (ctx) {
+    const url = 'http://localhost:80/products';
       axios
     .get(url)
-    .then(response => (this.info = response))
+    .then(response => {
+      ctx.commit('setMenuItems', response.data)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 };
