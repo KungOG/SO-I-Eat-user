@@ -7,7 +7,7 @@
         <h4>{{item.price}}:-</h4>
       </div>
       <div class='dish-number'>
-        <h4>1</h4>
+        <h4>{{item.id}}</h4>
       </div>
     <div class='dish-content'>
       <p>{{item.description}}</p>

@@ -29,7 +29,7 @@ export default {
       MapsText: 'Hitta hit',
       EatHere: require('@/assets/icons/EatHere.svg'),
       EatHereText: 'Äta här',
-      categories: ['Förrätter', 'Varmrätter', 'Dessert']
+      categories: ['Förrätter', 'Varmrätter', 'Soppor', 'Dessert']
     }
   },
   components: {
