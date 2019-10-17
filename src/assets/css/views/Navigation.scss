@@ -1,3 +1,14 @@
-#app > .navigation {
-  background: grey;
+.nav-container {
+  display: flex;
+  width: auto;
+  background-color: #131313;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;  
+  width: 376px;
+  
+  .nav-item {
+    margin: 20px;
+  }
 }
+

@@ -36,7 +36,7 @@ export default {
     MenuHeader,
     MenuFooter,
     MenuSection,
-    NavigationButton,
+    NavigationButton
   },
   beforeMount () {
     this.$store.dispatch('getMenuItems')
