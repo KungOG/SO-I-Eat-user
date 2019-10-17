@@ -1,23 +1,30 @@
 .scroll-container {
     display: flex;
-    width: auto;
-    background-color: $main-base-color;
-    justify-content: center;
+    width: 100vw;
+    background-color: #131313;
+    justify-content: space-between;
     align-items: center;
-    height: 60px;  
-    width: 376px;
-    overflow: auto;
-    border-top: 1px solid $main-secondary-color;
-
-
-    .nav-item {
-        margin: 20px;
-        color: white;
-        display: inline-block;
-      }
+    height: 70px;  
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-top: 1px solid gray;
   }
   
-::-webkit-scrollbar { 
-    display: none; 
-}
+  ::-webkit-scrollbar { 
+      display: none; 
+  }
+  
+  .nav-item {
+    margin: 0 0px;
+    color: white;
+    display: inline-block;
+  }
+  .selectedCategory {
+      color: $secondary-color;
+      font-size: 20px;
+  }
+  h5 {
+      margin: 0;
+      padding: 0 20px;
+  }
   

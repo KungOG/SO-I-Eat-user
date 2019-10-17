@@ -7,7 +7,7 @@
   grid-template-areas:
   'filler name price'
   'number content content'
-  'number icon .';
+  'number icon add';
 
   @media (min-width: $screen-sm-md) {
     grid-template-columns: 45px 235px 55px;
@@ -75,5 +75,9 @@
   .icon-wrapper {
     grid-area: icon;
     border-left: 1px solid $main-secondary-color;
+  }
+
+  .add-icon {
+    grid-area: add;
   }
 }

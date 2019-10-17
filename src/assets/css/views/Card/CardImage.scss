@@ -1,0 +1,12 @@
+.image-container {
+    width: auto;
+    height: 200px;
+    background-size: cover;
+
+    @media (min-width: $screen-sm-md) {
+        flex: 1;
+      }
+      @media (min-width: $screen-sm-lg) {
+      }
+    }
+  

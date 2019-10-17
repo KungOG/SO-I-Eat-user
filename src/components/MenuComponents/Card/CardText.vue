@@ -13,22 +13,30 @@
       <p>{{item.description}}</p>
     </div>
     <div class="content-filler" />
-    <Icons :proteinItems="item.protein"/>
+    <Icons v-if="displayIcons" :proteinItems="item.protein"/>
+    <Add class="add-icon" v-else />
   </div>
 </template>
 
 <script>
 import Icons from './Icons.vue';
+import Add from './Add.vue';
 
 export default {
+  name: 'card-text',
   components: {
     Icons,
+    Add,
   },
   props: {
     item: {
       type: Object,
-      required: true,
+      required: false,
     },
+    displayIcons: {
+      type: Boolean,
+      required: true,
+    }  
   },
 };
 </script>

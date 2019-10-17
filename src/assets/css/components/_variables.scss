@@ -26,4 +26,13 @@ $header-font: 'News Cycle', sans-serif;
 body {
   margin: 0;
 }
+
+.order .mobile {
+  display: flex;
+
+  @media (min-width: $screen-sm-md) {
+    display: none;
+  }
+
+}
   

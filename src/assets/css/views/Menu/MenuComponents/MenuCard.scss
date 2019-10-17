@@ -1,3 +1,19 @@
-#app > .menu-card {
-  background: grey;
+.menu-card {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $screen-sm-md) {
+    flex-direction: row;
+  }
+
+  .image {
+    flex: 1;
+  }
+
+  .text {
+    @media (max-width: $screen-sm-lg) {
+      flex: 1;
+    }
+  }
 }
