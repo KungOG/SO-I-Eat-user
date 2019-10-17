@@ -1,6 +1,6 @@
 <template>
   <div class='icon-wrapper'>
-    <img v-for="(item, i) in proteinItems" :key="i" :src="require('@/assets/icons/' + item.imgUrl)" alt="item.name">
+    <img class='protein-icon' v-for="(item, i) in proteinItems" :key="i" :src="require('@/assets/icons/' + item.imgUrl)" alt="item.name">
   </div>
 </template>
 

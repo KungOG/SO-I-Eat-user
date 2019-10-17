@@ -1,0 +1,46 @@
+.alternative-wrapper {
+    display: grid;
+    justify-content: center;
+    background: #fff;
+    grid-template-columns: 45px 235px 55px;
+    grid-template-rows: 55px 86px;
+    grid-template-areas:
+    'fill-one icons fill-two';
+    
+    .filler-one {
+      grid-area: fill-one;
+    }
+
+    .filler-two {
+      grid-area: fill-two;
+    }
+
+    > .wrapper {
+      grid-area: icons;
+      display: flex;
+      border-left: 1px solid $main-secondary-color;
+
+
+      > .icon-wrapper {   
+        border: 1px solid  $main-border-color;
+        border-radius: 5px;
+        width: 65px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+      }
+    }
+
+    /* > .icon-wrapper {
+        grid-area: spices;
+        border: 1px solid  $main-border-color;
+        border-radius: 5px;
+        width: 65px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+}

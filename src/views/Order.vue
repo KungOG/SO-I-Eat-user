@@ -1,7 +1,9 @@
 <template>
     <div class='order'>
       <scroll-navigation class="mobile" :categories="categories" v-model="selected"/>
-      <menu-card v-for="(item, i) in menuItems" :displayIcons="displayIcons" :key="i" :item="item"/>
+      <div v-for="(item, i) in menuItems" :key="i">
+        <menu-card :displayIcons="displayIcons" :item="item"/>
+      </div>
     </div>
 </template>
 

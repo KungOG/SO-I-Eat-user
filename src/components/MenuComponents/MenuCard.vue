@@ -2,18 +2,21 @@
     <div class='menu-card'>
       <card-image class="image"/>
       <card-text class="text" :displayIcons="displayIcons" :item="item"/>
+      <card-alternatives :proteinItems="item.protein" />
     </div>
 </template>
 
 <script>
 import CardImage from './Card/CardImage.vue';
 import CardText from './Card/CardText.vue';
+import CardAlternatives from '@/components/MenuComponents/Card/CardAlternatives.vue';
 
 export default {
   name: 'menu-card',
   components: {
     CardText,
     CardImage,
+    CardAlternatives,
   },
   props: {
     item: {
