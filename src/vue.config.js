@@ -5,4 +5,11 @@ module.exports = {
       swSrc: 'src/service-worker.js',
     },
   },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        src: path.resolve(__dirname, 'src')
+      }
+    },
+  }
 };
