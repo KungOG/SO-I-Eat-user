@@ -1,7 +1,7 @@
 <template>
   <div>
-    <li class='ingredients' @click="toggleActive">  
-        <div class='ingredients-name' :class="[active ? 'active' : 'inactive']">
+    <li class='ingredient' @click="toggleActive">  
+        <div class='ingredient-name' :class="[active ? 'active' : 'inactive']">
             <slot name="itemName"/>
         </div>
             <slot name="itemPrice"/>

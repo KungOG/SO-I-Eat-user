@@ -17,14 +17,14 @@
     .ingredients-list {
       list-style-type: none;
     
-      .ingredients {
+      .ingredient {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 13px;
         color: black;
 
-        > .ingredients-price {
+        > .ingredient-price {
           font-size: 14px;
 
           &.active {
@@ -32,7 +32,7 @@
           }
         }
 
-        > .ingredients-name {
+        > .ingredient-name {
             display: flex;
             align-items: center;
 

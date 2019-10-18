@@ -11,10 +11,10 @@
             <template v-slot:itemName>
                 {{option.name}}
             </template>    
-                <template v-slot:itemPrice>
-            <div class='ingredients-price'>
-                {{option.price}}:-
-            </div>
+            <template v-slot:itemPrice>
+                <div class='ingredient-price'>
+                    {{option.price}}:-
+                </div>
             </template> 
         </CustomizeListItem>    
       </ul>
