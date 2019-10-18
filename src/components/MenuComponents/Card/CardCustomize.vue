@@ -3,13 +3,19 @@
     <div class='ingredients-content'>
       <ul class='ingredients-list'>
         <CustomizeListItem v-for="(ingredient,i) in ingredients" :active="true" :ingredient="ingredient" :key="i">
-            {{ingredient}}
+            <template v-slot:itemName>
+                {{ingredient}}
+            </template> 
         </CustomizeListItem>
         <CustomizeListItem v-for="(option,i) in menuOptions" :active="false" :option="option" :key="i+option.price">
+            <template v-slot:itemName>
                 {{option.name}}
+            </template>    
+                <template v-slot:itemPrice>
             <div class='ingredients-price'>
                 {{option.price}}:-
             </div>
+            </template> 
         </CustomizeListItem>    
       </ul>
     </div>

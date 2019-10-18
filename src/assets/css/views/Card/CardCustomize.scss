@@ -26,6 +26,10 @@
 
         > .ingredients-price {
           font-size: 14px;
+
+          &.active {
+            font-size: 16;
+          }
         }
 
         > .ingredients-name {
