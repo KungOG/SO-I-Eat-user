@@ -2,13 +2,15 @@
   <div class='card-customize'>
     <div class='ingredients-content'>
       <ul class='ingredients-list'>
-        <CustomizeListItem v-for="(ingredient,i) in ingredients" :ingredient="ingredient" :key="i">
-             
-             {{ingredient}}
-            
+        <CustomizeListItem v-for="(ingredient,i) in ingredients" :active="true" :ingredient="ingredient" :key="i">
+            {{ingredient}}
         </CustomizeListItem>
-
-        <!-- <CustomizeListItem v-for="(option,i) in menuOptions" :option="option" :key="i" /> -->
+        <CustomizeListItem v-for="(option,i) in menuOptions" :active="false" :option="option" :key="i+option.price">
+                {{option.name}}
+            <div class='ingredients-price'>
+                {{option.price}}:-
+            </div>
+        </CustomizeListItem>    
       </ul>
     </div>
     <div class='filler'/>
@@ -33,11 +35,5 @@ export default {
       return this.$store.state.menuOptions;
     }
   },
-  methods: {
-      toggleActive() {
-        console.log(this.active);
-        this.active = !this.active;
-      }
-  }
 }
 </script>
