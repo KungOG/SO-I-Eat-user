@@ -24,12 +24,29 @@
         margin-bottom: 13px;
         color: black;
 
+        &.active .ingredient-price {
+            font-size: 16;
+        }
+
+        &.active .ingredient-name {
+            &::before {
+              background: $main-secondary-color;
+              border: none;
+            }
+        }
+
+        &.inactive .ingredient-name {
+            font-size: 14px;
+
+            &::before {
+                width: 21px;
+                height: 21px;
+                margin: 0 24px 0 2px;
+            }
+        }
+
         > .ingredient-price {
           font-size: 14px;
-
-          &.active {
-            font-size: 16;
-          }
         }
 
         > .ingredient-name {
@@ -44,23 +61,6 @@
             width: 25px;
             height: 25px;
             margin-right: 20px;
-          }
-
-          &.active {
-            &::before {
-              background: $main-secondary-color;
-              border: none;
-            }
-          }
-
-          &.inactive {
-            font-size: 14px;
-    
-            &::before {
-              width: 21px;
-              height: 21px;
-              margin: 0 24px 0 2px;
-            }
           }
         }
       }

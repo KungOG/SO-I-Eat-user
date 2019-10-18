@@ -1,10 +1,10 @@
 <template>
   <div>
-    <li class='ingredient' @click="toggleActive">  
-        <div class='ingredient-name' :class="[active ? 'active' : 'inactive']">
+    <li class='ingredient' :class="[active ? 'active' : 'inactive']" @click="toggleActive">  
+        <div class='ingredient-name'>
             <slot name="itemName"/>
         </div>
-            <slot name="itemPrice"/>
+        <slot name="itemPrice"/>
     </li>
   </div>
 </template>
