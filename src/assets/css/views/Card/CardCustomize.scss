@@ -1,0 +1,65 @@
+.card-customize {
+  background: #fff;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 45px 235px 55px;
+  grid-template-rows: auto;
+  grid-template-areas: 'filler content .';
+
+  .filler {
+    grid-area: filler;
+  }
+
+  .ingredients-content {
+    grid-area: content;
+    border-left: 1px solid $main-secondary-color;
+
+    .ingredients-list {
+      list-style-type: none;
+    
+      .ingredients {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 13px;
+        color: black;
+
+        > .ingredients-price {
+          font-size: 14px;
+        }
+
+        > .ingredients-name {
+            display: flex;
+            align-items: center;
+
+          &::before {
+            content: '';
+            display: inline-block;
+            border-radius: 999px;
+            border: 1px solid black;
+            width: 25px;
+            height: 25px;
+            margin-right: 20px;
+          }
+
+          &.-active {
+            &::before {
+              background: $main-secondary-color;
+              border: none;
+            }
+          }
+
+          &.-inactive {
+            font-size: 14px;
+    
+            &::before {
+              width: 21px;
+              height: 21px;
+              margin: 0 24px 0 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
