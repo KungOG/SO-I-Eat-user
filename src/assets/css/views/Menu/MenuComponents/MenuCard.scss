@@ -2,6 +2,7 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
+  background: white;
 
   @media (min-width: $screen-sm-md) {
     flex-direction: row;
