@@ -1,6 +1,6 @@
 <template>
   <div>
-    <li class='ingredient' :class="[active ? 'active' : 'inactive']" @click="toggleActive">  
+    <li class='ingredient' :class="[active ? 'active' : 'inactive']" @click="toggleActive">
         <div class='ingredient-name'>
             <slot name="itemName"/>
         </div>
@@ -11,22 +11,22 @@
 
 <script>
 export default {
-    props: {
-        option: {
-            type: Object,
-        },
-        ingredient: {
-            type: String,
-        },
-        active: {
-            type: Boolean,
-            required: true,
-        }
+  props: {
+    option: {
+      type: Object,
     },
-      methods: {
-      toggleActive() {
-        this.active = !this.active;
-      }
-  }
-}
+    ingredient: {
+      type: String,
+    },
+    active: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  methods: {
+    toggleActive() {
+      this.active = !this.active;
+    },
+  },
+};
 </script>

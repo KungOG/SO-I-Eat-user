@@ -1,17 +1,19 @@
 <template>
     <div class="standard-button">
-      <a href="#">Okej</a>  
+      <a href="#">{{buttonText}}</a>
     </div>
 </template>
 
 <script>
 export default {
   props: {
-    proteinItems: {
-      type: Array,
+    buttonText: {
+      type: String,
+      required: false,
+      default: 'OK',
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

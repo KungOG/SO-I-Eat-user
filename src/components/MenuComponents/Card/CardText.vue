@@ -14,7 +14,7 @@
     </div>
     <div class="content-filler" />
     <Icons v-if="displayIcons" :proteinItems="item.protein"/>
-    <Add class="add-icon" v-else @click.native="showAlternatives"/>
+    <Add v-show="showAddIcon" class="add-icon" @click.native="showAlternatives"/>
   </div>
 </template>
 
@@ -38,10 +38,13 @@ export default {
       required: true,
     }  
   },
+  data: () => ({
+    showAddIcon: true
+  }),
   methods: {
     showAlternatives() {
+      this.showAddIcon = false;
       this.$emit('showalternatives')
-      console.log('hej')
     }
   },
 };

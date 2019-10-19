@@ -3,8 +3,8 @@
       <card-image class="image"/>
       <card-text class="text" :displayIcons="displayIcons" :item="item" @showalternatives="showAlternativesOption"/>
       <card-alternatives v-if="showAlternatives" :proteinItems="item.protein"/>
-      <card-customize :ingredients="item.ingredients" />
-      <standard-button/>
+      <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
+      <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
     </div>
 </template>
 
@@ -36,13 +36,16 @@ export default {
     data() {
       return {
         showAlternatives: false,
-        showCustomize: false
+        showCustomize: false,
       }
     },
     methods: {
       showAlternativesOption() {
-        this.showAlternatives = true
-      }
-    }
+        this.showAlternatives = true;
+      },
+      buttonClick() {
+        this.showCustomize = !this.showCustomize;
+      },
+    },
   }
 </script>
