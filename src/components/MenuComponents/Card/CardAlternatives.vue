@@ -2,13 +2,17 @@
   <div class="alternative-wrapper">
     <div class='filler-one'></div>
     <div class='protein-wrapper'>
-      <div class="wrapper" v-for="(item, i) in proteinItems" :key="i">
-        <img class="alternative-icon" :src="require('@/assets/icons/' + item.imgUrl)" alt="item.name">
+      <div v-for="(item, i) in proteinItems" :key="i" @click="chosenProtein = i">
+        <div class="wrapper" :class="chosenProtein === i ? 'active' : ''" >
+        <img :src="require('@/assets/icons/' + item.imgUrl)" alt="Välj">
+        </div>
       </div>
     </div>
     <div class="spice-wrapper">
-      <div class="wrapper" v-for="(item, i) in spiceItems" :key="i">
-        <img class="alternative-spice" :src="require('@/assets/icons/' + item)" alt="spice icon">
+      <div v-for="(item, i) in spiceItems" :key="i" @click="chosenSpice = i">
+        <div class="wrapper" :class="chosenSpice === i ? 'active' : ''">
+          <img :src="require('@/assets/icons/' + item.imgUrl)" alt="Välj">
+        </div>
       </div>
     </div>
     <div class='filler-two'></div>
@@ -17,15 +21,17 @@
 
 <script>
 export default {
-    name: 'card-alternatives',
-    props: {
-        proteinItems: {
-            type: Array,
-            required: true,
-        },
+  name: 'card-alternatives',
+  props: {
+    proteinItems: {
+        type: Array,
+        required: true,
     },
-    data: () => ({
-        spiceItems: ['Spice.svg', 'Spice2.svg', 'Spice3.svg'],
-    }),
+  },
+  data: () => ({
+    spiceItems: [{imgUrl: 'Spice.svg'}, {imgUrl: 'Spice2.svg'}, {imgUrl: 'Spice3.svg'}],
+    chosenProtein: -1,
+    chosenSpice: -1,
+  }),
 }
 </script>
