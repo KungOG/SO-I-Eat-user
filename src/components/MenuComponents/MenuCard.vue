@@ -32,11 +32,22 @@ export default {
       type: Boolean,
       required: true
     },
+    selectedCard: {
+      type: Number,
+    },
+    index: {
+      type: Number,
+    },
   },
     data() {
       return {
         showAlternatives: false,
         showCustomize: false,
+      }
+    },
+    watch: {
+      selectedCard() {
+        this.selectedCard !== this.index ? this.showAlternatives = false : '';
       }
     },
     methods: {

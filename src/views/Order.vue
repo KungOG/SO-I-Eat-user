@@ -2,7 +2,7 @@
     <div class='order'>
       <scroll-navigation class="mobile" :categories="categories" v-model="selected"/>
       <div v-for="(item, i) in menuItems" :key="i">
-        <menu-card :displayIcons="displayIcons" :item="item"/>
+        <menu-card :displayIcons="displayIcons" :item="item" :selectedCard="selectedCard" :index="i" @click.native="selectedCard = i"/>
       </div>
       <menu-footer/>
     </div>
@@ -24,6 +24,7 @@ export default {
     selected: null,
     categories: ['förrätter', 'soppor', 'varmrätter', 'dessert', 'nudlar', 'barnrätter', 'dryck', 'lunch'],
     displayIcons: false,
+    selectedCard: -1,
   }),
   beforeMount () {
     this.$store.dispatch('getMenuItems')
