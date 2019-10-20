@@ -1,7 +1,7 @@
 <template>
     <div class='menu-card'>
       <card-image class="image"/>
-      <card-text class="text" :displayIcons="displayIcons" :item="item" @showalternatives="showAlternativesOption"/>
+      <card-text class="text" :displayIcons="displayIcons" :item="item" :showAddIcon="showAlternatives"/>
       <card-alternatives v-if="showAlternatives" :proteinItems="item.protein"/>
       <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
       <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
@@ -47,7 +47,7 @@ export default {
     },
     watch: {
       selectedCard() {
-        this.selectedCard !== this.index ? this.showAlternatives = false : '';
+        this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
       }
     },
     methods: {
