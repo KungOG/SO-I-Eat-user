@@ -1,5 +1,5 @@
 <template>
-    <div class='menu-footer'>
+    <div class='menu-footer' >
       <h5>{{text.text}}</h5>
       <h5 v-if="this.text.sum">{{text.sum}}:-</h5>
     </div>
