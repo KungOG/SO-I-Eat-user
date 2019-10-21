@@ -1,10 +1,10 @@
-.card-customize {
-  background: #fff;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 45px 235px 55px;
-  grid-template-rows: auto;
-  grid-template-areas: 'filler content .';
+  .card-customize {
+    background: #fff;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 45px 235px 55px;
+    grid-template-rows: auto;
+    grid-template-areas: 'filler content .';
 
   .filler {
     grid-area: filler;
@@ -25,24 +25,27 @@
         color: black;
 
         &.active .ingredient-price {
-            font-size: 16px;
+          font-size: 16px;
         }
 
         &.active .ingredient-name {
-            &::before {
-              background: $main-secondary-color;
-              border: none;
-            }
+          padding: 0;
+
+          &::before {
+            background: $main-secondary-color;
+            border: none;
+          }
         }
 
         &.inactive .ingredient-name {
-            font-size: 14px;
+          font-size: 14px;
+          padding: 2px;
 
-            &::before {
-                width: 21px;
-                height: 21px;
-                margin: 0 24px 0 2px;
-            }
+          &::before {
+            width: 21px;
+            height: 21px;
+            margin: 0 24px 0 2px;
+          }
         }
 
         > .ingredient-price {
@@ -50,8 +53,8 @@
         }
 
         > .ingredient-name {
-            display: flex;
-            align-items: center;
+          display: flex;
+          align-items: center;
 
           &::before {
             content: '';
@@ -67,3 +70,52 @@
     }
   }
 }
+
+/* 
+.card-customize > .ingredient-content > .ingredients-list > .ingredients {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 13px;
+  color: black;
+
+  &.active .ingredient-price {
+    font-size: 16px;
+  }
+
+  &.active .ingredient-name {
+    &::before {
+      background: $main-secondary-color;
+      border: none;
+    }
+  }
+
+  &.inactive .ingredient-name {
+    font-size: 14px;
+
+    &::before {
+      width: 21px;
+      height: 21px;
+      margin: 0 24px 0 2px;
+    }
+  }
+
+  > .ingredient-price {
+    font-size: 14px;
+  }
+
+  > .ingredient-name {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid black;
+      width: 25px;
+      height: 25px;
+      margin-right: 20px;
+    }
+  }
+} */
