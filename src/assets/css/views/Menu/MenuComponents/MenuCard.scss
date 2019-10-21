@@ -6,7 +6,13 @@
 
   @media (min-width: $screen-sm-md) {
     flex-direction: row;
+
+    &.activeCard {
+      flex-direction: column;
+
+    }
   }
+
 
   .image {
     flex: 1;

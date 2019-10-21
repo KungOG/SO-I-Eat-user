@@ -1,5 +1,5 @@
 <template>
-    <div class='menu-card'>
+    <div class='menu-card' :class="selectedCard === index ? 'activeCard' : ''">
       <card-image class="image"/>
       <card-text class="text" :displayIcons="displayIcons" :item="item" :showAddIcon="showAlternatives"/>
       <card-alternatives v-if="showAlternatives" :proteinItems="item.protein"/>
