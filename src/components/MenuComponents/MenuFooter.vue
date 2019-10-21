@@ -1,12 +1,19 @@
 <template>
     <div class='menu-footer'>
-      <h5>Menu Footer Component</h5>
+      <h5>{{text.text}}</h5>
+      <h5 v-if="this.text.sum">{{text.sum}}:-</h5>
     </div>
 </template>
 
 <script>
 export default {
   name: 'menu-footer',
+  props: {
+    text: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 

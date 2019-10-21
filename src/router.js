@@ -46,7 +46,7 @@ export default new Router({
     {
       path: '/orderitem/:id',
       name: 'orderitem',
-      component: () => import('./views/OrderItem.vue')
+      component: () => import('./views/OrderItem.vue'),
     },
     {
       path: '/order',

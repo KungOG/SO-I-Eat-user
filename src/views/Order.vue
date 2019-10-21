@@ -2,10 +2,22 @@
     <div class='order'>
       <scroll-navigation class="mobile" :categories="categories" v-model="selected"/>
       <div v-for="(item, i) in menuItems" :key="i">
-        <menu-card class="mobile" :displayIcons="displayIcons" :item="item" :selectedCard="selectedCard" :index="i" @click.native="routeToOrderItem(item.id, i)"/>
-        <menu-card class="desktop" :displayIcons="displayIcons" :item="item" :selectedCard="selectedCard" :index="i" @click.native="selectedCard = i"/>
+        <menu-card
+          class="mobile"
+          :displayIcons="displayIcons"
+          :item="item"
+          :selectedCard="selectedCard"
+          :index="i"
+          @click.native="routeToOrderItem(item.id, i)"/>
+        <menu-card
+          class="desktop"
+          :displayIcons="displayIcons"
+          :item="item"
+          :selectedCard="selectedCard"
+          :index="i"
+          @click.native="selectedCard = i"/>
       </div>
-      <menu-footer class="mobile"/>
+      <menu-footer :text="footerText" class="mobile"/>
     </div>
 </template>
 
@@ -26,12 +38,13 @@ export default {
     categories: ['förrätter', 'soppor', 'varmrätter', 'dessert', 'nudlar', 'barnrätter', 'dryck', 'lunch'],
     displayIcons: false,
     selectedCard: -1,
+    footerText: {text: 'min beställning'},
   }),
-  beforeMount () {
-    this.$store.dispatch('getMenuItems')
+  beforeMount() {
+    this.$store.dispatch('getMenuItems');
   },
   computed: {
-    menuItems () {
+    menuItems() {
       return this.$store.state.menuItems;
     },
   },
@@ -39,8 +52,7 @@ export default {
     routeToOrderItem(id, i) {
       this.selectedCard = i;
       this.$router.push(`orderitem/${id}`);
-      console.log(id)
     },
-  }
-}
+  },
+};
 </script>

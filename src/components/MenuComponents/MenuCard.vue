@@ -48,7 +48,7 @@ export default {
     watch: {
       selectedCard() {
         this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
-      }
+      },
     },
     mounted() {
         this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
@@ -61,5 +61,5 @@ export default {
         this.showCustomize = !this.showCustomize;
       },
     },
-  }
+  };
 </script>
