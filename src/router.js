@@ -15,23 +15,23 @@ export default new Router({
       path: '/info',
       name: 'info',
       component: () => import('./views/Info.vue'),
-      children: [
-        {
-          path: '/about',
-          name: 'about',
-          component: () => import('./components/Info/About.vue'),
-        },
-        {
-          path: '/contact',
-          name: 'contact',
-          component: () => import('./components/Info/Contact.vue'),
-        },
-        {
-          path: '/terms',
-          name: 'terms',
-          component: () => import('./components/Info/Terms.vue'),
-        },
-      ],
+      // children: [
+      //   {
+      //     path: '/about',
+      //     name: 'about',
+      //     component: () => import('./components/Info/About.vue'),
+      //   },
+      //   {
+      //     path: '/contact',
+      //     name: 'contact',
+      //     component: () => import('./components/Info/Contact.vue'),
+      //   },
+      //   {
+      //     path: '/terms',
+      //     name: 'terms',
+      //     component: () => import('./components/Info/Terms.vue'),
+      //   },
+      // ],
     },
     {
       path: '/confirmation',
@@ -42,6 +42,11 @@ export default new Router({
       path: '/menu',
       name: 'menu',
       component: () => import('./views/Menu.vue'),
+    },
+    {
+      path: '/orderitem/:id',
+      name: 'orderitem',
+      component: () => import('./views/OrderItem.vue')
     },
     {
       path: '/order',

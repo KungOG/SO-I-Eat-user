@@ -50,6 +50,9 @@ export default {
         this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
       }
     },
+    mounted() {
+        this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+    },
     methods: {
       showAlternativesOption() {
         this.showAlternatives = true;

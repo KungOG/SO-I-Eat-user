@@ -31,11 +31,13 @@ body {
 }
 
 .order .mobile {
-  display: flex;
-
   @media (min-width: $screen-sm-md) {
     display: none;
   }
-
 }
-  
+
+.order .desktop {
+  @media (max-width: $screen-sm-md) {
+    display: none;
+  }
+}

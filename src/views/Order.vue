@@ -2,9 +2,10 @@
     <div class='order'>
       <scroll-navigation class="mobile" :categories="categories" v-model="selected"/>
       <div v-for="(item, i) in menuItems" :key="i">
-        <menu-card :displayIcons="displayIcons" :item="item" :selectedCard="selectedCard" :index="i" @click.native="selectedCard = i"/>
+        <menu-card class="mobile" :displayIcons="displayIcons" :item="item" :selectedCard="selectedCard" :index="i" @click.native="routeToOrderItem(item.id, i)"/>
+        <menu-card class="desktop" :displayIcons="displayIcons" :item="item" :selectedCard="selectedCard" :index="i" @click.native="selectedCard = i"/>
       </div>
-      <menu-footer/>
+      <menu-footer class="mobile"/>
     </div>
 </template>
 
@@ -33,6 +34,13 @@ export default {
     menuItems () {
       return this.$store.state.menuItems;
     },
-}
+  },
+  methods: {
+    routeToOrderItem(id, i) {
+      this.selectedCard = i;
+      this.$router.push(`orderitem/${id}`);
+      console.log(id)
+    },
+  }
 }
 </script>
