@@ -14,7 +14,9 @@
     </div>
     <div class="content-filler" />
     <Icons v-if="displayIcons" :proteinItems="item.protein"/>
-    <Add v-show="!showAddIcon" class="add-icon"/>
+    <div class="icon-container">
+      <Add v-show="!showAddIcon" class="add-icon"/>
+    </div>
   </div>
 </template>
 

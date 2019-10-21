@@ -77,10 +77,19 @@
     border-left: 1px solid $main-secondary-color;
   }
 
-  .add-icon {
+  .icon-container {
     grid-area: icon;
+    border-left: 1px solid $main-secondary-color;
+
+    .add-icon {
+      display: flex;
+      justify-content: flex-end;
+    }
+  } 
+
+  /* .add-icon {
     display: flex;
     justify-content: flex-end;
     border-left: 1px solid $main-secondary-color;
-  }
+  } */
 }
