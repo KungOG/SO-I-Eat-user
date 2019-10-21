@@ -1,45 +1,49 @@
 .alternative-wrapper {
-    display: grid;
-    justify-content: center;
-    background: #fff;
-    grid-template-columns: 45px 235px 55px;
-    grid-template-rows: 55px 86px;
-    grid-template-areas:
-    'fill-one protein fill-two'
-    'fill-one spice fill-two';
-    
-    .filler-one {
-      grid-area: fill-one;
-    }
+  display: grid;
+  justify-content: center;
+  background: #fff;
+  grid-template-columns: 45px 235px 55px;
+  grid-template-rows: auto;
+  grid-template-areas: '. option .';
 
-    .filler-two {
-      grid-area: fill-two;
+  @media (min-width: $screen-sm-md) {
+    grid-template-columns: 45px 235px 55px;
+  }
+  @media (min-width: $screen-sm-lg) {
+    grid-template-columns: 45px 350px 55px;
+  }
+  
+  .option-wrapper {
+    grid-area: option;
+    border-left: 1px solid $main-secondary-color;
+    margin-bottom: 35px;
+
+    &:first-child {
+      margin-bottom: 15px;
     }
 
     > .protein-wrapper {
-      grid-area: protein;
       display: flex;
-      border-left: 1px solid $main-secondary-color;
     }
-
+  
     > .spice-wrapper {
-        grid-area: spice;
-        display: flex;
-        border-left: 1px solid $main-secondary-color;
+      display: flex;
     }
+  }
 
-    .wrapper {   
-        border: 1px solid  $main-border-color;
-        border-radius: 5px;
-        width: 65px;
-        height: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 10px;
-      }
 
-      .active {
-        border: 1px solid #AA0909;
-      }
+  .wrapper {   
+    border: 1px solid  $main-border-color;
+    border-radius: 5px;
+    width: 65px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+  .active {
+    border: 1px solid #AA0909;
+  }
 }
