@@ -11,6 +11,6 @@ export default {
       type: Boolean,
       required: true,
     },
-  }
+  },
 };
 </script>

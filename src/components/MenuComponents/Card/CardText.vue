@@ -1,4 +1,4 @@
-<template> 
+<template>
   <div class='content-text-wrapper'>
       <div class='dish-name'>
         <h3>{{item.name}}</h3>
@@ -30,6 +30,7 @@ export default {
     Icons,
     Add,
   },
+
   props: {
     item: {
       type: Object,
@@ -42,7 +43,8 @@ export default {
     showAddIcon: {
       type: Boolean,
       required: true,
-    },  
+    },
   },
 };
+
 </script>

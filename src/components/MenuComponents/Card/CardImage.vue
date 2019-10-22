@@ -9,14 +9,15 @@
 export default {
   name: 'card-image',
   props: {
-      imgName: {
-          type: String,
-      },
+    imgName: {
+      type: String,
+    },
   },
-    methods: {
-      getImgUrl() {
-          return require('@/assets/images/dish.png')
-        }
-    }
-}
+  methods: {
+    getImgUrl() {
+      return require('@/assets/images/dish.png')
+    },
+  },
+};
+
 </script>
