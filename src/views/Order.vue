@@ -17,7 +17,7 @@
           :index="i"
           @click.native="selectedCard = i"/>
       </div>
-      <menu-footer :text="footerText" class="mobile"/>
+      <menu-footer @click.native="$router.push('/orderitem/0')" :text="footerText" class="mobile"/>
     </div>
 </template>
 

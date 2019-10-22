@@ -1,8 +1,8 @@
 <template>
   <div>
-    <menu-card :item="item" :displayIcons="displayIcons" :selectedCard="1" :index="1"/>
-    <menu-footer @click.native="showCart = !showCart" :text="footerText" class="mobile"/>
-    <Cart :showCart="showCart" />
+    <menu-card v-if="!showCart" :item="item" :displayIcons="displayIcons" :selectedCard="1" :index="1"/>
+    <menu-footer @click.native="$router.push('/order')" :text="footerText" class="mobile"/>
+    <Cart v-if="showCart" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
     Cart,
   },
   data: () => ({
-    showCart: false,
+    showCart: null,
     displayIcons: false,
     footerText: {text: 'lägg till i beställning', sum: 0}
   }),
@@ -26,6 +26,9 @@ export default {
     item() {
       return this.$store.getters.getOrderItem(this.$route.params.id);
     },
+  },
+  beforeMount() {
+    this.$route.params.id == 0 ? this.showCart = true : this.showCart = false;
   },
 };
 </script>
