@@ -24,20 +24,24 @@ $header-font: 'News Cycle', sans-serif;
   width: 100vw;
   height: 100vh;
   color: black;
+
+  .mobile {
+    background: green;
+
+    @media (min-width: $screen-sm-md) {
+      display: none;
+    }
+  }
+  
+  .desktop {
+    background: turquoise;
+
+    @media (max-width: $screen-sm-md) {
+      display: none;
+    }
+  }
 }
 
 body {
   margin: 0;
-}
-
-.order .mobile {
-  @media (min-width: $screen-sm-md) {
-    display: none;
-  }
-}
-
-.order .desktop {
-  @media (max-width: $screen-sm-md) {
-    display: none;
-  }
 }

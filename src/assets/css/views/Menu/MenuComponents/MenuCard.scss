@@ -4,6 +4,10 @@
   flex-direction: column;
   background: white;
 
+  @media (max-width: 768px) {
+    margin: 0;
+  }
+
   @media (min-width: $screen-sm-md) {
     flex-direction: row;
 

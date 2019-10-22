@@ -1,15 +1,122 @@
 .cart {
-  background: grey;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
+  background: $main-base-color;
   height: 100vh;
-  opacity: 0;
-  z-index: -10;
+
+  @media (min-width: 1024px) {
+    min-width: 30%;
+  }
+
+  .cart-wrapper {
+    background: white;
+    height: 90vh;
+    display: grid;
+    margin: 0 10px;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 150px auto 1fr;
+    grid-template-areas: 
+     '. head .'
+     '. items .'
+     '. summery .';
+
+     @media (min-width: 1024px) {
+      height: 100vh;
+      margin: 0;
+      padding: 0 10px;
+    }
+
+
+    .head {
+      grid-area: head;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        margin: 20px 0 5px 0;
+      }
+
+      .bord {
+        color: black;
+      }
+    }
+
+    .order {
+      grid-area: items;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .order-items {
+        width: 90vw;
+        display: grid;
+        border-bottom: 1px solid $main-secondary-color;
+        padding: 10px 0;
+        grid-template-columns: 1fr 3fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        'amount dish price icon';
+
+        @media (min-width: 1024px) {
+          max-width: 400px;
+        }
   
-  &.-activeCart {
-    opacity: 1;
-    z-index: 10;
+        .amount {
+          grid-area: amount;
+          text-align: center;
+          font-style: bold;
+        }
+    
+        .price {
+          grid-area: price;
+          text-align: right;
+          color: black;
+        }
+  
+        .icon {
+          grid-area: icon;
+          justify-self: right;
+          width: 22px;
+        }
+
+        .dish {
+          grid-area: dish;
+          padding: 0;
+    
+          h6 {
+            padding: 0; 
+            color: $main-color;
+          }
+
+          p {
+            margin: 0 0 0 15px;
+          }
+        }
+
+        h6 {
+          margin: 0;
+          color: black;
+        }
+      }
+    }
+    
+    .summery {
+      grid-area: summery;
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: 
+      '. total amount .';
+
+      h6 {
+        grid-area: total;
+
+        &.totalAmount {
+          grid-area: amount;
+        }
+      }
+    }
   }
 }
