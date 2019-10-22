@@ -1,23 +1,26 @@
 <template>
     <div class='order'>
       <scroll-navigation class="mobile" :categories="categories" v-model="selected"/>
-      <div v-for="(item, i) in menuItems" :key="i">
-        <menu-card
-          class="mobile"
-          :displayIcons="displayIcons"
-          :item="item"
-          :selectedCard="selectedCard"
-          :index="i"
-          @click.native="routeToOrderItem(item.id, i)"/>
-        <menu-card
-          class="desktop"
-          :displayIcons="displayIcons"
-          :item="item"
-          :selectedCard="selectedCard"
-          :index="i"
-          @click.native="selectedCard = i"/>
+      <div>
+        <div v-for="(item, i) in menuItems" :key="i">
+          <menu-card
+            class="mobile"
+            :displayIcons="displayIcons"
+            :item="item"
+            :selectedCard="selectedCard"
+            :index="i"
+            @click.native="routeToOrderItem(item.id, i)"/>
+          <menu-card
+            class="desktop"
+            :displayIcons="displayIcons"
+            :item="item"
+            :selectedCard="selectedCard"
+            :index="i"
+            @click.native="selectedCard = i"/>
+        </div>
       </div>
       <menu-footer @click.native="$router.push('/orderitem/0')" :text="footerText" class="mobile"/>
+      <cart class="desktop"/>
     </div>
 </template>
 
@@ -25,6 +28,7 @@
 import MenuCard from '@/components/MenuComponents/MenuCard.vue';
 import ScrollNavigation from '@/components/MenuComponents/ScrollNavigation.vue';
 import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
+import Cart from '@/components/MenuComponents/Cart.vue';
 
 export default {
   name: 'order',
@@ -32,6 +36,7 @@ export default {
     MenuCard,
     ScrollNavigation,
     MenuFooter,
+    Cart
   },
   data: () => ({
     selected: null,

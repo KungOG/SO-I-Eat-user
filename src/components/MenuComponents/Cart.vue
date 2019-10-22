@@ -17,13 +17,18 @@
             <img class="icon" src="@/assets/icons/delete.svg">
           </div>
         </div>
-        <!-- <div class="sum">Totalsumma</div> -->
+        <div class="sum">Totalsumma</div>
     </div>
     </div>
 </template>
 
 <script>
+import StandardButton from '@/components/StandardButton.vue'
+
 export default {
+  components: {
+    StandardButton,
+  },
   data: () => ({
     orderItems: [
       {name: 'vårrullar', protein: '', add: [], remove: [], price: 59},
