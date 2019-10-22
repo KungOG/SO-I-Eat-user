@@ -21,8 +21,6 @@ $regular-font: 'Carrois Gothic', sans-serif;
 $header-font: 'News Cycle', sans-serif;
 
 #app {
-  width: 100vw;
-  height: 100vh;
   color: black;
 
   .mobile {
@@ -43,5 +41,7 @@ $header-font: 'News Cycle', sans-serif;
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
 }

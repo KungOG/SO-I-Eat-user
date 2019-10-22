@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="require('@/assets/icons/'+ image)" alt="Välj" />
+    <img :src="require('@/assets/icons/'+ image)" alt="Val" />
   </div>
 </template>
 
