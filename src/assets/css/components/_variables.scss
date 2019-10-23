@@ -24,16 +24,12 @@ $header-font: 'News Cycle', sans-serif;
   color: black;
 
   .mobile {
-    background: green;
-
     @media (min-width: $screen-sm-md) {
       display: none;
     }
   }
   
   .desktop {
-    background: turquoise;
-
     @media (max-width: $screen-sm-md) {
       display: none;
     }

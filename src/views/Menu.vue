@@ -4,7 +4,6 @@
       <div class="sections-wrapper">
         <MenuSection v-for="(category, i) in categories" :key="i" :items="menuItems" :category="category"/>
       </div>
-      <MenuFooter />
       <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText"/>
       <NavigationButton :imageSrc="MenuIcon" :title="MenuIconText"/>
       <NavigationButton :imageSrc="Maps" :title="MapsText"/>
@@ -13,7 +12,6 @@
 </template>
 <script>
 import MenuHeader from '@/components/MenuComponents/MenuHeader.vue';
-import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
 import MenuSection from '@/components/MenuComponents/MenuSection.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 
@@ -34,7 +32,6 @@ export default {
   },
   components: {
     MenuHeader,
-    MenuFooter,
     MenuSection,
     NavigationButton
   },

@@ -4,27 +4,32 @@
     background-color: #131313;
     justify-content: space-between;
     align-items: center;
-    height: 70px;  
+    height: 60px;  
     overflow-x: auto;
     overflow-y: hidden;
     border-top: 1px solid gray;
-  }
+    position: fixed;
+    top: 60px;
+    
+    .nav-item {
+      margin: 0 0px;
+      color: white;
+      display: inline-block;
+      
+      .selectedCategory {
+          color: $secondary-color;
+          font-size: 20px;
+      }
+
+      h5 {
+          margin: 0;
+          padding: 0 20px;
+      }
+    }
+}
   
-  ::-webkit-scrollbar { 
-      display: none; 
-  }
+::-webkit-scrollbar { 
+    display: none; 
+}
   
-  .nav-item {
-    margin: 0 0px;
-    color: white;
-    display: inline-block;
-  }
-  .selectedCategory {
-      color: $secondary-color;
-      font-size: 20px;
-  }
-  h5 {
-      margin: 0;
-      padding: 0 20px;
-  }
   

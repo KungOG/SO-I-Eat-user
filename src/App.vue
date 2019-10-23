@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  <navigation />
     <div id="nav">
       <a style="cursor:pointer" :style="{'display': installBtn}" @click="installer()">
         <h1>Install!</h1>
@@ -10,7 +11,12 @@
 </template>
 
 <script>
+import Navigation from '@/components/Navigation.vue';
+
 export default {
+  components: {
+    Navigation,
+  },
   data: () => ({
     installBtn: 'none',
     installer: undefined,

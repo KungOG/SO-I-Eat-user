@@ -1,11 +1,11 @@
 <template>
   <div class='home' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
     <div class='wrapper'>
-      <header>
+      <!-- <header>
         <img :src="require('@/assets/icons/'+ Maps)" alt="" @click="test()">
         <img :src="require('@/assets/icons/'+ Logga)" alt="" @click="test()">
         <img :src="require('@/assets/icons/'+ Info)" alt="" @click="test()">
-      </header>
+      </header> -->
       <footer>
         <img :src="require('@/assets/icons/'+ Arrow)" alt="" @click="test()">
       </footer>
