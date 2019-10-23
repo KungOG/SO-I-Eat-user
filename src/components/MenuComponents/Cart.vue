@@ -5,7 +5,7 @@
         <h1>Min beställning</h1>
         <h5 class='bord'>Bord 5</h5>
       </div>
-      <div class='order'>
+      <div class='cart-order'>
         <div class='order-items' v-for="(item, i) in orderItems" :key="i">
           <h6 class="amount">3</h6>
           <div class="dish">

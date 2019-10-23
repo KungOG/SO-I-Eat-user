@@ -2,7 +2,7 @@
     <div class='menu-card' :class="selectedCard === index ? 'activeCard' : ''">
       <card-image class="image"/>
       <card-text class="text" :displayIcons="displayIcons" :item="item" :showAddIcon="showAlternatives"/>
-      <card-alternatives v-if="showAlternatives" :proteinItems="item.protein"/>
+      <card-alternatives v-if="showAlternatives" :proteinItems="item.protein" :showSpice="item.spice"/>
       <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
       <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
     </div>

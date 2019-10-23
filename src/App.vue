@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  <navigation />
+  <navigation-bar class="mobile"/>
     <div id="nav">
       <a style="cursor:pointer" :style="{'display': installBtn}" @click="installer()">
         <h1>Install!</h1>
@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import Navigation from '@/components/Navigation.vue';
+import NavigationBar from '@/components/NavigationBar.vue';
 
 export default {
   components: {
-    Navigation,
+    NavigationBar,
   },
   data: () => ({
     installBtn: 'none',

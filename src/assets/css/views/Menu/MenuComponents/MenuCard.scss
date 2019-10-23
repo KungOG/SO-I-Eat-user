@@ -4,8 +4,8 @@
   flex-direction: column;
   background: white;
 
-  @media (max-width: 768px) {
-    margin: 0;
+  &:first-child {
+    margin-top: 0;
   }
 
   @media (min-width: $screen-sm-md) {
@@ -13,10 +13,8 @@
 
     &.activeCard {
       flex-direction: column;
-
     }
   }
-
 
   .image {
     flex: 1;

@@ -15,8 +15,8 @@
     border-left: 1px solid $main-secondary-color;
 
     .ingredients-list {
-      list-style-type: none;
-    
+      font-size: 16px;
+      
       .ingredient {
         display: flex;
         justify-content: space-between;

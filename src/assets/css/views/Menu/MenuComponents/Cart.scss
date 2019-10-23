@@ -3,7 +3,7 @@
   height: 100vh;
 
   @media (min-width: 1024px) {
-    min-width: 30%;
+    width: 30%;
   }
 
   .cart-wrapper {
@@ -41,7 +41,7 @@
       }
     }
 
-    .order {
+    .cart-order {
       grid-area: items;
       background: #fff;
       display: flex;

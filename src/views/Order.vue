@@ -1,7 +1,8 @@
 <template>
     <div class='order'>
       <scroll-navigation class="mobile" :categories="categories" v-model="selected"/>
-      <div>
+      <side-navigation class="desktop" :categories="categories"/>
+      <div class="card-wrapper">
         <div v-for="(item, i) in menuItems" :key="i">
           <menu-card
             class="mobile"
@@ -28,6 +29,7 @@
 import MenuCard from '@/components/MenuComponents/MenuCard.vue';
 import ScrollNavigation from '@/components/MenuComponents/ScrollNavigation.vue';
 import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
+import SideNavigation from '@/components/SideNavigation.vue';
 import Cart from '@/components/MenuComponents/Cart.vue';
 
 export default {
@@ -35,6 +37,7 @@ export default {
   components: {
     MenuCard,
     ScrollNavigation,
+    SideNavigation,
     MenuFooter,
     Cart
   },
