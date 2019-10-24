@@ -1,0 +1,16 @@
+.side-navigation {
+    color: white;
+    width: 30%;
+
+    .icon-wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        margin-bottom: 3rem;
+    }
+
+    h3 {
+        color: $main-border-color;
+        font-weight: normal;
+    }
+}

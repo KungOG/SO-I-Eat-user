@@ -30,16 +30,3 @@ export default {
     }),
 };
 </script>
-
-<style lang="scss">
-    .side-navigation {
-        color: white;
-        width: 30%;
-
-        .icon-wrapper {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-    }
-</style>
