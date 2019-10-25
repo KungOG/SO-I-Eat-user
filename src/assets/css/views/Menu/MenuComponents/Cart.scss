@@ -11,6 +11,7 @@
     height: 90vh;
     display: grid;
     margin: 0 10px;
+    padding-top: 60px;
     grid-template-columns: auto 1fr auto;
     grid-template-rows: 150px auto 1fr;
     grid-template-areas: 
@@ -21,7 +22,7 @@
      @media (min-width: 1024px) {
       height: 100vh;
       margin: 0;
-      padding: 0 10px;
+      padding: 150px 10px;
     }
 
 
@@ -38,6 +39,11 @@
 
       .bord {
         color: black;
+
+        @media (min-width: 1024px) {
+          margin: 0;
+          padding-bottom: 90px;
+        }
       }
     }
 
