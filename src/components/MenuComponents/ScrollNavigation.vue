@@ -24,7 +24,7 @@ export default {
     methods: {
         select (value) {
             this.selected = value
-            this.$emit('click', value)
+            this.$emit('setSelected', value)
         }   
     }
 }

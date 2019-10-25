@@ -1,9 +1,9 @@
 <template>
     <div class='order'>
-      <scroll-navigation class="mobile" :categories="categories" v-model="selected"/>
-      <side-navigation class="desktop" :categories="categories"/>
+      <scroll-navigation class="mobile" :categories="categories" @setSelected="setSelected"/>
+      <side-navigation class="desktop" :categories="categories" @setSelected="setSelected"/>
       <div class="card-wrapper">
-        <div v-for="(item, i) in menuItems" :key="i">
+        <div v-for="(item, i) in sortedMenuItems" :key="i">
           <menu-card
             class="mobile"
             :displayIcons="displayIcons"
@@ -50,11 +50,10 @@ export default {
   beforeMount() {
     this.$store.dispatch('getMenuItems');
     this.$store.dispatch('getCategories');
-
   },
   computed: {
-    menuItems() {
-      return this.$store.state.menuItems;
+    sortedMenuItems() {
+      return this.$store.getters.sortedMenuItems;
     },
     categories() {
       return this.$store.state.categories;
@@ -65,6 +64,11 @@ export default {
       this.selectedCard = i;
       this.$router.push(`orderitem/${id}`);
     },
+    setSelected(i) {
+      this.selected = i;
+    },
   },
+
 };
 </script>
+

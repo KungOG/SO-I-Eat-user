@@ -7,7 +7,7 @@
         <div>
             <ul>
                 <li v-for="(category, i) in categories" :key="i">
-                    <h3>{{category.name}}</h3>
+                    <h3 @click="select(i)" :class="{ selectedCategory: selected === i }">{{category.name}}</h3>
                 </li>
             </ul>
         </div>
@@ -27,6 +27,12 @@ export default {
             logo: 'logga.svg',
             info: 'Info.svg',
         },
+        selected: -1,
     }),
+    methods: {
+        select (value) {
+            this.$emit('setSelected', value)
+        }, 
+    },
 };
 </script>
