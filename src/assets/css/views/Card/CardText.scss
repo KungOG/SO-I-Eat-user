@@ -87,6 +87,10 @@
     .add-icon {
       display: flex;
       justify-content: flex-end;
+      
+      @media (min-width: 1024px) {
+        padding: 20px 15px 0;
+      }
     }
   } 
 
