@@ -27,7 +27,6 @@ export default {
       MapsText: 'Hitta hit',
       EatHere: require('@/assets/icons/EatHere.svg'),
       EatHereText: 'Äta här',
-      categories: ['Förrätter', 'Varmrätter', 'Soppor', 'Dessert'],
     }
   },
   components: {
@@ -42,6 +41,9 @@ export default {
   computed: {
     menuItems () {
       return this.$store.state.menuItems;
+    },
+    categories () {
+      return this.$store.state.categories;
     },
   },
 };

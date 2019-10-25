@@ -1,7 +1,7 @@
 <template>
     <div class='menu-section'>
       <div class='wrapper'>
-        <h1>{{category}}</h1>
+        <h1>{{category.name}}</h1>
         <CardText v-for="(item, i) in filteredItems" :displayIcons="displayIcons" :key="i" :item="item"/>
       </div>
     </div>
@@ -26,13 +26,13 @@ export default {
       required: true,
     },
     category: {
-      type: String,
+      type: Object,
       required: true,
     },
   },
   computed: {
     filteredItems() {
-      return this.items.filter(x => this.category === x.category);
+      return this.items.filter(x => this.category.id === x.category);
     },
   },
 };
