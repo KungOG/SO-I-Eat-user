@@ -12,7 +12,9 @@
 
   @media (min-width: $screen-sm-md) {
     grid-template-columns: 45px 235px 55px;
+    padding: 10px 10px 0;
   }
+
   @media (min-width: $screen-sm-lg) {
     grid-template-columns: 45px 350px 55px;
   }

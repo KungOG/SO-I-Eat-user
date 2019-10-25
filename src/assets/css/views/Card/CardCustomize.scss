@@ -7,6 +7,14 @@
     grid-template-rows: auto;
     grid-template-areas: 'filler content .';
 
+    @media (min-width: $screen-sm-md) {
+      grid-template-columns: 45px 235px 55px;
+    }
+  
+    @media (min-width: $screen-sm-lg) {
+      grid-template-columns: 45px 350px 55px;
+    }
+
   .filler {
     grid-area: filler;
   }
