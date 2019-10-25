@@ -43,17 +43,21 @@ export default {
   },
   data: () => ({
     selected: null,
-    categories: ['förrätter', 'soppor', 'varmrätter', 'dessert', 'nudlar', 'barnrätter', 'dryck', 'lunch'],
     displayIcons: false,
     selectedCard: -1,
     footerText: {text: 'min beställning'},
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
+    this.$store.dispatch('getCategories');
+
   },
   computed: {
     menuItems() {
       return this.$store.state.menuItems;
+    },
+    categories() {
+      return this.$store.state.categories;
     },
   },
   methods: {

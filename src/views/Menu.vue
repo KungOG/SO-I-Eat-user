@@ -37,6 +37,7 @@ export default {
   },
   beforeMount () {
     this.$store.dispatch('getMenuItems')
+    this.$store.dispatch('getCategories')
   },
   computed: {
     menuItems () {

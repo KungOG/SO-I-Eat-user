@@ -7,7 +7,7 @@
         <div>
             <ul>
                 <li v-for="(category, i) in categories" :key="i">
-                    <h3>{{category}}</h3>
+                    <h3>{{category.name}}</h3>
                 </li>
             </ul>
         </div>
@@ -19,7 +19,7 @@ export default {
     props: {
         categories: {
             type: Array,
-            required: true,
+            default: []
         },
     },
     data: () => ({

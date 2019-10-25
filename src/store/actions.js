@@ -11,5 +11,16 @@ export default {
     .catch(error => {
       console.log(error)
     })
+  },
+   getCategories(ctx) {
+    const url = 'http://localhost:80/categories';
+      axios
+    .get(url)
+    .then(response => {
+      ctx.commit('setCategories', response.data)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 };
