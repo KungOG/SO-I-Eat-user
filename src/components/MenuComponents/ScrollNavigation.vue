@@ -1,7 +1,7 @@
 <template>
     <div class="scroll-container">
         <div class="nav-item" v-for="(category, i) in categories" :key="i" >
-            <h5 @click="select(i)" :class="{ selectedCategory: selected === i }"> {{category}}</h5>
+            <h5 @click="select(i)" :class="{ selectedCategory: selected === i }"> {{category.name}}</h5>
         </div>
     </div>
 </template>
