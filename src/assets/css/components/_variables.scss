@@ -36,7 +36,12 @@ $header-font: 'News Cycle', sans-serif;
   }
 }
 
+html {
+  background: #000000;
+}
+
 body {
+  background: #ffffff;
   width: 100vw;
   height: 100vh;
   margin: 0;

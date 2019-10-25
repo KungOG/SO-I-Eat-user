@@ -8,6 +8,11 @@
     margin-top: 0;
   }
 
+  &.activeCard {
+    padding-top: 60px;
+    margin: 0 0 10px;
+  }
+
   @media (min-width: $screen-sm-md) {
     flex-direction: row;
 

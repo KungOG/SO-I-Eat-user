@@ -2,6 +2,7 @@
     background: #fff;
     display: grid;
     justify-content: center;
+    padding: 0 0 50px;
     grid-template-columns: 45px 235px 55px;
     grid-template-rows: auto;
     grid-template-areas: 'filler content .';
@@ -16,6 +17,8 @@
 
     .ingredients-list {
       font-size: 16px;
+      height: 30vh;
+      overflow-x: auto;  
       
       .ingredient {
         display: flex;
@@ -44,7 +47,7 @@
           &::before {
             width: 21px;
             height: 21px;
-            margin: 0 24px 0 2px;
+            margin-right: 22px;
           }
         }
 

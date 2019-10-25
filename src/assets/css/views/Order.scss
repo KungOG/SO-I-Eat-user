@@ -11,6 +11,8 @@
   }
 
   .card-wrapper {
+    padding: 120px 0 50px 0;
+
     @media (min-width: $screen-sm-md) {
       width: 50%;
       overflow-y: scroll;

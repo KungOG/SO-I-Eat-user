@@ -2,8 +2,9 @@
   background: #fff;
   display: grid;
   justify-content: center;
+  padding-top: 20px;
   grid-template-columns: 45px 235px 55px;
-  grid-template-rows: 55px 86px 30px;
+  grid-template-rows: 40px 86px 30px;
   grid-template-areas:
   'filler name price'
   'number content content'

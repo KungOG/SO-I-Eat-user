@@ -2,6 +2,7 @@
     <div class='menu-footer' >
       <h5>{{text.text}}</h5>
       <h5 v-if="this.text.sum">{{text.sum}}:-</h5>
+      <img :src="require('@/assets/icons/' + imgUrl)" alt="Välj">
     </div>
 </template>
 
@@ -14,6 +15,11 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      imgUrl: 'Menu.svg',
+    }
+  }
 };
 </script>
 
