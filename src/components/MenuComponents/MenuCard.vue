@@ -1,11 +1,11 @@
 <template>
-    <div class='menu-card' :class="selectedCard === index ? 'activeCard' : ''">
-      <card-image class="image"/>
-      <card-text class="text" :displayIcons="displayIcons" :item="item" :showAddIcon="showAlternatives"/>
-      <card-alternatives v-if="showAlternatives" :proteinItems="item.protein" :showSpice="item.spice"/>
-      <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
-      <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
-    </div>
+  <div class='menu-card' :class="[selectedCard === index ? 'activeCard' : '', transition === true ? '-move' : '']">
+    <card-image class="image"/>
+    <card-text class="text" :displayIcons="displayIcons" :item="item" :showAddIcon="showAlternatives"/>
+    <card-alternatives v-if="showAlternatives" :proteinItems="item.protein" :showSpice="item.spice"/>
+    <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
+    <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
+  </div>
 </template>
 
 <script>
@@ -39,28 +39,37 @@ export default {
       type: Number,
     },
   },
-    data() {
-      return {
-        showAlternatives: false,
-        showCustomize: false,
-      }
+  data() {
+    return {
+      showAlternatives: false,
+      showCustomize: false,
+      transition: false,
+    }
+  },
+  watch: {
+    selectedCard() {
+      this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
+      this.selectedCard !== this.index ? this.showCustomize = false : '';
+
+      this.transition = true;
+      this.selectedCard !== this.index;
+      setInterval(() => {
+        this.transition = false;
+        console.log('Klar')
+        /* this.timer(); */
+      }, 5000);
     },
-    watch: {
-      selectedCard() {
-        this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
-        this.selectedCard !== this.index ? this.showCustomize = false : '';
-      },
+  },
+  mounted() {
+    this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+  },
+  methods: {
+    showAlternativesOption() {
+      this.showAlternatives = true;
     },
-    mounted() {
-        this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+    buttonClick() {
+      this.showCustomize = !this.showCustomize;
     },
-    methods: {
-      showAlternativesOption() {
-        this.showAlternatives = true;
-      },
-      buttonClick() {
-        this.showCustomize = !this.showCustomize;
-      },
-    },
-  };
+  },
+};
 </script>
