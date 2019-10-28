@@ -6,7 +6,7 @@
       <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
       <div class="button-wrapper">
         <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
-        <standard-button v-show="showAlternatives" :buttonText="'Lägg till'" @click.native = "addItemToCart"/>
+        <standard-button v-show="showAlternatives" :buttonText="'Lägg till'" class="desktop" @click.native = "addItemToCart"/>
       </div>
     </div>
 </template>
