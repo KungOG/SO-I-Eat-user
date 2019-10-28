@@ -3,7 +3,7 @@
       <scroll-navigation class="mobile" :categories="categories" @setSelected="setSelected"/>
       <side-navigation class="desktop" :categories="categories" @setSelected="setSelected"/>
       <div class="card-wrapper">
-        <div v-for="(item, i) in sortedMenuItems" :key="i">
+        <div v-for="(item, i) in filteredMenuitems" :key="i">
           <menu-card
             class="mobile"
             :displayIcons="displayIcons"
@@ -42,7 +42,7 @@ export default {
     Cart
   },
   data: () => ({
-    selected: null,
+    selected: 0,
     displayIcons: false,
     selectedCard: -1,
     footerText: {text: 'min beställning'},
@@ -51,9 +51,13 @@ export default {
     this.$store.dispatch('getMenuItems');
     this.$store.dispatch('getCategories');
   },
+
   computed: {
     sortedMenuItems() {
       return this.$store.getters.sortedMenuItems;
+    },
+    filteredMenuitems() {
+      return this.sortedMenuItems.filter((item) => item.category === this.selected)
     },
     categories() {
       return this.$store.state.categories;
