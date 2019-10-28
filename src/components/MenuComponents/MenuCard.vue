@@ -4,7 +4,10 @@
       <card-text class="text" :displayIcons="displayIcons" :item="item" :showAddIcon="showAlternatives"/>
       <card-alternatives v-if="showAlternatives" :proteinItems="item.protein" :showSpice="item.spice"/>
       <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
-      <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
+      <div class="button-wrapper">
+        <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
+        <standard-button v-show="showAlternatives" :buttonText="'Lägg till'" @click.native = "addItemToCart"/>
+      </div>
     </div>
 </template>
 
@@ -39,12 +42,10 @@ export default {
       type: Number,
     },
   },
-    data() {
-      return {
+    data: () => ({
         showAlternatives: false,
         showCustomize: false,
-      }
-    },
+    }),
     watch: {
       selectedCard() {
         this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
@@ -60,6 +61,9 @@ export default {
       },
       buttonClick() {
         this.showCustomize = !this.showCustomize;
+      },
+      addItemToCart() {
+        console.log('add to cart')
       },
     },
   };
