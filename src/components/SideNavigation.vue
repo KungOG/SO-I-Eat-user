@@ -7,7 +7,7 @@
     <div>
       <ul>
         <li v-for="(category, i) in categories" :key="i">
-          <h3 @click="select(i)" :class="{ selectedCategory: selected === i }">{{category.name}}</h3>
+          <h3 @click="select(i)" :class="selected === i ? 'selectedCategory' : ''">{{category.name}}</h3>
         </li>
       </ul>
     </div>
@@ -31,7 +31,8 @@ export default {
   }),
   methods: {
     select (value) {
-      this.$emit('setSelected', value)
+      this.selected = value;
+      this.$emit('setSelected', value);
     }, 
   },
 };

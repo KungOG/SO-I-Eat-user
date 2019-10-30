@@ -21,7 +21,7 @@
       <div class='summery'>
         <h6>Totalsumma</h6>
         <h6 class='totalAmount'>1000:-</h6>
-        <StandardButton class='desktop btn' />
+        <StandardButton class='desktop btn' :buttonText="'Betala'"/>
       </div>
     </div>
   </div>
