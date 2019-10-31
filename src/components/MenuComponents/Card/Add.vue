@@ -7,10 +7,10 @@
 <script>
 
 export default {
-    data () {
+  data() {
     return {
-      image: 'AddIcon.svg'
-    }
+      image: 'AddIcon.svg',
+    };
   },
-}
+};
 </script>

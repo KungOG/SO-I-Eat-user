@@ -7,25 +7,25 @@
 </template>
 
 <script>
-  export default {
-    name: 'navigation',
-    props: {
-      categories: {
-        type: Array,
-        default: []
-      },
-      value: {
-        type: String
-        }
+export default {
+  name: 'navigation',
+  props: {
+    categories: {
+      type: Array,
+      default: [],
     },
-    data: () => ({
-      selected: null,
-    }),
-    methods: {
-      select (value) {
-        this.selected = value
-        this.$emit('setSelected', value)
-      }   
-    }
-  }
+    value: {
+      type: String,
+    },
+  },
+  data: () => ({
+    selected: null,
+  }),
+  methods: {
+    select(value) {
+      this.selected = value;
+      this.$emit('setSelected', value);
+    },
+  },
+};
 </script>

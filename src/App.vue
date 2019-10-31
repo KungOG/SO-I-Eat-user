@@ -33,7 +33,7 @@ export default {
     this.installer = () => {
       this.installBtn = 'none';
       installPrompt.prompt();
-      installPrompt.userChoice.then(result => {
+      installPrompt.userChoice.then((result) => {
         if (result.outcome === 'accepted') {
           console.log('Install accepted!');
         } else {

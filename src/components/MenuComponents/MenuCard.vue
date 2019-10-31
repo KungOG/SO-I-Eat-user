@@ -29,11 +29,11 @@ export default {
   },
   props: {
     item: {
-      type: Object
+      type: Object,
     },
     displayIcons: {
       type: Boolean,
-      required: true
+      required: true,
     },
     selectedCard: {
       type: Number,
@@ -42,29 +42,29 @@ export default {
       type: Number,
     },
   },
-    data: () => ({
-        showAlternatives: false,
-        showCustomize: false,
-    }),
-    watch: {
-      selectedCard() {
-        this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
-        this.selectedCard !== this.index ? this.showCustomize = false : '';
-      },
+  data: () => ({
+    showAlternatives: false,
+    showCustomize: false,
+  }),
+  watch: {
+    selectedCard() {
+      this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
+      this.selectedCard !== this.index ? this.showCustomize = false : '';
     },
-    mounted() {
-        this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+  },
+  mounted() {
+    this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+  },
+  methods: {
+    showAlternativesOption() {
+      this.showAlternatives = true;
     },
-    methods: {
-      showAlternativesOption() {
-        this.showAlternatives = true;
-      },
-      buttonClick() {
-        this.showCustomize = !this.showCustomize;
-      },
-      addItemToCart() {
-        console.log('add to cart')
-      },
+    buttonClick() {
+      this.showCustomize = !this.showCustomize;
     },
-  };
+    addItemToCart() {
+      console.log('add to cart');
+    },
+  },
+};
 </script>

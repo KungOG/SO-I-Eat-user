@@ -1,7 +1,10 @@
 <template>
-  <div class="nav-container" :class="$route.path == '/' ? 'transparent' : ''"> 
-    <div class="nav-item" v-for="(icon, i) in icons" :key="i" >
-      <img @click="select(i, icon.urlTo)" :src="icon.icon" :class="{ selectedIcon: selected === i }" />
+  <div class="nav-container" :class="$route.path == '/' ? 'transparent' : ''">
+    <div class="nav-item" v-for="(icon, i) in icons" :key="`nav-item--${i}`" >
+
+      <router-link :to="icon.urlTo" active-class="route-active">
+        <img :src="icon.icon" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -19,16 +22,10 @@ export default {
   name: 'navigation',
   data: () => ({
     selected: null,
-    iconsMenu: [{icon: Maps, urlTo: '/contact'}, {icon: Logo, urlTo: '/'}, {icon: Info, urlTo: '/about'}],
-    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, urlTo: '/order'}, {icon: EatHere, urlTo: '/order'}, {icon: Clock, urlTo: '/'}],
-    iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, urlTo: '/order'}],
+    iconsMenu: [{ icon: Maps, urlTo: '/contact' }, { icon: Logo, urlTo: '/' }, { icon: Info, urlTo: '/about' }],
+    iconsOrder: [{ icon: Logo, urlTo: '/' }, { icon: TakeAway, urlTo: '/order' }, { icon: EatHere, urlTo: '/order' }, { icon: Clock, urlTo: '/' }],
+    iconsOrderItem: [{ icon: Logo, urlTo: '/' }, { icon: Delete, urlTo: '/order' }],
   }),
-  methods: {
-    select (value, url) {
-      this.selected = value
-      this.$router.push(url)
-    },  
-  },
   computed: {
     icons() {
       if (this.$route.path == '/order') {
@@ -43,7 +40,7 @@ export default {
       if (this.$route.path.substring(0, 11) == '/orderitem/') {
         return this.iconsOrderItem;
       }
-    }
+    },
   },
 };
 </script>
@@ -55,7 +52,7 @@ export default {
   background-color: #131313;
   justify-content: space-between;
   align-items: center;
-  height: 60px;  
+  height: 60px;
   width: 376px;
   position: fixed;
 

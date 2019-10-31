@@ -15,10 +15,10 @@ export default {
   components: {
     CardText,
   },
-  data () {
+  data() {
     return {
       displayIcons: true,
-    }
+    };
   },
   props: {
     items: {

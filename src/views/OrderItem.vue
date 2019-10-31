@@ -20,7 +20,7 @@ export default {
   data: () => ({
     showCart: null,
     displayIcons: false,
-    footerText: {text: 'lägg till i beställning', sum: 0}
+    footerText: { text: 'lägg till i beställning', sum: 0 },
   }),
   computed: {
     item() {

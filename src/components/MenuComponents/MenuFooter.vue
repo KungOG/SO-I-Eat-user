@@ -18,8 +18,8 @@ export default {
   data() {
     return {
       imgUrl: 'Menu.svg',
-    }
-  }
+    };
+  },
 };
 </script>
 

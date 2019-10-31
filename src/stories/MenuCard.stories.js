@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/vue'
-import MenuCard from '../components/MenuComponents/MenuCard.vue'
+import { storiesOf } from '@storybook/vue';
+import MenuCard from '../components/MenuComponents/MenuCard.vue';
 
 storiesOf('MenuCard', module)
   .add('default', () => ({
@@ -9,6 +9,6 @@ storiesOf('MenuCard', module)
     <menu-card :img="" :text=""/>
   `,
     data: () => ({
-      
-    })
-  }))
+
+    }),
+  }));

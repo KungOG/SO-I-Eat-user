@@ -39,13 +39,13 @@ export default {
     ScrollNavigation,
     SideNavigation,
     MenuFooter,
-    Cart
+    Cart,
   },
   data: () => ({
     selected: 0,
     displayIcons: false,
     selectedCard: -1,
-    footerText: {text: 'min beställning'},
+    footerText: { text: 'min beställning' },
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
@@ -57,7 +57,7 @@ export default {
       return this.$store.getters.sortedMenuItems;
     },
     filteredMenuitems() {
-      return this.sortedMenuItems.filter((item) => item.category === this.selected)
+      return this.sortedMenuItems.filter(item => item.category === this.selected);
     },
     categories() {
       return this.$store.state.categories;
@@ -75,4 +75,3 @@ export default {
 
 };
 </script>
-

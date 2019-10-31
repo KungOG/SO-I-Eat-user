@@ -26,8 +26,8 @@ export default {
   name: 'card-alternatives',
   props: {
     proteinItems: {
-        type: Array,
-        required: true,
+      type: Array,
+      required: true,
     },
     showSpice: {
       type: Boolean,
@@ -36,12 +36,12 @@ export default {
   },
   data: () => ({
     spiceItems: [
-      {imgUrl: 'Spice.svg', activeUrl: 'Spice1Active.svg'},
-      {imgUrl: 'Spice2.svg', activeUrl: 'Spice2Active.svg'},
-      {imgUrl: 'Spice3.svg', activeUrl: 'Spice3Active.svg'}
+      { imgUrl: 'Spice.svg', activeUrl: 'Spice1Active.svg' },
+      { imgUrl: 'Spice2.svg', activeUrl: 'Spice2Active.svg' },
+      { imgUrl: 'Spice3.svg', activeUrl: 'Spice3Active.svg' },
     ],
     chosenProtein: -1,
     chosenSpice: -1,
   }),
-}
+};
 </script>

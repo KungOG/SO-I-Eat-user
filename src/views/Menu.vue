@@ -27,22 +27,22 @@ export default {
       MapsText: 'Hitta hit',
       EatHere: require('@/assets/icons/EatHere.svg'),
       EatHereText: 'Äta här',
-    }
+    };
   },
   components: {
     MenuHeader,
     MenuSection,
-    NavigationButton
+    NavigationButton,
   },
-  beforeMount () {
-    this.$store.dispatch('getMenuItems')
-    this.$store.dispatch('getCategories')
+  beforeMount() {
+    this.$store.dispatch('getMenuItems');
+    this.$store.dispatch('getCategories');
   },
   computed: {
-    menuItems () {
+    menuItems() {
       return this.$store.state.menuItems;
     },
-    categories () {
+    categories() {
       return this.$store.state.categories;
     },
   },

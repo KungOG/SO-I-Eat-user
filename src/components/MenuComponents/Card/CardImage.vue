@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     getImgUrl() {
-      return require('@/assets/images/dish.png')
+      return require('@/assets/images/dish.png');
     },
   },
 };

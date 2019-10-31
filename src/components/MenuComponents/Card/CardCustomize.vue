@@ -5,18 +5,18 @@
         <CustomizeListItem v-for="(ingredient,i) in ingredients" :active="true" :ingredient="ingredient" :key="i">
             <template v-slot:itemName>
                 {{ingredient}}
-            </template> 
+            </template>
         </CustomizeListItem>
         <CustomizeListItem v-for="(option,i) in menuOptions" :active="false" :option="option" :key="i+option.price">
             <template v-slot:itemName>
                 {{option.name}}
-            </template>    
+            </template>
             <template v-slot:itemPrice>
                 <div class='ingredient-price'>
                     {{option.price}}:-
                 </div>
-            </template> 
-        </CustomizeListItem>    
+            </template>
+        </CustomizeListItem>
       </ul>
     </div>
     <div class='filler'/>
@@ -28,18 +28,18 @@ import CustomizeListItem from './CustomizeListItem.vue';
 
 export default {
   components: {
-    CustomizeListItem
+    CustomizeListItem,
   },
   props: {
     ingredients: {
       type: Array,
       required: true,
-    }
+    },
   },
   computed: {
-    menuOptions () {
+    menuOptions() {
       return this.$store.state.menuOptions;
-    }
+    },
   },
-}
+};
 </script>

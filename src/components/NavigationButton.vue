@@ -8,8 +8,14 @@
 <script>
 export default {
   props: {
-    imageSrc: String,
-    title: String,
-  }
+    imageSrc: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>

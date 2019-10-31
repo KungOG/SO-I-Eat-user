@@ -17,21 +17,21 @@
 
 export default {
   name: 'home',
-  data () {
+  data() {
     return {
       Logga: 'logga.svg',
       Maps: 'Maps.svg',
       Info: 'Info.svg',
       Arrow: 'Arrow.svg',
-    }
+    };
   },
   methods: {
-    test () {
+    test() {
       console.log('click');
     },
 
     getImgUrl() {
-      return require('@/assets/images/background.png')
+      return require('@/assets/images/background.png');
     },
   },
 };
