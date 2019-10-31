@@ -19,7 +19,7 @@ export default {
   props: {
     categories: {
       type: Array,
-      default: []
+      default: () => [],
     },
   },
   data: () => ({
@@ -30,10 +30,10 @@ export default {
     selected: null,
   }),
   methods: {
-    select (value) {
+    select(value) {
       this.selected = value;
       this.$emit('setSelected', value);
-    }, 
+    },
   },
 };
 </script>

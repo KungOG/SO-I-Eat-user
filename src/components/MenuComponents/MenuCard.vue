@@ -1,12 +1,17 @@
 <template>
     <div class='menu-card' :class="selectedCard === index ? 'activeCard' : ''">
       <card-image class="image"/>
-      <card-text class="text" :displayIcons="displayIcons" :item="item" :showAddIcon="showAlternatives"/>
-      <card-alternatives v-if="showAlternatives" :proteinItems="item.protein" :showSpice="item.spice"/>
+      <card-text class="text"
+        :displayIcons="displayIcons"
+        :item="item"
+        :showAddIcon="showAlternatives"/>
+      <card-alternatives v-if="showAlternatives"
+        :proteinItems="item.protein"
+        :showSpice="item.spice"/>
       <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
       <div class="button-wrapper">
         <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
-        <standard-button v-show="showAlternatives" :buttonText="'Lägg till'" class="desktop" @click.native = "addItemToCart"/>
+        <standard-button v-show="showAlternatives" buttonText="Lägg till" class="desktop" @click.native = "addItemToCart"/>
       </div>
     </div>
 </template>

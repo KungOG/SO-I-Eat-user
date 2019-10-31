@@ -20,7 +20,7 @@ export default {
   data: () => ({
     showCart: null,
     displayIcons: false,
-    footerText: {text: 'lägg till i beställning', sum: 0}
+    footerText: { text: 'lägg till i beställning', sum: 0 },
   }),
   computed: {
     item() {
@@ -28,7 +28,7 @@ export default {
     },
   },
   beforeMount() {
-    this.$route.params.id == 0 ? this.showCart = true : this.showCart = false;
+    this.$route.params.id === 0 ? this.showCart = true : this.showCart = false;
   },
 };
 </script>

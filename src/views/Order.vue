@@ -57,7 +57,7 @@ export default {
       return this.$store.getters.sortedMenuItems;
     },
     filteredMenuitems() {
-      return this.sortedMenuItems.filter((item) => item.category === this.selected)
+      return this.sortedMenuItems.filter((item) => item.category === this.selected);
     },
     categories() {
       return this.$store.state.categories;

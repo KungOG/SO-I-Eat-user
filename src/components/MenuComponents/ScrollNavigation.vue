@@ -1,6 +1,6 @@
 <template>
   <div class="scroll-container">
-    <div class="nav-item" v-for="(category, i) in categories" :key="i" >
+    <div class="nav-item" v-for="(category, i) in categories" :key="`categories-${i}`" >
       <h5 @click="select(i)" :class="{ selectedCategory: selected === i }"> {{category.name}}</h5>
     </div>
   </div>
@@ -12,11 +12,11 @@
     props: {
       categories: {
         type: Array,
-        default: []
+        default: () => [],
       },
       value: {
-        type: String
-        }
+        type: String,
+        },
     },
     data: () => ({
       selected: null,
@@ -25,7 +25,7 @@
       select (value) {
         this.selected = value
         this.$emit('setSelected', value)
-      }   
-    }
-  }
+      },
+    },
+  };
 </script>

@@ -2,7 +2,11 @@
     <div class='menu-section'>
       <div class='wrapper'>
         <h1>{{category.name}}</h1>
-        <CardText v-for="(item, i) in filteredItems" :displayIcons="displayIcons" :key="i" :item="item"/>
+        <CardText
+          v-for="(item, i) in filteredItems"
+          :displayIcons="displayIcons"
+          :key="`filtered-items-${i}`"
+          :item="item"/>
       </div>
     </div>
 </template>
@@ -15,11 +19,9 @@ export default {
   components: {
     CardText,
   },
-  data () {
-    return {
-      displayIcons: true,
-    }
-  },
+  data: () => ({
+    displayIcons: true,
+  }),
   props: {
     items: {
       type: Array,

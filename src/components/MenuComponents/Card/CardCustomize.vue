@@ -2,21 +2,21 @@
   <div class='card-customize'>
     <div class='ingredients-content'>
       <ul class='ingredients-list'>
-        <CustomizeListItem v-for="(ingredient,i) in ingredients" :active="true" :ingredient="ingredient" :key="i">
-            <template v-slot:itemName>
-                {{ingredient}}
-            </template> 
+        <CustomizeListItem v-for="(ingredient,i) in ingredients" :active="true" :ingredient="ingredient" :key="`ingredients-${i}`">
+          <template v-slot:itemName>
+            {{ingredient}}
+          </template>
         </CustomizeListItem>
-        <CustomizeListItem v-for="(option,i) in menuOptions" :active="false" :option="option" :key="i+option.price">
-            <template v-slot:itemName>
-                {{option.name}}
-            </template>    
-            <template v-slot:itemPrice>
-                <div class='ingredient-price'>
-                    {{option.price}}:-
-                </div>
-            </template> 
-        </CustomizeListItem>    
+        <CustomizeListItem v-for="(option,i) in menuOptions" :active="false" :option="option" :key="`menu-options-${i}`">
+          <template v-slot:itemName>
+              {{option.name}}
+          </template>
+          <template v-slot:itemPrice>
+              <div class='ingredient-price'>
+                {{option.price}}:-
+              </div>
+          </template>
+        </CustomizeListItem>
       </ul>
     </div>
     <div class='filler'/>
@@ -28,18 +28,18 @@ import CustomizeListItem from './CustomizeListItem.vue';
 
 export default {
   components: {
-    CustomizeListItem
+    CustomizeListItem,
   },
   props: {
     ingredients: {
       type: Array,
       required: true,
-    }
+    },
   },
   computed: {
-    menuOptions () {
+    menuOptions() {
       return this.$store.state.menuOptions;
-    }
+    },
   },
-}
+};
 </script>

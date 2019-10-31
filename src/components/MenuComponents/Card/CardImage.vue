@@ -1,7 +1,7 @@
 <template>
-<div>
-  <div class="image-container" :style="{backgroundImage: 'url(' + getImgUrl() + ')'}"></div>
-</div>
+  <div>
+    <div class="image-container" :style="{backgroundImage: 'url(' + getImgUrl() + ')'}"></div>
+  </div>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     getImgUrl() {
-      return require('@/assets/images/dish.png')
+      return require('@/assets/images/dish.png');
     },
   },
 };
