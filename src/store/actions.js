@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
    getMenuItems (ctx) {
-    const url = 'http://localhost:80/products';
+    const url = 'http://localhost:3000/products';
       axios
     .get(url)
     .then(response => {
@@ -13,7 +13,7 @@ export default {
     })
   },
    getCategories(ctx) {
-    const url = 'http://localhost:80/categories';
+    const url = 'http://localhost:3000/categories';
       axios
     .get(url)
     .then(response => {

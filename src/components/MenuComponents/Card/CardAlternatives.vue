@@ -4,8 +4,8 @@
       <div class='protein-wrapper' v-if="proteinItems.length !== 0">
         <div v-for="(item, i) in proteinItems" :key="`protein-items-${i}`" @click="chosenProtein = i">
           <div class="wrapper" :class="chosenProtein === i ? 'active' : ''" >
-          <img v-if="chosenProtein === i" :src="require('@/assets/icons/' + item.activeUrl)" alt="Välj">
-          <img v-else :src="require('@/assets/icons/' + item.imgUrl)" alt="Välj">
+          <img v-if="chosenProtein === i" :src="require(`@/assets/icons/${item}Active.svg`)" alt="Välj">
+          <img v-else :src="require(`@/assets/icons/${item}.svg`)" alt="Välj">
           </div>
         </div>
       </div>
