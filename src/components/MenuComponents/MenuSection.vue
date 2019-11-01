@@ -1,7 +1,7 @@
 <template>
     <div class='menu-section'>
       <div class='wrapper'>
-        <h1>{{category.name}}</h1>
+        <h1>{{category.categoryName}}</h1>
         <CardText
           v-for="(item, i) in filteredItems"
           :displayIcons="displayIcons"
@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     filteredItems() {
-      return this.items.filter(x => this.category.id === x.category);
+      return this.items.filter(x => this.category.categoryId === x.category);
     },
   },
 };
