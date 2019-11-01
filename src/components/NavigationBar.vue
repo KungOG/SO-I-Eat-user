@@ -1,7 +1,9 @@
 <template>
   <div class="nav-container" :class="$route.path == '/' ? 'transparent' : ''"> 
     <div class="nav-item" v-for="(icon, i) in icons" :key="i" >
-      <img @click="select(i, icon.urlTo)" :src="icon.icon" :class="{ selectedIcon: selected === i }" />
+      <router-link :to="icon.urlTo" active-class="route-active">
+        <img :src="icon.icon" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -23,12 +25,6 @@ export default {
     iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, urlTo: '/order'}, {icon: EatHere, urlTo: '/order'}, {icon: Clock, urlTo: '/'}],
     iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, urlTo: '/order'}],
   }),
-  methods: {
-    select (value, url) {
-      this.selected = value
-      this.$router.push(url)
-    },  
-  },
   computed: {
     icons() {
       if (this.$route.path == '/order') {
