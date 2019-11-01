@@ -5,26 +5,6 @@
   display: flex;
   justify-content: center;
 
-  @media (min-width: $screen-sm-md) {
-    width: 49.5vw;
-  }
-
-  &:nth-child(odd) {
-
-    @media (min-width: $screen-sm-lg) {
-        width: 42vw;
-      }
-  }
-  &:nth-child(even) {
-
-    @media (min-width: $screen-sm-lg) {
-        width: 57.5vw;
-        justify-content: flex-start;
-        padding-left: 5rem;
-      }
-  }
-
-
   .wrapper {
       h1 {
           color: $main-secondary-color;

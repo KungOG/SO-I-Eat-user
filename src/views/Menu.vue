@@ -1,7 +1,15 @@
 <template>
     <div class='menu'>
-      <div class="sections-wrapper">
-        <MenuSection v-for="(category, i) in categories" :key="i" :items="menuItems" :category="category"/>
+      <div class="sections-wrapper mobile">
+        <MenuSection v-for="(category, i) in categories" :key="`categories-${i}`" :items="menuItems" :category="category"/>
+      </div>
+      <div class="sections-wrapper desktop">
+        <section>
+          <MenuSection v-for="(category, i) in splittedCategories.array1" :key="`split-categories1-${i}`" :items="menuItems" :category="category"/>
+        </section>
+        <section>
+          <MenuSection v-for="(category, i) in splittedCategories.array2" :key="`split-categories2-${i}`" :items="menuItems" :category="category"/>
+        </section>
       </div>
       <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText"/>
       <NavigationButton :imageSrc="MenuIcon" :title="MenuIconText"/>
@@ -9,6 +17,7 @@
       <NavigationButton :imageSrc="EatHere" :title="EatHereText"/>
     </div>
 </template>
+
 <script>
 import MenuSection from '@/components/MenuComponents/MenuSection.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
@@ -40,6 +49,16 @@ export default {
     categories() {
       return this.$store.state.categories;
     },
+    splittedCategories() {
+      var items = this.$store.state.categories.map(x => x);
+      var originalArray = this.$store.state.categories;
+      var arrays = {array1: [], array2: []}
+
+      for(let i=0; i < originalArray.length; i++) {
+        items.length % 2 == 0 ? arrays.array1.push(items.shift()) : arrays.array2.push(items.shift())
+      }
+      return arrays
+    }
   },
 };
 </script>
