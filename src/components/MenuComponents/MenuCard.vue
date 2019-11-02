@@ -10,10 +10,17 @@
         :showSpice="item.spice"
         @setProtein="setProtein"
         @setSpice="setSpice"/>
-      <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
+      <card-customize v-if="showCustomize" :ingredients="item.ingredients"/>
       <div class="button-wrapper">
-        <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
-        <standard-button v-show="showAlternatives" buttonText="Lägg till" class="desktop" @click.native = "addItemToCart"/>
+        <standard-button
+          v-show="showAlternatives"
+          :buttonText="this.showCustomize ? 'stäng': 'redigera'"
+          @click.native = "buttonClick"/>
+        <standard-button
+          v-show="showAlternatives"
+          buttonText="Lägg till"
+          class="desktop"
+          @click.native = "addItemToCart"/>
       </div>
     </div>
 </template>
@@ -49,44 +56,48 @@ export default {
       type: Number,
     },
   },
-    data: () => ({
-        showAlternatives: false,
-        showCustomize: false,
-        orderItem: {
-          productNr: null,
-          productName: '',
-          protein: '',
-          spice: null,
-          price: null,
-          add: [],
-          remove: [],
-        },
-    }),
-    watch: {
-      selectedCard() {
-        this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
-        this.selectedCard !== this.index ? this.showCustomize = false : '';
-      },
+  data: () => ({
+    showAlternatives: false,
+    showCustomize: false,
+    orderItem: {
+      productNr: null,
+      productName: '',
+      protein: '',
+      spice: null,
+      price: null,
+      add: [],
+      remove: [],
     },
-    mounted() {
-        this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+  }),
+  watch: {
+    selectedCard() {
+      this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
+      this.selectedCard !== this.index ? this.showCustomize = false : '';
     },
-    methods: {
-      showAlternativesOption() {
-        this.showAlternatives = true;
-      },
-      buttonClick() {
-        this.showCustomize = !this.showCustomize;
-      },
-      addItemToCart() {
-        console.log('add to cart')
-      },
-      setProtein(item) {
-        this.orderItem.protein = item;
-      },
-      setSpice(item) {
-        this.orderItem.spice = item +1;
-      },
+  },
+  mounted() {
+      this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+  },
+  methods: {
+    showAlternativesOption() {
+      this.showAlternatives = true;
     },
-  };
+    buttonClick() {
+      this.showCustomize = !this.showCustomize;
+    },
+    addItemToCart() {
+      this.orderItem.productNr = this.item.productNr;
+      this.orderItem.productName = this.item.productName;
+      this.orderItem.price = this.item.price;
+      this.$store.commit('setOrderItems', this.orderItem)
+      console.log(this.orderItem)
+    },
+    setProtein(item) {
+      this.orderItem.protein = item;
+    },
+    setSpice(item) {
+      this.orderItem.spice = item +1;
+    },
+  },
+};
 </script>
