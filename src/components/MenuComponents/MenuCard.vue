@@ -7,7 +7,9 @@
         :showAddIcon="showAlternatives"/>
       <card-alternatives v-if="showAlternatives"
         :proteinItems="item.protein"
-        :showSpice="item.spice"/>
+        :showSpice="item.spice"
+        @setProtein="setProtein"
+        @setSpice="setSpice"/>
       <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
       <div class="button-wrapper">
         <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
@@ -50,6 +52,15 @@ export default {
     data: () => ({
         showAlternatives: false,
         showCustomize: false,
+        orderItem: {
+          productNr: null,
+          productName: '',
+          protein: '',
+          spice: null,
+          price: null,
+          add: [],
+          remove: [],
+        },
     }),
     watch: {
       selectedCard() {
@@ -69,6 +80,12 @@ export default {
       },
       addItemToCart() {
         console.log('add to cart')
+      },
+      setProtein(item) {
+        this.orderItem.protein = item;
+      },
+      setSpice(item) {
+        this.orderItem.spice = item +1;
       },
     },
   };

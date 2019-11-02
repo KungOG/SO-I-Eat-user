@@ -7,5 +7,11 @@ export default {
     {name: 'Champinjoner', price: 5},
     {name: 'Bambuskott', price: 10},
     {name: 'Paprika', price: 10}
-  ]
+  ],
+  order: {
+    orderNr: Number,
+    table: Number,
+    time: String,
+    items: [],
+  },
 };
