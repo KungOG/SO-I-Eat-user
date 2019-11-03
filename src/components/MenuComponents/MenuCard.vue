@@ -87,8 +87,7 @@ export default {
       this.showCustomize = !this.showCustomize;
     },
     addItemToCart() {
-      this.$store.dispatch('setOrderItems', {items1: this.orderDetails, items2: this.item});
-      this.resetOrderItems();
+      this.$store.dispatch('setOrderItems', {items1: this.orderDetails, items2: this.item})
     },
     setProtein(item) {
       this.orderDetails.protein = item;
@@ -103,12 +102,6 @@ export default {
     addOption(option) {
       const add = this.orderDetails.add;
       add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
-    },
-    resetOrderItems() {
-      this.orderDetails.protein = '';
-      this.orderDetails.spice = null;
-      this.orderDetails.add.length = 0;
-      this.orderDetails.remove.length = 0;
     },
   },
 };
