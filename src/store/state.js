@@ -9,9 +9,9 @@ export default {
     {name: 'Paprika', price: 10}
   ],
   order: {
-    orderNr: Number,
-    table: Number,
-    time: String,
+    orderNr: null,
+    table: null,
+    time: '',
     items: [],
   },
 };

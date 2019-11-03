@@ -2,12 +2,12 @@
   <div class='card-customize'>
     <div class='ingredients-content'>
       <ul class='ingredients-list'>
-        <CustomizeListItem v-for="(ingredient,i) in ingredients" :active="true" :ingredient="ingredient" :key="`ingredients-${i}`">
+        <CustomizeListItem v-for="(ingredient,i) in ingredients" :active="true" :ingredient="ingredient" :key="`ingredients-${i}`" @click.native="removeIngredient(ingredient)">
           <template v-slot:itemName>
             {{ingredient}}
           </template>
         </CustomizeListItem>
-        <CustomizeListItem v-for="(option,i) in menuOptions" :active="false" :option="option" :key="`menu-options-${i}`">
+        <CustomizeListItem v-for="(option,i) in menuOptions" :active="false" :option="option" :key="`menu-options-${i}`" @click.native="addOption(option)">
           <template v-slot:itemName>
               {{option.name}}
           </template>
@@ -39,6 +39,15 @@ export default {
   computed: {
     menuOptions() {
       return this.$store.state.menuOptions;
+    },
+  },
+  methods: {
+    removeIngredient(ingredient) {
+      this.$emit('setRemovedIngredients', ingredient);
+      console.log(ingredient)
+    },
+    addOption(option) {
+      this.$emit('setAddedOption', option);
     },
   },
 };

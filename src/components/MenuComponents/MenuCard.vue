@@ -10,7 +10,11 @@
         :showSpice="item.spice"
         @setProtein="setProtein"
         @setSpice="setSpice"/>
-      <card-customize v-if="showCustomize" :ingredients="item.ingredients"/>
+      <card-customize 
+        v-if="showCustomize"
+        :ingredients="item.ingredients"
+        @setRemovedIngredients="removeIngredient"
+        @setAddedOption="addOption"/>
       <div class="button-wrapper">
         <standard-button
           v-show="showAlternatives"
@@ -59,12 +63,9 @@ export default {
   data: () => ({
     showAlternatives: false,
     showCustomize: false,
-    orderItem: {
-      productNr: null,
-      productName: '',
+    orderDetails: {
       protein: '',
       spice: null,
-      price: null,
       add: [],
       remove: [],
     },
@@ -86,17 +87,28 @@ export default {
       this.showCustomize = !this.showCustomize;
     },
     addItemToCart() {
-      this.orderItem.productNr = this.item.productNr;
-      this.orderItem.productName = this.item.productName;
-      this.orderItem.price = this.item.price;
-      this.$store.commit('setOrderItems', this.orderItem)
-      console.log(this.orderItem)
+      this.$store.dispatch('setOrderItems', {items1: this.orderDetails, items2: this.item});
+      this.resetOrderItems();
     },
     setProtein(item) {
-      this.orderItem.protein = item;
+      this.orderDetails.protein = item;
     },
     setSpice(item) {
-      this.orderItem.spice = item +1;
+      this.orderDetails.spice = item +1;
+    },
+    removeIngredient(ingredient) {
+      let remove = this.orderDetails.remove;
+      remove.includes(ingredient) ? remove.splice(remove.indexOf(ingredient), 1) : remove.push(ingredient);
+    },
+    addOption(option) {
+      let add = this.orderDetails.add;
+      add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
+    },
+    resetOrderItems() {
+      this.orderDetails.protein = ''
+      this.orderDetails.spice = null
+      this.orderDetails.add.length = 0
+      this.orderDetails.remove.length = 0
     },
   },
 };
