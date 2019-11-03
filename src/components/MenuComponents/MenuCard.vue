@@ -97,18 +97,18 @@ export default {
       this.orderDetails.spice = item +1;
     },
     removeIngredient(ingredient) {
-      let remove = this.orderDetails.remove;
+      const remove = this.orderDetails.remove;
       remove.includes(ingredient) ? remove.splice(remove.indexOf(ingredient), 1) : remove.push(ingredient);
     },
     addOption(option) {
-      let add = this.orderDetails.add;
+      const add = this.orderDetails.add;
       add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
     },
     resetOrderItems() {
-      this.orderDetails.protein = ''
-      this.orderDetails.spice = null
-      this.orderDetails.add.length = 0
-      this.orderDetails.remove.length = 0
+      this.orderDetails.protein = '';
+      this.orderDetails.spice = null;
+      this.orderDetails.add.length = 0;
+      this.orderDetails.remove.length = 0;
     },
   },
 };
