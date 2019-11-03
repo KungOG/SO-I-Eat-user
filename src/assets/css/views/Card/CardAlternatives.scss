@@ -44,7 +44,11 @@
     margin-left: 10px;
   }
 
-  .active {
-    border: 1px solid #AA0909;
+  .active-spice {
+    border: 1px solid $main-color;
+  }
+
+  .active-protein {
+    border: 1px solid $secondary-color;
   }
 }

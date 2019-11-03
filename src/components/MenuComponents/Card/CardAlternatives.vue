@@ -3,7 +3,7 @@
     <div class='option-wrapper' v-if="showSpice || proteinItems.length !== 0">
       <div class='protein-wrapper' v-if="proteinItems.length !== 0">
         <div v-for="(item, i) in proteinItems" :key="`protein-items-${i}`" @click="chosenProtein(i, item)">
-          <div class="wrapper" :class="activeProtein === i ? 'active' : ''" >
+          <div class="wrapper" :class="activeProtein === i ? 'active-protein' : ''" >
           <img v-if="activeProtein === i" :src="require(`@/assets/icons/${item}Active.svg`)" alt="Välj">
           <img v-else :src="require(`@/assets/icons/${item}.svg`)" alt="Välj">
           </div>
@@ -11,7 +11,7 @@
       </div>
       <div class="spice-wrapper" v-if="showSpice">
         <div v-for="(item, i) in spiceItems" :key="`spice-items-${i}`" @click="chosenSpice(i)">
-          <div class="wrapper" :class="activeSpice === i ? 'active' : ''">
+          <div class="wrapper" :class="activeSpice === i ? 'active-spice' : ''">
             <img v-if="activeSpice === i" :src="require('@/assets/icons/' + item.activeUrl)" alt="Vald">
             <img v-else :src="require('@/assets/icons/' + item.imgUrl)" alt="Välj">
           </div>
