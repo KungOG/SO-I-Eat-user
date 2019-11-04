@@ -3,7 +3,7 @@
       <scroll-navigation class="mobile" :categories="categories" @setSelected="setSelected"/>
       <side-navigation class="desktop" :categories="categories" @setSelected="setSelected"/>
       <div class="card-wrapper">
-        <div v-for="(item, i) in filteredMenuitems" :key="`filtered-menu-items-${i}`">
+        <div v-for="(item, i) in filteredMenuitems.reverse()" :key="`filtered-menu-items-${i}`">
           <menu-card
             class="mobile"
             :displayIcons="displayIcons"

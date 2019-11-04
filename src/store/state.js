@@ -11,7 +11,7 @@ export default {
   order: {
     orderNr: null,
     table: null,
-    time: '',
+    time: new Date,
     items: [],
   },
 };
