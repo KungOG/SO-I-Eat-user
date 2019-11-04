@@ -7,7 +7,10 @@
       :selectedCard="1"
       :index="1"
       ref="form"/>
-    <menu-footer @click.native="addToCart" :text="footerText" class="mobile"/>
+    <menu-footer
+      class="mobile"
+      :text="showCart ? {text: 'Till betalning'} : { text: 'Lägg till i beställning', sum: 0 }"
+      @click.native="cartEvents"/>
     <Cart v-if="showCart" />
   </div>
 </template>
@@ -26,7 +29,6 @@ export default {
   data: () => ({
     showCart: null,
     displayIcons: false,
-    footerText: { text: 'lägg till i beställning', sum: 0 },
   }),
   computed: {
     item() {
@@ -37,9 +39,15 @@ export default {
     this.$route.params.id === 'varukorg' ? this.showCart = true : this.showCart = false;
   },
   methods: {
+    cartEvents() {
+      this.showCart ? this.toPayment() : this.addToCart();
+    },
     addToCart() {
       this.$refs.form.addItemToCart();
       this.$router.push('/order');
+    },
+    toPayment() {
+      console.log('till betalning');
     },
   },
 };

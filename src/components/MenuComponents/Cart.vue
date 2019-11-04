@@ -14,7 +14,7 @@
             <p v-for="(add,i) in item.add" :key="`item-add-${i}`">+ {{add.name}}</p>
             <p v-for="(remove, i) in item.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
-          <h6 class='price'>{{item.price}}:-</h6>
+          <h6 class='price'>{{item.price + item.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-</h6>
           <img class='icon' src="@/assets/icons/delete.svg">
         </div>
       </div>
