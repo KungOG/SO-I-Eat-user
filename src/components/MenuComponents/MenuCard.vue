@@ -1,5 +1,5 @@
 <template>
-    <div class='menu-card' :class="selectedCard === index ? 'activeCard' : ''">
+    <div class='menu-card' @click="$emit('setSelectedCard', index)" :class="selectedCard === index ? 'activeCard' : ''">
       <card-image class="image"/>
       <card-text class="text"
         :displayIcons="displayIcons"
@@ -19,12 +19,12 @@
         <standard-button
           v-show="showAlternatives"
           :buttonText="this.showCustomize ? 'stäng': 'redigera'"
-          @click.native = "buttonClick"/>
+          @click.native="showCustomize = !showCustomize"/>
         <standard-button
           v-show="showAlternatives"
           buttonText="Lägg till"
           class="desktop"
-          @click.native = "addItemToCart"/>
+          @click.native.stop = "addItemToCart"/>
       </div>
     </div>
 </template>
@@ -83,11 +83,9 @@ export default {
     showAlternativesOption() {
       this.showAlternatives = true;
     },
-    buttonClick() {
-      this.showCustomize = !this.showCustomize;
-    },
     addItemToCart() {
-      this.$store.dispatch('setOrderItems', {items1: this.orderDetails, items2: this.item})
+      this.$store.dispatch('setOrderItems', {items1: this.orderDetails, items2: this.item});
+      this.$emit('setSelectedCard', -1);
     },
     setProtein(item) {
       this.orderDetails.protein = item;

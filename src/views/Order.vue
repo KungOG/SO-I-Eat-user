@@ -17,7 +17,7 @@
             :item="item"
             :selectedCard="selectedCard"
             :index="i"
-            @click.native="selectedCard = i"/>
+            @setSelectedCard="setSelectedCard"/>
         </div>
       </div>
       <menu-footer @click.native="$router.push('/orderitem/0')" :text="footerText" class="mobile"/>
@@ -51,7 +51,6 @@ export default {
     this.$store.dispatch('getMenuItems');
     this.$store.dispatch('getCategories');
   },
-
   computed: {
     sortedMenuItems() {
       return this.$store.getters.sortedMenuItems;
@@ -71,8 +70,9 @@ export default {
     setSelected(i) {
       this.selected = i;
     },
+    setSelectedCard(i) {
+      this.selectedCard = i;
+    },
   },
-
 };
 </script>
-
