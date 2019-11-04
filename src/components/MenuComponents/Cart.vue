@@ -21,7 +21,7 @@
       <div class='summery'>
         <h6>Totalsumma</h6>
         <h6 class='totalAmount'>{{totalAmount}}:-</h6>
-        <StandardButton class='desktop btn' :buttonText="'Betala'"/>
+        <StandardButton class='desktop btn' :buttonText="'Betala'" @click="sendOrder"/>
       </div>
     </div>
   </div>
@@ -45,6 +45,11 @@ export default {
         addons += item.add.map(x => x.price).reduce((a, b) => a + b, 0);
       });
       return base + addons;
+    },
+  },
+  methods: {
+    sendOrder() {
+      this.$store.dispatch('postOrder');
     },
   },
 };

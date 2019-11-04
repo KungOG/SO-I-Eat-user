@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
   getMenuItems (ctx) {
-    const url = 'http://localhost:3000/products';
+    const url = 'https://so-i-eat-server.herokuapp.com/products';
     axios
     .get(url)
     .then(response => {
@@ -13,12 +13,20 @@ export default {
     })
   },
   getCategories(ctx) {
-    const url = 'http://localhost:3000/categories';
+    const url = 'https://so-i-eat-server.herokuapp.com/categories';
     axios
     .get(url)
     .then(response => {
       ctx.commit('setCategories', response.data)
     })
+    .catch(error => {
+      console.log(error)
+    })
+  },
+  postOrder(ctx) {
+    const url = 'https://so-i-eat-server.herokuapp.com/orders';
+    axios
+    .post(url, this.state.order)
     .catch(error => {
       console.log(error)
     })
