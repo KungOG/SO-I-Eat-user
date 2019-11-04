@@ -10,7 +10,7 @@
             :item="item"
             :selectedCard="selectedCard"
             :index="i"
-            @click.native="routeToOrderItem(item.id, i)"/>
+            @click.native="routeToOrderItem(item.productName, i)"/>
           <menu-card
             class="desktop"
             :displayIcons="displayIcons"
@@ -20,7 +20,7 @@
             @setSelectedCard="setSelectedCard"/>
         </div>
       </div>
-      <menu-footer @click.native="$router.push('/orderitem/0')" :text="footerText" class="mobile"/>
+      <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
       <cart class="desktop"/>
     </div>
 </template>

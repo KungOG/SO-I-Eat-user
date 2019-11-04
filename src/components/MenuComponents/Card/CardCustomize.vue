@@ -44,7 +44,6 @@ export default {
   methods: {
     removeIngredient(ingredient) {
       this.$emit('setRemovedIngredients', ingredient);
-      console.log(ingredient)
     },
     addOption(option) {
       this.$emit('setAddedOption', option);

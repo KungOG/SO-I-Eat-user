@@ -1,8 +1,8 @@
 export default {
     getOrderItem (state) {
-      return (id) => {
+      return (name) => {
         return state.menuItems.filter(
-          item => item.id == id
+          item => item.productName == name
         )[0]
       }
     },

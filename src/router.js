@@ -50,7 +50,7 @@ export default new Router({
     },
     {
       path: '/orderitem',
-      name: 'orderitem',
+      name: 'orderitems',
       component: () => import('./views/OrderItem.vue'),
     },
     {

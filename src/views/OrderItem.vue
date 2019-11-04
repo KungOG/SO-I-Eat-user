@@ -1,7 +1,13 @@
 <template>
   <div>
-    <menu-card v-if="!showCart" :item="item" :displayIcons="displayIcons" :selectedCard="1" :index="1"/>
-    <menu-footer @click.native="$router.push('/order')" :text="footerText" class="mobile"/>
+    <menu-card 
+      v-if="!showCart"
+      :item="item"
+      :displayIcons="displayIcons"
+      :selectedCard="1"
+      :index="1"
+      ref="form"/>
+    <menu-footer @click.native="addToCart" :text="footerText" class="mobile"/>
     <Cart v-if="showCart" />
   </div>
 </template>
@@ -28,7 +34,13 @@ export default {
     },
   },
   beforeMount() {
-    this.$route.params.id === 0 ? this.showCart = true : this.showCart = false;
+    this.$route.params.id === 'varukorg' ? this.showCart = true : this.showCart = false;
+  },
+  methods: {
+    addToCart() {
+      this.$refs.form.addItemToCart();
+      this.$router.push('/order');
+    },
   },
 };
 </script>
