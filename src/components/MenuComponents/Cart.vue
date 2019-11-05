@@ -15,7 +15,7 @@
             <p v-for="(remove, i) in item.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
           <h6 class='price'>{{item.price + item.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-</h6>
-          <img class='icon' src="@/assets/icons/delete.svg">
+          <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItem(item)">
         </div>
       </div>
       <div class='summery'>
@@ -50,6 +50,9 @@ export default {
   methods: {
     sendOrder() {
       this.$store.dispatch('postOrder');
+    },
+    deleteOrderItem(item) {
+      this.$store.commit('deleteOrderItem', this.orderItems.items.indexOf(item));
     },
   },
 };
