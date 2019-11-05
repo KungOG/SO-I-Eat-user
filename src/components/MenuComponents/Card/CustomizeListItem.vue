@@ -1,6 +1,6 @@
 <template>
   <div>
-    <li class='ingredient' :class="[active ? 'active' : 'inactive']" @click="toggleActive">  
+    <li class='ingredient' :class="[activeI ? 'active' : 'inactive']" @click="toggleActive">  
         <div class='ingredient-name'>
             <slot name="itemName"/>
         </div>
@@ -11,6 +11,9 @@
 
 <script>
 export default {
+  data: () => ({
+    activeI: null,
+  }),
   props: {
     option: {
       type: Object,
@@ -23,9 +26,12 @@ export default {
       required: true,
     },
   },
+  beforeMount() {
+    this.activeI = this.active;
+  },
   methods: {
     toggleActive() {
-      this.active = !this.active;
+      this.activeI = !this.activeI;
     },
   },
 };
