@@ -33,6 +33,7 @@ export default {
     select(value) {
       this.selected = value;
       this.$emit('setSelected', value);
+      this.$emit('setSelectedCard', -1);
     },
   },
 };
