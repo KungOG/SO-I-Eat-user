@@ -10,15 +10,23 @@
             :item="item"
             :selectedCard="selectedCard"
             :index="i"
-            @click.native="routeToOrderItem(item.productName, i)"/>
+            @click.native="routeToOrderItem(item.productName, i)"
+          />
           <menu-card
             class="desktop"
             :displayIcons="displayIcons"
             :item="item"
             :selectedCard="selectedCard"
             :index="i"
-            @setSelectedCard="setSelectedCard"/>
+            @setSelectedCard="setSelectedCard"
+          />
         </div>
+        <drink-card
+          class="mobile"
+          v-for="drink in drinks"
+          :key="`dink-card-${drink.drinkNr}`"
+          :drink="drink"
+        />    
       </div>
       <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
       <cart class="desktop"/>
@@ -31,6 +39,7 @@ import ScrollNavigation from '@/components/MenuComponents/ScrollNavigation.vue';
 import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
 import SideNavigation from '@/components/SideNavigation.vue';
 import Cart from '@/components/MenuComponents/Cart.vue';
+import DrinkCard from '@/components/MenuComponents/DrinkCard.vue';
 
 export default {
   name: 'order',
@@ -39,13 +48,15 @@ export default {
     ScrollNavigation,
     SideNavigation,
     MenuFooter,
-    Cart
+    Cart,
+    DrinkCard,
   },
   data: () => ({
     selected: 0,
     displayIcons: false,
     selectedCard: -1,
     footerText: {text: 'min beställning'},
+    drinks: [{drinkNr: 1, drinkName: 'coca cola', price: 29}, {drinkNr: 2, drinkName: 'ramlösa', price: 24}, {drinkNr: 3, drinkName: 'fanta', price: 29}, {drinkNr: 4, drinkName: 'pepsi', price: 29}]
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
