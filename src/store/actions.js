@@ -27,6 +27,7 @@ export default {
     const url = 'https://so-i-eat-server.herokuapp.com/orders';
     axios
     .post(url, this.state.order)
+    console.log(this.state.order)
     .catch(error => {
       console.log(error)
     })

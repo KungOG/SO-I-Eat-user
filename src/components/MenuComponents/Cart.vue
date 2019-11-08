@@ -21,7 +21,7 @@
       <div class='summery'>
         <h6>Totalsumma</h6>
         <h6 class='totalAmount'>{{totalAmount}}:-</h6>
-        <StandardButton class='desktop btn' :buttonText="'Betala'" @click="sendOrder"/>
+        <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="sendOrder"/>
       </div>
     </div>
   </div>
@@ -49,7 +49,9 @@ export default {
   },
   methods: {
     sendOrder() {
+      console.log('innan skickat')
       this.$store.dispatch('postOrder');
+      console.log('skickat')
     },
     deleteOrderItem(item) {
       this.$store.commit('deleteOrderItem', this.orderItems.items.indexOf(item));

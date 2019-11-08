@@ -9,7 +9,6 @@ export default {
     {name: 'Paprika', price: 10}
   ],
   order: {
-    orderNr: null,
     table: null,
     time: new Date,
     items: [],
