@@ -8,11 +8,15 @@
         <h3>{{drink.productName}}</h3>
       </div>
       <div class="price">
-        <h4>{{drink.price}}</h4>
+        <h4>{{test.price}}</h4>
       </div>
       <div class="add-icon">
         <Add class="add-icon"/>
       </div>
+      <div class="drink-info">
+        <p>{{test.info}}</p>
+      </div>
+      <div class="filler" />
     </section>
   </div>
 </template>
@@ -24,10 +28,20 @@ export default {
   components: {
     Add,
   },
+  data() {
+    return {
+      test: {
+        price: 33,
+        drinkName: 'Cola Cola',
+        drinkNr: 3,
+        info: '33cl',
+      } 
+    }
+  },
   props: {
     drink: {
       type: Object,
-      required: true,
+      required: false,
     },
   },
 };
