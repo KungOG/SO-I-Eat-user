@@ -1,22 +1,25 @@
 <template>
-  <div class='home' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
-    <div class='wrapper'>
-      <!-- <header>
-        <img :src="require('@/assets/icons/'+ Maps)" alt="" @click="test()">
-        <img :src="require('@/assets/icons/'+ Logga)" alt="" @click="test()">
-        <img :src="require('@/assets/icons/'+ Info)" alt="" @click="test()">
-      </header> -->
-      <footer>
+  <div class='home'>
+    <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
+      <NavigationBar class="mobile"/>
+      <div class='golden-arrow'>
         <img :src="require('@/assets/icons/'+ Arrow)" alt="" @click="test()">
-      </footer>
+      </div>
     </div>
+    <Menu />
   </div>
 </template>
 
 <script>
+import Menu from './Menu.vue';
+import NavigationBar from '@/components/NavigationBar.vue';
 
 export default {
   name: 'home',
+  components: {
+    Menu,
+    NavigationBar
+  },
   data () {
     return {
       Logga: 'logga.svg',
