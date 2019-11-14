@@ -24,7 +24,7 @@
         <drink-card
           v-show="selected === 7"
           v-for="drink in drinks"
-          :key="`dink-card-${drink.drinkNr}`"
+          :key="`dink-card-${drink.productNr}`"
           :drink="drink"
         />    
       </div>
@@ -56,7 +56,6 @@ export default {
     displayIcons: false,
     selectedCard: -1,
     footerText: {text: 'min beställning'},
-    drinks: [{drinkNr: 1, drinkName: 'coca cola', price: 29}, {drinkNr: 2, drinkName: 'ramlösa', price: 24}, {drinkNr: 3, drinkName: 'fanta', price: 29}, {drinkNr: 4, drinkName: 'pepsi', price: 29}]
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
@@ -65,6 +64,9 @@ export default {
   computed: {
     sortedMenuItems() {
       return this.$store.getters.sortedMenuItems;
+    },
+    drinks() {
+      return this.sortedMenuItems.filter((item) => item.category === 7).reverse();
     },
     filteredMenuitems() {
       return this.sortedMenuItems.filter((item) => item.category === this.selected).reverse();
