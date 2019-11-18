@@ -45,6 +45,7 @@ export default {
     clicked(icon) {
       this.selected = icon;
       this.$store.commit('setOrderState', icon);
+      icon === 'takeAway' ? this.$store.commit('setTableInput', 0) : '';
     }
   }
 };

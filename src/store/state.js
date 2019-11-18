@@ -10,7 +10,7 @@ export default {
     { name: 'Paprika', price: 10 },
   ],
   order: {
-    table: null,
+    table: 0,
     time: new Date(),
     foodItems: [],
     drinkItems: [],
