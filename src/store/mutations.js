@@ -5,10 +5,13 @@ export default {
   setCategories(state, categories) {
     state.categories = categories;
   },
-  setOrderItems(state, orderItems) {
-    state.order.items.push(orderItems);
+  setOrderItemsFood(state, orderItems) {
+    state.order.foodItems.push(orderItems);
   },
-  deleteOrderItem(state, orderItem) {
-    state.order.items.splice(orderItem, 1);
+  setOrderItemsDrink(state, orderItems) {
+    state.order.drinkItems.push(orderItems);
+  },
+  deleteOrderItemFood(state, orderItem) {
+    state.order.foodItems.splice(orderItem, 1);
   },
 };

@@ -26,6 +26,7 @@
           v-for="drink in drinks"
           :key="`dink-card-${drink.productNr}`"
           :drink="drink"
+          @click.native="addDrinkToCart(drink)"
         />    
       </div>
       <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
@@ -86,6 +87,10 @@ export default {
     setSelectedCard(i) {
       this.selectedCard = i;
     },
+    addDrinkToCart(drink) {
+      this.$store.dispatch('setOrderItemsDrink', drink);
+      console.log(drink)
+    }
   },
 };
 </script>

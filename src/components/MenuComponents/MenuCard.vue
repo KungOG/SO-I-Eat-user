@@ -84,7 +84,7 @@ export default {
       this.showAlternatives = true;
     },
     addItemToCart() {
-      this.$store.dispatch('setOrderItems', {items1: this.orderDetails, items2: this.item});
+      this.$store.dispatch('setOrderItemsFood', {items1: this.orderDetails, items2: this.item});
       this.$emit('setSelectedCard', -1);
     },
     setProtein(item) {

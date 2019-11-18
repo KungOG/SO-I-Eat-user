@@ -11,6 +11,7 @@ export default {
   order: {
     table: null,
     time: new Date(),
-    items: [],
+    foodItems: [],
+    drinkItems: [],
   },
 };

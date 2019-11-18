@@ -8,13 +8,13 @@
         <h3>{{drink.productName}}</h3>
       </div>
       <div class="price">
-        <h4>{{test.price}}</h4>
+        <h4>{{drink.price}}</h4>
       </div>
       <div class="add-icon">
         <Add class="add-icon"/>
       </div>
       <div class="drink-info">
-        <p>{{test.info}}</p>
+        <p>{{drink.description}}</p>
       </div>
       <div class="filler" />
     </section>
@@ -27,16 +27,6 @@ import Add from './Card/Add.vue';
 export default {
   components: {
     Add,
-  },
-  data() {
-    return {
-      test: {
-        price: 33,
-        drinkName: 'Cola Cola',
-        drinkNr: 3,
-        info: '33cl',
-      } 
-    }
   },
   props: {
     drink: {

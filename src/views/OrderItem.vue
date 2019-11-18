@@ -40,14 +40,15 @@ export default {
   },
   methods: {
     cartEvents() {
-      this.showCart ? this.toPayment() : this.addToCart();
+      this.showCart ? this.toPayment() : this.addFoodToCart();
     },
-    addToCart() {
+    addFoodToCart() {
       this.$refs.form.addItemToCart();
       this.$router.push('/order');
     },
     toPayment() {
-      console.log('till betalning');
+      this.$store.dispatch('postOrder');
+      console.log('skickat')
     },
   },
 };
