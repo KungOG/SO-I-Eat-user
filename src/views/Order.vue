@@ -37,8 +37,11 @@
       </modal>
       <modal v-if="showInputModal" showAbort="false">
         <h5>Vilket bord sitter du vid?</h5>
-        <input type="text">
-      </modal>
+        <input
+          type="text"
+          maxlength="2"
+          onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" />
+       </modal>
     </div>
 </template>
 
