@@ -11,7 +11,9 @@
     background: white;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    justify-content: space-around;
+    height: 350px;
+    width: 400px;
 
     .modal-content {
       color: black;
@@ -27,5 +29,16 @@
       justify-content: center;
       align-items: center;
     }
+  }
+}
+
+.modal > .modal-wrapper > .modal-content {
+  input {
+    border: none;
+    border-bottom: 2px solid black;
+    text-align: center;
+    font-size: 50px;
+    width: 150px;
+    outline: none;
   }
 }
