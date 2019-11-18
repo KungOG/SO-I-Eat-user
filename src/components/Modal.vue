@@ -5,7 +5,7 @@
         <slot/>
       </section>
       <section class='modal-buttons'>
-        <StandardButton class="abort-button" v-if="showAbort" buttonText="Avbryt" />
+        <StandardButton class="abort-button" v-if="showAbort" buttonText="Avbryt" @click.native="closeModal" />
         <StandardButton @click.native="sendTableInput" />
       </section>
     </section>
@@ -29,7 +29,11 @@ export default {
     sendTableInput() {
       console.log('hej')
       this.$emit('sendTableInput');
-    }
-  }
+    },
+    closeModal() {
+      this.$store.commit('setOrderState');
+      this.$router.push('/');
+    },
+  },
 };
 </script>

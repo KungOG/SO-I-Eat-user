@@ -10,7 +10,7 @@
       <h5>{{modalHeader}}</h5>
       <p>{{modalText}}</p>
     </modal>
-    <modal v-if="orderState === 'eatHere'" :showAbort="showAbort" @sendTableInput="sendTableInput">
+    <modal v-if="orderState === 'eatHere'" :showAbort="showAbort" @sendTableInput="sendTableInput" >
       <h5>Vilket bord sitter du vid?</h5>
       <input
         v-model="tableInput"
@@ -71,7 +71,7 @@ export default {
     sendTableInput() {
       console.log('kdjsl')
       this.$store.commit('setTableInput', this.tableInput);
-      this.$store.commit('setOrderState', '');
+      this.$store.commit('setOrderState');
     },
   },
 };
