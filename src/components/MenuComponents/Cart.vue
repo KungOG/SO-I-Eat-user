@@ -3,7 +3,8 @@
     <div class='cart-wrapper'>
       <section class='head'>
         <h1>Min beställning</h1>
-        <h5 class='bord'>Bord 5</h5>
+        <h5 v-if="orderItems.table === 0" class='bord'>Take Away</h5>
+        <h5 v-else class='bord'>Bord {{orderItems.table}}</h5>
       </section>
       <section class='cart-order'>
         <div class='order-items' v-for="(item, i) in orderItems.foodItems" :key="`order-food-items-${i}`">
