@@ -1,11 +1,13 @@
 <template>
   <div class='modal'>
-    <section class="modal-content">
-      <slot/>
-    </section>
-    <section class='modal-buttons'>
-      <StandardButton />
-      <StandardButton />
+    <section class='modal-wrapper'>
+      <section class="modal-content">
+        <slot/>
+      </section>
+      <section class='modal-buttons'>
+        <StandardButton />
+        <StandardButton />
+      </section>
     </section>
   </div>
 </template>
