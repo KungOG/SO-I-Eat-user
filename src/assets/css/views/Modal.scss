@@ -35,10 +35,20 @@
 .modal > .modal-wrapper > .modal-content {
   input {
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid $main-secondary-color;
     text-align: center;
     font-size: 50px;
-    width: 150px;
+    width: 75px;
+    color: transparent;
+    text-shadow: 0 0 0 black;
+    transition: width .5s;
+  }
+  
+  input:focus {
     outline: none;
+    border-bottom: 2px solid $secondary-color;
+    transition: border-bottom .2s;
+    width: 150px;
+    transition: width .3s;
   }
 }
