@@ -14,4 +14,10 @@ export default {
   deleteOrderItemFood(state, orderItem) {
     state.order.foodItems.splice(orderItem, 1);
   },
+  setOrderState(state, orderState) {
+    state.orderState = orderState;
+  },
+  setTableInput(state, tableInput) {
+    state.order.table = tableInput;
+  },
 };

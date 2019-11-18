@@ -5,8 +5,8 @@
         <slot/>
       </section>
       <section class='modal-buttons'>
-        <StandardButton v-if="showAbort" buttonText="Avbryt"/>
-        <StandardButton />
+        <StandardButton class="abort-button" v-if="showAbort" buttonText="Avbryt" />
+        <StandardButton @click.native="sendTableInput" />
       </section>
     </section>
   </div>
@@ -25,5 +25,11 @@ export default {
       type: Boolean,
     },
   },
+  methods: {
+    sendTableInput() {
+      console.log('hej')
+      this.$emit('sendTableInput');
+    }
+  }
 };
 </script>

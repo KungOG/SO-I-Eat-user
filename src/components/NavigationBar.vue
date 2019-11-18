@@ -2,7 +2,7 @@
   <div class="nav-container" :class="$route.path == '/' ? 'transparent' : ''"> 
     <div class="nav-item" v-for="(icon, i) in icons" :key="i" >
       <router-link :to="icon.urlTo" active-class="route-active">
-        <img :src="icon.icon" />
+        <img :src="icon.icon" @click="clicked(icon.name)"/>
       </router-link>
     </div>
   </div>
@@ -22,7 +22,7 @@ export default {
   data: () => ({
     selected: null,
     iconsMenu: [{icon: Maps, urlTo: '/contact'}, {icon: Logo, urlTo: '/'}, {icon: Info, urlTo: '/about'}],
-    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, urlTo: '/order'}, {icon: EatHere, urlTo: '/order'}, {icon: Clock, urlTo: '/'}],
+    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, urlTo: '/'}],
     iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, urlTo: '/order'}],
   }),
   computed: {
@@ -41,6 +41,11 @@ export default {
       }
     }
   },
+  methods: {
+    clicked(icon) {
+      this.$store.commit('setOrderState', icon);
+    }
+  }
 };
 </script>
 

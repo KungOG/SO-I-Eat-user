@@ -1,6 +1,7 @@
 export default {
   menuItems: [],
   categories: [],
+  orderState: '',
   menuOptions: [
     { name: 'Tomat', price: 12 },
     { name: 'Jordnötter', price: 3 },
