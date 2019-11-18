@@ -30,7 +30,7 @@ export default {
       this.$emit('sendTableInput');
     },
     closeModal() {
-      this.$store.commit('setOrderState');
+      this.$store.commit('setOrderState', null);
       this.$router.push('/');
     },
   },

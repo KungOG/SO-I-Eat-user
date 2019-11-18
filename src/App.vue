@@ -6,46 +6,21 @@
         <h1>Install!</h1>
       </a>
     </div>
-    <modal v-if="showTextModal === false" :showAbort="!showAbort">
-      <h5>{{modalHeader}}</h5>
-      <p>{{modalText}}</p>
-    </modal>
-    <modal v-if="orderState === 'eatHere'" :showAbort="showAbort" @sendTableInput="sendTableInput" >
-      <h5>Vilket bord sitter du vid?</h5>
-      <input
-        v-model="tableInput"
-        type="text"
-        maxlength="2"
-        onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" />
-    </modal>
     <router-view/>
   </div>
 </template>
 
 <script>
 import NavigationBar from '@/components/NavigationBar.vue';
-import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
-    NavigationBar,
-    Modal
+    NavigationBar
   },
   data: () => ({
     installBtn: 'none',
     installer: undefined,
-    showTextModal: true,
-    showInputModal: false,
-    modalHeader: 'Vill du verkligen',
-    modalText: 'göra en beställning?',
-    showAbort: true,
-    tableInput: '',
   }),
-  computed: {
-    orderState() {
-      return this.$store.state.orderState;
-    },
-  },
   created() {
     let installPrompt;
 
@@ -66,12 +41,6 @@ export default {
         }
       });
     };
-  },
-  methods: {
-    sendTableInput() {
-      this.$store.commit('setTableInput', this.tableInput);
-      this.$store.commit('setOrderState');
-    },
   },
 };
 </script>

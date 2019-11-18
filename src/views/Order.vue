@@ -1,37 +1,49 @@
 <template>
-    <div class='order'>
-      <scroll-navigation class="mobile" :categories="categories" @setSelected="setSelected"/>
-      <side-navigation class="desktop" :categories="categories" @setSelected="setSelected" @setSelectedCard="setSelectedCard"/>
-      <div class="card-wrapper">
-        <div v-for="(item, i) in filteredMenuitems" :key="`filtered-menu-items-${i}`" v-show="selected !== 7">
-          <menu-card
-            class="mobile"
-            :displayIcons="displayIcons"
-            :item="item"
-            :selectedCard="selectedCard"
-            :index="i"
-            @click.native="routeToOrderItem(item.productName, i)"
-          />
-          <menu-card
-            class="desktop"
-            :displayIcons="displayIcons"
-            :item="item"
-            :selectedCard="selectedCard"
-            :index="i"
-            @setSelectedCard="setSelectedCard"
-          />
-        </div>
-        <drink-card
-          v-show="selected === 7"
-          v-for="drink in drinks"
-          :key="`dink-card-${drink.productNr}`"
-          :drink="drink"
-          @click.native="addDrinkToCart(drink)"
-        />    
+  <div class='order'>
+    <scroll-navigation class="mobile" :categories="categories" @setSelected="setSelected"/>
+    <side-navigation class="desktop" :categories="categories" @setSelected="setSelected" @setSelectedCard="setSelectedCard"/>
+    <div class="card-wrapper">
+      <div v-for="(item, i) in filteredMenuitems" :key="`filtered-menu-items-${i}`" v-show="selected !== 7">
+        <menu-card
+          class="mobile"
+          :displayIcons="displayIcons"
+          :item="item"
+          :selectedCard="selectedCard"
+          :index="i"
+          @click.native="routeToOrderItem(item.productName, i)"
+        />
+        <menu-card
+          class="desktop"
+          :displayIcons="displayIcons"
+          :item="item"
+          :selectedCard="selectedCard"
+          :index="i"
+          @setSelectedCard="setSelectedCard"
+        />
       </div>
-      <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
-      <cart class="desktop"/>
+      <drink-card
+        v-show="selected === 7"
+        v-for="drink in drinks"
+        :key="`dink-card-${drink.productNr}`"
+        :drink="drink"
+        @click.native="addDrinkToCart(drink)"
+      />    
     </div>
+    <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
+    <cart class="desktop"/>
+    <modal v-if="showTextModal === false" :showAbort="!showAbort">
+      <h5>{{modalHeader}}</h5>
+      <p>{{modalText}}</p>
+    </modal>
+    <modal v-if="orderState === 'eatHere'" :showAbort="showAbort" @sendTableInput="sendTableInput" >
+      <h5>Vilket bord sitter du vid?</h5>
+      <input
+        v-model="tableInput"
+        type="text"
+        maxlength="2"
+        onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" />
+    </modal>
+  </div>
 </template>
 
 <script>
@@ -41,6 +53,7 @@ import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
 import SideNavigation from '@/components/SideNavigation.vue';
 import Cart from '@/components/MenuComponents/Cart.vue';
 import DrinkCard from '@/components/MenuComponents/DrinkCard.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   name: 'order',
@@ -51,12 +64,19 @@ export default {
     MenuFooter,
     Cart,
     DrinkCard,
+    Modal,
   },
   data: () => ({
     selected: 0,
     displayIcons: false,
     selectedCard: -1,
     footerText: {text: 'min beställning'},
+    showTextModal: true,
+    showInputModal: false,
+    modalHeader: 'Vill du verkligen',
+    modalText: 'göra en beställning?',
+    showAbort: true,
+    tableInput: null,
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
@@ -75,6 +95,9 @@ export default {
     categories() {
       return this.$store.state.categories;
     },
+    orderState() {
+      return this.$store.state.orderState;
+    },
   },
   methods: {
     routeToOrderItem(id, i) {
@@ -90,7 +113,11 @@ export default {
     addDrinkToCart(drink) {
       this.$store.dispatch('setOrderItemsDrink', drink);
       console.log(drink)
-    }
+    },
+    sendTableInput() {
+      this.$store.commit('setTableInput', this.tableInput);
+      this.$store.commit('setOrderState', null);
+    },
   },
 };
 </script>
