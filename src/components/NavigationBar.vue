@@ -2,7 +2,7 @@
   <div class="nav-container" :class="$route.path == '/' ? 'transparent' : ''"> 
     <div class="nav-item" v-for="(icon, i) in icons" :key="i" >
       <router-link :to="icon.urlTo" active-class="route-active">
-        <img :src="icon.icon" @click="clicked(icon.name)"/>
+        <img :src="icon.icon" @click="clicked(icon.name)" :class="selected === icon.name ? 'active-icon' : '' "/>
       </router-link>
     </div>
   </div>
@@ -43,6 +43,7 @@ export default {
   },
   methods: {
     clicked(icon) {
+      this.selected = icon;
       this.$store.commit('setOrderState', icon);
     }
   }
@@ -67,5 +68,10 @@ export default {
 
 .nav-item {
   margin: 20px;
+
+  .active-icon {
+    background: pink;
+    pointer-events: none;
+  }
 }
 </style>
