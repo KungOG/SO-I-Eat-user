@@ -69,7 +69,6 @@ export default {
   },
   methods: {
     sendTableInput() {
-      console.log('kdjsl')
       this.$store.commit('setTableInput', this.tableInput);
       this.$store.commit('setOrderState');
     },

@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     sendTableInput() {
-      console.log('hej')
       this.$emit('sendTableInput');
     },
     closeModal() {
