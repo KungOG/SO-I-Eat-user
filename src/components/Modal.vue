@@ -4,8 +4,8 @@
       <slot/>
     </section>
     <section class='modal-buttons'>
-      <StandardButton />
-      <StandardButton />
+      <StandardButton @click=""/>
+      <StandardButton @click=""/>
     </section>
   </div>
 </template>

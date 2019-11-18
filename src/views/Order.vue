@@ -32,10 +32,11 @@
       <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
       <cart class="desktop"/>
       <modal v-if="showTextModal">
-        <h2>Vill du verkligen</h2>
-        <p>göra en beställning?</p>
+        <h5>{{modalHeader}}</h5>
+        <p>{{modalText}}</p>
       </modal>
       <modal v-if="showInputModal">
+        <h5>Vilket bord sitter du vid?</h5>
         <input type="text">
       </modal>
     </div>
@@ -68,6 +69,8 @@ export default {
     footerText: {text: 'min beställning'},
     showTextModal: true,
     showInputModal: true,
+    modalHeader: 'Vill du verkligen',
+    modalText: 'göra en beställning?',
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
