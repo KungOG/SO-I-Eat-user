@@ -5,7 +5,7 @@
         <slot/>
       </section>
       <section class='modal-buttons'>
-        <StandardButton v-if="sshowAbort" buttonText="Avbryt"/>
+        <StandardButton v-if="showAbort" buttonText="Avbryt"/>
         <StandardButton />
       </section>
     </section>
