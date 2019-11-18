@@ -31,6 +31,13 @@
       </div>
       <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
       <cart class="desktop"/>
+      <modal v-if="showTextModal">
+        <h2>Vill du verkligen</h2>
+        <p>göra en beställning?</p>
+      </modal>
+      <modal v-if="showInputModal">
+        <input type="text">
+      </modal>
     </div>
 </template>
 
@@ -41,6 +48,7 @@ import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
 import SideNavigation from '@/components/SideNavigation.vue';
 import Cart from '@/components/MenuComponents/Cart.vue';
 import DrinkCard from '@/components/MenuComponents/DrinkCard.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   name: 'order',
@@ -51,12 +59,15 @@ export default {
     MenuFooter,
     Cart,
     DrinkCard,
+    Modal,
   },
   data: () => ({
     selected: 0,
     displayIcons: false,
     selectedCard: -1,
     footerText: {text: 'min beställning'},
+    showTextModal: true,
+    showInputModal: true,
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
