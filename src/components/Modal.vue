@@ -1,11 +1,13 @@
 <template>
   <div class='modal'>
-    <section class="modal-content">
-      <slot/>
-    </section>
-    <section class='modal-buttons'>
-      <StandardButton @click=""/>
-      <StandardButton @click=""/>
+    <section class='modal-wrapper'>
+      <section class="modal-content">
+        <slot/>
+      </section>
+      <section class='modal-buttons'>
+        <StandardButton v-if="sshowAbort" buttonText="Avbryt"/>
+        <StandardButton />
+      </section>
     </section>
   </div>
 </template>
@@ -17,6 +19,11 @@ export default {
   name: 'modal',
   components: {
     StandardButton,
+  },
+  props: {
+    showAbort: {
+      type: Boolean,
+    },
   },
 };
 </script>

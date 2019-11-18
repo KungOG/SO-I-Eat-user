@@ -31,11 +31,11 @@
       </div>
       <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
       <cart class="desktop"/>
-      <modal v-if="showTextModal">
+      <modal v-if="showTextModal" showAbort="true">
         <h5>{{modalHeader}}</h5>
         <p>{{modalText}}</p>
       </modal>
-      <modal v-if="showInputModal">
+      <modal v-if="showInputModal" showAbort="false">
         <h5>Vilket bord sitter du vid?</h5>
         <input type="text">
       </modal>
