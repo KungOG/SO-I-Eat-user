@@ -4,24 +4,26 @@
     <side-navigation class="desktop" :categories="categories" @setSelected="setSelected" @setSelectedCard="setSelectedCard"/>
     <div class="card-wrapper">
       <div v-for="(item, i) in filteredMenuitems" :key="`filtered-menu-items-${i}`" v-show="selected !== 7">
-        <menu-card
+        <MenuCard
           class="mobile"
           :displayIcons="displayIcons"
           :item="item"
           :selectedCard="selectedCard"
           :index="i"
+          @setModalText="setModalText"
           @click.native="routeToOrderItem(item.productName, i)"
         />
-        <menu-card
+        <MenuCard
           class="desktop"
           :displayIcons="displayIcons"
           :item="item"
           :selectedCard="selectedCard"
           :index="i"
+          @setModalText="setModalText"
           @setSelectedCard="setSelectedCard"
         />
       </div>
-      <drink-card
+      <DrinkCard
         v-show="selected === 7"
         v-for="drink in drinks"
         :key="`dink-card-${drink.productNr}`"
@@ -31,11 +33,11 @@
     </div>
     <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
     <cart class="desktop"/>
-    <modal v-if="showTextModal === false" :showAbort="!showAbort">
+    <modal v-if="showTextModal" :showAbort="!showAbort">
       <h5>{{modalHeader}}</h5>
       <p>{{modalText}}</p>
     </modal>
-    <modal v-if="orderState === 'eatHere'" :showAbort="showAbort" @sendTableInput="sendTableInput" >
+    <modal class="mobile" v-if="orderState === 'eatHere'" :showAbort="showAbort" @sendTableInput="sendTableInput" >
       <h5>Vilket bord sitter du vid?</h5>
       <input
         v-model="tableInput"
@@ -71,9 +73,9 @@ export default {
     displayIcons: false,
     selectedCard: -1,
     footerText: {text: 'min beställning'},
-    showTextModal: true,
+    showTextModal: false,
     showInputModal: false,
-    modalHeader: 'Vill du verkligen',
+    modalHeader: '',
     modalText: 'göra en beställning?',
     showAbort: true,
     tableInput: null,
@@ -112,11 +114,15 @@ export default {
     },
     addDrinkToCart(drink) {
       this.$store.dispatch('setOrderItemsDrink', drink);
-      console.log(drink)
     },
     sendTableInput() {
       this.$store.commit('setTableInput', this.tableInput);
       this.$store.commit('setOrderState', null);
+    },
+    setModalText(text) {
+      console.log('hhh',text)
+      this.modalHeader = text;
+      this.showTextModal = true;
     },
   },
 };

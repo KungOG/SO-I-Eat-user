@@ -84,7 +84,19 @@ export default {
       this.showAlternatives = true;
     },
     addItemToCart() {
-      this.$store.dispatch('setOrderItemsFood', {items1: this.orderDetails, items2: this.item});
+      if(this.orderDetails.protein === '' && this.orderDetails.spice === null) {
+        this.$emit('setModalText', 'ange dina val av huvudingredients och styrka');
+        console.log('båda')
+      } else if (this.orderDetails.spice === null) {
+        this.$emit('setModalText', 'ange ditt val av styrka');
+        console.log('krydda')
+      } else if(this.orderDetails.protein === '') {
+        this.$emit('setModalText', 'ange ditt val av huvudingredients');
+        console.log('kött')
+      } else {
+        this.$store.dispatch('setOrderItemsFood', {items1: this.orderDetails, items2: this.item});
+        console.log('ingen')
+      }
       this.$emit('setSelectedCard', -1);
     },
     setProtein(item) {
