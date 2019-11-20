@@ -26,8 +26,17 @@ export default {
       required: true,
     },
   },
+  computed: {
+    itemToEdit() {
+      return this.$store.state.itemToEdit;
+    },
+  },
   beforeMount() {
     this.activeI = this.active;
+  },
+  mounted() {
+    this.itemToEdit.remove.includes(this.ingredient) ? this.activeI = !this.activeI : '';
+    this.itemToEdit.add.includes(this.option) ? this.activeI = !this.activeI : '';
   },
   methods: {
     toggleActive() {

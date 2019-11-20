@@ -52,7 +52,7 @@ export default {
     activeSpice: -1,
   }),
   mounted() {
-    this.proteinItems.length === 1 ? this.chosenProtein(0, this.proteinItems[0]) : ''
+    this.proteinItems.length === 1 ? this.chosenProtein(this.proteinItems[0]) : ''
     if(this.editCart) {
       this.activeSpice = this.itemToEdit.spice;
       this.activeProtein = this.itemToEdit.protein;
