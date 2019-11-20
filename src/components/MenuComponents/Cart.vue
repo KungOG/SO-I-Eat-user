@@ -68,7 +68,7 @@ export default {
       console.log('skickat')
     },
     deleteOrderItemFood(item) {
-      this.$store.commit('deleteOrderItemFood', this.orderItems.items.indexOf(item));
+      this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item));
     },
     editCartItem(id) {
       console.log('edit')
