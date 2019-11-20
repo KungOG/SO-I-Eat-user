@@ -49,11 +49,11 @@ export default {
   methods: {
     chosenProtein(i, item) {
       this.activeProtein = i;
-      this.$emit('setProtein', item);
+      this.$store.commit('setProtein', item);
     },
     chosenSpice(i) {
       this.activeSpice = i;
-      this.$emit('setSpice', i);
+      this.$store.commit('setSpice', i);
     },
   },
 };

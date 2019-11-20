@@ -32,4 +32,18 @@ export default {
   setShowModal(state, boolean) {
     state.showModal = boolean;
   },
+  setProtein(state, protein) {
+    state.orderDetails.protein = protein;
+  },
+  setSpice(state, spice) {
+    state.orderDetails.spice = spice;
+  },
+  setRemovedIngredients(state, ingredient) {
+    const remove = state.orderDetails.remove;
+    remove.includes(ingredient) ? remove.splice(remove.indexOf(ingredient), 1) : remove.push(ingredient);
+  },
+  setAddedOption(state, option) {
+    const add = state.orderDetails.add
+    add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
+  },
 };

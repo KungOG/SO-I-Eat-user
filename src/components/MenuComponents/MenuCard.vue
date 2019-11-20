@@ -8,13 +8,11 @@
       <card-alternatives v-if="showAlternatives"
         :proteinItems="item.protein"
         :showSpice="item.spice"
-        @setProtein="setProtein"
-        @setSpice="setSpice"/>
+        />
       <card-customize 
         v-if="showCustomize"
         :ingredients="item.ingredients"
-        @setRemovedIngredients="removeIngredient"
-        @setAddedOption="addOption"/>
+        />
       <div class="button-wrapper">
         <standard-button
           v-show="showAlternatives"
@@ -63,13 +61,15 @@ export default {
   data: () => ({
     showAlternatives: false,
     showCustomize: false,
-    orderDetails: {
-      protein: '',
-      spice: null,
-      add: [],
-      remove: [],
-    },
   }),
+  computed: {
+    activeProtein() {
+      return this.$store.state.orderDetails.protein;
+    },
+    activeSpice() {
+      return this.$store.state.orderDetails.spice;
+    },
+  },
   watch: {
     selectedCard() {
       this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
@@ -84,36 +84,22 @@ export default {
       this.showAlternatives = true;
     },
     addItemToCart() {
-      if(this.orderDetails.protein === '' && this.orderDetails.spice === null) {
+      if(this.activeProtein === '' && this.activeSpice === null) {
         this.$store.commit('setModalText', 'ange dina val av huvudingredients och styrka');
         this.$store.commit('setShowTextModal', true);
         this.$store.commit('setShowModal', true);
-      } else if (this.orderDetails.spice === null) {
+      } else if (this.activeSpice === null) {
         this.$store.commit('setModalText', 'ange ditt val av styrka');
         this.$store.commit('setShowTextModal', true);
         this.$store.commit('setShowModal', true);
-      } else if(this.orderDetails.protein === '') {
+      } else if(this.activeProtein === '') {
         this.$store.commit('setModalText', 'ange ditt val av huvudingredients');
         this.$store.commit('setShowTextModal', true);
         this.$store.commit('setShowModal', true);
       } else {
-        this.$store.dispatch('setOrderItemsFood', {items1: this.orderDetails, items2: this.item});
+        this.$store.dispatch('setOrderItemsFood', this.item);
       }
       this.$emit('setSelectedCard', -1);
-    },
-    setProtein(item) {
-      this.orderDetails.protein = item;
-    },
-    setSpice(item) {
-      this.orderDetails.spice = item +1;
-    },
-    removeIngredient(ingredient) {
-      const remove = this.orderDetails.remove;
-      remove.includes(ingredient) ? remove.splice(remove.indexOf(ingredient), 1) : remove.push(ingredient);
-    },
-    addOption(option) {
-      const add = this.orderDetails.add;
-      add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
     },
   },
 };

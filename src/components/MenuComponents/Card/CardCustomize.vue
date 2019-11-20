@@ -43,10 +43,10 @@ export default {
   },
   methods: {
     removeIngredient(ingredient) {
-      this.$emit('setRemovedIngredients', ingredient);
+      this.$store.commit('setRemovedIngredients', ingredient);
     },
     addOption(option) {
-      this.$emit('setAddedOption', option);
+      this.$store.commit('setAddedOption', option);
     },
   },
 };

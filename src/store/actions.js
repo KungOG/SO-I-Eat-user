@@ -33,13 +33,13 @@ export default {
   },
   setOrderItemsFood(ctx, payload) {
     const orderItem = {
-      productNr: payload.items2.productNr,
-      productName: payload.items2.productName,
-      protein: payload.items1.protein,
-      spice: payload.items1.spice,
-      price: payload.items2.price,
-      add: payload.items1.add,
-      remove: payload.items1.remove,
+      productNr: payload.productNr,
+      productName: payload.productName,
+      protein: this.state.orderDetails.protein,
+      spice: this.state.orderDetails.spice,
+      price: payload.price,
+      add: this.state.orderDetails.add,
+      remove: this.state.orderDetails.remove,
     };
     ctx.commit('setOrderItemsFood', orderItem);
   },

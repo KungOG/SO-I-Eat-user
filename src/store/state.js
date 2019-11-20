@@ -19,4 +19,10 @@ export default {
     foodItems: [],
     drinkItems: [],
   },
+  orderDetails: {
+    protein: '',
+    spice: null,
+    add: [],
+    remove: [],
+  },
 };
