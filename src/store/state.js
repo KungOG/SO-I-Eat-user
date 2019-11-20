@@ -6,6 +6,7 @@ export default {
   showModal: false,
   categories: [],
   orderState: null,
+  editCart: false,
   menuOptions: [
     { name: 'Tomat', price: 12 },
     { name: 'Jordnötter', price: 3 },

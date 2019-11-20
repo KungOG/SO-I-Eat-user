@@ -49,4 +49,7 @@ export default {
     const add = state.orderDetails.add
     add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
   },
+  editCart(state, boolean) {
+    state.editCart = boolean;
+  }
 };

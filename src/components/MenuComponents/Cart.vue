@@ -74,10 +74,10 @@ export default {
       this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item));
     },
     editCartItem(id) {
-      console.log('edit')
       this.$router.push(`${id}`);
       this.$emit('closeCart');
-    }
+      this.$store.commit('editCart', true);
+    },
   },
 };
 </script>

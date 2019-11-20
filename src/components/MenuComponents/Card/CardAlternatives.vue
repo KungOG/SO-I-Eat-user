@@ -34,6 +34,14 @@ export default {
       required: true,
     },
   },
+  computed: {
+    editOrderDetails() {
+      return this.$store.state.orderDetails;
+    },
+    editCart() {
+      return this.$store.state.editCart;
+    },
+  },
   data: () => ({
     spiceItems: [
       {imgUrl: 'Spice.svg', activeUrl: 'Spice1Active.svg'},
@@ -45,6 +53,9 @@ export default {
   }),
   mounted() {
     this.proteinItems.length === 1 ? this.chosenProtein(0, this.proteinItems[0]) : ''
+    if(this.editCart) {
+      this.activeSpice = this.editOrderDetails.spice;
+    }
   },
   methods: {
     chosenProtein(i, item) {
