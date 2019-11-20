@@ -29,7 +29,7 @@
             <p>{{item.description}}</p>
           </div>
           <h6 class='price'>{{item.price}}:-</h6>
-          <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemFood(item)">
+          <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemDrink(item)">
         </div>
       </section>
       <section class='summery'>
@@ -69,6 +69,9 @@ export default {
     },
     deleteOrderItemFood(item) {
       this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item));
+    },
+    deleteOrderItemDrink(item) {
+      this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item));
     },
     editCartItem(id) {
       console.log('edit')
