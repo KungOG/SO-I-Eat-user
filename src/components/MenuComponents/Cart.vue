@@ -7,9 +7,13 @@
         <h5 v-else class='bord'>Bord {{orderItems.table}}</h5>
       </section>
       <section class='cart-order'>
-        <div class='order-items' v-for="(item, i) in orderItems.foodItems" :key="`order-food-items-${i}`">
+        <div 
+          class='order-items'
+          v-for="(item, i) in orderItems.foodItems"
+          :key="`order-food-items-${i}`"
+        >
           <h6 class="amount">3</h6>
-          <div class="dish">
+          <div class="dish" @click="editCartItem(item.productName)">
             <h6>{{item.productName}}</h6>
             <p>{{item.protein}}</p>
             <p v-for="(add,i) in item.add" :key="`item-add-${i}`">+ {{add.name}}</p>
@@ -66,6 +70,11 @@ export default {
     deleteOrderItemFood(item) {
       this.$store.commit('deleteOrderItemFood', this.orderItems.items.indexOf(item));
     },
+    editCartItem(id) {
+      console.log('edit')
+      this.$router.push(`${id}`);
+      this.$emit('closeCart');
+    }
   },
 };
 </script>

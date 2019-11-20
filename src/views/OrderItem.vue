@@ -14,7 +14,7 @@
     <modal v-if="showTextModal" :showAbort="showAbort" >
       <h5>{{modalText}}</h5>
     </modal>
-    <Cart v-if="showCart" />
+    <Cart v-if="showCart" @closeCart="showCart = null" />
   </div>
 </template>
 
@@ -34,8 +34,6 @@ export default {
   data: () => ({
     showCart: null,
     displayIcons: false,
-    showAbort: false,
-
   }),
   computed: {
     item() {
