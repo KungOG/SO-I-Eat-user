@@ -2,29 +2,30 @@
   <div class='modal'>
     <section class='modal-wrapper'>
       <section class="modal-content">
-        <div v-if="showInputModal">
+        <div class='content' v-if="showInputModal">
           <h5>Vilket bord sitter du vid?</h5>
           <input
             v-model="tableInput"
             type="text"
             maxlength="2"
             onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" />
-            <div @click="cancelModal">x</div>
         </div>
-        <div v-if="showTextModal">
+        <div class='content' v-if="showTextModal">
           <h5>{{modalText}}</h5>
-          <div @click="cancelModal">x</div>
         </div>
       </section>
       <section class='modal-buttons'>
         <StandardButton @click.native="modalAction" />
       </section>
+      <img class='modal-cross-icon' :src="CloseDown" />
     </section>
+    <div class='modal-close-button' @click="cancelModal" />
   </div>
 </template>
 
 <script>
 import StandardButton from './StandardButton.vue';
+import CloseDown from '@/assets/icons/WhiteCross.svg';
 
 export default {
   name: 'modal',
@@ -38,6 +39,7 @@ export default {
   },
   data: () => ({
     tableInput: '',
+    CloseDown: CloseDown,
   }),
   computed: {
     modalText() {
