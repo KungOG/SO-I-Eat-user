@@ -32,16 +32,20 @@ export default {
       });
   },
   setOrderItemsFood(ctx, payload) {
+    const add = this.state.orderDetails.add.map(x => x);
+    const remove = this.state.orderDetails.remove.map(x => x);
+
     const orderItem = {
       productNr: payload.productNr,
       productName: payload.productName,
       protein: this.state.orderDetails.protein,
       spice: this.state.orderDetails.spice,
       price: payload.price,
-      add: this.state.orderDetails.add,
-      remove: this.state.orderDetails.remove,
+      add: add,
+      remove: remove,
     };
     ctx.commit('setOrderItemsFood', orderItem);
+    ctx.commit('resetOrderDetails');
   },
   setOrderItemsDrink(ctx, payload) {
     const orderItem = {

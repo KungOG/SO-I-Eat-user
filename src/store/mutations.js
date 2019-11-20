@@ -49,6 +49,14 @@ export default {
     const add = state.orderDetails.add
     add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
   },
+  resetOrderDetails(state) {
+    state.orderDetails = {
+      protein: '',
+      spice: null,
+      add: [],
+      remove: [],
+    }
+  },
   editCart(state, boolean) {
     state.editCart = boolean;
   },
