@@ -49,7 +49,7 @@ export default {
         this.$store.commit('setShowInputModal', true);
       }
       this.$store.commit('setOrderState', icon);
-      icon === 'takeAway' ? this.$store.commit('setTableInput', 0) : '';
+      icon === 'takeAway' ? this.$store.commit('setTableInput', 'take away') : '';
     }
   }
 };
