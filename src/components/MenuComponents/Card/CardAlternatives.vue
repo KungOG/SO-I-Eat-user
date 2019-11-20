@@ -2,9 +2,9 @@
   <div class="alternative-wrapper">
     <div class='option-wrapper' v-if="showSpice || proteinItems.length !== 0">
       <div class='protein-wrapper' v-if="proteinItems.length !== 0">
-        <div v-for="(item, i) in proteinItems" :key="`protein-items-${i}`" @click="chosenProtein(i, item)">
-          <div class="wrapper" :class="activeProtein === i ? 'active-protein' : ''" >
-          <img v-if="activeProtein === i" :src="require(`@/assets/icons/${item}Active.svg`)" alt="Välj">
+        <div v-for="(item, i) in proteinItems" :key="`protein-items-${i}`" @click="chosenProtein(item)">
+          <div class="wrapper" :class="activeProtein === item ? 'active-protein' : ''" >
+          <img v-if="activeProtein === item" :src="require(`@/assets/icons/${item}Active.svg`)" alt="Välj">
           <img v-else :src="require(`@/assets/icons/${item}.svg`)" alt="Välj">
           </div>
         </div>
@@ -35,8 +35,8 @@ export default {
     },
   },
   computed: {
-    editOrderDetails() {
-      return this.$store.state.orderDetails;
+    itemToEdit() {
+      return this.$store.state.itemToEdit;
     },
     editCart() {
       return this.$store.state.editCart;
@@ -54,12 +54,13 @@ export default {
   mounted() {
     this.proteinItems.length === 1 ? this.chosenProtein(0, this.proteinItems[0]) : ''
     if(this.editCart) {
-      this.activeSpice = this.editOrderDetails.spice;
+      this.activeSpice = this.itemToEdit.spice;
+      this.activeProtein = this.itemToEdit.protein;
     }
   },
   methods: {
-    chosenProtein(i, item) {
-      this.activeProtein = i;
+    chosenProtein(item) {
+      this.activeProtein = item;
       this.$store.commit('setProtein', item);
     },
     chosenSpice(i) {

@@ -51,5 +51,8 @@ export default {
   },
   editCart(state, boolean) {
     state.editCart = boolean;
-  }
+  },
+  setItemToEdit(state, item) {
+    state.itemToEdit = item;
+  },
 };

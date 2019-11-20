@@ -13,7 +13,7 @@
           :key="`order-food-items-${i}`"
         >
           <h6 class="amount">3</h6>
-          <div class="dish" @click="editCartItem(item.productName)">
+          <div class="dish" @click="editCartItem(item)">
             <h6>{{item.productName}}</h6>
             <p>{{item.protein}}</p>
             <p v-for="(add,i) in item.add" :key="`item-add-${i}`">+ {{add.name}}</p>
@@ -73,10 +73,11 @@ export default {
     deleteOrderItemDrink(item) {
       this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item));
     },
-    editCartItem(id) {
-      this.$router.push(`${id}`);
+    editCartItem(item) {
+      this.$router.push(`${item.productName}`);
       this.$emit('closeCart');
       this.$store.commit('editCart', true);
+      this.$store.commit('setItemToEdit', item);
     },
   },
 };
