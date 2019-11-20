@@ -31,7 +31,6 @@
     </div>
     <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
     <cart class="desktop"/>
-
   </div>
 </template>
 
@@ -79,6 +78,20 @@ export default {
     orderState() {
       return this.$store.state.orderState;
     },
+    editCart() {
+      return this.$store.state.editCart;
+    },
+    itemToEdit() {
+      return this.$store.state.itemToEdit;
+    },
+    allMenuItems() {
+      return this.$store.state.menuItems;
+    },
+  },
+  watch: {
+    itemToEdit() {
+      this.editCart ? this.findCategory() : console.log('inte edit')
+    }
   },
   methods: {
     routeToOrderItem(id, i) {
@@ -93,6 +106,14 @@ export default {
     },
     addDrinkToCart(drink) {
       this.$store.dispatch('setOrderItemsDrink', drink);
+    },
+    findCategory() {
+      var category = this.allMenuItems.find(x => x.productName === this.itemToEdit.productName);
+      this.selected = category.category;
+      var card = this.filteredMenuitems.indexOf(category)
+      this.selectedCard = card;
+
+
     },
   },
 };

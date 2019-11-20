@@ -74,7 +74,9 @@ export default {
       this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item));
     },
     editCartItem(item) {
-      this.$router.push(`${item.productName}`);
+      if(this.$route.path !== '/order') {
+        this.$router.push(`${item.productName}`);
+      }
       this.$emit('closeCart');
       this.$store.commit('editCart', true);
       this.$store.commit('setItemToEdit', item);
