@@ -2,11 +2,22 @@
   <div class='modal'>
     <section class='modal-wrapper'>
       <section class="modal-content">
-        <slot/>
+        <div v-if="showInputModal">
+          <h5>Vilket bord sitter du vid?</h5>
+          <input
+            v-model="tableInput"
+            type="text"
+            maxlength="2"
+            onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" />
+            <div @click="cancelModal">x</div>
+        </div>
+        <div v-if="showTextModal">
+          <h5>{{modalText}}</h5>
+          <div @click="cancelModal">x</div>
+        </div>
       </section>
       <section class='modal-buttons'>
-        <StandardButton class="abort-button" v-if="showAbort" buttonText="Avbryt" @click.native="closeModal" />
-        <StandardButton @click.native="sendTableInput" />
+        <StandardButton @click.native="modalAction" />
       </section>
     </section>
   </div>
@@ -25,12 +36,30 @@ export default {
       type: Boolean,
     },
   },
-  methods: {
-    sendTableInput() {
-      this.$emit('sendTableInput');
+  data: () => ({
+    tableInput: '',
+  }),
+  computed: {
+    modalText() {
+      return this.$store.state.modalText;
     },
-    closeModal() {
-      this.$store.commit('setOrderState', null);
+    showTextModal() {
+      return this.$store.state.showTextModal;
+    },
+    showInputModal() {
+      return this.$store.state.showInputModal;
+    },
+  },
+  methods: {
+    modalAction() {
+      this.$store.commit('setTableInput', this.tableInput);
+      this.$store.commit('setShowInputModal', false);
+      this.$store.commit('setShowTextModal', false);
+      this.$store.commit('setShowModal', false);
+    },
+    cancelModal() {
+      this.$store.commit('setShowInputModal', false);
+      this.$store.commit('setShowModal', false);
       this.$router.push('/');
     },
   },

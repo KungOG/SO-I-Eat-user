@@ -1,5 +1,9 @@
 export default {
   menuItems: [],
+  modalText: '',
+  showTextModal: false,
+  showInputModal: false,
+  showModal: false,
   categories: [],
   orderState: null,
   menuOptions: [

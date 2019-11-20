@@ -85,13 +85,19 @@ export default {
     },
     addItemToCart() {
       if(this.orderDetails.protein === '' && this.orderDetails.spice === null) {
-        this.$emit('setModalText', 'ange dina val av huvudingredients och styrka');
+        this.$store.commit('setModalText', 'ange dina val av huvudingredients och styrka');
+        this.$store.commit('setShowTextModal', true);
+        this.$store.commit('setShowModal', true);
         console.log('båda')
       } else if (this.orderDetails.spice === null) {
-        this.$emit('setModalText', 'ange ditt val av styrka');
+        this.$store.commit('setModalText', 'ange ditt val av styrka');
+        this.$store.commit('setShowTextModal', true);
+        this.$store.commit('setShowModal', true);
         console.log('krydda')
       } else if(this.orderDetails.protein === '') {
-        this.$emit('setModalText', 'ange ditt val av huvudingredients');
+        this.$store.commit('setModalText', 'ange ditt val av huvudingredients');
+        this.$store.commit('setShowTextModal', true);
+        this.$store.commit('setShowModal', true);
         console.log('kött')
       } else {
         this.$store.dispatch('setOrderItemsFood', {items1: this.orderDetails, items2: this.item});

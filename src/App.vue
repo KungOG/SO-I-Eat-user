@@ -6,16 +6,24 @@
         <h1>Install!</h1>
       </a>
     </div>
-    <router-view/>
+    <modal v-if="showModal"/>
+    <router-view />
   </div>
 </template>
 
 <script>
 import NavigationBar from '@/components/NavigationBar.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
-    NavigationBar
+    NavigationBar,
+    Modal,
+  },
+  computed: {
+    showModal() {
+      return this.$store.state.showModal;
+    },
   },
   data: () => ({
     installBtn: 'none',

@@ -44,6 +44,10 @@ export default {
   methods: {
     clicked(icon) {
       this.selected = icon;
+      if(icon === 'eatHere') {
+        this.$store.commit('setShowModal', true);
+        this.$store.commit('setShowInputModal', true);
+      }
       this.$store.commit('setOrderState', icon);
       icon === 'takeAway' ? this.$store.commit('setTableInput', 0) : '';
     }

@@ -20,4 +20,16 @@ export default {
   setTableInput(state, tableInput) {
     state.order.table = tableInput;
   },
+  setModalText(state, modalText) {
+    state.modalText = modalText;
+  },
+  setShowTextModal(state, boolean) {
+    state.showTextModal = boolean;
+  },
+  setShowInputModal(state, boolean) {
+    state.showInputModal = boolean;
+  },
+  setShowModal(state, boolean) {
+    state.showModal = boolean;
+  },
 };

@@ -11,6 +11,9 @@
       class="mobile"
       :text="showCart ? {text: 'Till betalning'} : { text: 'Lägg till i beställning', sum: 0 }"
       @click.native="cartEvents"/>
+    <modal v-if="showTextModal" :showAbort="showAbort" >
+      <h5>{{modalText}}</h5>
+    </modal>
     <Cart v-if="showCart" />
   </div>
 </template>
@@ -19,20 +22,30 @@
 import MenuCard from '@/components/MenuComponents/MenuCard.vue';
 import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
 import Cart from '@/components/MenuComponents/Cart.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
     MenuCard,
     MenuFooter,
     Cart,
+    Modal,
   },
   data: () => ({
     showCart: null,
     displayIcons: false,
+    showAbort: false,
+
   }),
   computed: {
     item() {
       return this.$store.getters.getOrderItem(this.$route.params.id);
+    },
+    modalText() {
+      return this.$store.state.modalText;
+    },
+    showTextModal() {
+      return this.$store.state.showTextModal;
     },
   },
   beforeMount() {
@@ -44,7 +57,7 @@ export default {
     },
     addFoodToCart() {
       this.$refs.form.addItemToCart();
-      this.$router.push('/order');
+      //this.$router.push('/order');
     },
     toPayment() {
       this.$store.dispatch('postOrder');
