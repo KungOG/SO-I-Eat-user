@@ -1,6 +1,6 @@
 <template>
     <div class='menu-section'>
-      <div class='wrapper'>
+      <div class='menu-section-wrapper'>
         <h1>{{category.categoryName}}</h1>
         <CardText
           v-for="(item, i) in filteredItems"

@@ -1,4 +1,4 @@
-#app > .menu {
+.menu {
   background: $main-base-color;
 
   .sections-wrapper {
@@ -43,10 +43,8 @@
             justify-content: flex-start;
             padding-left: 6rem;
           }
-
         }
       }
     }
   }
-  
 }

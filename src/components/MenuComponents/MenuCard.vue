@@ -88,20 +88,16 @@ export default {
         this.$store.commit('setModalText', 'ange dina val av huvudingredients och styrka');
         this.$store.commit('setShowTextModal', true);
         this.$store.commit('setShowModal', true);
-        console.log('båda')
       } else if (this.orderDetails.spice === null) {
         this.$store.commit('setModalText', 'ange ditt val av styrka');
         this.$store.commit('setShowTextModal', true);
         this.$store.commit('setShowModal', true);
-        console.log('krydda')
       } else if(this.orderDetails.protein === '') {
         this.$store.commit('setModalText', 'ange ditt val av huvudingredients');
         this.$store.commit('setShowTextModal', true);
         this.$store.commit('setShowModal', true);
-        console.log('kött')
       } else {
         this.$store.dispatch('setOrderItemsFood', {items1: this.orderDetails, items2: this.item});
-        console.log('ingen')
       }
       this.$emit('setSelectedCard', -1);
     },
