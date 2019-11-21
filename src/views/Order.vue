@@ -90,8 +90,8 @@ export default {
   },
   watch: {
     itemToEdit() {
-      this.editCart ? this.findCategory() : console.log('inte edit')
-    }
+      this.editCart ? this.openModal() : console.log('inte edit')
+    },
   },
   methods: {
     routeToOrderItem(id, i) {
@@ -107,14 +107,16 @@ export default {
     addDrinkToCart(drink) {
       this.$store.dispatch('setOrderItemsDrink', drink);
     },
-    findCategory() {
-      var category = this.allMenuItems.find(x => x.productName === this.itemToEdit.productName);
-      this.selected = category.category;
-      var card = this.filteredMenuitems.indexOf(category)
-      this.selectedCard = card;
-
-
+    openModal() {
+      this.$store.commit('setShowModal', true);
     },
+    // findCategory() {
+    //   var category = this.allMenuItems.find(x => x.productName === this.itemToEdit.productName);
+    //   this.selected = category.category;
+    //   var card = this.filteredMenuitems.indexOf(category)
+    //   this.selectedCard = card;
+    // },
   },
+  
 };
 </script>

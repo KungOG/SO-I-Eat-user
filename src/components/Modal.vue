@@ -13,6 +13,14 @@
         <div class='content' v-if="showTextModal">
           <h5>{{modalText}}</h5>
         </div>
+        <div class="content" v-if="editCart">
+          <MenuCard 
+          :displayIcons="displayIcons"
+          :item="originalOrderItem"
+          :selectedCard="1"
+          :index="1"
+          />
+        </div>
       </section>
       <section class='modal-buttons'>
         <StandardButton @click.native="modalAction" />
@@ -26,11 +34,13 @@
 <script>
 import StandardButton from './StandardButton.vue';
 import CloseDown from '@/assets/icons/WhiteCross.svg';
+import MenuCard from '@/components/MenuComponents/MenuCard.vue';
 
 export default {
   name: 'modal',
   components: {
     StandardButton,
+    MenuCard,
   },
   props: {
     showAbort: {
@@ -40,6 +50,7 @@ export default {
   data: () => ({
     tableInput: '',
     CloseDown: CloseDown,
+    displayIcons: false,
   }),
   computed: {
     modalText() {
@@ -50,6 +61,12 @@ export default {
     },
     showInputModal() {
       return this.$store.state.showInputModal;
+    },
+    editCart() {
+      return this.$store.state.editCart;
+    },
+    originalOrderItem() {
+      return this.$store.getters.getOriginalMenuItem;
     },
   },
   methods: {
