@@ -13,7 +13,7 @@
         <div class='content' v-if="showTextModal">
           <h5>{{modalText}}</h5>
         </div>
-        <div class="content" v-if="editCart">
+        <div class="content" :class="editCart ? 'desktop' : ''" v-if="editCart">
           <MenuCard 
           :displayIcons="displayIcons"
           :item="originalOrderItem"
@@ -90,7 +90,6 @@ export default {
     },
     updateCartItem() {
       this.$store.commit('setShowModal', false);
-      console.log('update')
     },
   },
 };

@@ -6,7 +6,7 @@
         <h1>Install!</h1>
       </a>
     </div>
-    <modal v-if="showModal"/>
+    <modal v-if="showModal" />
     <router-view />
   </div>
 </template>
