@@ -57,6 +57,9 @@ export default {
       remove: [],
     }
   },
+  resetItemToEdit(state) {
+    state.itemToEdit = null;
+  },
   editCart(state, boolean) {
     state.editCart = boolean;
   },

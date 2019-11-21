@@ -1,5 +1,9 @@
 <template>
-    <div class='menu-card' @click="$emit('setSelectedCard', index)" :class="selectedCard === index ? 'activeCard' : ''">
+    <div
+    class='menu-card'
+    @click="$emit('setSelectedCard', index)"
+    :class="[selectedCard === index ? 'activeCard' : '', editCart ? 'active-edit-card' : '']"
+    >
       <card-image class="image"/>
       <card-text class="text"
         :displayIcons="displayIcons"
@@ -15,11 +19,11 @@
         />
       <div class="button-wrapper">
         <standard-button
-          v-show="showAlternatives"
+          v-show="showAlternatives && !editCart"
           :buttonText="this.showCustomize ? 'stäng': 'redigera'"
           @click.native="showCustomize = !showCustomize"/>
         <standard-button
-          v-show="showAlternatives"
+          v-show="showAlternatives && !editCart"
           buttonText="Lägg till"
           class="desktop"
           @click.native.stop = "addItemToCart"/>
@@ -69,6 +73,9 @@ export default {
     activeSpice() {
       return this.$store.state.orderDetails.spice;
     },
+    editCart() {
+      return this.$store.state.editCart;
+    },
   },
   watch: {
     selectedCard() {
@@ -78,6 +85,7 @@ export default {
   },
   mounted() {
       this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+      this.editCart ? this.showCustomize = true : '';
   },
   methods: {
     showAlternativesOption() {

@@ -23,11 +23,13 @@
         </div>
       </section>
       <section class='modal-buttons'>
-        <StandardButton @click.native="modalAction" />
+        <StandardButton v-if="!editCart" @click.native="modalAction" />
+        <StandardButton v-if="editCart" buttonText="Uppdatera" @click.native="updateCartItem" />
       </section>
       <img class='modal-cross-icon' :src="CloseDown" />
     </section>
-    <div class='modal-close-button' @click="cancelModal" />
+    <div v-if="!editCart" class='home modal-close-button' @click="cancelModal" />
+    <div v-if="editCart" class='cart modal-close-button' @click="minimizeModal" />
   </div>
 </template>
 
@@ -80,6 +82,15 @@ export default {
       this.$store.commit('setShowInputModal', false);
       this.$store.commit('setShowModal', false);
       this.$router.push('/');
+    },
+    minimizeModal() {
+      this.$store.commit('setShowModal', false);
+      this.$store.commit('editCart', false);
+      this.$store.commit('resetItemToEdit');
+    },
+    updateCartItem() {
+      this.$store.commit('setShowModal', false);
+      console.log('update')
     },
   },
 };
