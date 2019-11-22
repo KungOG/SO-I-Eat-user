@@ -9,7 +9,7 @@
       ref="form"/>
     <menu-footer
       class="mobile"
-      :text="showCart ? {text: 'Till betalning'} : { text: 'Lägg till i beställning', sum: 0 }"
+      :text="showCart ? {text: 'Till betalning'} : { text: 'Lägg till i beställning', text2: 'Uppdatera', sum: 0 }"
       @click.native="cartEvents"/>
     <modal v-if="showTextModal" :showAbort="showAbort" >
       <h5>{{modalText}}</h5>
@@ -45,13 +45,27 @@ export default {
     showTextModal() {
       return this.$store.state.showTextModal;
     },
+    editCart() {
+      return this.$store.state.editCart;
+    },
   },
   beforeMount() {
-    this.$route.params.id === 'varukorg' ? this.showCart = true : this.showCart = false;
+    this.$route.params.id === 'cart' ? this.showCart = true : this.showCart = false;
   },
   methods: {
     cartEvents() {
-      this.showCart ? this.toPayment() : this.addFoodToCart();
+      //this.showCart ? this.toPayment() : this.addFoodToCart();
+      if(this.showCart) {
+        this.toPayment()
+      } else if (this.editCart) {
+        this.$store.commit('editCart', false);
+        this.$store.commit('updateCartItem');
+        this.$store.commit('resetItemToEdit');
+        this.showCart = true
+        this.$router.push('/orderitem/cart');
+      } else {
+        this.addFoodToCart()
+      }
     },
     addFoodToCart() {
       this.$refs.form.addItemToCart();

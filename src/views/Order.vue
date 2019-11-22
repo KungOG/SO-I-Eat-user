@@ -29,7 +29,7 @@
         @click.native="addDrinkToCart(drink)"
       />    
     </div>
-    <menu-footer @click.native="$router.push('/orderitem/varukorg')" :text="footerText" class="mobile"/>
+    <menu-footer @click.native="$router.push('/orderitem/cart')" :text="footerText" class="mobile"/>
     <cart class="desktop"/>
   </div>
 </template>

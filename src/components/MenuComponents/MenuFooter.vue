@@ -1,8 +1,9 @@
 <template>
     <div class='menu-footer' >
-      <h5>{{text.text}}</h5>
+      <h5 v-if="!editCart">{{text.text}}</h5>
+      <h5 v-else>{{text.text2}}</h5>
       <h5 v-if="this.text.sum">{{text.sum}}:-</h5>
-      <img :src="require('@/assets/icons/' + imgUrl)" alt="Välj">
+      <img v-if="!editCart" :src="require('@/assets/icons/' + imgUrl)" alt="Välj">
     </div>
 </template>
 
@@ -19,7 +20,12 @@ export default {
     return {
       imgUrl: 'Menu.svg',
     }
-  }
+  },
+  computed: {
+    editCart() {
+      return this.$store.state.editCart;
+    },
+  },
 };
 </script>
 
