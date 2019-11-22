@@ -59,11 +59,21 @@ export default {
   },
   resetItemToEdit(state) {
     state.itemToEdit = null;
+    state.itemToEditIndex = null;
   },
   editCart(state, boolean) {
     state.editCart = boolean;
   },
-  setItemToEdit(state, item) {
-    state.itemToEdit = item;
+  setItemToEdit(state, payload) {
+    state.itemToEdit = payload.item;
+    state.itemToEditIndex = payload.index;
+    state.orderDetails.add = payload.item.add;
+    state.orderDetails.remove = payload.item.remove;
+    state.orderDetails.protein = payload.item.protein;
+    state.orderDetails.spice = payload.item.spice;
+  },
+  updateCartItem(state) {
+    //kolla om order.foodItems innehåller samma id
+    //om det gör det, uppdatera
   },
 };

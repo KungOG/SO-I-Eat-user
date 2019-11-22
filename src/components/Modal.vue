@@ -90,6 +90,7 @@ export default {
     },
     updateCartItem() {
       this.$store.commit('setShowModal', false);
+      this.$store.commit('updateCartItem');
     },
   },
 };

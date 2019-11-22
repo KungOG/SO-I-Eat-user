@@ -8,6 +8,7 @@ export default {
   orderState: null,
   editCart: false,
   itemToEdit: null,
+  itemToEditIndex: null,
   menuOptions: [
     { name: 'Tomat', price: 12 },
     { name: 'Jordnötter', price: 3 },
