@@ -42,11 +42,11 @@ export default {
     state.orderDetails.spice = spice;
   },
   setRemovedIngredients(state, ingredient) {
-    const remove = state.orderDetails.remove;
+    const { remove } = state.orderDetails;
     remove.includes(ingredient) ? remove.splice(remove.indexOf(ingredient), 1) : remove.push(ingredient);
   },
   setAddedOption(state, option) {
-    const add = state.orderDetails.add
+    const { add } = state.orderDetails;
     add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
   },
   resetOrderDetails(state) {
@@ -55,7 +55,7 @@ export default {
       spice: null,
       add: [],
       remove: [],
-    }
+    };
   },
   resetItemToEdit(state) {
     state.itemToEdit = null;
@@ -73,7 +73,10 @@ export default {
     state.orderDetails.spice = payload.item.spice;
   },
   updateCartItem(state) {
-    //kolla om order.foodItems innehåller samma id
-    //om det gör det, uppdatera
+    const id = state.itemToEditIndex;
+    state.order.foodItems[id].protein = state.orderDetails.protein;
+    state.order.foodItems[id].spice = state.orderDetails.spice;
+    state.order.foodItems[id].add = state.orderDetails.add;
+    state.order.foodItems[id].remove = state.orderDetails.remove;
   },
 };
