@@ -110,12 +110,9 @@ export default {
     openModal() {
       this.$store.commit('setShowModal', true);
     },
-    // findCategory() {
-    //   var category = this.allMenuItems.find(x => x.productName === this.itemToEdit.productName);
-    //   this.selected = category.category;
-    //   var card = this.filteredMenuitems.indexOf(category)
-    //   this.selectedCard = card;
-    // },
+    openCart() {
+      this.$store.commit('setShowCart', true)
+    }
   },
   
 };

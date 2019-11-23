@@ -23,6 +23,9 @@ export default {
   setTableInput(state, tableInput) {
     state.order.table = tableInput;
   },
+  setShowCart(state, showCart) {
+    state.showCart = showCart;
+  },
   setModalText(state, modalText) {
     state.modalText = modalText;
   },

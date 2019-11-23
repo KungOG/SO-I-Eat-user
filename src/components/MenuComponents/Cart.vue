@@ -73,7 +73,7 @@ export default {
       if(this.$route.path !== '/order') {
         this.$router.push(`${item.productName}`);
       }
-      this.$emit('closeCart');
+      this.$store.commit('setShowCart', null)
       this.$store.commit('editCart', true);
       this.$store.commit('setItemToEdit', {item: item, index: i});
     },

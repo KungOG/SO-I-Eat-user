@@ -14,7 +14,7 @@
     <modal v-if="showTextModal" :showAbort="showAbort" >
       <h5>{{modalText}}</h5>
     </modal>
-    <Cart v-if="showCart" @closeCart="showCart = null" />
+    <Cart v-if="showCart" />
   </div>
 </template>
 
@@ -32,7 +32,6 @@ export default {
     Modal,
   },
   data: () => ({
-    showCart: null,
     displayIcons: false,
   }),
   computed: {
@@ -48,20 +47,26 @@ export default {
     editCart() {
       return this.$store.state.editCart;
     },
+    showCart() {
+      return this.$store.state.showCart;
+    },
+    orderData() {
+      return this.$store.state.orderDetails;
+    },
   },
   beforeMount() {
-    this.$route.params.id === 'cart' ? this.showCart = true : this.showCart = false;
+    console.log(this.$route.params.id)
+    this.$route.params.id === 'cart' ? this.$store.commit('setShowCart', true) : this.$store.commit('setShowCart', false);
   },
   methods: {
     cartEvents() {
-      //this.showCart ? this.toPayment() : this.addFoodToCart();
       if(this.showCart) {
         this.toPayment()
       } else if (this.editCart) {
+        this.$store.commit('setShowCart', true)
         this.$store.commit('editCart', false);
         this.$store.commit('updateCartItem');
         this.$store.commit('resetItemToEdit');
-        this.showCart = true
         this.$router.push('/orderitem/cart');
       } else {
         this.addFoodToCart()
@@ -69,7 +74,8 @@ export default {
     },
     addFoodToCart() {
       this.$refs.form.addItemToCart();
-      //this.$router.push('/order');
+
+      this.orderData.protein && this.orderData.spice ? this.$router.push('/order') : '';
     },
     toPayment() {
       this.$store.dispatch('postOrder');
