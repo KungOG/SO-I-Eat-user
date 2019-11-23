@@ -1,8 +1,18 @@
 <template>
   <div class="nav-container" :class="$route.path == '/' ? 'transparent' : ''"> 
-    <div class="nav-item" v-for="(icon, i) in icons" :key="i" >
+    <div class="nav-item" v-for="(icon, i) in iconsMenu" :key="i" v-if="$route.path === '/'">
       <router-link :to="icon.urlTo" active-class="route-active">
-        <img :src="icon.icon" @click="clicked(icon.name)" :class="selected === icon.name ? 'active-icon' : '' "/>
+        <img :src="icon.icon" @click="clicked(icon.name)" />
+      </router-link>
+    </div>
+    <div class="nav-item" v-for="(icon, i) in iconsOrder" :key="i" v-if="$route.path == '/order'" >
+      <router-link :to="icon.urlTo" active-class="route-active">
+        <img :src="icon.icon" @click="clicked(icon.name)" :class="selected === icon.name ? 'active-icon' : '' " />
+      </router-link>
+    </div>
+    <div class="nav-item" v-for="(icon, i) in iconsOrderItem" :key="i" v-if="$route.path.substring(0, 11) == '/orderitem/'">
+      <router-link :to="icon.urlTo" active-class="route-active">
+        <img :src="icon.icon" @click="clicked(icon.name)" />
       </router-link>
     </div>
   </div>
@@ -23,35 +33,42 @@ export default {
     selected: null,
     iconsMenu: [{icon: Maps, urlTo: '/contact'}, {icon: Logo, urlTo: '/'}, {icon: Info, urlTo: '/about'}],
     iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, urlTo: '/'}],
-    iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, urlTo: '/order'}],
+    iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
   }),
   computed: {
-    icons() {
-      if (this.$route.path == '/order') {
-        return this.iconsOrder;
-      }
-      if (this.$route.path == '/') {
-        return this.iconsMenu;
-      }
-      if (this.$route.path == '/menu') {
-        return this.iconsMenu;
-      }
-      if (this.$route.path.substring(0, 11) == '/orderitem/') {
-        return this.iconsOrderItem;
-      }
-    }
+    editCart() {
+      return this.$store.state.editCart;
+    },
   },
   methods: {
     clicked(icon) {
       this.selected = icon;
-      if(icon === 'eatHere') {
-        this.$store.commit('setShowModal', true);
-        this.$store.commit('setShowInputModal', true);
+      switch(icon) {
+        case 'eatHere':
+          this.$store.commit('setShowModal', true);
+          this.$store.commit('setShowInputModal', true);
+          this.$store.commit('setOrderState', icon)
+          break;
+        case 'takeAway':
+          this.$store.commit('setOrderState', icon)
+          this.$store.commit('setTableInput', 'take away')
+          break;
+        case 'delete':
+          this.closeItemToEdit();
+          break;  
       }
-      this.$store.commit('setOrderState', icon);
-      icon === 'takeAway' ? this.$store.commit('setTableInput', 'take away') : '';
+    },
+    closeItemToEdit() {
+      if(this.editCart) {
+      this.$store.commit('editCart', false);
+      this.$store.commit('setShowCart', true);
+      this.$store.commit('resetItemToEdit');
+      this.iconsOrderItem[1].urlTo = '/orderitem/cart';
+      } else {
+        this.iconsOrderItem[1].urlTo = '/order';
+      }
     }
-  }
+  },
 };
 </script>
 
