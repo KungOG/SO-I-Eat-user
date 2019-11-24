@@ -23,6 +23,17 @@ export default {
         console.log(error);
       });
   },
+  getBusinessHours(ctx) {
+    const url = 'https://so-i-eat-server.herokuapp.com/businessHours';
+    axios
+      .get(url)
+      .then((response) => {
+        ctx.commit('setBusinessHours', response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
   postOrder(ctx) {
     const url = 'https://so-i-eat-server.herokuapp.com/orders';
     axios
@@ -41,8 +52,8 @@ export default {
       protein: this.state.orderDetails.protein,
       spice: this.state.orderDetails.spice,
       price: payload.price,
-      add: add,
-      remove: remove,
+      add,
+      remove,
     };
     ctx.commit('setOrderItemsFood', orderItem);
     ctx.commit('resetOrderDetails');
