@@ -5,12 +5,12 @@
         <img :src="icon.icon" @click="clicked(icon.name)" />
       </router-link>
     </div>
-    <div class="nav-item" v-for="(icon, i) in iconsOrder" :key="i" v-if="$route.path == '/order'" >
+    <div class="nav-item" v-for="(icon, i) in iconsOrder" :key="i" v-if="$route.path === '/order'" >
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" :class="selected === icon.name ? 'active-icon' : '' " />
       </router-link>
     </div>
-    <div class="nav-item" v-for="(icon, i) in iconsOrderItem" :key="i" v-if="$route.path.substring(0, 11) == '/orderitem/'">
+    <div class="nav-item" v-for="(icon, i) in iconsOrderItem" :key="i" v-if="$route.path.substring(0, 11) === '/orderitem/'">
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" />
       </router-link>
@@ -60,10 +60,10 @@ export default {
     },
     closeItemToEdit() {
       if(this.editCart) {
-      this.$store.commit('editCart', false);
-      this.$store.commit('setShowCart', true);
-      this.$store.commit('resetItemToEdit');
-      this.iconsOrderItem[1].urlTo = '/orderitem/cart';
+        this.$store.commit('editCart', false);
+        this.$store.commit('setShowCart', true);
+        this.$store.commit('resetItemToEdit');
+        this.iconsOrderItem[1].urlTo = '/orderitem/cart';
       } else {
         this.iconsOrderItem[1].urlTo = '/order';
       }
