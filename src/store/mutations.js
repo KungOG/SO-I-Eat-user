@@ -44,6 +44,9 @@ export default {
   setSpice(state, spice) {
     state.orderDetails.spice = spice;
   },
+  setBusinessHours(state, hours) {
+    state.businessHours = hours;
+  },
   setRemovedIngredients(state, ingredient) {
     const { remove } = state.orderDetails;
     remove.includes(ingredient) ? remove.splice(remove.indexOf(ingredient), 1) : remove.push(ingredient);
