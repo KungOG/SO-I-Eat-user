@@ -31,6 +31,7 @@ export default {
   }),
   created() {
     let installPrompt;
+    this.$store.dispatch('getBusinessHours');
 
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
