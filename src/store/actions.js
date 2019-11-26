@@ -23,12 +23,12 @@ export default {
         console.log(error);
       });
   },
-  getBusinessHours(ctx) {
-    const url = 'https://so-i-eat-server.herokuapp.com/businessHours';
+  getStatus(ctx) {
+    const url = 'https://so-i-eat-server.herokuapp.com/statuses';
     axios
       .get(url)
       .then((response) => {
-        ctx.commit('setBusinessHours', response.data);
+        ctx.commit('setStatus', response.data);
       })
       .catch((error) => {
         console.log(error);
