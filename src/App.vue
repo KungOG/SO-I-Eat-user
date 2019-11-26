@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import NavigationBar from '@/components/NavigationBar.vue';
 import Modal from '@/components/Modal.vue';
 
@@ -28,10 +30,11 @@ export default {
   data: () => ({
     installBtn: 'none',
     installer: undefined,
+    status: null,
   }),
   created() {
     let installPrompt;
-    this.$store.dispatch('getStatus');
+    this.$store.state.status === null ? this.getStatus() : '';
 
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
@@ -50,6 +53,28 @@ export default {
         }
       });
     };
+  },
+  methods: {
+    getStatus() {
+      const url = 'https://so-i-eat-server.herokuapp.com/statuses';
+      axios
+        .get(url)
+        .then((response) => {
+          this.status = response.data;
+          this.$store.commit('setStatus', response.data);
+        })
+        .then(() => {
+          console.log(this.status[0])
+          if(this.status[0].status === 'closed') {
+            this.$store.commit('setShowModal', true);
+            this.$store.commit('setModalText', 'Restaurangen är stängd');
+            this.$store.commit('setShowTextModal', true);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>

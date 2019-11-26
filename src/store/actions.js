@@ -23,17 +23,6 @@ export default {
         console.log(error);
       });
   },
-  getStatus(ctx) {
-    const url = 'https://so-i-eat-server.herokuapp.com/statuses';
-    axios
-      .get(url)
-      .then((response) => {
-        ctx.commit('setStatus', response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
   postOrder(ctx) {
     const url = 'https://so-i-eat-server.herokuapp.com/orders';
     axios
