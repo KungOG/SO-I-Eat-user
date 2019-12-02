@@ -31,6 +31,7 @@
     </div>
     <menu-footer @click.native="$router.push('/orderitem/cart')" :text="footerText" class="mobile"/>
     <cart class="desktop"/>
+    <Modal v-if="showModal"/>
   </div>
 </template>
 
@@ -41,6 +42,7 @@ import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
 import SideNavigation from '@/components/SideNavigation.vue';
 import Cart from '@/components/MenuComponents/Cart.vue';
 import DrinkCard from '@/components/MenuComponents/DrinkCard.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   name: 'order',
@@ -51,6 +53,7 @@ export default {
     MenuFooter,
     Cart,
     DrinkCard,
+    Modal,
   },
   data: () => ({
     selected: 0,
@@ -61,6 +64,11 @@ export default {
   beforeMount() {
     this.$store.dispatch('getMenuItems');
     this.$store.dispatch('getCategories');
+    if(this.$store.state.open === false) {
+      this.$store.commit('setShowModal', true);
+      this.$store.commit('setShowTextModal', true);
+      this.$store.commit('setModalText', 'Tyvärr, vi har stängt');
+    }
   },
   computed: {
     sortedMenuItems() {
@@ -86,6 +94,9 @@ export default {
     },
     allMenuItems() {
       return this.$store.state.menuItems;
+    },
+    showModal() {
+      return this.$store.state.showModal;
     },
   },
   watch: {
@@ -114,6 +125,5 @@ export default {
       this.$store.commit('setShowCart', true)
     }
   },
-  
 };
 </script>

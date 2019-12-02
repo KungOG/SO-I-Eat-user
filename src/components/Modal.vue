@@ -23,13 +23,15 @@
         </div>
       </section>
       <section class='modal-buttons'>
-        <StandardButton v-if="!editCart" @click.native="modalAction" />
-        <StandardButton v-if="editCart" buttonText="Uppdatera" @click.native="updateCartItem" />
+        <StandardButton v-if="!editCart && open " @click.native="modalAction" />
+        <StandardButton v-if="editCart && open" buttonText="Uppdatera" @click.native="updateCartItem" />
+        <StandardButton v-if="!open" buttonText="OK" @click.native="closedBusiness" />
       </section>
       <img class='modal-cross-icon' :src="CloseDown" />
     </section>
     <div v-if="!editCart" class='home modal-close-button' @click="cancelModal" />
     <div v-if="editCart" class='cart modal-close-button' @click="minimizeModal" />
+    <div v-if="!open" class='cart modal-close-button' @click="closedBusiness" />
   </div>
 </template>
 
@@ -70,6 +72,9 @@ export default {
     originalOrderItem() {
       return this.$store.getters.getOriginalMenuItem;
     },
+    open() {
+      return this.$store.state.open;
+    },
   },
   methods: {
     modalAction() {
@@ -93,6 +98,12 @@ export default {
       this.$store.commit('editCart', false);
       this.$store.commit('updateCartItem');
       this.$store.commit('resetItemToEdit');
+    },
+    closedBusiness() {
+      this.$store.commit('setShowModal', false);
+      this.$store.commit('setShowTextModal', false);
+      this.$store.commit('setModalText', null);
+      this.$router.push('/');
     },
   },
 };
