@@ -23,7 +23,7 @@
         </div>
       </section>
       <section class='modal-buttons'>
-        <StandardButton v-if="!editCart && open " @click.native="modalAction" />
+        <StandardButton v-if="!editCart && open" buttontext="Röv" @click.native="modalAction" />
         <StandardButton v-if="editCart && open" buttonText="Uppdatera" @click.native="updateCartItem" />
         <StandardButton v-if="!open" buttonText="OK" @click.native="closedBusiness" />
       </section>
