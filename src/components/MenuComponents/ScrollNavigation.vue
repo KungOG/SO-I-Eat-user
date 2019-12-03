@@ -1,8 +1,13 @@
 <template>
-  <div class="scroll-container">
-    <div class="nav-item" v-for="(category, i) in categories" :key="`categories-${i}`" >
-      <h5 @click="select(i)" :class="{ selectedCategory: selected === i }"> {{category.categoryName}}</h5>
-    </div>
+  <div class="scroll-container" :class="showProductionTime ? 'active-production-time' : ''">
+    <section class="upper-scroll-container">
+      <div class="wait-time"><h5>Väntetiden är ca {{ productionTime }} min.</h5></div>
+    </section>
+    <section class="lower-scroll-container">
+      <div class="nav-item" v-for="(category, i) in categories" :key="`categories-${i}`" >
+        <h5 @click="select(i)" :class="{ selectedCategory: selected === i }"> {{category.categoryName}}</h5>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -21,6 +26,14 @@
     data: () => ({
       selected: null,
     }),
+    computed: {
+      productionTime() {
+        return this.$store.state.productionTime;
+      },
+      showProductionTime() {
+        return this.$store.state.showProductionTime;
+      },
+    },
     methods: {
       select (value) {
         this.selected = value

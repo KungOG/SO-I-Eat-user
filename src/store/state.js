@@ -11,6 +11,8 @@ export default {
   itemToEditIndex: null,
   showCart: null,
   status: null,
+  productionTime: null,
+  showProductionTime: false,
   menuOptions: [
     { name: 'Tomat', price: 12 },
     { name: 'Jordnötter', price: 3 },

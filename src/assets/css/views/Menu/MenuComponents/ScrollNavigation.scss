@@ -1,35 +1,57 @@
 .scroll-container {
-    display: flex;
+  display: flex;
+  width: 100vw;
+  background-color: #131313;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 20px;
+  transition: top 1.5s;
+
+  &.active-production-time {
+    top: 60px;
+  }
+
+  .upper-scroll-container {
+    height: 40px;
+  }
+  
+  .lower-scroll-container {
+    height: 60px;
     width: 100vw;
-    background-color: #131313;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;  
+    border-top: 1px solid gray;
     overflow-x: auto;
     overflow-y: hidden;
-    border-top: 1px solid gray;
-    position: fixed;
-    top: 60px;
-    
-    .nav-item {
-      margin: 0 0px;
-      color: white;
-      display: inline-block;
-      
-      .selectedCategory {
-          color: $secondary-color;
-          font-size: 20px;
-      }
+  }
 
-      h5 {
-          margin: 0;
-          padding: 0 20px;
-      }
+  .lower-scroll-container,
+  .upper-scroll-container {
+    margin: 0 0px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > .nav-item > .h5 {
+      margin: 0;
+      padding: 0 20px; 
     }
+
+    > .nav-item > .selectedCategory {
+      color: $secondary-color;
+      font-size: 20px;
+    }
+
+    > .wait-time > h5 {
+      margin: 0;
+      padding: 0 20px; 
+    }
+  }
 }
   
 ::-webkit-scrollbar { 
-    display: none; 
+  display: none; 
 }
   
   

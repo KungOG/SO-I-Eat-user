@@ -38,6 +38,12 @@ export default {
   setShowModal(state, boolean) {
     state.showModal = boolean;
   },
+  setProductionTime(state, time) {
+    state.productionTime = time;
+  },
+  setShowProductionTime(state, boolean) {
+    state.showProductionTime = boolean;
+  },
   setProtein(state, protein) {
     state.orderDetails.protein = protein;
   },

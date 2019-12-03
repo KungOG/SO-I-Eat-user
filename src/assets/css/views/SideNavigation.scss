@@ -1,21 +1,21 @@
 .side-navigation {
-    color: white;
-    width: 20%;
+  color: white;
+  width: 20%;
 
-    .icon-wrapper {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        margin-bottom: 3rem;
-    }
+  .icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 3rem;
+  }
 
-    h3 {
-        color: $main-border-color;
-        font-weight: normal;
-    }
+  h3 {
+    color: $main-border-color;
+    font-weight: normal;
+  }
 
-    .selectedCategory {
-        color: $secondary-color;
-        font-size: 30px;
-    }
+  .selectedCategory {
+    color: $secondary-color;
+    font-size: 30px;
+  }
 }
