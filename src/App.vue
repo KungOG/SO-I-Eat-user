@@ -6,27 +6,17 @@
         <h1>Install!</h1>
       </a>
     </div>
-    <modal v-if="showModal" />
     <router-view />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-
 import NavigationBar from '@/components/NavigationBar.vue';
-import Modal from '@/components/Modal.vue';
 import axios from 'axios';
 
 export default {
   components: {
     NavigationBar,
-    Modal,
-  },
-  computed: {
-    showModal() {
-      return this.$store.state.showModal;
-    },
   },
   data: () => ({
     installBtn: 'none',
@@ -55,10 +45,8 @@ export default {
       });
     };
   },
-<<<<<<< HEAD
   mounted() {
     setInterval(() => { 
-      this.getBusinessStatus();
       this.getBusinessHours();
       this.checkCurrentTime();
     }, 5000);
@@ -91,39 +79,19 @@ export default {
           console.log(error);
         });
     },
-    getBusinessStatus() {
-=======
-  methods: {
     getStatus() {
->>>>>>> 69d43caa1482a24a5d44306e5c6f8723d74542e9
       const url = 'https://so-i-eat-server.herokuapp.com/statuses';
       axios
         .get(url)
         .then((response) => {
-<<<<<<< HEAD
           this.status = response.data[0].status;
-=======
-          this.status = response.data;
           this.$store.commit('setStatus', response.data);
-        })
-        .then(() => {
-          console.log(this.status[0])
-          if(this.status[0].status === 'closed') {
-            this.$store.commit('setShowModal', true);
-            this.$store.commit('setModalText', 'Restaurangen är stängd');
-            this.$store.commit('setShowTextModal', true);
-          }
->>>>>>> 69d43caa1482a24a5d44306e5c6f8723d74542e9
         })
         .catch((error) => {
           console.log(error);
         });
     },
-<<<<<<< HEAD
   }
-=======
-  },
->>>>>>> 69d43caa1482a24a5d44306e5c6f8723d74542e9
 };
 </script>
 
