@@ -1,19 +1,24 @@
 <template>
   <div class="nav-container" :class="$route.path == '/' ? 'transparent' : ''"> 
-    <div class="nav-item" v-for="(icon, i) in iconsMenu" :key="i" v-if="$route.path === '/'">
-      <router-link :to="icon.urlTo" active-class="route-active">
-        <img :src="icon.icon" @click="clicked(icon.name)" />
-      </router-link>
+    <div class="nav-icon-section">
+      <div class="nav-item" v-for="(icon, i) in iconsMenu" :key="i" v-if="$route.path === '/'">
+        <router-link :to="icon.urlTo" active-class="route-active">
+          <img :src="icon.icon" @click="clicked(icon.name)" />
+        </router-link>
+      </div>
+      <div class="nav-item" v-for="(icon, i) in iconsOrder" :key="i" v-if="$route.path === '/order'" >
+        <router-link :to="icon.urlTo" active-class="route-active">
+          <img :src="icon.icon" @click="clicked(icon.name)" :class="selected === icon.name ? 'active-icon' : '' " />
+        </router-link>
+      </div>
+      <div class="nav-item" v-for="(icon, i) in iconsOrderItem" :key="i" v-if="$route.path.substring(0, 11) === '/orderitem/'">
+        <router-link :to="icon.urlTo" active-class="route-active">
+          <img :src="icon.icon" @click="clicked(icon.name)" />
+        </router-link>
+      </div>
     </div>
-    <div class="nav-item" v-for="(icon, i) in iconsOrder" :key="i" v-if="$route.path === '/order'" >
-      <router-link :to="icon.urlTo" active-class="route-active">
-        <img :src="icon.icon" @click="clicked(icon.name)" :class="selected === icon.name ? 'active-icon' : '' " />
-      </router-link>
-    </div>
-    <div class="nav-item" v-for="(icon, i) in iconsOrderItem" :key="i" v-if="$route.path.substring(0, 11) === '/orderitem/'">
-      <router-link :to="icon.urlTo" active-class="route-active">
-        <img :src="icon.icon" @click="clicked(icon.name)" />
-      </router-link>
+    <div class="nav-text-section">
+      <h5>Text text text</h5>
     </div>
   </div>
 </template>

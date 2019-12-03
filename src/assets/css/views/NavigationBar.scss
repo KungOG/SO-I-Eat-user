@@ -2,10 +2,26 @@
   display: flex;
   width: auto;
   background-color: #131313;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;  
+  flex-direction: column;
+
   width: 100vw;
+
+  .nav-icon-section {
+    display: flex;
+    width: 100vw;
+    height: 60px; 
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-text-section {
+    height: 50px;  
+    background-color: pink;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .nav-item {
     margin: 20px;
