@@ -23,17 +23,6 @@ export default {
         console.log(error);
       });
   },
-  getBusinessHours(ctx) {
-    const url = 'https://so-i-eat-server.herokuapp.com/businessHours';
-    axios
-      .get(url)
-      .then((response) => {
-        ctx.commit('setBusinessHours', response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
   postOrder(ctx) {
     const url = 'https://so-i-eat-server.herokuapp.com/orders';
     axios

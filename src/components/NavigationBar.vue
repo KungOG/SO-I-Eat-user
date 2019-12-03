@@ -26,13 +26,14 @@ import Delete from '@/assets/icons/WhiteCross.svg';
 import Info from '@/assets/icons/Info.svg';
 import Maps from '@/assets/icons/Maps.svg';
 import Logo from '@/assets/icons/logga.svg';
+import axios from 'axios';
 
 export default {
   name: 'navigation',
   data: () => ({
     selected: null,
     iconsMenu: [{icon: Maps, urlTo: '/contact'}, {icon: Logo, urlTo: '/'}, {icon: Info, urlTo: '/about'}],
-    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, urlTo: '/'}],
+    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, name: 'clock', urlTo: ''}],
     iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
   }),
   computed: {
@@ -56,6 +57,9 @@ export default {
         case 'delete':
           this.closeItemToEdit();
           break;  
+        case 'clock':
+          this.showProductionTime();
+          break;  
       }
     },
     closeItemToEdit() {
@@ -67,6 +71,17 @@ export default {
       } else {
         this.iconsOrderItem[1].urlTo = '/order';
       }
+    },
+    showProductionTime() {
+      const url = 'https://so-i-eat-server.herokuapp.com/deliveryTimes';
+      axios
+        .get(url)
+        .then((response) => {
+          console.log(response.data[0].time);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   },
 };

@@ -86,6 +86,8 @@ export default {
     cancelModal() {
       this.$store.commit('setShowInputModal', false);
       this.$store.commit('setShowModal', false);
+      this.$store.commit('setShowTextModal', false);
+      this.$store.commit('setModalText', null);
       this.$router.push('/');
     },
     minimizeModal() {

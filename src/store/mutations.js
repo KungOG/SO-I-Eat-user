@@ -44,8 +44,8 @@ export default {
   setSpice(state, spice) {
     state.orderDetails.spice = spice;
   },
-  setBusinessHours(state, hours) {
-    state.businessHours = hours;
+  setStatus(state, status) {
+    state.status = status;
   },
   setOpen(state, boolean) {
     state.open = boolean;

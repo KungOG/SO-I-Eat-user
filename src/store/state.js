@@ -10,8 +10,7 @@ export default {
   itemToEdit: null,
   itemToEditIndex: null,
   showCart: null,
-  businessHours: null,
-  open: false,
+  status: null,
   menuOptions: [
     { name: 'Tomat', price: 12 },
     { name: 'Jordnötter', price: 3 },
