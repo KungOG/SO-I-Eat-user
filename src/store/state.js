@@ -11,6 +11,7 @@ export default {
   itemToEditIndex: null,
   showCart: null,
   status: null,
+  open: false,
   productionTime: null,
   showProductionTime: false,
   menuOptions: [
