@@ -22,7 +22,6 @@ export default {
   ],
   order: {
     table: 'take away',
-    time: new Date(),
     foodItems: [],
     drinkItems: [],
   },
