@@ -6,7 +6,7 @@
         <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text"/>
         <NavigationButton :imageSrc="MenuIcon.url" :title="MenuIcon.text"/>
         <NavigationButton :imageSrc="EatHere.url" :title="EatHere.text" class="mobile"/>
-        <NavigationButton :imageSrc="Maps.url" :title="Maps.text" class="desktop"/>
+        <!-- <NavigationButton :imageSrc="Maps.url" :title="Maps.text" class="desktop"/> -->
       </section>
       <div class='line-wrapper'>
         <div class='first-line' />

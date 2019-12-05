@@ -16,7 +16,6 @@
       padding: 10px 0 0;
     }
 
-    
     .golden-arrow {
       display: flex;
       justify-content: center;
@@ -26,6 +25,12 @@
       right: 50%;
     }
   }
+}
+
+.home > .wrapper > .navigation-container {
+  left: calc(50vw + 70px);
+  top: 50vh;
+  position: relative;
 }
 
 .home > .wrapper > .line-wrapper {
@@ -54,7 +59,7 @@
   }
   .third-line {
     background: tomato;
-    top: 450px;
+    top: 350px;
     height: 1px;
     width: 150px;
     right: 40%;
@@ -62,7 +67,7 @@
   }
   .fourth-line {
     background: red;
-    top: 500px;
+    top: 400px;
     height: 1px;
     width: 100%;
     right: 45%;
