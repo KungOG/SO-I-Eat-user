@@ -8,6 +8,12 @@
         <NavigationButton :imageSrc="EatHere.url" :title="EatHere.text" class="mobile"/>
         <NavigationButton :imageSrc="Maps.url" :title="Maps.text" class="desktop"/>
       </section>
+      <div class='line-wrapper'>
+        <div class='first-line' />
+        <div class='second-line' />
+        <div class='third-line' />
+        <div class='fourth-line' />
+      </div>
       <div class='golden-arrow'>
         <img :src="Arrow" alt="" @click="test()">
       </div>

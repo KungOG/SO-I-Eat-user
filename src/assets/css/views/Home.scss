@@ -16,6 +16,7 @@
       padding: 10px 0 0;
     }
 
+    
     .golden-arrow {
       display: flex;
       justify-content: center;
@@ -24,5 +25,47 @@
       left: 50%;
       right: 50%;
     }
+  }
+}
+
+.home > .wrapper > .line-wrapper {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  overflow: hidden;
+  top: 180px;
+  left: 0;
+  height: calc(100vh - 180px);
+  width: 100vw;
+
+  .first-line {
+    background: yellow;
+    height: 600px;
+    width: 1px;
+    position: relative;
+  }
+  .second-line {
+    background: yellowgreen;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+    left: 45%;
+    position: absolute;
+  }
+  .third-line {
+    background: tomato;
+    top: 450px;
+    height: 1px;
+    width: 150px;
+    right: 40%;
+    position: absolute;
+  }
+  .fourth-line {
+    background: red;
+    top: 500px;
+    height: 1px;
+    width: 100%;
+    right: 45%;
+    position: absolute;
   }
 }
