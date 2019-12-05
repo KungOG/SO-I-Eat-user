@@ -64,7 +64,7 @@ export default {
   beforeMount() {
     this.$store.dispatch('getMenuItems');
     this.$store.dispatch('getCategories');
-    if(this.$store.state.open === false) {
+    if(this.$store.state.open === true) {
       this.$store.commit('setShowModal', true);
       this.$store.commit('setShowTextModal', true);
       this.$store.commit('setModalText', 'Tyvärr, vi har stängt');
