@@ -21,6 +21,9 @@
       </router-link>
     </div>
     <div v-show="showMenu" class="info-menu">
+      <div class="icon-wrapper">
+        <img :src="require('@/assets/icons/' + imgUrl)" @click="showMenu = false" />
+      </div>
       <div class="info-menu-text">
         <router-link to="/info"><h2>Kontakt</h2></router-link>
         <router-link to="/info"><h2>Om oss</h2></router-link>
@@ -52,6 +55,7 @@ export default {
     iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
     iconsInfo: [{icon: ReturnArrow, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
     showMenu: false,
+    imgUrl: 'WhiteCross.svg',
   }),
   computed: {
     editCart() {
@@ -78,9 +82,7 @@ export default {
           this.showProductionTime();
           break;  
         case 'info':
-          this.showMenu = !this.showMenu;
-          this.showMenu ? this.iconsMenu[1].icon = Cross : this.iconsMenu[1].icon = Info;
-          this.showMenu ? this.iconsInfo[1].icon = Cross : this.iconsInfo[1].icon = Info;
+          this.showMenu = true;
           break;  
       }
     },
@@ -133,9 +135,15 @@ export default {
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: 60px;
+    top: 0px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+
+    >.icon-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin: 7px 20px 0 0;
+    }
 
     >.info-menu-text {
       text-align: center;
