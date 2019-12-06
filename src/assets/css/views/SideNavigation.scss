@@ -1,6 +1,7 @@
 .side-navigation {
   color: white;
   width: 20%;
+  position: relative;
 
   @media (min-width: 768px) {
     width: 35%;
@@ -10,7 +11,18 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin-bottom: 3rem;
+  }
+
+  .show-time {
+    text-align: right;
+    
+    >span {
+      font-size: 14px;
+    }
+  }
+
+  .category-wrapper {
+    margin-top: 3rem;
   }
 
   h3 {

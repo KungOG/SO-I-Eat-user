@@ -12,7 +12,7 @@ export default {
   showCart: null,
   status: null,
   open: false,
-  productionTime: null,
+  productionTime: 20,
   showProductionTime: false,
   menuOptions: [
     { name: 'Tomat', price: 12 },
