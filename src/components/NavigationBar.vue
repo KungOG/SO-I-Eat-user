@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-container" :class="$route.path == '/' ? 'transparent' : ''"> 
+  <div class="nav-container" :class="$route.path == '/' && !showMenu ? 'transparent' : ''"> 
     <div class="nav-item" v-for="(icon, i) in iconsMenu" :key="i" v-if="$route.path === '/'">
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" />
@@ -15,6 +15,13 @@
         <img :src="icon.icon" @click="clicked(icon.name)" />
       </router-link>
     </div>
+    <div v-show="showMenu" class="info-menu">
+      <div class="info-menu-text">
+        <router-link to="/info"><h2>Kontakt</h2></router-link>
+        <router-link to="/info"><h2>Om oss</h2></router-link>
+        <router-link to="/info"><h2>Villkor</h2></router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,15 +34,18 @@ import Info from '@/assets/icons/Info.svg';
 import Maps from '@/assets/icons/Maps.svg';
 import Logo from '@/assets/icons/LogoNoText.svg';
 import FullLogo from '@/assets/icons/FullLogo.svg';
+import Cross from '@/assets/icons/WhiteCross.svg';
 import axios from 'axios';
 
 export default {
   name: 'navigation',
   data: () => ({
     selected: null,
-    iconsMenu: [{icon: FullLogo, urlTo: '/'}, {icon: Info, urlTo: '/about'}],
+    iconsMenu: [{icon: FullLogo, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
     iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, name: 'clock', urlTo: ''}],
     iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
+    showMenu: false,
+    imgUrl: 'WhiteCross.svg',
   }),
   computed: {
     editCart() {
@@ -60,6 +70,10 @@ export default {
           break;  
         case 'clock':
           this.showProductionTime();
+          break;  
+        case 'info':
+          this.showMenu = !this.showMenu;
+          this.showMenu ? this.iconsMenu[1].icon = Cross : this.iconsMenu[1].icon = Info;
           break;  
       }
     },
@@ -105,6 +119,26 @@ export default {
 
   &.transparent {
       background-color: transparent;
+  }
+
+  .info-menu {
+    background: #131313;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    display: flex;
+    justify-content: center;
+
+    >.info-menu-text {
+      text-align: center;
+      margin-top: 3rem;
+
+      h2 {
+        color: white;
+        margin: 50px;
+      }
+    }
   }
 }
 
