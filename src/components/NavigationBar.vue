@@ -25,14 +25,15 @@ import Clock from '@/assets/icons/Clock.svg';
 import Delete from '@/assets/icons/WhiteCross.svg';
 import Info from '@/assets/icons/Info.svg';
 import Maps from '@/assets/icons/Maps.svg';
-import Logo from '@/assets/icons/logga.svg';
+import Logo from '@/assets/icons/LogoNoText.svg';
+import FullLogo from '@/assets/icons/FullLogo.svg';
 import axios from 'axios';
 
 export default {
   name: 'navigation',
   data: () => ({
     selected: null,
-    iconsMenu: [{icon: Maps, urlTo: '/contact'}, {icon: Logo, urlTo: '/'}, {icon: Info, urlTo: '/about'}],
+    iconsMenu: [{icon: FullLogo, urlTo: '/'}, {icon: Info, urlTo: '/about'}],
     iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, name: 'clock', urlTo: ''}],
     iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
   }),
