@@ -10,6 +10,11 @@
         <img :src="icon.icon" @click="clicked(icon.name)" :class="selected === icon.name && icon.name !== 'clock' ? 'active-icon' : '' " />
       </router-link>
     </div>
+    <div class="nav-item" v-for="(icon, i) in iconsInfo" :key="i" v-if="$route.path === '/info'" >
+      <router-link :to="icon.urlTo" active-class="route-active">
+        <img :src="icon.icon" @click="clicked(icon.name)" />
+      </router-link>
+    </div>
     <div class="nav-item" v-for="(icon, i) in iconsOrderItem" :key="i" v-if="$route.path.substring(0, 11) === '/orderitem/'">
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" />
@@ -35,6 +40,7 @@ import Maps from '@/assets/icons/Maps.svg';
 import Logo from '@/assets/icons/LogoNoText.svg';
 import FullLogo from '@/assets/icons/FullLogo.svg';
 import Cross from '@/assets/icons/WhiteCross.svg';
+import ReturnArrow from '@/assets/icons/ReturnArrow.svg';
 import axios from 'axios';
 
 export default {
@@ -44,8 +50,8 @@ export default {
     iconsMenu: [{icon: FullLogo, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
     iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, name: 'clock', urlTo: ''}],
     iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
+    iconsInfo: [{icon: ReturnArrow, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
     showMenu: false,
-    imgUrl: 'WhiteCross.svg',
   }),
   computed: {
     editCart() {
@@ -74,6 +80,7 @@ export default {
         case 'info':
           this.showMenu = !this.showMenu;
           this.showMenu ? this.iconsMenu[1].icon = Cross : this.iconsMenu[1].icon = Info;
+          this.showMenu ? this.iconsInfo[1].icon = Cross : this.iconsInfo[1].icon = Info;
           break;  
       }
     },
