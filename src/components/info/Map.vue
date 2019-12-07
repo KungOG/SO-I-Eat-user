@@ -40,7 +40,8 @@ export default {
     height: 60vh;
     z-index: 0;
   }
+  .leaflet-control-container {
+    visibility: hidden;
+  }
 
 </style>
-
-
