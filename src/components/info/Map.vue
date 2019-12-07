@@ -38,6 +38,7 @@ export default {
 <style lang='scss'>
   .map {
     height: 60vh;
+    z-index: 0;
   }
 
 </style>
