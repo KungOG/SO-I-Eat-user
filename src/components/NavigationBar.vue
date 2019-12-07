@@ -25,9 +25,9 @@
         <img :src="require('@/assets/icons/' + imgUrl)" @click="showMenu = false" />
       </div>
       <div class="info-menu-text">
-        <router-link to="/info"><h2>Kontakt</h2></router-link>
-        <router-link to="/info"><h2>Om oss</h2></router-link>
-        <router-link to="/info"><h2>Villkor</h2></router-link>
+        <router-link to="/contact"><h2>Kontakt</h2></router-link>
+        <router-link to="/about"><h2>Om oss</h2></router-link>
+        <router-link to="/terms"><h2>Villkor</h2></router-link>
       </div>
     </div>
   </div>
@@ -125,6 +125,7 @@ export default {
   height: 60px;  
   width: 376px;
   position: fixed;
+  top: 0px;
 
   &.transparent {
       background-color: transparent;
