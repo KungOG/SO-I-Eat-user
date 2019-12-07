@@ -19,7 +19,7 @@ export default {
         iconUrl: require('@/assets/icons/Maps.svg'),
         iconSize: [25, 45]
       })
-      this.map = L.map('map').setView([56.5124518, 12.9468567], 13);
+      this.map = L.map('map').setView([56.5124518, 12.9468567], 14);
       this.marker = L.marker([56.5124518, 12.9468567], { icon: defaultMarker }).addTo(this.map);
       this.tileLayer = L.tileLayer(
         'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
@@ -39,6 +39,10 @@ export default {
   .map {
     height: 60vh;
     z-index: 0;
+
+  @media (min-width: 768px) {
+    height: 700px;
+  }
   }
   .leaflet-control-container {
     visibility: hidden;
