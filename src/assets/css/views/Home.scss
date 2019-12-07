@@ -25,6 +25,18 @@
       right: 50%;
     }
   }
+  .text-section {
+    background-color: $main-base-color;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >p {
+      color: white;
+      margin: 0;
+    }
+  }
 }
 
 .home > .wrapper > .navigation-container {

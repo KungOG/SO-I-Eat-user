@@ -19,11 +19,16 @@
       </div>
     </div>
     <Menu />
+    <section class="text-section">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+    </section>
+    <Map />
   </div>
 </template>
 
 <script>
 import Menu from './Menu.vue';
+import Map from '@/components/Info/Map.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 
@@ -31,6 +36,7 @@ export default {
   name: 'home',
   components: {
     Menu,
+    Map,
     NavigationBar,
     NavigationButton,
   },
