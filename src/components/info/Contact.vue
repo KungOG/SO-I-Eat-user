@@ -1,10 +1,15 @@
 <template>
     <div class='contact'>
-      <h1>Contact Component</h1>
+      <Map />
     </div>
 </template>
 <script>
+import Map from '@/components/Info/Map.vue';
+
 export default {
   name: 'contact',
+  components: {
+    Map,
+  }
 };
 </script>
