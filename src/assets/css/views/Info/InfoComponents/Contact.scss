@@ -1,3 +1,10 @@
-#app > .contact {
-  background: grey;
-}
+.contact > .text-wrapper {
+    margin: 2rem 2rem;
+    text-align: center;
+
+    >hr {
+      margin: 0 1.5rem;
+      border: .5px solid #c4c4c4;
+    }
+  }
+
