@@ -33,8 +33,8 @@
 
 <script>
 import Menu from './Menu.vue';
-import Map from '@/components/Info/Map.vue';
-import ContactText from '@/components/Info/ContactText.vue';
+import Map from '@/components/InfoPages/Map.vue';
+import ContactText from '@/components/InfoPages/ContactText.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 

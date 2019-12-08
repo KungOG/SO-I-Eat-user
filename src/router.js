@@ -19,17 +19,17 @@ export default new Router({
         {
           path: '/about',
           name: 'about',
-          component: () => import('./components/Info/About.vue'),
+          component: () => import('./components/InfoPages/About.vue'),
         },
         {
           path: '/contact',
           name: 'contact',
-          component: () => import('./components/Info/Contact.vue'),
+          component: () => import('./components/InfoPages/Contact.vue'),
         },
         {
           path: '/terms',
           name: 'terms',
-          component: () => import('./components/Info/Terms.vue'),
+          component: () => import('./components/InfoPages/Terms.vue'),
         },
       ],
     },
