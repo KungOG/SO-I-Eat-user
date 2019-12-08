@@ -1,20 +1,37 @@
 <template>
-  <div class='menu-card' :class="selectedCard === index ? 'activeCard' : ''">
-    <div class="image-card" :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
-      <transition name="fade">
-        <div class="background-white" v-show="expanded">
-          <card-text class="text" :item="item"/>
-        </div>
-      </transition> 
+    <div
+    class='menu-card'
+    @click="$emit('setSelectedCard', index)"
+    :class="[selectedCard === index ? 'activeCard' : '', editCart ? 'active-edit-card' : '', item.active === false ? '-inactive' : '']"
+    >
+    <card-image class="image"/>
+    <card-text class="text"
+      :displayIcons="displayIcons"
+      :item="item"
+      :showAddIcon="showAlternatives"
+      />
+    <card-alternatives v-if="showAlternatives"
+      :proteinItems="item.protein"
+      :showSpice="item.spice"
+      />
+    <card-customize 
+      v-if="showCustomize"
+      :ingredients="item.ingredients"
+      />
+    <div class="button-wrapper">
+      <standard-button
+        v-show="showAlternatives && !editCart"
+        :buttonText="this.showCustomize ? 'stäng': 'redigera'"
+        @click.native="showCustomize = !showCustomize"/>
+      <standard-button
+        v-show="showAlternatives && !editCart"
+        buttonText="Lägg till"
+        class="desktop"
+        @click.native.stop = "addItemToCart"/>
     </div>
-    <transition name="expand">
-      <div class="kkk" v-show="expandedmore">
-        <card-text class="text" :displayIcons="displayIcons" :item="item" :showAddIcon="showAlternatives"/>
-        <card-alternatives v-if="showAlternatives" :proteinItems="item.protein" :showSpice="item.spice"/>
-        <card-customize v-if="showCustomize" :ingredients="item.ingredients" />
-        <standard-button v-show="showAlternatives" :buttonText="this.showCustomize ? 'stäng': 'redigera'" @click.native = "buttonClick"/>
-      </div>
-    </transition> 
+    <div v-if="item.active === false" class="inactive-card">
+      <p>Går ej att beställa</p>
+    </div>
   </div>
 </template>
 
@@ -49,38 +66,55 @@ export default {
       type: Number,
     },
   },
-    data() {
-      return {
-        showAlternatives: false,
-        showCustomize: false,
-        expanded: true,
-        expandedmore: false,
+  data: () => ({
+    showAlternatives: false,
+    showCustomize: false,
+  }),
+  computed: {
+    activeProtein() {
+      return this.$store.state.orderDetails.protein;
+    },
+    activeSpice() {
+      return this.$store.state.orderDetails.spice;
+    },
+    editCart() {
+      return this.$store.state.editCart;
+    },
+  },
+  watch: {
+    selectedCard() {
+      this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
+      this.selectedCard !== this.index ? this.showCustomize = false : '';
+    },
+  },
+  mounted() {
+      this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+      this.editCart ? this.showCustomize = true : '';
+  },
+  methods: {
+    showAlternativesOption() {
+      this.showAlternatives = true;
+    },
+    addItemToCart() {
+      if(this.activeProtein === '' && this.activeSpice === null) {
+        this.$store.commit('setModalText', 'ange dina val av huvudingredients och styrka');
+        this.$store.commit('setShowTextModal', true);
+        this.$store.commit('setShowModal', true);
+      } else if (this.activeSpice === null) {
+        this.$store.commit('setModalText', 'ange ditt val av styrka');
+        this.$store.commit('setShowTextModal', true);
+        this.$store.commit('setShowModal', true);
+      } else if(this.activeProtein === '') {
+        this.$store.commit('setModalText', 'ange ditt val av huvudingredients');
+        this.$store.commit('setShowTextModal', true);
+        this.$store.commit('setShowModal', true);
+      } else {
+        this.$store.dispatch('setOrderItemsFood', this.item);
       }
+      this.$emit('setSelectedCard', -1);
     },
-    watch: {
-      selectedCard() {
-        this.selectedCard !== this.index ? this.showAlternatives = false : this.showAlternatives = true;
-        this.selectedCard !== this.index ? this.showCustomize = false : '';
-        this.selectedCard === this.index ? this.expanded = false : '';
-        this.selectedCard === this.index ? this.expandedmore = true : '';
-
-      },
-    },
-    mounted() {
-        this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
-    },
-    methods: {
-      showAlternativesOption() {
-        this.showAlternatives = true;
-      },
-      buttonClick() {
-        this.showCustomize = !this.showCustomize;
-      },
-      getImgUrl() {
-      return require('@/assets/images/dish.png')
-    },
-    },
-  };
+  },
+};
 </script>
 
 <style lang="scss">

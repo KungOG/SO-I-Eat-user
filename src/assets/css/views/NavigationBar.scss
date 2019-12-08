@@ -1,11 +1,11 @@
 .nav-container {
   display: flex;
-  width: auto;
   background-color: #131313;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;  
+  z-index: 1;
   width: 100vw;
+  justify-content: space-between;
+  align-items: center;	
+  height: 60px;
   
   .nav-item {
     margin: 20px;

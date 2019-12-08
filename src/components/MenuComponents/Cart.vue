@@ -1,46 +1,82 @@
 <template>
   <div class='cart'>
     <div class='cart-wrapper'>
-      <div class='head'> 
+      <section class='head'>
         <h1>Min beställning</h1>
-        <h5 class='bord'>Bord 5</h5>
-      </div>
-      <div class='cart-order'>
-        <div class='order-items' v-for="(item, i) in orderItems" :key="i">
+        <h5 v-if="orderItems.table === 'take away'" class='bord'>Take Away</h5>
+        <h5 v-else class='bord'>Bord {{orderItems.table}}</h5>
+      </section>
+      <section class='cart-order'>
+        <div class='order-items' v-for="(item, i) in orderItems.foodItems" :key="`order-food-items-${i}`">
+          <h6 class="amount">3</h6>
+          <div class="dish" @click="editCartItem(item, i)">
+            <h6>{{item.productName}}</h6>
+            <p>{{item.protein}}</p>
+            <p v-for="(add,i) in item.add" :key="`item-add-${i}`">+ {{add.name}}</p>
+            <p v-for="(remove, i) in item.remove" :key="`item-remove-${i}`">- {{remove}}</p>
+          </div>
+          <h6 class='price'>{{item.price + item.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-</h6>
+          <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemFood(item)">
+        </div>
+        <div class='order-items' v-for="(item, i) in orderItems.drinkItems" :key="`order-drink-items-${i}`">
           <h6 class="amount">3</h6>
           <div class="dish">
-            <h6>{{item.name}}</h6>
-            <p>{{item.protein}}</p>
-            <p v-for="(add,i) in item.add" :key="i">+ {{add}}</p>
-            <p v-for="(remove, i) in item.remove" :key="i">- {{remove}}</p>
-          </div>  
+            <h6>{{item.productName}}</h6>
+            <p>{{item.description}}</p>
+          </div>
           <h6 class='price'>{{item.price}}:-</h6>
-          <img class='icon' src="@/assets/icons/delete.svg">
+          <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemDrink(item)">
         </div>
-      </div>
-      <div class='summery'>
+      </section>
+      <section class='summery'>
         <h6>Totalsumma</h6>
-        <h6 class='totalAmount'>1000:-</h6>
-        <StandardButton class='desktop btn' />
-      </div>
+        <h6 class='totalAmount'>{{totalAmount}}:-</h6>
+        <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="sendOrder"/>
+      </section>
     </div>
   </div>
 </template>
 
 <script>
-import StandardButton from '@/components/StandardButton.vue'
+import StandardButton from '@/components/StandardButton.vue';
 
 export default {
   components: {
     StandardButton,
   },
-  data: () => ({
-    orderItems: [
-    {name: 'vårrullar', protein: '', add: [], remove: [], price: 59},
-    {name: 'kaen kiew wan', protein: 'Kyckling', add: ['Bambuskott', 'Lök'], remove: ['Tomat'], price: 129},
-    {name: 'phad thai', protein: 'Biff', add: [], remove: ['Jordnötter'], price: 99},
-    {name: 'coca cola', protein: '', add: [], remove: [], price: 25},
-    ],
-  }),
+  computed: {
+    orderItems() {
+      return this.$store.state.order;
+    },
+    totalAmount() {
+      let foodBase = this.orderItems.foodItems.map(x => x.price).reduce((a, b) => a + b, 0);
+      let drinkBase = this.orderItems.drinkItems.map(x => x.price).reduce((a, b) => a + b, 0);
+      let addons = 0;
+      this.orderItems.foodItems.forEach(item => {
+        addons += item.add.map(x => x.price).reduce((a, b) => a + b, 0);
+      });
+      return foodBase + drinkBase + addons;
+    },
+  },
+  methods: {
+    sendOrder() {
+      this.$store.dispatch('postOrder');
+      console.log('skickat')
+    },
+    deleteOrderItemFood(item) {
+      this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item));
+    },
+    deleteOrderItemDrink(item) {
+      this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item));
+    },
+    editCartItem(item, i) {
+      if(this.$route.path !== '/order') {
+        this.$router.push(`${item.productName}`);
+      }
+      this.$store.commit('setShowCart', null)
+      this.$store.commit('editCart', true);
+      this.$store.commit('setItemToEdit', {item: item, index: i});
+    },
+  },
 };
 </script>

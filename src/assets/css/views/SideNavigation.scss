@@ -1,16 +1,37 @@
 .side-navigation {
-    color: white;
-    width: 20%;
+  color: white;
+  width: 20%;
+  position: relative;
 
-    .icon-wrapper {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        margin-bottom: 3rem;
-    }
+  @media (min-width: 768px) {
+    width: 35%;
+  }
 
-    h3 {
-        color: $main-border-color;
-        font-weight: normal;
+  .icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .show-time {
+    text-align: right;
+    
+    >span {
+      font-size: 14px;
     }
+  }
+
+  .category-wrapper {
+    margin-top: 3rem;
+  }
+
+  h3 {
+    color: $main-border-color;
+    font-weight: normal;
+  }
+
+  .selectedCategory {
+    color: $secondary-color;
+    font-size: 30px;
+  }
 }

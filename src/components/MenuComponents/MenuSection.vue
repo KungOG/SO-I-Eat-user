@@ -1,8 +1,12 @@
 <template>
     <div class='menu-section'>
-      <div class='wrapper'>
-        <h1>{{category.name}}</h1>
-        <CardText v-for="(item, i) in filteredItems" :displayIcons="displayIcons" :key="i" :item="item"/>
+      <div class='menu-section-wrapper'>
+        <h1>{{category.categoryName}}</h1>
+        <CardText
+          v-for="(item, i) in filteredItems"
+          :displayIcons="displayIcons"
+          :key="`filtered-items-${i}`"
+          :item="item"/>
       </div>
     </div>
 </template>
@@ -15,11 +19,9 @@ export default {
   components: {
     CardText,
   },
-  data () {
-    return {
-      displayIcons: true,
-    }
-  },
+  data: () => ({
+    displayIcons: true,
+  }),
   props: {
     items: {
       type: Array,
@@ -32,7 +34,7 @@ export default {
   },
   computed: {
     filteredItems() {
-      return this.items.filter(x => this.category.id === x.category);
+      return this.items.filter(x => this.category.categoryId === x.category);
     },
   },
 };

@@ -1,20 +1,22 @@
 .order {
   background: $main-base-color;
 
-  @media (max-width: $screen-sm-lg) {
-
-  }
-
   @media (min-width: $screen-sm-md) {
     display: flex;
     height: 100vh;
+    width: 100vw;
+  }
+
+  @media (min-width: 768px) {
+    overflow: hidden;
+    position: relative;
   }
 
   .card-wrapper {
     padding: 120px 0 50px 0;
 
     @media (min-width: $screen-sm-md) {
-      width: 50%;
+      width: 75%;
       overflow-y: scroll;
       padding: 0;
     }

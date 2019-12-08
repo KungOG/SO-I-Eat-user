@@ -25,7 +25,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 1rem;
 
   > a {
     color: #AA0909;

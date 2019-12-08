@@ -1,7 +1,19 @@
 <template>
   <div>
-    <menu-card v-if="!showCart" :item="item" :displayIcons="displayIcons" :selectedCard="1" :index="1"/>
-    <menu-footer @click.native="$router.push('/order')" :text="footerText" class="mobile"/>
+    <menu-card 
+      v-if="!showCart"
+      :item="item"
+      :displayIcons="displayIcons"
+      :selectedCard="1"
+      :index="1"
+      ref="form"/>
+    <menu-footer
+      class="mobile"
+      :text="showCart ? {text: 'Till betalning'} : { text: 'Lägg till i beställning', text2: 'Uppdatera', sum: 0 }"
+      @click.native="cartEvents"/>
+    <modal v-if="showTextModal" :showAbort="showAbort" >
+      <h5>{{modalText}}</h5>
+    </modal>
     <Cart v-if="showCart" />
   </div>
 </template>
@@ -10,25 +22,64 @@
 import MenuCard from '@/components/MenuComponents/MenuCard.vue';
 import MenuFooter from '@/components/MenuComponents/MenuFooter.vue';
 import Cart from '@/components/MenuComponents/Cart.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
     MenuCard,
     MenuFooter,
     Cart,
+    Modal,
   },
   data: () => ({
-    showCart: null,
     displayIcons: false,
-    footerText: {text: 'lägg till i beställning', sum: 0}
   }),
   computed: {
     item() {
       return this.$store.getters.getOrderItem(this.$route.params.id);
     },
+    modalText() {
+      return this.$store.state.modalText;
+    },
+    showTextModal() {
+      return this.$store.state.showTextModal;
+    },
+    editCart() {
+      return this.$store.state.editCart;
+    },
+    showCart() {
+      return this.$store.state.showCart;
+    },
+    orderData() {
+      return this.$store.state.orderDetails;
+    },
   },
   beforeMount() {
-    this.$route.params.id == 0 ? this.showCart = true : this.showCart = false;
+    console.log(this.$route.params.id)
+    this.$route.params.id === 'cart' ? this.$store.commit('setShowCart', true) : this.$store.commit('setShowCart', false);
+  },
+  methods: {
+    cartEvents() {
+      if(this.showCart) {
+        this.toPayment()
+      } else if (this.editCart) {
+        this.$store.commit('setShowCart', true)
+        this.$store.commit('editCart', false);
+        this.$store.commit('updateCartItem');
+        this.$store.commit('resetItemToEdit');
+        this.$router.push('/orderitem/cart');
+      } else {
+        this.addFoodToCart()
+      }
+    },
+    addFoodToCart() {
+      this.orderData.protein && this.orderData.spice ? this.$router.push('/order') : '';
+      this.$refs.form.addItemToCart();
+    },
+    toPayment() {
+      this.$store.dispatch('postOrder');
+      console.log('skickat')
+    },
   },
 };
 </script>

@@ -1,13 +1,12 @@
 .home {
-  height: 100vh;
-  width: 100vw;
-  background: grey;
-  background: no-repeat center center fixed; 
-  background-size: cover;
-
+  overflow: scroll;
+  
   .wrapper {
-    z-index: 10;
-    background-color: rgba(0,0,0,0.0);
+    background-color: hsla(0, 0%, 0%, 0);
+    background: no-repeat center center; 
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
 
     header {
       display: flex;
@@ -17,7 +16,7 @@
       padding: 10px 0 0;
     }
 
-    footer {
+    .golden-arrow {
       display: flex;
       justify-content: center;
       position: absolute;
@@ -25,5 +24,98 @@
       left: 50%;
       right: 50%;
     }
+  }
+  .text-section {
+    background-color: $main-base-color;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >p {
+      color: white;
+      margin: 0;
+    }
+  }
+
+  .map-section {
+    position: relative;
+
+    .text-wrapper {
+      position: absolute;
+      left: 80px;
+      top: 300px;
+      background: white;
+      width: 250px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .about-section {
+    background: white;
+    padding: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    >p {
+      width: 50vw;
+    }
+
+    >h3 {
+      color: black;
+    }
+  }
+}
+
+.home > .wrapper > .navigation-container {
+  left: calc(50vw + 70px);
+  top: 50vh;
+  position: relative;
+}
+
+.home > .wrapper > .line-wrapper {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  overflow: hidden;
+  top: 180px;
+  left: 0;
+  height: calc(100vh - 180px);
+  width: 100vw;
+
+  .first-line {
+    background: yellow;
+    height: 600px;
+    width: 1px;
+    position: relative;
+  }
+  .second-line {
+    background: yellowgreen;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+    left: 45%;
+    position: absolute;
+  }
+  .third-line {
+    background: tomato;
+    top: 350px;
+    height: 1px;
+    width: 150px;
+    right: 40%;
+    position: absolute;
+  }
+  .fourth-line {
+    background: red;
+    top: 400px;
+    height: 1px;
+    width: 100%;
+    right: 45%;
+    position: absolute;
   }
 }

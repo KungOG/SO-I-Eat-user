@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-  <navigation-bar class="mobile"/>
+    <navigation-bar class="mobile"/>
     <div id="nav">
       <a style="cursor:pointer" :style="{'display': installBtn}" @click="installer()">
         <h1>Install!</h1>
       </a>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
 import NavigationBar from '@/components/NavigationBar.vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -20,9 +21,11 @@ export default {
   data: () => ({
     installBtn: 'none',
     installer: undefined,
+    status: null,
   }),
   created() {
     let installPrompt;
+    this.$store.state.status === null ? this.getStatus() : '';
 
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
@@ -42,6 +45,53 @@ export default {
       });
     };
   },
+  mounted() {
+    setInterval(() => { 
+      this.getBusinessHours();
+      this.checkCurrentTime();
+    }, 5000);
+  },
+  methods: {
+    checkCurrentTime() {
+      const d = new Date();
+      let currentTime = Number(d.getHours() + '.' + d.getMinutes());
+      if(this.status === 'open') {
+        this.$store.commit('setOpen', true);
+
+        if(currentTime > Number(this.selectedOpenHour) && currentTime < Number(this.selectedCloseHour)) {
+          this.$store.commit('setOpen', true);
+        } else {
+          this.$store.commit('setOpen', false);
+        }
+      } else {
+        this.$store.commit('setOpen', false);
+      }
+    },
+    getBusinessHours() {
+      const url = 'https://so-i-eat-server.herokuapp.com/businessHours';
+      axios
+        .get(url)
+        .then((response) => {
+          this.selectedOpenHour = response.data[0].open;
+          this.selectedCloseHour = response.data[0].closed;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getStatus() {
+      const url = 'https://so-i-eat-server.herokuapp.com/statuses';
+      axios
+        .get(url)
+        .then((response) => {
+          this.status = response.data[0].status;
+          this.$store.commit('setStatus', response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  }
 };
 </script>
 

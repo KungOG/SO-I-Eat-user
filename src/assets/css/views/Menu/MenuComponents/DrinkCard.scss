@@ -1,0 +1,75 @@
+.drink-card {
+  height: 90px;
+  background: white;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+
+  .drink-text {
+    display: grid;
+    align-items: center;
+    margin: 15px 30px;
+    width: 100%;
+    grid-template-columns: .4fr 2fr .5fr;
+    grid-template-rows: 17px;
+    grid-template-areas:
+     'filler drink-name price'
+     'number info add-icon';
+
+    div > h4,
+    h3 {
+      margin: 0;
+    }
+
+    .filler {
+      grid-area: filler;
+    }
+
+    .number {
+      grid-area: number;
+      border-top: 1px solid $main-secondary-color;
+      height: 100%;
+      text-align: center;
+
+      h4 {
+        color: #676565;
+      }
+    }
+
+    .drink-info {
+      grid-area: info;
+      height: 100%;
+      border-top: 1px solid $main-secondary-color;
+      border-left: 1px solid $main-secondary-color;
+      
+      p {
+        margin: 10px 0 0 10px;
+      }
+    }
+
+    .drink-name {
+      grid-area: drink-name;   
+      border-left: 1px solid $main-secondary-color;
+
+      > h3 {
+        margin: 0;
+        margin-left: 10px;
+        line-height: .8;
+      }
+    }
+
+    .price {
+      grid-area: price;
+    }
+
+    .add-icon {
+      grid-area: add-icon;    
+    }
+
+    .price,
+    .add-icon {
+      justify-content: flex-end;
+      display: flex;
+    }
+  }
+}
