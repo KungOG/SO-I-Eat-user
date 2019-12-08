@@ -1,0 +1,31 @@
+.about {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .img-about {
+    background: grey;
+    height: 350px;
+    width: 100vw;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 75px;
+    text-align: left;
+    position: relative;
+
+    .line {
+      background: black;
+      height: 1px;
+      width: 300px;
+      position: absolute;
+      top: 70px;
+      right: 0;
+    }
+  }
+}
