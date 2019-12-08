@@ -54,6 +54,22 @@
       justify-content: center;
     }
   }
+  .about-section {
+    background: white;
+    padding: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    >p {
+      width: 50vw;
+    }
+
+    >h3 {
+      color: black;
+    }
+  }
 }
 
 .home > .wrapper > .navigation-container {
