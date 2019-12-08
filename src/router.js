@@ -12,26 +12,19 @@ export default new Router({
       component: () => import('./views/Home.vue'),
     },
     {
-      path: '/info',
-      name: 'info',
-      component: () => import('./views/Info.vue'),
-      children: [
-        {
-          path: '/about',
-          name: 'about',
-          component: () => import('./components/InfoPages/About.vue'),
-        },
-        {
-          path: '/contact',
-          name: 'contact',
-          component: () => import('./components/InfoPages/Contact.vue'),
-        },
-        {
-          path: '/terms',
-          name: 'terms',
-          component: () => import('./components/InfoPages/Terms.vue'),
-        },
-      ],
+      path: '/about',
+      name: 'about',
+      component: () => import('./views/Info/About.vue'),
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('./views/Info/Contact.vue'),
+    },
+    {
+      path: '/terms',
+      name: 'terms',
+      component: () => import('./views/Info/Terms.vue'),
     },
     {
       path: '/confirmation',

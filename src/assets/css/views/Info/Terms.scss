@@ -1,0 +1,27 @@
+.terms {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  
+  .terms-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 40px;
+    position: relative;
+
+    .text {
+      margin: 25px 0;
+    }
+
+    .line {
+      position: absolute;
+      height: 1px;
+      width: 200px;
+      background: black;
+      top: 75px;
+      left: -40px
+    }
+  }
+}
