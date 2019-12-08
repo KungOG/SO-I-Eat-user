@@ -19,11 +19,22 @@
       </div>
     </div>
     <Menu />
+    <section class="text-section desktop">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+    </section>
+    <section class="map-section desktop">
+      <Map />
+      <div class="text-wrapper">
+        <ContactText />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import Menu from './Menu.vue';
+import Map from '@/components/InfoPages/Map.vue';
+import ContactText from '@/components/InfoPages/ContactText.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 
@@ -31,6 +42,8 @@ export default {
   name: 'home',
   components: {
     Menu,
+    Map,
+    ContactText,
     NavigationBar,
     NavigationButton,
   },

@@ -25,6 +25,35 @@
       right: 50%;
     }
   }
+  .text-section {
+    background-color: $main-base-color;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >p {
+      color: white;
+      margin: 0;
+    }
+  }
+
+  .map-section {
+    position: relative;
+
+    .text-wrapper {
+      position: absolute;
+      left: 80px;
+      top: 300px;
+      background: white;
+      width: 250px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 
 .home > .wrapper > .navigation-container {

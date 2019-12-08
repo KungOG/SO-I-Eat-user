@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   background: white;
+  position: relative;
 
   &:first-child {
     margin-top: 0;
@@ -42,4 +43,25 @@
     display: flex;
     justify-content: center;
   }
+
+  .inactive-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: $main-base-color;
+    opacity: .7;
+    display: flex;
+    justify-content: center;
+
+    > p {
+      color: white;
+      text-transform: uppercase;
+      font-size: 25px;
+      margin-top: 85px;
+    }
+  }
+}
+.-inactive {
+  pointer-events: none;
 }

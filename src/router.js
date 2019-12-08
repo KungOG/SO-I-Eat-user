@@ -12,6 +12,7 @@ export default new Router({
       component: () => import('./views/Home.vue'),
     },
     {
+<<<<<<< HEAD
       path: '/about',
       name: 'about',
       component: () => import('./views/Info/About.vue'),
@@ -25,6 +26,28 @@ export default new Router({
       path: '/terms',
       name: 'terms',
       component: () => import('./views/Info/Terms.vue'),
+=======
+      path: '/info',
+      name: 'info',
+      component: () => import('./views/Info.vue'),
+      children: [
+        {
+          path: '/about',
+          name: 'about',
+          component: () => import('./components/InfoPages/About.vue'),
+        },
+        {
+          path: '/contact',
+          name: 'contact',
+          component: () => import('./components/InfoPages/Contact.vue'),
+        },
+        {
+          path: '/terms',
+          name: 'terms',
+          component: () => import('./components/InfoPages/Terms.vue'),
+        },
+      ],
+>>>>>>> 8eac955d75fde142bfd40a4b0c9d85ce9923f6c0
     },
     {
       path: '/confirmation',

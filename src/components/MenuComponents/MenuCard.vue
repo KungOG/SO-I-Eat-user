@@ -2,33 +2,37 @@
     <div
     class='menu-card'
     @click="$emit('setSelectedCard', index)"
-    :class="[selectedCard === index ? 'activeCard' : '', editCart ? 'active-edit-card' : '']"
+    :class="[selectedCard === index ? 'activeCard' : '', editCart ? 'active-edit-card' : '', item.active === false ? '-inactive' : '']"
     >
-      <card-image class="image"/>
-      <card-text class="text"
-        :displayIcons="displayIcons"
-        :item="item"
-        :showAddIcon="showAlternatives"/>
-      <card-alternatives v-if="showAlternatives"
-        :proteinItems="item.protein"
-        :showSpice="item.spice"
-        />
-      <card-customize 
-        v-if="showCustomize"
-        :ingredients="item.ingredients"
-        />
-      <div class="button-wrapper">
-        <standard-button
-          v-show="showAlternatives && !editCart"
-          :buttonText="this.showCustomize ? 'stäng': 'redigera'"
-          @click.native="showCustomize = !showCustomize"/>
-        <standard-button
-          v-show="showAlternatives && !editCart"
-          buttonText="Lägg till"
-          class="desktop"
-          @click.native.stop = "addItemToCart"/>
-      </div>
+    <card-image class="image"/>
+    <card-text class="text"
+      :displayIcons="displayIcons"
+      :item="item"
+      :showAddIcon="showAlternatives"
+      />
+    <card-alternatives v-if="showAlternatives"
+      :proteinItems="item.protein"
+      :showSpice="item.spice"
+      />
+    <card-customize 
+      v-if="showCustomize"
+      :ingredients="item.ingredients"
+      />
+    <div class="button-wrapper">
+      <standard-button
+        v-show="showAlternatives && !editCart"
+        :buttonText="this.showCustomize ? 'stäng': 'redigera'"
+        @click.native="showCustomize = !showCustomize"/>
+      <standard-button
+        v-show="showAlternatives && !editCart"
+        buttonText="Lägg till"
+        class="desktop"
+        @click.native.stop = "addItemToCart"/>
     </div>
+    <div v-if="item.active === false" class="inactive-card">
+      <p>Går ej att beställa</p>
+    </div>
+  </div>
 </template>
 
 <script>
