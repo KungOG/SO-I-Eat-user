@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Map from '@/components/Info/Map.vue';
-import ContactText from '@/components/Info/ContactText.vue';
+import Map from './Map.vue';
+import ContactText from './ContactText.vue';
 
 export default {
   name: 'contact',
