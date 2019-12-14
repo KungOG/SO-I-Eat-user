@@ -69,11 +69,10 @@ export default {
         this.$store.commit('resetItemToEdit');
         this.$router.push('/orderitem/cart');
       } else {
-        this.addFoodToCart()
+        this.addFoodToCart();
       }
     },
     addFoodToCart() {
-      this.orderData.protein && this.orderData.spice ? this.$router.push('/order') : '';
       this.$refs.form.addItemToCart();
     },
     toPayment() {

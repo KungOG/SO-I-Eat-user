@@ -49,7 +49,7 @@ export default {
     setInterval(() => { 
       this.getBusinessHours();
       this.checkCurrentTime();
-    }, 5000);
+    }, 10000);
   },
   methods: {
     checkCurrentTime() {

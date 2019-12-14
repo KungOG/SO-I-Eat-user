@@ -97,22 +97,27 @@ export default {
     },
     addItemToCart() {
       if(this.activeProtein === '' && this.activeSpice === null) {
-        this.$store.commit('setModalText', 'ange dina val av huvudingredients och styrka');
-        this.$store.commit('setShowTextModal', true);
-        this.$store.commit('setShowModal', true);
+        if(this.item.spice === false && this.item.protein.length === 0) {
+          this.$store.dispatch('setOrderItemsFood', this.item);
+          this.$router.push('/order');
+        } else {
+          this.openModal('ange dina val av huvudingredients och styrka');
+        }
       } else if (this.activeSpice === null) {
-        this.$store.commit('setModalText', 'ange ditt val av styrka');
-        this.$store.commit('setShowTextModal', true);
-        this.$store.commit('setShowModal', true);
+        this.openModal('ange ditt val av styrka');
       } else if(this.activeProtein === '') {
-        this.$store.commit('setModalText', 'ange ditt val av huvudingredients');
-        this.$store.commit('setShowTextModal', true);
-        this.$store.commit('setShowModal', true);
+        this.openModal('ange ditt val av huvudingredients');
       } else {
         this.$store.dispatch('setOrderItemsFood', this.item);
+        this.$router.push('/order');
       }
       this.$emit('setSelectedCard', -1);
     },
+    openModal(modalText) {
+      this.$store.commit('setModalText', modalText);
+      this.$store.commit('setShowTextModal', true);
+      this.$store.commit('setShowModal', true);
+    }
   },
 };
 </script>
@@ -130,11 +135,6 @@ export default {
     .background-white {
       background: white;
     }
-  }
-
-  .kkk {
-    height: 350px;
-    opacity: 1;
   }
 
   .fade-enter-active, .fade-leave-active {
