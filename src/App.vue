@@ -45,7 +45,7 @@ export default {
       });
     };
   },
-  mounted() {
+  beforeMount() {
     setInterval(() => { 
       this.getBusinessHours();
       this.checkCurrentTime();

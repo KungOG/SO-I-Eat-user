@@ -55,7 +55,6 @@ export default {
     },
   },
   beforeMount() {
-    console.log(this.$route.params.id)
     this.$route.params.id === 'cart' ? this.$store.commit('setShowCart', true) : this.$store.commit('setShowCart', false);
   },
   methods: {
@@ -75,9 +74,10 @@ export default {
     addFoodToCart() {
       this.$refs.form.addItemToCart();
     },
-    toPayment() {
-      this.$store.dispatch('postOrder');
-      console.log('skickat')
+    async toPayment() {
+      await this.$store.dispatch('postOrder');
+      this.$store.commit('resetOrder');
+      this.$router.push('/order');
     },
   },
 };

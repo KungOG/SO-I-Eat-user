@@ -72,6 +72,11 @@ export default {
       remove: [],
     };
   },
+  resetOrder(state) {
+    state.order.foodItems.length = 0;
+    state.order.drinkItems.length = 0;
+    state.table = '';
+  },
   resetItemToEdit(state) {
     state.itemToEdit = null;
     state.itemToEditIndex = null;
