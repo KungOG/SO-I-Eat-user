@@ -23,6 +23,22 @@
 <script>
 import axios from 'axios';
 
+var style = {
+  base: {
+    color: '#32325d',
+    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    fontSmoothing: 'antialiased',
+    fontSize: '16px',
+    '::placeholder': {
+      color: '#aab7c4'
+    }
+  },
+  invalid: {
+    color: '#AA0909',
+    iconColor: '#AA0909'
+  }
+};
+
 export default {
   data: () => ({   
     orderData: {
@@ -41,17 +57,13 @@ export default {
     this.createPaymentIntent();
   },
   methods: {
-    //börja med att skicka ett payment intent, det ska innehålla valuta och summa. Rek är att räkna ut totalsumman på servern.
     createPaymentIntent() {
       const url = 'http://localhost:3000/create-payment-intent';
       axios
       .post(url, this.orderData, {
         headers: { ContentType: "application/json" }})
       .then((response) => {
-        //ska få tillbaka publishable key och clientSecret
-        console.log(response.data)
         this.clientSecret = response.data.clientSecret;
-        //ladda stripe elementen
         this.setUpStripe(response.data);
       })
       .catch((error) => {
@@ -65,7 +77,7 @@ export default {
         const stripe = window.Stripe(data.publishableKey);
         this.stripe = stripe;
         const elements = stripe.elements();
-        this.card = elements.create('card');
+        this.card = elements.create('card', {style: style});
         this.card.mount('#card-element');
         this.listenForErrors();
       }
