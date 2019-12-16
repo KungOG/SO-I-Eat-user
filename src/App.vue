@@ -16,7 +16,7 @@ import axios from 'axios';
 
 export default {
   components: {
-    NavigationBar,
+    NavigationBar
   },
   data: () => ({
     installBtn: 'none',

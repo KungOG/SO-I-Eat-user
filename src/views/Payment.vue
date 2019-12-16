@@ -1,22 +1,26 @@
 <template>
   <div class="payment">
-    <form id="payment-form" class="">
-      <div class="">
-        <p class="stripeError" v-if="stripeError">
-          {{stripeError}}
-        </p>
-      </div>
-      <div class="">
-        <div class="" id="card-element"></div>
-      </div>
-      <button id="submit" @click.prevent="submitPayment()">
-        <div class="spinner hidden" id="spinner"></div>
-        <span id="button-text">Betala</span>
-      </button>
-      <button class="" @click.prevent="reset()">
-        reset
-      </button>
-    </form>
+    <div class='payment-wrapper'>
+      <form id="payment-form" class='payment-form'>
+        <div class='payment-error'  v-if="stripeError">
+          <p class="stripeError">
+            {{stripeError}}
+          </p>
+        </div>
+        <div class='payment-card'>
+          <div class="" id="card-element"></div>
+        </div>
+        <div class='payment-buttons'>
+          <button id='submit-button' @click.prevent="submitPayment()">
+            <div class="spinner hidden" id="spinner"></div>
+            <span class='button-text'>Betala</span>
+          </button>
+          <button id='reset-button' @click.prevent="reset()">
+            <span class='button-text'>Reset</span>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 

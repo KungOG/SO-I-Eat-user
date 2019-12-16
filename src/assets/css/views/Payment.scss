@@ -1,0 +1,45 @@
+.payment {
+  background: rgba($color: #000000, $alpha: 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  
+  .payment-wrapper {
+    background: white;
+    position: absolute;
+    height: 250px;
+    width: 90vw;
+    border-radius: 5px;
+
+    .payment-form >
+    .payment-error,
+    .payment-card {
+      height: 50px;
+    }
+
+    .payment-form > .payment-buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+
+      #reset-button {
+        height: 20px;
+        width: 25%;
+      }
+
+      #submit-button {
+        background: $main-color;
+        color: white;
+        height: 40px;
+        width: 80%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
