@@ -59,9 +59,9 @@ export default {
     },
   },
   methods: {
-    sendOrder() {
-      this.$store.dispatch('postOrder');
-      console.log('skickat')
+    async sendOrder() {
+      await this.$store.dispatch('postOrder');
+      this.$store.commit('resetOrder');
     },
     deleteOrderItemFood(item) {
       this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item));
