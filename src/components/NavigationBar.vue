@@ -24,7 +24,7 @@
       <div class="icon-wrapper">
         <img :src="require('@/assets/icons/' + imgUrl)" @click="showMenu = false" />
       </div>
-      <div class="info-menu-text">
+      <div class="info-menu-text" @click="showMenu = false">
         <router-link to="/contact"><h2>Kontakt</h2></router-link>
         <router-link to="/about"><h2>Om oss</h2></router-link>
         <router-link to="/terms"><h2>Villkor</h2></router-link>
@@ -110,7 +110,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    }
+    },
   },
 };
 </script>
