@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     createPaymentIntent() {
-      const url = 'http://localhost:3000/create-payment-intent';
+      const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
       axios
       .post(url, this.orderData, {
         headers: { ContentType: "application/json" }})
