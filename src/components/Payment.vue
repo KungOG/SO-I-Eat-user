@@ -29,29 +29,29 @@
 <script>
 import axios from 'axios';
 
-var style = {
+let style = {
   base: {
     color: '#32325d',
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
     fontSmoothing: 'antialiased',
     fontSize: '16px',
     '::placeholder': {
-      color: '#aab7c4'
-    }
+      color: '#aab7c4',
+    },
   },
   invalid: {
     color: '#AA0909',
-    iconColor: '#AA0909'
-  }
+    iconColor: '#AA0909',
+  },
 };
 
 export default {
-  data: () => ({   
+  data: () => ({
     orderData: {
       items: [{ id: "photo-subscription" }],
       //items: [this.totalAmount],
-      currency: "sek"
-    }, 
+      currency: 'sek',
+    },
     clientSecret: '',
     card: null,
     stripe: null,
@@ -72,15 +72,14 @@ export default {
     createPaymentIntent() {
       const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
       axios
-      .post(url, this.orderData, {
-        headers: { ContentType: "application/json" }})
+      .post(url, this.orderData, { headers: { ContentType: 'application/json' } })
       .then((response) => {
         this.clientSecret = response.data.clientSecret;
         this.setUpStripe(response.data);
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
     },
     setUpStripe(data) {
       if (window.Stripe === undefined) {
@@ -89,7 +88,7 @@ export default {
         const stripe = window.Stripe(data.publishableKey);
         this.stripe = stripe;
         const elements = stripe.elements();
-        this.card = elements.create('card', {style: style});
+        this.card = elements.create('card', { style: style });
         this.card.mount('#card-element');
         this.listenForErrors();
       }
@@ -98,11 +97,11 @@ export default {
       const vm = this;
       this.card.addEventListener('change', (event) => {
         vm.toggleError(event);
-        vm.cardError = ''
-        vm.cardEvent = event.complete ? true : false
+        vm.cardError = '';
+        vm.cardEvent = event.complete ? true : false;
       });
     },
-    toggleError (event) {
+    toggleError(event) {
       if (event.error) {
         this.stripeError = event.error.message;
       } else {
@@ -111,17 +110,13 @@ export default {
     },
     submitPayment() {
       this.stripe.confirmCardPayment(this.clientSecret, {
-        payment_method: {card: this.card}
+        payment_method: { card: this.card },
       }).then((result) => {
-        console.log(result)
         if (result.error) {
-          // Show error to your customer
           this.stripeError = result.error.message;
-          console.log(result.error.message);
         } else {
-          // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
-            console.log('betalningen gick igenom')
+            console.log('betalningen gick igenom');
             this.sendOrder();
             // Show a success message to your customer
             // There's a risk of the customer closing the window before callback
@@ -130,22 +125,22 @@ export default {
             // post-payment actions.
           }
         }
-      })  
+      });
     },
     sendOrder() {
       this.$store.dispatch('postOrder');
       this.$router.push('/confirmation');
     },
     clearElementsInputs() {
-      this.card.clear()
+      this.card.clear();
     },
     clearCardErrors() {
-      this.stripeError = ''
-      this.cardError = ''
+      this.stripeError = '';
+      this.cardError = '';
     },
     reset() {
-      this.clearElementsInputs()
-      this.clearCardErrors()
+      this.clearElementsInputs();
+      this.clearCardErrors();
     },
   },
 };

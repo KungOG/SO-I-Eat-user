@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import EatHere from '@/assets/icons/EatHere.svg';
 import EatHereActive from '@/assets/icons/EatHereActive.svg';
 import TakeAway from '@/assets/icons/TakeAway.svg';
@@ -41,21 +42,18 @@ import TakeAwayActive from '@/assets/icons/TakeAwayActive.svg';
 import Clock from '@/assets/icons/Clock.svg';
 import Delete from '@/assets/icons/WhiteCross.svg';
 import Info from '@/assets/icons/Info.svg';
-import Maps from '@/assets/icons/Maps.svg';
 import Logo from '@/assets/icons/LogoNoText.svg';
 import FullLogo from '@/assets/icons/FullLogo.svg';
-import Cross from '@/assets/icons/WhiteCross.svg';
 import ReturnArrow from '@/assets/icons/ReturnArrow.svg';
-import axios from 'axios';
 
 export default {
   name: 'navigation',
   data: () => ({
     selected: null,
-    iconsMenu: [{icon: FullLogo, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
-    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, active: EatHereActive, name: 'eatHere', urlTo: '/order'}, {icon: Clock, name: 'clock', urlTo: ''}],
-    iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
-    iconsInfo: [{icon: ReturnArrow, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
+    iconsMenu: [{ icon: FullLogo, urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
+    iconsOrder: [{ icon: Logo, urlTo: '/' }, { icon: TakeAway, name: 'takeAway', urlTo: '/order' }, { icon: EatHere, active: EatHereActive, name: 'eatHere', urlTo: '/order' }, { icon: Clock, name: 'clock', urlTo: '' }],
+    iconsOrderItem: [{ icon: Logo, urlTo: '/' }, { icon: Delete, name: 'delete', urlTo: '/order' }],
+    iconsInfo: [{ icon: ReturnArrow, urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
     showMenu: false,
     imgUrl: 'WhiteCross.svg',
   }),
@@ -65,7 +63,7 @@ export default {
     },
     table() {
       return this.$store.state.order.table;
-    }
+    },
   },
   beforeMount() {
     this.table === 'take away' ? this.iconsOrder[1].icon = TakeAwayActive : this.iconsOrder[1].icon = TakeAway;
@@ -75,7 +73,7 @@ export default {
     table() {
       this.table === 'take away' ? this.iconsOrder[1].icon = TakeAwayActive : this.iconsOrder[1].icon = TakeAway;
       this.table !== 'take away' ? this.iconsOrder[2].icon = EatHereActive : this.iconsOrder[2].icon = EatHere;
-    }
+    },
   },
   methods: {
     clicked(icon) {
@@ -84,21 +82,21 @@ export default {
         case 'eatHere':
           this.$store.commit('setShowModal', true);
           this.$store.commit('setShowInputModal', true);
-          this.$store.commit('setOrderState', icon)
+          this.$store.commit('setOrderState', icon);
           break;
         case 'takeAway':
-          this.$store.commit('setOrderState', icon)
-          this.$store.commit('setTableInput', 'take away')
+          this.$store.commit('setOrderState', icon);
+          this.$store.commit('setTableInput', 'take away');
           break;
         case 'delete':
           this.closeItemToEdit();
-          break;  
+          break;
         case 'clock':
           this.showProductionTime();
-          break;  
+          break;
         case 'info':
           this.showMenu = true;
-          break;  
+          break;
       }
     },
     closeItemToEdit() {
@@ -137,7 +135,7 @@ export default {
   background-color: #131313;
   justify-content: space-between;
   align-items: center;
-  height: 60px;  
+  height: 60px;
   width: 376px;
   position: fixed;
   top: 0px;
