@@ -38,6 +38,7 @@ export default {
     const orderItem = {
       productNr: payload.productNr,
       productName: payload.productName,
+      status: 0,
       protein: this.state.orderDetails.protein,
       spice: this.state.orderDetails.spice,
       price: payload.price,
@@ -51,6 +52,7 @@ export default {
     const orderItem = {
       productNr: payload.productNr,
       productName: payload.productName,
+      status: false,
       protein: payload.protein,
       spice: payload.spice,
       price: payload.price,

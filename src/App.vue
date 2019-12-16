@@ -45,11 +45,11 @@ export default {
       });
     };
   },
-  mounted() {
+  beforeMount() {
     setInterval(() => { 
       this.getBusinessHours();
       this.checkCurrentTime();
-    }, 5000);
+    }, 10000);
   },
   methods: {
     checkCurrentTime() {

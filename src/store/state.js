@@ -22,7 +22,7 @@ export default {
     { name: 'Paprika', price: 10 },
   ],
   order: {
-    table: 'take away',
+    table: '',
     foodItems: [],
     drinkItems: [],
   },

@@ -97,22 +97,62 @@ export default {
     },
     addItemToCart() {
       if(this.activeProtein === '' && this.activeSpice === null) {
-        this.$store.commit('setModalText', 'ange dina val av huvudingredients och styrka');
-        this.$store.commit('setShowTextModal', true);
-        this.$store.commit('setShowModal', true);
+        if(this.item.spice === false && this.item.protein.length === 0) {
+          this.$store.dispatch('setOrderItemsFood', this.item);
+          this.$router.push('/order');
+        } else {
+          this.openModal('ange dina val av huvudingredients och styrka');
+        }
       } else if (this.activeSpice === null) {
-        this.$store.commit('setModalText', 'ange ditt val av styrka');
-        this.$store.commit('setShowTextModal', true);
-        this.$store.commit('setShowModal', true);
+        this.openModal('ange ditt val av styrka');
       } else if(this.activeProtein === '') {
-        this.$store.commit('setModalText', 'ange ditt val av huvudingredients');
-        this.$store.commit('setShowTextModal', true);
-        this.$store.commit('setShowModal', true);
+        this.openModal('ange ditt val av huvudingredients');
       } else {
         this.$store.dispatch('setOrderItemsFood', this.item);
+        this.$router.push('/order');
       }
       this.$emit('setSelectedCard', -1);
     },
+    openModal(modalText) {
+      this.$store.commit('setModalText', modalText);
+      this.$store.commit('setShowTextModal', true);
+      this.$store.commit('setShowModal', true);
+    }
   },
 };
 </script>
+
+<style lang="scss">
+.menu-card {
+
+  .image-card {
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: flex-end;
+
+    .background-white {
+      background: white;
+    }
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: transform .8s ease-in-out;
+  }
+  
+  .fade-enter, .fade-leave-to {
+    transform: translateX(400px);
+  }
+
+  .expand-enter-active, .expand-leave-active {
+    transition: all .8s ease-in-out 1s;
+  }
+  
+  .expand-enter, .expand-leave-to {
+    height: 0px;
+    opacity: 0;
+  }
+}
+
+</style>
