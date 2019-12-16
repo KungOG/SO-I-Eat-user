@@ -10,6 +10,7 @@ export default {
   itemToEdit: null,
   itemToEditIndex: null,
   showCart: null,
+  showPayment: false,
   status: null,
   open: false,
   productionTime: 20,

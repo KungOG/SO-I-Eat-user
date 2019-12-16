@@ -75,9 +75,7 @@ export default {
       this.$refs.form.addItemToCart();
     },
     async toPayment() {
-      await this.$store.dispatch('postOrder');
-      this.$store.commit('resetOrder');
-      this.$router.push('/order');
+      this.$store.commit('setShowPayment', true);
     },
   },
 };
