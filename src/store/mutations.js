@@ -38,6 +38,9 @@ export default {
   setShowModal(state, boolean) {
     state.showModal = boolean;
   },
+  setShowPayment(state, boolean) {
+    state.showPayment = boolean;
+  },
   setProductionTime(state, time) {
     state.productionTime = time;
   },

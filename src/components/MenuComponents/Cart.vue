@@ -31,7 +31,7 @@
       <section class='summery'>
         <h6>Totalsumma</h6>
         <h6 class='totalAmount'>{{totalAmount}}:-</h6>
-        <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="sendOrder"/>
+        <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="toPayment"/>
       </section>
     </div>
   </div>
@@ -41,12 +41,18 @@
 import StandardButton from '@/components/StandardButton.vue';
 
 export default {
+  data: () => ({
+    showPayment: false,
+  }),
   components: {
     StandardButton,
   },
   computed: {
     orderItems() {
       return this.$store.state.order;
+    },
+    showPayment() {
+      return this.$store.state.showPayment;
     },
     totalAmount() {
       let foodBase = this.orderItems.foodItems.map(x => x.price).reduce((a, b) => a + b, 0);
@@ -59,9 +65,8 @@ export default {
     },
   },
   methods: {
-    async sendOrder() {
-      await this.$store.dispatch('postOrder');
-      this.$store.commit('resetOrder');
+    toPayment() {
+      this.$store.commit('setShowPayment', true);
     },
     deleteOrderItemFood(item) {
       this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item));
