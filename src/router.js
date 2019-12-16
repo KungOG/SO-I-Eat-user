@@ -63,10 +63,5 @@ export default new Router({
       name: 'loading',
       component: () => import('./views/Loading.vue'),
     },
-    {
-      path: '/payment',
-      name: 'payment',
-      component: () => import('./views/Payment.vue'),
-    },
   ],
 });

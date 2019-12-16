@@ -1,33 +1,31 @@
 <template>
   <div class="payment">
-    <section class="payment-wrapper">
-      <section class="modal-content">
-        <form id="payment-form" class="">
-          <div class="">
-            <p class="stripeError" v-if="stripeError">
-              {{stripeError}}
-            </p>
-          </div>
-          <div class="">
-            <div class="" id="card-element"></div>
-          </div>
-          <button id="submit" @click.prevent="submitPayment()">
+    <div class='payment-wrapper'>
+      <form id="payment-form" class='payment-form'>
+        <div class='payment-error'>
+          <p class="stripeError" v-if="stripeError">
+            {{stripeError}}
+          </p>
+        </div>
+        <div class='payment-card'>
+          <div class="" id="card-element"></div>
+        </div>
+        <div class='payment-buttons'>
+          <button id='submit-button' @click.prevent="submitPayment()">
             <div class="spinner hidden" id="spinner"></div>
-            <span id="button-text">Betala</span>
+            <span class='button-text'>Betala</span>
           </button>
-          <button class="" @click.prevent="reset()">
-            reset
+          <button id='reset-button' @click.prevent="reset()">
+            <span class='button-text'>Reset</span>
           </button>
-        </form>
-      </section>
-      <img class='modal-cross-icon' :src="CloseDown" />
-    </section>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import CloseDown from '@/assets/icons/WhiteCross.svg';
 
 var style = {
   base: {
@@ -48,8 +46,8 @@ var style = {
 export default {
   data: () => ({   
     orderData: {
-      //items: [{ id: "photo-subscription" }],
-      items: [this.totalAmount],
+      items: [{ id: "photo-subscription" }],
+      //items: [this.totalAmount],
       currency: "sek"
     }, 
     clientSecret: '',
@@ -59,14 +57,12 @@ export default {
     cardError: '',
     cardEvent: null,
     loading: false,
-    CloseDown: CloseDown,
   }),
-  props: {
+/*   props: {
     totalAmount: {
       type: Number,
-      required: false,
     },
-  },
+  }, */
   mounted() {
     this.createPaymentIntent();
   },
@@ -124,8 +120,7 @@ export default {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
             console.log('betalningen gick igenom')
-            this.sendOrder();
-
+            // Show a success message to your customer
             // There's a risk of the customer closing the window before callback
             // execution. Set up a webhook or plugin to listen for the
             // payment_intent.succeeded event that handles any business critical
@@ -133,11 +128,6 @@ export default {
           }
         }
       })  
-    },
-    async sendOrder() {
-      await this.$store.dispatch('postOrder');
-      this.$store.commit('resetOrder');
-      this.$router.push('/confirmation');
     },
     clearElementsInputs() {
       this.card.clear()

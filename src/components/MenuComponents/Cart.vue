@@ -34,11 +34,13 @@
         <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="toPayment"/>
       </section>
     </div>
+    <Payment />
   </div>
 </template>
 
 <script>
 import StandardButton from '@/components/StandardButton.vue';
+import Payment from '@/components/Payment.vue';
 
 export default {
   data: () => ({
@@ -46,6 +48,7 @@ export default {
   }),
   components: {
     StandardButton,
+    Payment,
   },
   computed: {
     orderItems() {
