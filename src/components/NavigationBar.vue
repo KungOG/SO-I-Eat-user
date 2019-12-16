@@ -35,7 +35,9 @@
 
 <script>
 import EatHere from '@/assets/icons/EatHere.svg';
+import EatHereActive from '@/assets/icons/EatHereActive.svg';
 import TakeAway from '@/assets/icons/TakeAway.svg';
+import TakeAwayActive from '@/assets/icons/TakeAwayActive.svg';
 import Clock from '@/assets/icons/Clock.svg';
 import Delete from '@/assets/icons/WhiteCross.svg';
 import Info from '@/assets/icons/Info.svg';
@@ -51,7 +53,7 @@ export default {
   data: () => ({
     selected: null,
     iconsMenu: [{icon: FullLogo, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
-    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, name: 'clock', urlTo: ''}],
+    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, active: EatHereActive, name: 'eatHere', urlTo: '/order'}, {icon: Clock, name: 'clock', urlTo: ''}],
     iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
     iconsInfo: [{icon: ReturnArrow, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
     showMenu: false,
@@ -61,6 +63,19 @@ export default {
     editCart() {
       return this.$store.state.editCart;
     },
+    table() {
+      return this.$store.state.order.table;
+    }
+  },
+  beforeMount() {
+    this.table === 'take away' ? this.iconsOrder[1].icon = TakeAwayActive : this.iconsOrder[1].icon = TakeAway;
+    this.table !== 'take away' ? this.iconsOrder[2].icon = EatHereActive : this.iconsOrder[2].icon = EatHere;
+  },
+  watch: {
+    table() {
+      this.table === 'take away' ? this.iconsOrder[1].icon = TakeAwayActive : this.iconsOrder[1].icon = TakeAway;
+      this.table !== 'take away' ? this.iconsOrder[2].icon = EatHereActive : this.iconsOrder[2].icon = EatHere;
+    }
   },
   methods: {
     clicked(icon) {
@@ -162,7 +177,6 @@ export default {
   margin: 20px;
 
   .active-icon {
-    background: pink;
     pointer-events: none;
   }
 }
