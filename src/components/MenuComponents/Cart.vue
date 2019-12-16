@@ -34,7 +34,7 @@
         <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="toPayment"/>
       </section>
     </div>
-    <Payment />
+    <Payment v-if="showPayment" />
   </div>
 </template>
 
@@ -43,9 +43,6 @@ import StandardButton from '@/components/StandardButton.vue';
 import Payment from '@/components/Payment.vue';
 
 export default {
-  data: () => ({
-    showPayment: false,
-  }),
   components: {
     StandardButton,
     Payment,

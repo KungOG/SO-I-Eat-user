@@ -12,31 +12,39 @@
   .payment-wrapper {
     background: white;
     position: absolute;
-    height: 250px;
+    height: 300px;
     width: 90vw;
     border-radius: 5px;
 
-    .payment-form >
-    .payment-error,
-    .payment-card {
-      height: 50px;
+    > .payment-form > .payment-information {
       display: flex;
       justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
-    .payment-form > .payment-buttons {
+    > .payment-form > .payment-information >
+    .payment-error,
+    .payment-card {
+      display: flex;
+      justify-content: center;
+      height: 50px;
+      width: 80%;
+    }
+
+    > .payment-form > .payment-buttons {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 200px;
 
-      #reset-button {
+      > #reset-button {
         height: 20px;
         width: 25%;
       }
 
-      #submit-button {
+      > #submit-button {
         background: $main-color;
         color: white;
         height: 40px;

@@ -2,13 +2,15 @@
   <div class="payment">
     <div class='payment-wrapper'>
       <form id="payment-form" class='payment-form'>
-        <div class='payment-error'>
-          <p class="stripeError" v-if="stripeError">
-            {{stripeError}}
-          </p>
-        </div>
-        <div class='payment-card'>
-          <div class="" id="card-element"></div>
+        <div class='payment-information'>
+          <div class='payment-error'>
+            <p class="stripeError"  v-if="stripeError">
+              {{stripeError}}
+            </p>
+          </div>
+          <div class='payment-card'>
+            <div class="" id="card-element"></div>
+          </div>
         </div>
         <div class='payment-buttons'>
           <button id='submit-button' @click.prevent="submitPayment()">
