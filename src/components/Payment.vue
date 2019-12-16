@@ -122,6 +122,7 @@ export default {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
             console.log('betalningen gick igenom')
+            this.sendOrder();
             // Show a success message to your customer
             // There's a risk of the customer closing the window before callback
             // execution. Set up a webhook or plugin to listen for the
@@ -130,6 +131,10 @@ export default {
           }
         }
       })  
+    },
+    sendOrder() {
+      this.$store.dispatch('postOrder');
+      this.$router.push('/confirmation');
     },
     clearElementsInputs() {
       this.card.clear()
