@@ -13,9 +13,9 @@
         <div class="spinner hidden" id="spinner"></div>
         <span id="button-text">Betala</span>
       </button>
-        <button class="" @click.prevent="reset()">
-          reset
-        </button>
+      <button class="" @click.prevent="reset()">
+        reset
+      </button>
     </form>
   </div>
 </template>
@@ -42,7 +42,8 @@ var style = {
 export default {
   data: () => ({   
     orderData: {
-      items: [{ id: "photo-subscription" }],
+      //items: [{ id: "photo-subscription" }],
+      items: [this.totalAmount],
       currency: "sek"
     }, 
     clientSecret: '',
@@ -53,6 +54,11 @@ export default {
     cardEvent: null,
     loading: false,
   }),
+  props: {
+    totalAmount: {
+      type: Number,
+    },
+  },
   mounted() {
     this.createPaymentIntent();
   },
