@@ -1,6 +1,4 @@
 .home {
-  overflow: scroll;
-  
   .wrapper {
     background-color: hsla(0, 0%, 0%, 0);
     background: no-repeat center center; 
@@ -25,6 +23,7 @@
       right: 50%;
     }
   }
+
   .text-section {
     background-color: $main-base-color;
     height: 200px;
@@ -32,7 +31,7 @@
     align-items: center;
     justify-content: center;
 
-    >p {
+    > p {
       color: white;
       margin: 0;
     }
@@ -72,7 +71,7 @@
   }
 }
 
-.home > .wrapper > .navigation-container {
+.home > .wrapper > .navigation-buttons-container {
   left: calc(50vw + 70px);
   top: 50vh;
   position: relative;
@@ -101,7 +100,7 @@
   
     .first-line {
       background: $main-secondary-color;
-      height: 600px;
+      height: 94%;
       width: 1px;
       position: relative;
     }
