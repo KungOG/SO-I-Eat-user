@@ -1,12 +1,13 @@
 .scroll-container {
-  display: flex;
-  width: 100vw;
   background-color: #131313;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   flex-direction: column;
+  width: 100vw;
   top: 20px;
+  z-index: 10;
   transition: top 1.5s;
 
   &.active-production-time {
@@ -16,7 +17,7 @@
   .upper-scroll-container {
     height: 40px;
   }
-  
+
   .lower-scroll-container {
     height: 60px;
     width: 100vw;
@@ -49,9 +50,7 @@
     }
   }
 }
-  
+
 ::-webkit-scrollbar { 
   display: none; 
 }
-  
-  
