@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navigation-bar class="mobile"/>
+    <NavigationBar class="mobile"/>
     <div id="nav">
       <a style="cursor:pointer" :style="{'display': installBtn}" @click="installer()">
         <h1>Install!</h1>
