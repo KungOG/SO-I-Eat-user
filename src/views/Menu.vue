@@ -1,5 +1,5 @@
 <template>
-    <div class='menu'>
+    <div class='products'>
       <div class="sections-wrapper mobile">
         <MenuSection v-for="(category, i) in categories" :key="`categories-${i}`" :items="menuItems" :category="category"/>
       </div>
@@ -23,7 +23,7 @@ import MenuSection from '@/components/MenuComponents/MenuSection.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 
 export default {
-  name: 'menu',
+  name: 'products',
   data: () => ({
       TakeAway: require('@/assets/icons/TakeAway.svg'),
       TakeAwayText: 'Ta med',
