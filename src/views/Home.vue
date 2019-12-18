@@ -23,7 +23,7 @@
         <img :src="Arrow" alt="" @click="test()">
       </div>
     </div>
-    <Menu />
+    <Products />
     <section class="text-section desktop">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
     </section>
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import Menu from './Menu.vue';
+import Products from './Products.vue';
 import Map from '@/components/InfoPages/Map.vue';
 import ContactText from '@/components/InfoPages/ContactText.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
@@ -55,7 +55,7 @@ import NavigationButton from '@/components/NavigationButton.vue';
 export default {
   name: 'home',
   components: {
-    Menu,
+    Products,
     Map,
     ContactText,
     NavigationButton,
