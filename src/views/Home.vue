@@ -1,8 +1,7 @@
 <template>
   <div class='home'>
     <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
-      <NavigationBar class="mobile"/>
-      <section class="navigation-container">
+      <section class="navigation-buttons-container">
         <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text"/>
         <NavigationButton :imageSrc="MenuIcon.url" :title="MenuIcon.text"/>
         <NavigationButton :imageSrc="EatHere.url" :title="EatHere.text" class="mobile"/>
@@ -32,9 +31,13 @@
     </section>
     <section class="about-section desktop">
       <h3>Genuina smaker från Thailand</h3>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
       <div>Bild bild bild</div>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
     </section>
   </div>
 </template>
@@ -43,7 +46,6 @@
 import Menu from './Menu.vue';
 import Map from '@/components/InfoPages/Map.vue';
 import ContactText from '@/components/InfoPages/ContactText.vue';
-import NavigationBar from '@/components/NavigationBar.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 
 export default {
@@ -52,22 +54,23 @@ export default {
     Menu,
     Map,
     ContactText,
-    NavigationBar,
     NavigationButton,
   },
+
   data: () => ({
-    TakeAway: {url: require('@/assets/icons/TakeAway.svg'), text: 'Ta med'},
-    MenuIcon: {url: require('@/assets/icons/MenuIcon.svg'), text: 'Se Menyn'} ,
-    Maps: {url: require('@/assets/icons/Maps.svg'), text: 'Hitta hit'},
-    EatHere: {url: require('@/assets/icons/EatHere.svg'), text: 'Äta här'},
+    TakeAway: { url: require('@/assets/icons/TakeAway.svg'), text: 'Ta med' },
+    MenuIcon: { url: require('@/assets/icons/MenuIcon.svg'), text: 'Se Menyn' },
+    Maps: { url: require('@/assets/icons/Maps.svg'), text: 'Hitta hit' },
+    EatHere: { url: require('@/assets/icons/EatHere.svg'), text: 'Äta här' },
     Arrow: require('@/assets/icons/Arrow.svg'),
   }),
+
   methods: {
-    test () {
+    test() {
       console.log('click');
     },
     getImgUrl() {
-      return require('@/assets/images/background.png')
+      return require('@/assets/images/background.png');
     },
   },
 };
