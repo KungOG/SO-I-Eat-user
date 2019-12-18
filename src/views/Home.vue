@@ -9,6 +9,10 @@
       </section>
       <div class='line-wrapper'>
         <div class='line-container'>
+          <span class='line-wrapper-text'>
+            Öppet tis-sön 11-21<br>
+            Lunch tis-fre 11-14
+          </span>
           <div class='first-line' />
           <div class='second-line' />
           <div class='third-line' />
