@@ -1,5 +1,6 @@
 <template>
-  <div class="nav-container" :class="$route.path == '/' && !showMenu ? 'transparent' : ''"> 
+  <div class="nav-container"
+  :class="[$route.path == '/' && !showMenu ? 'transparent' : '', $route.path === '/' ? 'home' : '']"> 
     <div class="nav-item" v-for="(icon, i) in iconsMenu" :key="i" v-if="$route.path === '/'">
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" />
@@ -127,55 +128,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.nav-container {
-  display: flex;
-  width: auto;
-  background-color: #131313;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  width: 376px;
-  position: fixed;
-  top: 0px;
-
-  &.transparent {
-      background-color: transparent;
-  }
-
-  .info-menu {
-    background: #131313;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    display: flex;
-    flex-direction: column;
-
-    >.icon-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      margin: 7px 20px 0 0;
-    }
-
-    >.info-menu-text {
-      text-align: center;
-      margin-top: 3rem;
-
-      h2 {
-        color: white;
-        margin: 50px;
-      }
-    }
-  }
-}
-
-.nav-item {
-  margin: 20px;
-
-  .active-icon {
-    pointer-events: none;
-  }
-}
-</style>
