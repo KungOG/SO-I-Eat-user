@@ -1,6 +1,7 @@
   .card-customize {
     background: #fff;
     display: grid;
+    position: relative;
     justify-content: center;
     padding: 0 0 50px;
     grid-template-columns: 45px 235px 55px;
@@ -19,6 +20,19 @@
     grid-area: filler;
   }
 
+  .fade-gradient {
+    position: absolute;
+    width: 60%;
+    height: 50px;
+    z-index: 1;
+    @include white-gradient;
+
+    &.lower {
+      transform: rotate(180deg);
+      bottom: 65px;
+    }
+  }
+
   .ingredients-content {
     grid-area: content;
     border-left: 1px solid $main-secondary-color;
@@ -34,6 +48,14 @@
         align-items: center;
         margin-bottom: 13px;
         color: black;
+
+        &:first-child {
+          padding-top: 50px;
+        }
+
+        &:last-child {
+          padding-bottom: 50px;
+        }
 
         &.active .ingredient-price {
           font-size: 16px;

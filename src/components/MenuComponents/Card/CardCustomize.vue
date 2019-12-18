@@ -1,6 +1,8 @@
 <template>
   <div class='card-customize'>
     <div class='ingredients-content'>
+      <div class='fade-gradient upper' />
+      <div class='fade-gradient lower' />
       <ul class='ingredients-list'>
         <CustomizeListItem v-for="(ingredient,i) in ingredients" :active="true" :ingredient="ingredient" :key="`ingredients-${i}`" @click.native="removeIngredient(ingredient)">
           <template v-slot:itemName>
