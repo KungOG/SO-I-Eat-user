@@ -29,7 +29,7 @@
 <script>
 import axios from 'axios';
 
-var style = {
+let style = {
   base: {
     color: '#32325d',
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
@@ -89,7 +89,7 @@ export default {
         const stripe = window.Stripe(data.publishableKey);
         this.stripe = stripe;
         const elements = stripe.elements();
-        this.card = elements.create('card', {style: style});
+        this.card = elements.create('card', { style: style });
         this.card.mount('#card-element');
         this.listenForErrors();
       }
@@ -111,9 +111,9 @@ export default {
     },
     submitPayment() {
       this.stripe.confirmCardPayment(this.clientSecret, {
-        payment_method: {card: this.card}
+        payment_method: { card: this.card },
       }).then((result) => {
-        console.log(result)
+        console.log(result);
         if (result.error) {
           // Show error to your customer
           this.stripeError = result.error.message;
@@ -121,7 +121,7 @@ export default {
         } else {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
-            console.log('betalningen gick igenom')
+            console.log('betalningen gick igenom');
             // Show a success message to your customer
             // There's a risk of the customer closing the window before callback
             // execution. Set up a webhook or plugin to listen for the
@@ -129,18 +129,18 @@ export default {
             // post-payment actions.
           }
         }
-      })  
+      });
     },
     clearElementsInputs() {
-      this.card.clear()
+      this.card.clear();
     },
     clearCardErrors() {
-      this.stripeError = ''
-      this.cardError = ''
+      this.stripeError = '';
+      this.cardError = '';
     },
     reset() {
-      this.clearElementsInputs()
-      this.clearCardErrors()
+      this.clearElementsInputs();
+      this.clearCardErrors();
     },
   },
 };
