@@ -39,9 +39,9 @@ export default new Router({
       ],
     },
     {
-      path: '/menu',
-      name: 'menu',
-      component: () => import('./views/Menu.vue'),
+      path: '/products',
+      name: 'products',
+      component: () => import('./views/Products.vue'),
     },
     {
       path: '/orderitem/:id',

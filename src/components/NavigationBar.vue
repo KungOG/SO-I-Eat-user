@@ -1,5 +1,6 @@
 <template>
-  <div class="nav-container" :class="$route.path == '/' && !showMenu ? 'transparent' : ''"> 
+  <div class="nav-container"
+  :class="[$route.path == '/' && !showMenu ? 'transparent' : '', $route.path === '/' ? 'home' : '']"> 
     <div class="nav-item" v-for="(icon, i) in iconsMenu" :key="i" v-if="$route.path === '/'">
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" />
@@ -34,32 +35,45 @@
 </template>
 
 <script>
+import axios from 'axios';
 import EatHere from '@/assets/icons/EatHere.svg';
+import EatHereActive from '@/assets/icons/EatHereActive.svg';
 import TakeAway from '@/assets/icons/TakeAway.svg';
+import TakeAwayActive from '@/assets/icons/TakeAwayActive.svg';
 import Clock from '@/assets/icons/Clock.svg';
 import Delete from '@/assets/icons/WhiteCross.svg';
 import Info from '@/assets/icons/Info.svg';
-import Maps from '@/assets/icons/Maps.svg';
 import Logo from '@/assets/icons/LogoNoText.svg';
 import FullLogo from '@/assets/icons/FullLogo.svg';
-import Cross from '@/assets/icons/WhiteCross.svg';
 import ReturnArrow from '@/assets/icons/ReturnArrow.svg';
-import axios from 'axios';
 
 export default {
   name: 'navigation',
   data: () => ({
     selected: null,
-    iconsMenu: [{icon: FullLogo, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
-    iconsOrder: [{icon: Logo, urlTo: '/'}, {icon: TakeAway, name: 'takeAway', urlTo: '/order'}, {icon: EatHere, name: 'eatHere', urlTo: '/order'}, {icon: Clock, name: 'clock', urlTo: ''}],
-    iconsOrderItem: [{icon: Logo, urlTo: '/'}, {icon: Delete, name: 'delete', urlTo: '/order'}],
-    iconsInfo: [{icon: ReturnArrow, urlTo: '/'}, {icon: Info, name: 'info', urlTo: ''}],
+    iconsMenu: [{ icon: FullLogo, urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
+    iconsOrder: [{ icon: Logo, urlTo: '/' }, { icon: TakeAway, name: 'takeAway', urlTo: '/order' }, { icon: EatHere, active: EatHereActive, name: 'eatHere', urlTo: '/order' }, { icon: Clock, name: 'clock', urlTo: '' }],
+    iconsOrderItem: [{ icon: Logo, urlTo: '/' }, { icon: Delete, name: 'delete', urlTo: '/order' }],
+    iconsInfo: [{ icon: ReturnArrow, urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
     showMenu: false,
     imgUrl: 'WhiteCross.svg',
   }),
   computed: {
     editCart() {
       return this.$store.state.editCart;
+    },
+    table() {
+      return this.$store.state.order.table;
+    },
+  },
+  beforeMount() {
+    this.table === 'take away' ? this.iconsOrder[1].icon = TakeAwayActive : this.iconsOrder[1].icon = TakeAway;
+    this.table !== 'take away' ? this.iconsOrder[2].icon = EatHereActive : this.iconsOrder[2].icon = EatHere;
+  },
+  watch: {
+    table() {
+      this.table === 'take away' ? this.iconsOrder[1].icon = TakeAwayActive : this.iconsOrder[1].icon = TakeAway;
+      this.table !== 'take away' ? this.iconsOrder[2].icon = EatHereActive : this.iconsOrder[2].icon = EatHere;
     },
   },
   methods: {
@@ -69,21 +83,21 @@ export default {
         case 'eatHere':
           this.$store.commit('setShowModal', true);
           this.$store.commit('setShowInputModal', true);
-          this.$store.commit('setOrderState', icon)
+          this.$store.commit('setOrderState', icon);
           break;
         case 'takeAway':
-          this.$store.commit('setOrderState', icon)
-          this.$store.commit('setTableInput', 'take away')
+          this.$store.commit('setOrderState', icon);
+          this.$store.commit('setTableInput', 'take away');
           break;
         case 'delete':
           this.closeItemToEdit();
-          break;  
+          break;
         case 'clock':
           this.showProductionTime();
-          break;  
+          break;
         case 'info':
           this.showMenu = true;
-          break;  
+          break;
       }
     },
     closeItemToEdit() {
@@ -114,56 +128,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.nav-container {
-  display: flex;
-  width: auto;
-  background-color: #131313;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;  
-  width: 376px;
-  position: fixed;
-  top: 0px;
-
-  &.transparent {
-      background-color: transparent;
-  }
-
-  .info-menu {
-    background: #131313;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    display: flex;
-    flex-direction: column;
-
-    >.icon-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      margin: 7px 20px 0 0;
-    }
-
-    >.info-menu-text {
-      text-align: center;
-      margin-top: 3rem;
-
-      h2 {
-        color: white;
-        margin: 50px;
-      }
-    }
-  }
-}
-
-.nav-item {
-  margin: 20px;
-
-  .active-icon {
-    background: pink;
-    pointer-events: none;
-  }
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
   <div class='navigation-button'>
-    <img :src="imageSrc" alt="">
+    <img :src="imageSrc" alt="Button for navigation">
     <span>{{title}}</span>
   </div>
 </template>
