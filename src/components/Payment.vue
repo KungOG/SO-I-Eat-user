@@ -112,19 +112,12 @@ export default {
       this.stripe.confirmCardPayment(this.clientSecret, {
         payment_method: { card: this.card },
       }).then((result) => {
-<<<<<<< HEAD
-        console.log(result);
-=======
->>>>>>> 16547835d6aaabcdc83176e96f373c7dfe7573af
         if (result.error) {
           this.stripeError = result.error.message;
         } else {
           if (result.paymentIntent.status === 'succeeded') {
             console.log('betalningen gick igenom');
-<<<<<<< HEAD
-=======
             this.sendOrder();
->>>>>>> 16547835d6aaabcdc83176e96f373c7dfe7573af
             // Show a success message to your customer
             // There's a risk of the customer closing the window before callback
             // execution. Set up a webhook or plugin to listen for the
@@ -133,13 +126,10 @@ export default {
           }
         }
       });
-<<<<<<< HEAD
-=======
     },
     sendOrder() {
       this.$store.dispatch('postOrder');
       this.$router.push('/confirmation');
->>>>>>> 16547835d6aaabcdc83176e96f373c7dfe7573af
     },
     clearElementsInputs() {
       this.card.clear();
