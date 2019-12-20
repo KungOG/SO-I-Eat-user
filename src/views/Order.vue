@@ -24,7 +24,7 @@
       <DrinkCard
         v-show="selected === 7"
         v-for="drink in drinks"
-        :key="`dink-card-${drink.productNr}`"
+        :key="`drink-card-${drink.productNr}`"
         :drink="drink"
         @click.native="addDrinkToCart(drink)"
       />    

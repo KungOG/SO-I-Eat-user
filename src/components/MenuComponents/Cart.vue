@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     toPayment() {
-      this.$store.commit('setShowPayment', true);
+      this.$store.state.order.foodItems.length !== 0 && this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
     },
     deleteOrderItemFood(item) {
       this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item));
