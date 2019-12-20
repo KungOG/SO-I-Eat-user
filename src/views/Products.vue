@@ -1,10 +1,12 @@
 <template>
     <div class='products'>
       <div class="sections-wrapper mobile">
+        <Lunch />
         <MenuSection v-for="(category, i) in categories" :key="`categories-${i}`" :items="menuItems" :category="category"/>
       </div>
       <div class="sections-wrapper desktop">
         <section>
+          <Lunch />
           <MenuSection v-for="(category, i) in splittedCategories.array1" :key="`split-categories1-${i}`" :items="menuItems" :category="category"/>
         </section>
         <section>
@@ -20,6 +22,7 @@
 
 <script>
 import MenuSection from '@/components/MenuComponents/MenuSection.vue';
+import Lunch from '@/components/MenuComponents/Lunch.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 
 export default {
@@ -37,6 +40,7 @@ export default {
   components: {
     MenuSection,
     NavigationButton,
+    Lunch,
   },
   beforeMount() {
     this.$store.dispatch('getMenuItems');
