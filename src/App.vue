@@ -22,6 +22,8 @@ export default {
     installBtn: 'none',
     installer: undefined,
     status: null,
+    selectedOpenHour: '',
+    selectedCloseHour: '',
   }),
   created() {
     let installPrompt;

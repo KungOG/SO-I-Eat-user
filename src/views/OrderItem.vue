@@ -75,7 +75,7 @@ export default {
       this.$refs.form.addItemToCart();
     },
     toPayment() {
-      this.$store.state.order.foodItems.length !== 0 && this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
+      this.$store.state.order.foodItems.length !== 0 || this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
     },
   },
 };

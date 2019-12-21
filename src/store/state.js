@@ -13,6 +13,10 @@ export default {
   showPayment: false,
   status: null,
   open: false,
+  lunchHour: {
+    open: '11',
+    close: '14',
+  },  
   productionTime: 20,
   showProductionTime: false,
   menuOptions: [
@@ -33,4 +37,15 @@ export default {
     add: [],
     remove: [],
   },
+  lunch: {
+    productName: 'lunchbuffé',
+    productNr: 'L1',
+    price: 95,
+    protein: '',
+    spice: null,
+    add: [],
+    remove: [],
+    status: 0,
+
+  }
 };

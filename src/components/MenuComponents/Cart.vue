@@ -9,7 +9,7 @@
       <section class='cart-order'>
         <div class='order-items' v-for="(item, i) in orderItems.foodItems" :key="`order-food-items-${i}`">
           <h6 class="amount">3</h6>
-          <div class="dish" @click="editCartItem(item, i)">
+          <div class="dish" @click="item.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''">
             <h6>{{item.productName}}</h6>
             <p>{{item.protein}}</p>
             <p v-for="(add,i) in item.add" :key="`item-add-${i}`">+ {{add.name}}</p>
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     toPayment() {
-      this.$store.state.order.foodItems.length !== 0 && this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
+      this.$store.state.order.foodItems.length !== 0 || this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
     },
     deleteOrderItemFood(item) {
       this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item));

@@ -31,7 +31,11 @@
     </div>
     <menu-footer @click.native="$router.push('/orderitem/cart')" :text="footerText" class="mobile"/>
     <cart class="desktop"/>
+    <div class="lunch-btn mobile" v-if="isItLunchTime" @click="showLunchModal = true">
+      <h5>lunch</h5>
+    </div>
     <Modal v-if="showModal"/>
+    <LunchModal class="mobile" v-if="showLunchModal && isItLunchTime" @closeLunchModal="showLunchModal = false"/>
   </div>
 </template>
 
@@ -43,6 +47,7 @@ import SideNavigation from '@/components/SideNavigation.vue';
 import Cart from '@/components/MenuComponents/Cart.vue';
 import DrinkCard from '@/components/MenuComponents/DrinkCard.vue';
 import Modal from '@/components/Modal.vue';
+import LunchModal from '@/components/LunchModal.vue';
 
 export default {
   name: 'order',
@@ -54,12 +59,14 @@ export default {
     Cart,
     DrinkCard,
     Modal,
+    LunchModal,
   },
   data: () => ({
     selected: 0,
     displayIcons: false,
     selectedCard: -1,
     footerText: {text: 'min beställning'},
+    showLunchModal: false,
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
@@ -97,6 +104,19 @@ export default {
     },
     showModal() {
       return this.$store.state.showModal;
+    },
+    isItLunchTime() {
+      const d = new Date();
+      let currentTime = Number(d.getHours() + '.' + d.getMinutes());
+      if(currentTime > Number(this.$store.state.lunchHour.open) && currentTime < Number(this.$store.state.lunchHour.close)) {
+        if(this.$store.state.open) {
+          return true;
+         } else {
+           return false;
+         }
+      } else {
+        return false;
+      }
     },
   },
   watch: {
