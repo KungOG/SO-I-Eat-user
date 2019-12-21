@@ -15,7 +15,7 @@ export default {
   open: false,
   lunchHour: {
     open: '11',
-    close: '14',
+    close: '22',
   },  
   productionTime: 20,
   showProductionTime: false,

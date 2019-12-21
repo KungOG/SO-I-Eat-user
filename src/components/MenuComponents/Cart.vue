@@ -7,24 +7,24 @@
         <h5 v-else class='bord'>Bord {{orderItems.table}}</h5>
       </section>
       <section class='cart-order'>
-        <div class='order-items' v-for="(item, i) in orderItems.foodItems" :key="`order-food-items-${i}`">
-          <h6 class="amount">3</h6>
-          <div class="dish" @click="item.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''">
-            <h6>{{item.productName}}</h6>
-            <p>{{item.protein}}</p>
-            <p v-for="(add,i) in item.add" :key="`item-add-${i}`">+ {{add.name}}</p>
-            <p v-for="(remove, i) in item.remove" :key="`item-remove-${i}`">- {{remove}}</p>
+        <div class='order-items' v-for="(item, i) in foodOrders" :key="`order-food-items-${i}`">
+          <h6 class="amount">{{item.count > 1 ? item.count : ''}}</h6>
+          <div class="dish" @click="item.value.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''">
+            <h6>{{item.value.productName}}</h6>
+            <p>{{item.value.protein}}</p>
+            <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add.name}}</p>
+            <p v-for="(remove, i) in item.value.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
-          <h6 class='price'>{{item.price + item.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-</h6>
+          <h6 class='price'>{{item.value.price + item.value.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-</h6>
           <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemFood(item)">
         </div>
-        <div class='order-items' v-for="(item, i) in orderItems.drinkItems" :key="`order-drink-items-${i}`">
-          <h6 class="amount">3</h6>
+        <div class='order-items' v-for="(item, i) in drinkOrders" :key="`order-drink-items-${i}`">
+          <h6 class="amount">{{item.count > 1 ? item.count : ''}}</h6>
           <div class="dish">
-            <h6>{{item.productName}}</h6>
-            <p>{{item.description}}</p>
+            <h6>{{item.value.productName}}</h6>
+            <p>{{item.value.description}}</p>
           </div>
-          <h6 class='price'>{{item.price}}:-</h6>
+          <h6 class='price'>{{item.value.price * item.count}}:-</h6>
           <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemDrink(item)">
         </div>
       </section>
@@ -51,6 +51,50 @@ export default {
     orderItems() {
       return this.$store.state.order;
     },
+    foodOrders() {
+      var filtered = [];
+      var copy = this.orderItems.foodItems.slice(0);
+      for (var i = 0; i < this.orderItems.foodItems.length; i++) {
+        var myCount = 0;	
+        for (var w = 0; w < copy.length; w++) {
+          if (this.orderItems.foodItems[i].productName === copy[w].productName) {
+            if(copy[w].productName === 'lunchbuffé') {
+              myCount++;
+              copy.splice(w, 1, 0) 
+            } else {
+              myCount++;
+            }
+          }
+        }
+        if (myCount > 0) {
+          var a = new Object();
+          a.value = this.orderItems.foodItems[i];
+          a.count = myCount;
+          filtered.push(a);
+        }
+      }
+      return filtered;
+    },
+    drinkOrders() {
+      var filtered = [];
+      var copy = this.orderItems.drinkItems.slice(0);
+      for (var i = 0; i < this.orderItems.drinkItems.length; i++) {
+        var myCount = 0;	
+        for (var w = 0; w < copy.length; w++) {
+          if (this.orderItems.drinkItems[i].productName === copy[w].productName) {
+            myCount++;
+            copy.splice(w, 1, 0) 
+          }
+        }
+        if (myCount > 0) {
+          var a = new Object();
+          a.value = this.orderItems.drinkItems[i];
+          a.count = myCount;
+          filtered.push(a);
+        }
+      }
+      return filtered;
+    },
     showPayment() {
       return this.$store.state.showPayment;
     },
@@ -69,10 +113,10 @@ export default {
       this.$store.state.order.foodItems.length !== 0 || this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
     },
     deleteOrderItemFood(item) {
-      this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item));
+      this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item.value));
     },
     deleteOrderItemDrink(item) {
-      this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item));
+      this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item.value));
     },
     editCartItem(item, i) {
       if(this.$route.path !== '/order') {
