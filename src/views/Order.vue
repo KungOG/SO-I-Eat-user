@@ -109,7 +109,7 @@ export default {
       const d = new Date();
       let currentTime = Number(d.getHours() + '.' + d.getMinutes());
       if(currentTime > Number(this.$store.state.lunchHour.open) && currentTime < Number(this.$store.state.lunchHour.close)) {
-        if(this.$store.state.open) {
+        if(this.$store.state.open && this.$store.state.order.table !== 'take away') {
           return true;
          } else {
            return false;

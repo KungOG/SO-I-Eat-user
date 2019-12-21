@@ -22,7 +22,7 @@ export default {
   methods: {
     addLunchToCart() {
       this.$emit('closeLunchModal');
-      this.$store.commit('addLunchToCart')
+      this.$store.commit('addLunchToCart');
     },
   },
 };
@@ -34,4 +34,3 @@ export default {
     margin: 0 auto;
   }
 </style>
-
