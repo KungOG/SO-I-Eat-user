@@ -1,7 +1,17 @@
 <template>
   <div class='order'>
-    <scroll-navigation class="mobile" :categories="categories" @setSelected="setSelected"/>
-    <side-navigation class="desktop" :categories="categories" @setSelected="setSelected" @setSelectedCard="setSelectedCard"/>
+    <scroll-navigation
+      class="mobile"
+      :categories="categories"
+      @setSelected="setSelected"
+    />
+    <side-navigation
+      class="desktop"
+      :categories="categories"
+      @setSelected="setSelected"
+      @setSelectedCard="setSelectedCard"
+      @toggleActiveCart="setSelectedCard"
+    />
     <div class="card-wrapper">
       <div class="card-item"
         v-for="(item, i) in filteredMenuitems"
@@ -30,15 +40,23 @@
         :key="`drink-card-${drink.productNr}`"
         :drink="drink"
         @click.native="addDrinkToCart(drink)"
-      />    
+      />
     </div>
-    <menu-footer @click.native="$router.push('/orderitem/cart')" :text="footerText" class="mobile"/>
-    <cart class="desktop"/>
+    <menu-footer
+      @click.native="$router.push('/orderitem/cart')"
+      :text="footerText"
+      class="mobile"
+    />
+    <Cart class="desktop"/>
     <div class="lunch-btn mobile" v-if="isItLunchTime" @click="showLunchModal = true">
       <h5>lunch</h5>
     </div>
     <Modal v-if="showModal"/>
-    <LunchModal class="mobile" v-if="showLunchModal && isItLunchTime" @closeLunchModal="showLunchModal = false"/>
+    <LunchModal
+      class="mobile"
+      v-if="showLunchModal && isItLunchTime"
+      @closeLunchModal="showLunchModal = false"
+    />
   </div>
 </template>
 
@@ -68,13 +86,13 @@ export default {
     selected: 0,
     displayIcons: false,
     selectedCard: -1,
-    footerText: {text: 'min beställning'},
+    footerText: { text: 'min beställning' },
     showLunchModal: false,
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
     this.$store.dispatch('getCategories');
-    if(this.$store.state.open === false) {
+    if (this.$store.state.open === false) {
       this.$store.commit('setShowModal', true);
       this.$store.commit('setShowTextModal', true);
       this.$store.commit('setModalText', 'Tyvärr, vi har stängt');
@@ -146,7 +164,7 @@ export default {
     },
     openCart() {
       this.$store.commit('setShowCart', true)
-    }
+    },
   },
 };
 </script>
