@@ -1,6 +1,6 @@
 <template>
     <div class='products'>
-      <NavigationBar class="nav-bar-products mobile" :class="{ 'navbar--hidden': !showNavbar2 }"/>
+      <NavigationBar class="nav-bar-products mobile black" :class="{ 'navbar--hidden': !showNavbar2 }"/>
       <div class="sections-wrapper mobile">
         <Lunch />
         <MenuSection
