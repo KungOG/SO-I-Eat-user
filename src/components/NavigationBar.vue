@@ -62,7 +62,7 @@ export default {
   name: 'navigation',
   data: () => ({
     selected: null,
-    iconsMenu: [{ icon: FullLogo, urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
+    iconsMenu: [{ icon: FullLogo, name: 'logo', urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
     iconsOrder: [{ icon: Logo, urlTo: '/' }, { icon: TakeAway, name: 'takeAway', urlTo: '/order' }, { icon: EatHere, active: EatHereActive, name: 'eatHere', urlTo: '/order' }, { icon: Clock, name: 'clock', urlTo: '' }],
     iconsOrderItem: [{ icon: Logo, urlTo: '/' }, { icon: Delete, name: 'delete', urlTo: '/order' }],
     iconsInfo: [{ icon: ReturnArrow, urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
@@ -109,6 +109,9 @@ export default {
         case 'info':
           this.showMenu = true;
           break;
+        case 'logo':
+          this.scrollToTop();
+          break;
       }
     },
     closeItemToEdit() {
@@ -135,6 +138,9 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    scrollToTop() {
+      window.scrollTo(0,0);
     },
   },
 };

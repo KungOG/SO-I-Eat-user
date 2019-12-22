@@ -49,15 +49,20 @@
       width: 49.5%;
       border-radius: unset;
       background: rgba(170, 9, 9, 0.9);
-      flex-direction: row;
       margin: 0;
       height: 60px;
 
-      > img {
-        height: 40px;
-        width: 40px;
-        margin-right: .6rem;
+      a {
+        display: flex;
+        flex-direction: row;
+        
+        > img {
+          height: 40px;
+          width: 40px;
+          margin-right: .6rem;
+        }
       }
+
     }
   } 
   .nav-buttons.mobile.navbar--hidden {

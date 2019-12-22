@@ -1,5 +1,5 @@
 <template>
-    <div class='products'>
+    <div class='products' id="prod">
       <NavigationBar class="nav-bar-products mobile black" :class="{ 'navbar--hidden': !showNavbar2 }"/>
       <div class="sections-wrapper mobile">
         <Lunch />
@@ -30,11 +30,11 @@
         </section>
       </div>
       <div class="nav-buttons mobile" :class="{ 'navbar--hidden': !showNavbar }">
-        <NavigationButton class="nav-mobile" :imageSrc="TakeAway" :title="TakeAwayText"/>
-        <NavigationButton class="nav-mobile" :imageSrc="EatHere" :title="EatHereText"/>
+        <NavigationButton class="nav-mobile" :imageSrc="TakeAway" :title="TakeAwayText" url="/order"/>
+        <NavigationButton class="nav-mobile" :imageSrc="EatHere" :title="EatHereText" url="/order"/>
       </div>
       <div class="nav-buttons desktop">
-        <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText"/>
+        <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText" />
         <NavigationButton :imageSrc="MenuIcon" :title="MenuIconText"/>
         <NavigationButton :imageSrc="Maps" :title="MapsText"/>
       </div>
@@ -109,7 +109,7 @@ export default {
       this.showNavbar = currentScrollPosition < 60;
       this.showNavbar2 = currentScrollPosition < h;
       this.lastScrollPosition = currentScrollPosition;
-    }
-  }
+    },
+  },
 };
 </script>

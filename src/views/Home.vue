@@ -2,10 +2,10 @@
   <div class='home'>
     <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
       <section class="navigation-buttons-container">
-        <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text"/>
-        <NavigationButton :imageSrc="MenuIcon.url" :title="MenuIcon.text"/>
-        <NavigationButton :imageSrc="EatHere.url" :title="EatHere.text" class="mobile"/>
-        <NavigationButton :imageSrc="Maps.url" :title="Maps.text" class="desktop"/>
+        <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text" url="/order"/>
+        <NavigationButton :imageSrc="MenuIcon.url" :title="MenuIcon.text" url="/" @click.native="scrollToMenu" />
+        <NavigationButton :imageSrc="EatHere.url" :title="EatHere.text" class="mobile" url="/order"/>
+        <NavigationButton :imageSrc="Maps.url" :title="Maps.text" class="desktop" url="/"/>
       </section>
       <div class='line-wrapper'>
         <div class='line-container'>
@@ -20,10 +20,10 @@
         </div>
       </div>
       <div class='golden-arrow'>
-        <img :src="Arrow" alt="" @click="test()">
+        <img :src="Arrow" alt="" @click="scrollToMenu()">
       </div>
     </div>
-    <Products />
+    <Products id="products"/>
     <section class="text-section desktop">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
     </section>
@@ -65,19 +65,19 @@ export default {
   },
 
   data: () => ({
-    TakeAway: { url: require('@/assets/icons/TakeAway.svg'), text: 'Ta med' },
-    MenuIcon: { url: require('@/assets/icons/MenuIcon.svg'), text: 'Se Menyn' },
-    Maps: { url: require('@/assets/icons/Maps.svg'), text: 'Hitta hit' },
-    EatHere: { url: require('@/assets/icons/EatHere.svg'), text: 'Äta här' },
+    TakeAway: { url: require('@/assets/icons/TakeAway.svg'), text: 'ta med' },
+    MenuIcon: { url: require('@/assets/icons/MenuIcon.svg'), text: 'se menyn' },
+    Maps: { url: require('@/assets/icons/Maps.svg'), text: 'hitta hit' },
+    EatHere: { url: require('@/assets/icons/EatHere.svg'), text: 'äta här' },
     Arrow: require('@/assets/icons/Arrow.svg'),
   }),
 
   methods: {
-    test() {
-      console.log('click');
-    },
     getImgUrl() {
       return require('@/assets/images/background.png');
+    },
+    scrollToMenu() {
+      this.$nextTick(() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' }))
     },
   },
 };
