@@ -19,7 +19,7 @@
           <div class='fourth-line' />
         </div>
       </div>
-      <div class='golden-arrow'>
+      <div class='golden-arrow bounce'>
         <img :src="Arrow" alt="" @click="scrollToMenu()">
       </div>
     </div>
@@ -66,7 +66,7 @@ export default {
 
   data: () => ({
     TakeAway: { url: require('@/assets/icons/TakeAway.svg'), text: 'ta med' },
-    MenuIcon: { url: require('@/assets/icons/MenuIcon.svg'), text: 'se menyn' },
+    MenuIcon: { url: require('@/assets/icons/MenuIcon.svg'), text: 'se meny' },
     Maps: { url: require('@/assets/icons/Maps.svg'), text: 'hitta hit' },
     EatHere: { url: require('@/assets/icons/EatHere.svg'), text: 'äta här' },
     Arrow: require('@/assets/icons/Arrow.svg'),
