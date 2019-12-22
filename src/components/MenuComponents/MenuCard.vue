@@ -2,7 +2,8 @@
     <div
     class='menu-card'
     @click="$emit('setSelectedCard', index)"
-    :class="[selectedCard === index ? 'activeCard' : '', editCart ? 'active-edit-card' : '', item.active === false ? '-inactive' : '']"
+    :class="[selectedCard === index ? 'activeCard' : '',
+    editCart ? 'active-edit-card' : '', item.active === false ? '-inactive' : '']"
     >
     <card-image class="image"/>
     <card-text class="text"
@@ -14,7 +15,7 @@
       :proteinItems="item.protein"
       :showSpice="item.spice"
       />
-    <card-customize 
+    <card-customize
       v-if="showCustomize"
       :ingredients="item.ingredients"
       />
@@ -53,11 +54,11 @@ export default {
   },
   props: {
     item: {
-      type: Object
+      type: Object,
     },
     displayIcons: {
       type: Boolean,
-      required: true
+      required: true,
     },
     selectedCard: {
       type: Number,
@@ -96,8 +97,8 @@ export default {
       this.showAlternatives = true;
     },
     addItemToCart() {
-      if(this.activeProtein === '' && this.activeSpice === null) {
-        if(this.item.spice === false && this.item.protein.length === 0) {
+      if (this.activeProtein === '' && this.activeSpice === null) {
+        if (this.item.spice === false && this.item.protein.length === 0) {
           this.$store.dispatch('setOrderItemsFood', this.item);
           this.$router.push('/order');
         } else {
@@ -105,7 +106,7 @@ export default {
         }
       } else if (this.activeSpice === null) {
         this.openModal('ange ditt val av styrka');
-      } else if(this.activeProtein === '') {
+      } else if (this.activeProtein === '') {
         this.openModal('ange ditt val av huvudingredients');
       } else {
         this.$store.dispatch('setOrderItemsFood', this.item);
@@ -117,7 +118,7 @@ export default {
       this.$store.commit('setModalText', modalText);
       this.$store.commit('setShowTextModal', true);
       this.$store.commit('setShowModal', true);
-    }
+    },
   },
 };
 </script>
@@ -140,7 +141,7 @@ export default {
   .fade-enter-active, .fade-leave-active {
     transition: transform .8s ease-in-out;
   }
-  
+
   .fade-enter, .fade-leave-to {
     transform: translateX(400px);
   }
@@ -148,7 +149,7 @@ export default {
   .expand-enter-active, .expand-leave-active {
     transition: all .8s ease-in-out 1s;
   }
-  
+
   .expand-enter, .expand-leave-to {
     height: 0px;
     opacity: 0;
