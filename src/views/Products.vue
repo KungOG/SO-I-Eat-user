@@ -13,10 +13,15 @@
           <MenuSection v-for="(category, i) in splittedCategories.array2" :key="`split-categories2-${i}`" :items="menuItems" :category="category"/>
         </section>
       </div>
-      <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText"/>
-      <NavigationButton :imageSrc="MenuIcon" :title="MenuIconText"/>
-      <NavigationButton :imageSrc="Maps" :title="MapsText"/>
-      <NavigationButton :imageSrc="EatHere" :title="EatHereText"/>
+      <div class="nav-buttons mobile">
+        <NavigationButton class="nav-mobile" :imageSrc="TakeAway" :title="TakeAwayText"/>
+        <NavigationButton class="nav-mobile" :imageSrc="EatHere" :title="EatHereText"/>
+      </div>
+      <div class="nav-buttons desktop">
+        <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText"/>
+        <NavigationButton :imageSrc="MenuIcon" :title="MenuIconText"/>
+        <NavigationButton :imageSrc="Maps" :title="MapsText"/>
+      </div>
     </div>
 </template>
 

@@ -35,4 +35,29 @@
       }
     }
   }
+
+  .nav-buttons.mobile {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+
+    .nav-mobile.navigation-button {
+      width: 49.5%;
+      border-radius: unset;
+      background: rgba(170, 9, 9, 0.9);
+      flex-direction: row;
+      margin: 0;
+      height: 60px;
+
+      > img {
+        height: 40px;
+        width: 40px;
+        margin-right: .6rem;
+      }
+    }
+
+
+  } 
 }
