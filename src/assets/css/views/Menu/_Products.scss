@@ -59,10 +59,22 @@
         margin-right: .6rem;
       }
     }
-
-
   } 
   .nav-buttons.mobile.navbar--hidden {
     transform: translate3d(0, -100%, 0);
   }
+
+  .nav-bar-products {
+    position: fixed;
+    visibility: hidden;
+    top: 0px;
+    width: 100vw;
+    transform: translate3d(0, -100%, 0);
+    transition: 0.1s all ease-out;
+  }
+
+  .nav-bar-products.mobile.navbar--hidden {
+    transform: translate3d(0, 0, 0);
+    visibility: unset;
+  } 
 }

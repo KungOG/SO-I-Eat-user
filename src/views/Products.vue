@@ -1,5 +1,6 @@
 <template>
     <div class='products'>
+      <NavigationBar class="nav-bar-products mobile" :class="{ 'navbar--hidden': !showNavbar2 }"/>
       <div class="sections-wrapper mobile">
         <Lunch />
         <MenuSection v-for="(category, i) in categories" :key="`categories-${i}`" :items="menuItems" :category="category"/>
@@ -29,6 +30,7 @@
 import MenuSection from '@/components/MenuComponents/MenuSection.vue';
 import Lunch from '@/components/MenuComponents/Lunch.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
+import NavigationBar from '@/components/NavigationBar.vue';
 
 export default {
   name: 'products',
@@ -41,23 +43,25 @@ export default {
       MapsText: 'Hitta hit',
       EatHere: require('@/assets/icons/EatHere.svg'),
       EatHereText: 'Äta här',
-      showNavbar: false,
-      lastScrollPosition: 0
+      showNavbar: true,
+      showNavbar2: true,
+      lastScrollPosition: 0,
   }),
   components: {
     MenuSection,
     NavigationButton,
     Lunch,
+    NavigationBar,
   },
   beforeMount() {
     this.$store.dispatch('getMenuItems');
     this.$store.dispatch('getCategories');
   },
   mounted () {
-  window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('scroll', this.onScroll);
   },
   beforeDestroy () {
-    window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('scroll', this.onScroll);
   },
   computed: {
     menuItems() {
@@ -74,11 +78,12 @@ export default {
       for(let i=0; i < originalArray.length; i++) {
         items.length % 2 == 0 ? arrays.array1.push(items.shift()) : arrays.array2.push(items.shift())
       }
-      return arrays
+      return arrays;
     }
   },
   methods: {
     onScroll () {
+      const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
       if (currentScrollPosition < 0) {
         return;
@@ -87,6 +92,7 @@ export default {
         return;
       }
       this.showNavbar = currentScrollPosition < 60;
+      this.showNavbar2 = currentScrollPosition < h;
       this.lastScrollPosition = currentScrollPosition;
     }
   }
