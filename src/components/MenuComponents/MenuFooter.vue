@@ -21,11 +21,9 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      imgUrl: 'Cart.svg',
-    }
-  },
+  data: () => ({
+    imgUrl: 'Cart.svg',
+  }),
   computed: {
     editCart() {
       return this.$store.state.editCart;
