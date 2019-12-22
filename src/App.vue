@@ -6,17 +6,21 @@
         <h1>Install!</h1>
       </a>
     </div>
+    <Loading />
     <router-view />
   </div>
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar.vue';
 import axios from 'axios';
+import Loading from '@/components/Loading.vue';
+// eslint-disable-next-line import/no-unresolved
+import NavigationBar from '@/components/NavigationBar.vue';
 
 export default {
   components: {
-    NavigationBar
+    NavigationBar,
+    Loading,
   },
   data: () => ({
     installBtn: 'none',
@@ -27,6 +31,7 @@ export default {
   }),
   created() {
     let installPrompt;
+    // eslint-disable-next-line no-unused-expressions
     this.$store.state.status === null ? this.getStatus() : '';
 
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -38,12 +43,11 @@ export default {
     this.installer = () => {
       this.installBtn = 'none';
       installPrompt.prompt();
-      installPrompt.userChoice.then(result => {
+      installPrompt.userChoice.then((result) => {
         if (result.outcome === 'accepted') {
           console.log('Install accepted!');
-        } else {
-          console.log('Install denied!');
         }
+        console.log('Install denied!');
       });
     };
   },
@@ -56,11 +60,11 @@ export default {
   methods: {
     checkCurrentTime() {
       const d = new Date();
-      let currentTime = Number(d.getHours() + '.' + d.getMinutes());
-      if(this.status === 'open') {
+      const currentTime = Number(d.getHours() + '.' + d.getMinutes());
+      if (this.status === 'open') {
         this.$store.commit('setOpen', true);
-
-        if(currentTime > Number(this.selectedOpenHour) && currentTime < Number(this.selectedCloseHour)) {
+        if (currentTime > Number(this.selectedOpenHour)
+        && currentTime < Number(this.selectedCloseHour)) {
           this.$store.commit('setOpen', true);
         } else {
           this.$store.commit('setOpen', false);
