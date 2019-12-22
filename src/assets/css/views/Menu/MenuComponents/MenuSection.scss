@@ -2,8 +2,11 @@
   background: white;
   padding: 3rem 1rem;
   margin-bottom: .7rem;
-  display: flex;
-  justify-content: center;
+
+  @media (min-width: $screen-sm-lg) {
+    justify-content: flex-start;
+    padding-left: 6rem;
+  }
 
   .menu-section-wrapper {
       h1 {
