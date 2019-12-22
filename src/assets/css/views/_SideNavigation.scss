@@ -3,9 +3,7 @@
   width: 20%;
   position: relative;
 
-  @media (min-width: 768px) {
-    width: 35%;
-  }
+  @media (min-width: 768px) { width: 35%; }
 
   .icon-wrapper {
     display: flex;

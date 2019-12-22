@@ -1,7 +1,4 @@
 .cart {
-  // background: $main-base-color;
-  height: 100vh;
-
   @media (min-width: 1367px) { width: 30%; }
   
   .dark-coverage {
@@ -46,7 +43,7 @@
       }
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       margin: 0;
       padding: 150px 10px;
     }
@@ -90,7 +87,7 @@
         grid-template-areas: 
         'amount dish price icon';
 
-        @media (min-width: 1024px) {
+        @media (min-width: 768px) {
           max-width: 400px;
           width: 100%;
         }
