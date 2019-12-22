@@ -1,5 +1,5 @@
 .scroll-container {
-  background-color: #131313;
+  background-color: $main-base-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,18 +21,23 @@
   .lower-scroll-container {
     height: 60px;
     width: 100vw;
-    border-top: 1px solid gray;
+    border-top: 1px solid $main-secondary-color;
     overflow-x: auto;
     overflow-y: hidden;
   }
 
   .lower-scroll-container,
   .upper-scroll-container {
-    margin: 0 0px;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    > .nav-item {
+      &:last-child {
+        padding-right: 10px;
+      }
+    }
 
     > .nav-item > .lower-nav-items {
       display: flex;
