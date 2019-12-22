@@ -1,5 +1,5 @@
 <template>
-  <li class='ingredient' :class="[activeI ? 'active':'inactive']" @click="toggleActive">  
+  <li class='ingredient' :class="[activeI ? 'active':'inactive']" @click="toggleActive">
       <div class='ingredient-name'>
           <slot name="itemName"/>
       </div>
