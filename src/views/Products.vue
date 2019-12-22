@@ -13,7 +13,7 @@
           <MenuSection v-for="(category, i) in splittedCategories.array2" :key="`split-categories2-${i}`" :items="menuItems" :category="category"/>
         </section>
       </div>
-      <div class="nav-buttons mobile">
+      <div class="nav-buttons mobile" :class="{ 'navbar--hidden': !showNavbar }">
         <NavigationButton class="nav-mobile" :imageSrc="TakeAway" :title="TakeAwayText"/>
         <NavigationButton class="nav-mobile" :imageSrc="EatHere" :title="EatHereText"/>
       </div>
@@ -41,6 +41,8 @@ export default {
       MapsText: 'Hitta hit',
       EatHere: require('@/assets/icons/EatHere.svg'),
       EatHereText: 'Äta här',
+      showNavbar: false,
+      lastScrollPosition: 0
   }),
   components: {
     MenuSection,
@@ -50,6 +52,12 @@ export default {
   beforeMount() {
     this.$store.dispatch('getMenuItems');
     this.$store.dispatch('getCategories');
+  },
+  mounted () {
+  window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.onScroll)
   },
   computed: {
     menuItems() {
@@ -69,5 +77,18 @@ export default {
       return arrays
     }
   },
+  methods: {
+    onScroll () {
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollPosition < 0) {
+        return;
+      }
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 0) {
+        return;
+      }
+      this.showNavbar = currentScrollPosition < 60;
+      this.lastScrollPosition = currentScrollPosition;
+    }
+  }
 };
 </script>

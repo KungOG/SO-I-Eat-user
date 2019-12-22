@@ -40,8 +40,10 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
-    bottom: 0px;
+    bottom: -60px;
     width: 100vw;
+    transform: translate3d(0, 0, 0);
+    transition: 0.1s all ease-out;
 
     .nav-mobile.navigation-button {
       width: 49.5%;
@@ -60,4 +62,7 @@
 
 
   } 
+  .nav-buttons.mobile.navbar--hidden {
+    transform: translate3d(0, -100%, 0);
+  }
 }
