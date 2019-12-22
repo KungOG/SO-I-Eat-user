@@ -2,16 +2,13 @@
   display: grid;
   justify-content: center;
   background: #fff;
-  grid-template-columns: 45px 235px 55px;
+  grid-template-columns: 50px 2fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: '. option .';
 
-  @media (min-width: $screen-sm-md) {
-    grid-template-columns: 45px 235px 55px;
-  }
-  @media (min-width: $screen-sm-lg) {
-    grid-template-columns: 45px 350px 55px;
-  }
+  @media (max-width: 430px) { padding: 0 10px; }
+  @media (min-width: 431px) { padding: 0 50px; }  
+  @media (min-width: 770px) { padding: 0 20px; }
   
   .option-wrapper {
     grid-area: option;
