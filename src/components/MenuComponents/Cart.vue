@@ -9,13 +9,16 @@
       <section class='cart-order'>
         <div class='order-items' v-for="(item, i) in foodOrders" :key="`order-food-items-${i}`">
           <h6 class="amount">{{item.count > 1 ? item.count : ''}}</h6>
-          <div class="dish" @click="item.value.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''">
+          <div class="dish"
+          @click="item.value.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''">
             <h6>{{item.value.productName}}</h6>
             <p>{{item.value.protein}}</p>
             <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add.name}}</p>
             <p v-for="(remove, i) in item.value.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
-          <h6 class='price'>{{item.value.price + item.value.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-</h6>
+          <h6 class='price'>
+            {{item.value.price + item.value.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-
+          </h6>
           <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemFood(item)">
         </div>
         <div class='order-items' v-for="(item, i) in drinkOrders" :key="`order-drink-items-${i}`">
