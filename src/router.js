@@ -58,10 +58,5 @@ export default new Router({
       name: 'order',
       component: () => import('./views/Order.vue'),
     },
-    {
-      path: '/loading',
-      name: 'loading',
-      component: () => import('./views/Loading.vue'),
-    },
   ],
 });

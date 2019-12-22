@@ -10,18 +10,35 @@
       </div>
     </div>
     <div class="category-wrapper">
-      <ul>
-        <li v-for="(category, i) in categories" :key="i">
+      <div class="side-navigation-line" />
+      <ul class="side-navigation-container">
+        <li
+          class="side-navigation-list"
+          v-for="(category, i) in categories"
+          :key="i"
+        >
           <h3 @click="select(i)" :class="selected === i ? 'selectedCategory' : ''">
             {{category.categoryName}}
           </h3>
+          <div
+            class="line"
+            :class="selected === i ? '-active' : ''"
+          />
         </li>
       </ul>
     </div>
+    <NavigationButton
+      class="activate-desktop-cart"
+      :imageSrc="TakeAway.url"
+      :title="TakeAway.text"
+      @click.native="showTheCart()"
+    />
   </div>
 </template>
 
 <script>
+import NavigationButton from './NavigationButton.vue';
+
 export default {
   props: {
     categories: {
@@ -29,12 +46,16 @@ export default {
       default: () => [],
     },
   },
+  components: {
+    NavigationButton,
+  },
   data: () => ({
     showTime: false,
     icons: {
       logo: 'LogoNoText.svg',
       clock: 'Clock.svg',
     },
+    TakeAway: { url: require('@/assets/icons/Cart.svg'), text: 'Min Beställning' },
     selected: null,
   }),
   computed: {
@@ -43,6 +64,10 @@ export default {
     },
   },
   methods: {
+    showTheCart() {
+      const toggleActiveCart = true;
+      this.$store.commit('toggleActiveCart', toggleActiveCart);
+    },
     select(value) {
       this.selected = value;
       this.$emit('setSelected', value);

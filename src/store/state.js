@@ -13,10 +13,11 @@ export default {
   showPayment: false,
   status: null,
   open: false,
+  showTheCart: false,
   lunchHour: {
     open: '11',
     close: '22',
-  },  
+  },
   productionTime: 20,
   showProductionTime: false,
   menuOptions: [

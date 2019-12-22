@@ -104,5 +104,8 @@ export default {
   },
   addLunchToCart(state) {
     state.order.foodItems.push(state.lunch);
-  }
+  },
+  toggleActiveCart(state, boolean) {
+    state.showTheCart = boolean;
+  },
 };

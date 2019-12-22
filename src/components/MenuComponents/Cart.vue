@@ -1,6 +1,11 @@
 <template>
   <div class='cart'>
-    <div class='cart-wrapper'>
+    <div
+      class='dark-coverage'
+      :class="showTheCart === true ? '-active' : ''"
+      @click="closeTheCart()"
+    />
+    <div class='cart-wrapper' :class="showTheCart === true ? '-active' : ''">
       <section class='head'>
         <h1>Min beställning</h1>
         <h5 v-if="orderItems.table === 'take away'" class='bord'>Take Away</h5>
@@ -50,7 +55,15 @@ export default {
     StandardButton,
     Payment,
   },
+/*   watch: {
+    showTheCart() {
+      return this.$store.state.showTheCart;
+    },
+  }, */
   computed: {
+    showTheCart() {
+      return this.$store.state.showTheCart;
+    },
     orderItems() {
       return this.$store.state.order;
     },
@@ -128,6 +141,10 @@ export default {
       this.$store.commit('setShowCart', null)
       this.$store.commit('editCart', true);
       this.$store.commit('setItemToEdit', {item: item, index: i});
+    },
+    closeTheCart() {
+      const toggleActiveCart = false;
+      this.$store.commit('toggleActiveCart', toggleActiveCart);
     },
   },
 };
