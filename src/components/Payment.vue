@@ -29,7 +29,7 @@
 <script>
 import axios from 'axios';
 
-let style = {
+const style = {
   base: {
     color: '#32325d',
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
@@ -49,7 +49,7 @@ export default {
   data: () => ({
     orderData: {
       items: [{ id: "photo-subscription" }],
-      //items: [this.totalAmount],
+      // items: [this.totalAmount],
       currency: 'sek',
     },
     clientSecret: '',
@@ -60,7 +60,7 @@ export default {
     cardEvent: null,
     loading: false,
   }),
-/*   props: {
+  /* props: {
     totalAmount: {
       type: Number,
     },
