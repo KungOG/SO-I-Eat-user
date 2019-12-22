@@ -34,13 +34,12 @@
     width: 110px;
     height: 60px;
     position: fixed;
-    right: 0px;
+    left: 0px;
     top: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 0 5px 5px 0;
     color: white;
   }
 }

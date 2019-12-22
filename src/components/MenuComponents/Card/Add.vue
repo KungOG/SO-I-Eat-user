@@ -5,12 +5,9 @@
 </template>
 
 <script>
-
 export default {
-    data () {
-    return {
-      image: 'AddIcon.svg'
-    }
-  },
-}
+  data: () => ({
+    image: 'AddIcon.svg',
+  }),
+};
 </script>

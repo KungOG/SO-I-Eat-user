@@ -36,36 +36,36 @@ export default {
 </script>
 
 <style lang="scss">
-  .menu-footer {
-    height: 60px;
-    background: #AA0909;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 10;
-    bottom: 0;
-    width: 100%;
+.menu-footer {
+  height: 60px;
+  background: #AA0909;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  width: 100%;
 
-    >.cart-icon-wrapper {
-      position: relative;
+  > .cart-icon-wrapper {
+    position: relative;
 
-      >img {
-        margin-left: 20px;
-      }
+    > img {
+      margin-left: 20px;
+    }
 
-      >.cart-content {
-        height: 20px;
-        width: 20px;
-        border-radius: 999px;
-        background: white;
-        position: absolute;
-        top: 3px;
-        left: 50px;
-        color: black;
-        text-align: center;
-      }
+    > .cart-content {
+      height: 20px;
+      width: 20px;
+      border-radius: 999px;
+      background: white;
+      position: absolute;
+      top: 3px;
+      left: 50px;
+      color: black;
+      text-align: center;
     }
   }
+}
 </style>

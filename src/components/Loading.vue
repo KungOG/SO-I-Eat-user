@@ -79,6 +79,7 @@ export default {
     .loading-line {
       background: #ac9416;
       position: absolute;
+      border-radius: 100px;
       width: 0;
       height: 6px;
       top: 50%;

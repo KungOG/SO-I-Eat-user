@@ -1,6 +1,6 @@
 <template>
   <div>
-    <menu-card 
+    <menu-card
       v-if="!showCart"
       :item="item"
       :displayIcons="displayIcons"
@@ -9,7 +9,8 @@
       ref="form"/>
     <menu-footer
       class="mobile"
-      :text="showCart ? {text: 'Till betalning'} : { text: 'Lägg till i beställning', text2: 'Uppdatera', sum: 0 }"
+      :text="showCart ?
+      {text: 'Till betalning'} : { text: 'Lägg till i beställning', text2: 'Uppdatera', sum: 0 }"
       @click.native="cartEvents"/>
     <modal v-if="showTextModal" :showAbort="showAbort" >
       <h5>{{modalText}}</h5>
@@ -59,10 +60,10 @@ export default {
   },
   methods: {
     cartEvents() {
-      if(this.showCart) {
-        this.toPayment()
+      if (this.showCart) {
+        this.toPayment();
       } else if (this.editCart) {
-        this.$store.commit('setShowCart', true)
+        this.$store.commit('setShowCart', true);
         this.$store.commit('editCart', false);
         this.$store.commit('updateCartItem');
         this.$store.commit('resetItemToEdit');

@@ -21,6 +21,7 @@
             <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add.name}}</p>
             <p v-for="(remove, i) in item.value.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
+          <h6 class='amount'>{{item.value.productNr}}</h6>
           <h6 class='price'>
             {{item.value.price + item.value.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-
           </h6>

@@ -3,15 +3,30 @@
       <NavigationBar class="nav-bar-products mobile" :class="{ 'navbar--hidden': !showNavbar2 }"/>
       <div class="sections-wrapper mobile">
         <Lunch />
-        <MenuSection v-for="(category, i) in categories" :key="`categories-${i}`" :items="menuItems" :category="category"/>
+        <MenuSection
+          v-for="(category, i) in categories"
+          :key="`categories-${i}`"
+          :items="menuItems"
+          :category="category"
+        />
       </div>
       <div class="sections-wrapper desktop">
         <section>
           <Lunch />
-          <MenuSection v-for="(category, i) in splittedCategories.array1" :key="`split-categories1-${i}`" :items="menuItems" :category="category"/>
+          <MenuSection
+            v-for="(category, i) in splittedCategories.array1"
+            :key="`split-categories1-${i}`"
+            :items="menuItems"
+            :category="category"
+          />
         </section>
         <section>
-          <MenuSection v-for="(category, i) in splittedCategories.array2" :key="`split-categories2-${i}`" :items="menuItems" :category="category"/>
+          <MenuSection
+            v-for="(category, i) in splittedCategories.array2"
+            :key="`split-categories2-${i}`"
+            :items="menuItems"
+            :category="category"
+          />
         </section>
       </div>
       <div class="nav-buttons mobile" :class="{ 'navbar--hidden': !showNavbar }">
