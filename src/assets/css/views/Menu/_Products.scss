@@ -27,20 +27,10 @@
       &:last-child {
         width: 100vw;
 
-        @media (min-width: $screen-sm-md) {
-          width: 49.3vw;
-        }
-
+        @media (min-width: $screen-sm-md) { width: 49.3vw; }
         @media (min-width: $screen-sm-lg) {
           width: 57vw;
           margin-left: 10px;
-        }
-
-        .menu-section {
-          @media (min-width: $screen-sm-lg) {
-            justify-content: flex-start;
-            padding-left: 6rem;
-          }
         }
       }
     }
