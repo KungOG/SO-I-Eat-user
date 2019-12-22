@@ -2,7 +2,7 @@
   <div class="drink-card">
     <section class="drink-text">
       <div class="number">
-        <h4>{{drink.productNr}}</h4>  
+        <h4>{{drink.productNr}}</h4>
       </div>
       <div class="drink-name">
         <h3>{{drink.productName}}</h3>
