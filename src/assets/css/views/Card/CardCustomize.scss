@@ -3,18 +3,13 @@
     display: grid;
     position: relative;
     justify-content: center;
-    padding: 0 0 50px;
-    grid-template-columns: 45px 235px 55px;
+    padding: 0 11px 50px 10px;
+    grid-template-columns: 50px 2fr .3fr;
     grid-template-rows: auto;
     grid-template-areas: 'filler content .';
 
-    @media (min-width: $screen-sm-md) {
-      grid-template-columns: 45px 235px 55px;
-    }
-  
-    @media (min-width: $screen-sm-lg) {
-      grid-template-columns: 45px 350px 55px;
-    }
+    @media (min-width: 431px) { padding: 0 50px; }
+    @media (min-width: 770px) { padding: 0 20px; }
 
   .filler {
     grid-area: filler;
@@ -22,14 +17,15 @@
 
   .fade-gradient {
     position: absolute;
-    width: 60%;
+    width: 70%;
     height: 50px;
     z-index: 1;
     @include white-gradient;
 
     &.lower {
       transform: rotate(180deg);
-      bottom: 65px;
+      bottom: 60px;
+      @media (min-width: 431px) { bottom: 15px; }
     }
   }
 
