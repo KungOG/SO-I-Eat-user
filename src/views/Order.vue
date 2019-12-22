@@ -49,7 +49,13 @@
     />
     <Cart class="desktop"/>
     <div class="lunch-btn mobile" v-if="isItLunchTime" @click="showLunchModal = true">
-      <h5>lunch</h5>
+      <ul>
+        <li>L</li>
+        <li>U</li>
+        <li>N</li>
+        <li>C</li>
+        <li>H</li>
+      </ul>
     </div>
     <Modal v-if="showModal"/>
     <LunchModal

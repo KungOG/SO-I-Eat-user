@@ -31,15 +31,20 @@
 
   .lunch-btn {
     background: #AA0909;
-    width: 110px;
-    height: 60px;
+    width: 40px;
+    height: 125px;
     position: fixed;
     left: 0px;
     top: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 10px 10px 0;
     color: white;
+
+    > ul {
+      margin: 0;
+      padding: 0;
+    }
   }
 }

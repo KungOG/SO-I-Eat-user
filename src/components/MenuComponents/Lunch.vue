@@ -1,5 +1,5 @@
 <template>
-  <div class="lunch-section"> 
+  <div class="lunch-section">
     <div class="lunch-content">
       <div>
         <h3>Lunchbuffé</h3>
