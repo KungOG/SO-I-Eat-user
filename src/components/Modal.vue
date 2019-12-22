@@ -8,13 +8,15 @@
             v-model="tableInput"
             type="text"
             maxlength="2"
-            onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" />
+            onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13)
+            ? null : event.charCode >= 48 && event.charCode <= 57"
+            />
         </div>
         <div class='content' v-if="showTextModal">
           <h5>{{modalText}}</h5>
         </div>
         <div class="content" :class="editCart ? 'desktop' : ''" v-if="editCart">
-          <MenuCard 
+          <MenuCard
           :displayIcons="displayIcons"
           :item="originalOrderItem"
           :selectedCard="1"
@@ -23,11 +25,14 @@
         </div>
       </section>
       <section class='modal-buttons'>
-        <StandardButton v-if="!editCart && open" buttontext="Röv" @click.native="modalAction" />
-        <StandardButton v-if="editCart && open" buttonText="Uppdatera" @click.native="updateCartItem" />
-        <StandardButton v-if="!open" buttonText="OK" @click.native="closedBusiness" />
+        <StandardButton v-if="!editCart && open" buttonText="Röv"
+        @click.native="modalAction" />
+        <StandardButton v-if="editCart && open" buttonText="Uppdatera"
+        @click.native="updateCartItem" />
+        <StandardButton v-if="!open" buttonText="OK"
+        @click.native="closedBusiness" />
       </section>
-      <img class='modal-cross-icon' :src="CloseDown" />
+      <img class='modal-cross-icon' :src="closeDown" />
     </section>
     <div v-if="!editCart" class='home modal-close-button' @click="cancelModal" />
     <div v-if="editCart" class='cart modal-close-button' @click="minimizeModal" />
@@ -53,7 +58,7 @@ export default {
   },
   data: () => ({
     tableInput: '',
-    CloseDown: CloseDown,
+    closeDown: CloseDown,
     displayIcons: false,
   }),
   computed: {
