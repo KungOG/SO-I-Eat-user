@@ -4,9 +4,16 @@
       <div class="wait-time"><h5>Väntetiden är ca {{ productionTime }} min.</h5></div>
     </section>
     <section class="lower-scroll-container">
-      <div class="nav-item" v-for="(category, i) in categories" :key="`categories-${i}`" :class="{ active: selected === i }">
+      <div class="nav-item"
+      v-for="(category, i) in categories"
+      :key="`categories-${i}`"
+      :class="{ active: selected === i }">
         <div class='lower-nav-items'>
-          <h5 class='nav-category-item' @click="select(i)" :class="{ selectedCategory: selected === i }">{{category.categoryName}}</h5>
+          <h5 class='nav-category-item'
+            @click="select(i)"
+            :class="{ selectedCategory: selected === i }">
+          {{category.categoryName}}
+          </h5>
         </div>
       </div>
     </section>
@@ -37,8 +44,8 @@ export default {
     },
   },
   methods: {
-    select (value) {
-      this.selected = value
+    select(value) {
+      this.selected = value,
       this.$emit('setSelected', value)
     },
   },
