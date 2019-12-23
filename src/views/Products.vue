@@ -1,12 +1,9 @@
 <template>
     <div class='products' id="prod">
-<<<<<<< HEAD
       <NavigationBar class="nav-bar-products mobile black"
-      :class="{ 'navbar--hidden' : !showNavbar2 }"/>
-=======
-      <NavigationBar class="nav-bar-products mobile black" :class="{ 'navbar--hidden': !showNavbar2 }"/>
-      <NavigationBarDesktop class="nav-bar-desktop desktop black" :class="{ 'navbar--hidden': !showNavbar2 }"/>
->>>>>>> 43206ef658c4af4d37c88de51d4113e9e3635d82
+      :class="{ 'navbar--hidden' : !showNavbar2 }" />
+      <NavigationBarDesktop class="nav-bar-desktop desktop black"
+      :class="{ 'navbar--hidden': !showNavbar2 }" />
       <div class="sections-wrapper mobile">
         <Lunch class="lunch-component"/>
         <MenuSection
