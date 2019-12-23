@@ -1,5 +1,6 @@
 <template>
   <div class='home'>
+    <NavigationBarDesktop class="desktop" />
     <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
       <section class="navigation-buttons-container">
         <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text" url="/order"/>
@@ -54,6 +55,7 @@ import Products from './Products.vue';
 import Map from '@/components/InfoPages/Map.vue';
 import ContactText from '@/components/InfoPages/ContactText.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
+import NavigationBarDesktop from '@/components/NavigationBarDesktop.vue';
 
 export default {
   name: 'home',
@@ -62,6 +64,7 @@ export default {
     Map,
     ContactText,
     NavigationButton,
+    NavigationBarDesktop,
   },
 
   data: () => ({

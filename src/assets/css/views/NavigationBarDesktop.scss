@@ -1,0 +1,34 @@
+.nav-desk-container {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+
+  .nav-item {
+    display: flex;
+
+    &:first-child {
+      visibility: hidden;
+    }
+
+    >img {
+      padding: 0 10px;
+    }
+
+    >.info-menu {
+      color: white;
+      height: 70px;
+      display: flex;
+      align-items: center;
+
+      >span {
+        text-transform: uppercase;
+        font-size: 20px;
+        margin: 0 2rem;
+      }
+    }
+  }
+}
