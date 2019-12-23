@@ -29,12 +29,7 @@
     }
 
     @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      50% { transform: translateY(-10px); }
     }
   }
 
@@ -67,6 +62,7 @@
       justify-content: center;
     }
   }
+
   .about-section {
     background: white;
     padding: 3rem 0;
@@ -75,11 +71,11 @@
     justify-content: center;
     flex-direction: column;
 
-    >p {
+    > p {
       width: 50vw;
     }
 
-    >h3 {
+    > h3 {
       color: black;
     }
   }
@@ -90,6 +86,21 @@
   top: 50vh;
   position: relative;
   z-index: 1;
+
+  @media (min-width: 1400px) {
+    left: calc(50vw + 140px);
+    display: flex;
+    justify-content: space-between;
+    width: 430px;
+    top: 55vh;
+  }
+
+  @media (min-width: 769px) {
+    > .navigation-button {
+      height: 100px;
+      width: 100px;
+    }
+  }
 }
 
 .home > .wrapper > .line-wrapper {
@@ -112,42 +123,83 @@
     top: 180px;
     height: calc(100vh - 180px);
   
-    .first-line {
+    > .first-line {
       background: $main-secondary-color;
       height: 94%;
       width: 1px;
       position: relative;
     }
-    .second-line {
+
+    > .second-line {
       background: $main-secondary-color;
       top: 16%;
       height: 1px;
       width: 100%;
-      left: 45%;
       position: absolute;
+
+      @media (max-width: 1399px) { left: 45%; }
+      @media (min-width: 1400px) { right: 39%; }
     }
-    .third-line {
+
+    > .third-line {
       background: $main-secondary-color;
       top: 55.5%;
       height: 1px;
       width: 150px;
       right: 40%;
       position: absolute;
+
+      @media (min-width: 1400px) {
+        right: 39%;
+        width: 532px;
+        top: 30%;
+      }
     }
-    .fourth-line {
+
+    > .fourth-line {
       background: $main-secondary-color;
       top: 65%;
       height: 1px;
       width: 100%;
       right: 45%;
       position: absolute;
+
+      @media (min-width: 1400px) {
+        left: 45%;
+        top: 75%;
+      }
     }
 
-    .line-wrapper-text {
+    > .line-wrapper-upper-text {
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      top: 40%;
+      left: 5%;
+      width: 400px;
+
+      @media (max-width: 1399px) {
+        display: none;
+      }
+
+      > .line-container-image {
+        height: 75px;
+      }
+
+      > .line-container-text {}
+    }
+
+    > .line-wrapper-text {
       color: white;
       position: absolute;
       top: 70%;
       right: 57%;
+
+      @media (min-width: 1400px) {
+        left: 5%;
+      }
     }
   }
 }
