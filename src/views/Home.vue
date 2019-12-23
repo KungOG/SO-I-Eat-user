@@ -1,6 +1,6 @@
 <template>
   <div class='home'>
-    <NavigationBarDesktop class="desktop" />
+    <NavigationBarDesktop class="desktop home" />
     <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
       <section class="navigation-buttons-container">
         <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text" url="/order"/>
