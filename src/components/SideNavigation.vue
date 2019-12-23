@@ -27,12 +27,15 @@
         </li>
       </ul>
     </div>
-    <NavigationButton
-      class="activate-desktop-cart"
-      :imageSrc="TakeAway.url"
-      :title="TakeAway.text"
-      @click.native="showTheCart()"
-    />
+    <div class='navigation-button' @click="showTheCart">
+      <div class="cart-icon-wrapper">
+        <img :src="require('@/assets/icons/' + icons.imgUrl)" alt="varukorg">
+        <div class="cart-content">
+          <span>{{numberOfCartItems}}</span>
+        </div>
+      </div>
+      <span>min beställning</span>
+    </div>
   </div>
 </template>
 
@@ -54,13 +57,16 @@ export default {
     icons: {
       logo: 'LogoNoText.svg',
       clock: 'Clock.svg',
+      imgUrl: 'Cart.svg',
     },
-    TakeAway: { url: require('@/assets/icons/Cart.svg'), text: 'Min Beställning' },
     selected: null,
   }),
   computed: {
     productionTime() {
       return this.$store.state.productionTime;
+    },
+    numberOfCartItems() {
+      return this.$store.state.order.foodItems.length + this.$store.state.order.drinkItems.length;
     },
   },
   methods: {
