@@ -3,9 +3,9 @@
     <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
       <section class="navigation-buttons-container">
         <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text" url="/order"/>
-        <NavigationButton :imageSrc="MenuIcon.url" :title="MenuIcon.text" url="/" @click.native="scrollToMenu" />
         <NavigationButton :imageSrc="EatHere.url" :title="EatHere.text" class="mobile" url="/order"/>
         <NavigationButton :imageSrc="Maps.url" :title="Maps.text" class="desktop" url="/"/>
+        <NavigationButton :imageSrc="Menu.url" :title="Menu.text" url="/" @click.native="scrollToMenu" />
       </section>
       <div class='line-wrapper'>
         <div class='line-container'>
@@ -66,7 +66,7 @@ export default {
 
   data: () => ({
     TakeAway: { url: require('@/assets/icons/TakeAway.svg'), text: 'ta med' },
-    MenuIcon: { url: require('@/assets/icons/MenuIcon.svg'), text: 'se meny' },
+    Menu: { url: require('@/assets/icons/Menu.svg'), text: 'se meny' },
     Maps: { url: require('@/assets/icons/Maps.svg'), text: 'hitta hit' },
     EatHere: { url: require('@/assets/icons/EatHere.svg'), text: 'äta här' },
     Arrow: require('@/assets/icons/Arrow.svg'),
