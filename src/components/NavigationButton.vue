@@ -23,7 +23,8 @@ export default {
   },
   methods: {
     setTakeAway() {
-      this.title === 'ta med' ? $store.commit('setTableInput', 'take away') : '';
+      this.title === 'ta med' ? this.$store.commit('setTableInput', 'take away') : '';
+      this.title === 'äta här' ? this.$store.commit('setTableInput', '') : '';
     },
   },
 };

@@ -104,6 +104,14 @@ export default {
       this.$store.commit('setModalText', 'Tyvärr, vi har stängt');
     }
   },
+  mounted() {
+    setTimeout(() => {
+      if(this.$store.state.order.table !== 'take away') {
+        this.$store.commit('setShowModal', true);
+        this.$store.commit('setShowInputModal', true);
+      }
+    }, 1000);
+  },
   computed: {
     sortedMenuItems() {
       return this.$store.getters.sortedMenuItems;
@@ -116,9 +124,6 @@ export default {
     },
     categories() {
       return this.$store.state.categories;
-    },
-    orderState() {
-      return this.$store.state.orderState;
     },
     editCart() {
       return this.$store.state.editCart;

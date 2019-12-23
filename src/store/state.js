@@ -5,7 +5,6 @@ export default {
   showInputModal: false,
   showModal: false,
   categories: [],
-  orderState: null,
   editCart: false,
   itemToEdit: null,
   itemToEditIndex: null,

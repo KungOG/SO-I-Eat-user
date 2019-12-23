@@ -94,10 +94,8 @@ export default {
         case 'eatHere':
           this.$store.commit('setShowModal', true);
           this.$store.commit('setShowInputModal', true);
-          this.$store.commit('setOrderState', icon);
           break;
         case 'takeAway':
-          this.$store.commit('setOrderState', icon);
           this.$store.commit('setTableInput', 'take away');
           break;
         case 'delete':

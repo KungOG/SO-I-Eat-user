@@ -17,9 +17,6 @@ export default {
   deleteOrderItemDrink(state, orderItem) {
     state.order.drinkItems.splice(orderItem, 1);
   },
-  setOrderState(state, orderState) {
-    state.orderState = orderState;
-  },
   setTableInput(state, tableInput) {
     state.order.table = tableInput;
   },
