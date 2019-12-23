@@ -3,10 +3,14 @@
     <NavigationBarDesktop class="desktop" />
     <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
       <section class="navigation-buttons-container">
-        <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text" url="/order"/>
-        <NavigationButton :imageSrc="EatHere.url" :title="EatHere.text" class="mobile" url="/order"/>
-        <NavigationButton :imageSrc="Maps.url" :title="Maps.text" class="desktop" url="/"/>
-        <NavigationButton :imageSrc="Menu.url" :title="Menu.text" url="/" @click.native="scrollToMenu" />
+        <NavigationButton :imageSrc="TakeAway.url"
+        :title="TakeAway.text" url="/order"/>
+        <NavigationButton :imageSrc="EatHere.url"
+        :title="EatHere.text" class="mobile" url="/order"/>
+        <NavigationButton :imageSrc="Maps.url"
+        :title="Maps.text" class="desktop" url="/"/>
+        <NavigationButton :imageSrc="Menu.url"
+        :title="Menu.text" url="/" @click.native="scrollToMenu" />
       </section>
       <div class='line-wrapper'>
         <div class='line-container'>
@@ -21,7 +25,7 @@
         </div>
       </div>
       <div class='golden-arrow bounce'>
-        <img :src="Arrow" alt="" @click="scrollToMenu()">
+        <img :src="Arrow" alt="Arrow clickable going to menu" @click="scrollToMenu()">
       </div>
     </div>
     <Products id="products"/>
