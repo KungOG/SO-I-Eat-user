@@ -1,5 +1,5 @@
 <template>
-  <div class='home'>
+  <div class='home' id="home">
     <NavigationBarDesktop class="desktop home" />
     <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
       <section class="navigation-buttons-container">
@@ -29,12 +29,12 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
     </section>
     <section class="map-section desktop">
-      <Map />
+      <Map id="contact"/>
       <div class="text-wrapper">
         <ContactText />
       </div>
     </section>
-    <section class="about-section desktop">
+    <section class="about-section desktop" id="about">
       <h3>Genuina smaker från Thailand</h3>
       <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
