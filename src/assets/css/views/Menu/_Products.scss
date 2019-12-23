@@ -8,14 +8,10 @@
     }
 
     &.mobile {
-<<<<<<< HEAD
-      @media (min-width: $screen-sm-md) { display: none; } 
-=======
       @media (min-width: $screen-sm-md) {
         display: none;
       }       
     }
->>>>>>> 43206ef658c4af4d37c88de51d4113e9e3635d82
 
     .lunch-component {
       padding-top: 6rem;
@@ -103,9 +99,6 @@
   .nav-bar-products.mobile.navbar--hidden {
     transform: translate3d(0, 0, 0);
     visibility: unset;
-<<<<<<< HEAD
-  }
-=======
   } 
 
   .nav-bar-desktop {
@@ -127,7 +120,6 @@
       visibility: unset;
     }
   }  
->>>>>>> 43206ef658c4af4d37c88de51d4113e9e3635d82
 }
 
 
