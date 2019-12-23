@@ -12,14 +12,14 @@ export default {
   props: {
     imageSrc: {
       type: String,
-    },  
-    title: { 
+    },
+    title: {
       type: String,
     },
     url: {
       type: String,
       required: false,
-    },  
+    },
   },
   methods: {
     setTakeAway() {

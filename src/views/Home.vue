@@ -3,13 +3,26 @@
     <NavigationBarDesktop class="desktop home" />
     <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
       <section class="navigation-buttons-container">
-        <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text" url="/order"/>
-        <NavigationButton :imageSrc="EatHere.url" :title="EatHere.text" class="mobile" url="/order"/>
-        <NavigationButton :imageSrc="Maps.url" :title="Maps.text" class="desktop" url="/"/>
-        <NavigationButton :imageSrc="Menu.url" :title="Menu.text" url="/" @click.native="scrollToMenu" />
+        <NavigationButton :imageSrc="TakeAway.url"
+        :title="TakeAway.text" url="/order"/>
+        <NavigationButton :imageSrc="EatHere.url"
+        :title="EatHere.text" class="mobile" url="/order"/>
+        <NavigationButton :imageSrc="Maps.url"
+        :title="Maps.text" class="desktop" url="/"/>
+        <NavigationButton :imageSrc="Menu.url"
+        :title="Menu.text" url="/" @click.native="scrollToMenu" />
       </section>
       <div class='line-wrapper'>
         <div class='line-container'>
+          <div class="line-wrapper-upper-text desktop">
+            <img :src="TextLogotype" class='line-container-image' alt='Logotype'>
+            <span class='line-container-text '>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </span>
+          </div>
           <span class='line-wrapper-text'>
             Öppet tis-sön 11-21<br>
             Lunch tis-fre 11-14
@@ -21,7 +34,7 @@
         </div>
       </div>
       <div class='golden-arrow bounce'>
-        <img :src="Arrow" alt="" @click="scrollToMenu()">
+        <img :src="Arrow" alt="Arrow clickable going to menu" @click="scrollToMenu()">
       </div>
     </div>
     <Products id="products"/>
@@ -68,6 +81,7 @@ export default {
   },
 
   data: () => ({
+    TextLogotype: require('@/assets/icons/FullLogo.svg'),
     TakeAway: { url: require('@/assets/icons/TakeAway.svg'), text: 'ta med' },
     Menu: { url: require('@/assets/icons/Menu.svg'), text: 'se meny' },
     Maps: { url: require('@/assets/icons/Maps.svg'), text: 'hitta hit' },

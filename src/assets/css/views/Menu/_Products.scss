@@ -8,10 +8,14 @@
     }
 
     &.mobile {
+<<<<<<< HEAD
+      @media (min-width: $screen-sm-md) { display: none; } 
+=======
       @media (min-width: $screen-sm-md) {
         display: none;
       }       
     }
+>>>>>>> 43206ef658c4af4d37c88de51d4113e9e3635d82
 
     .lunch-component {
       padding-top: 6rem;
@@ -19,13 +23,8 @@
 
     section {
       &:first-child {
-        @media (min-width: $screen-sm-lg) {
-          width: 42vw;
-        }
-
-        @media (min-width: $screen-sm-md) {
-          width: 49.3vw;
-        }
+        @media (min-width: $screen-sm-lg) { width: 42vw; }
+        @media (min-width: $screen-sm-md) { width: 49.3vw; }
       }
 
       &:last-child {
@@ -40,6 +39,19 @@
     }
   }
 
+  .nav-buttons.desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    right: 0;
+    z-index: 100;
+    top: 200px;
+    height: 400px;
+    transform: translatex(200px);
+    transition: 0.1s all ease-out;
+  }
+
   .nav-buttons.mobile {
     display: flex;
     justify-content: space-between;
@@ -47,7 +59,7 @@
     bottom: -60px;
     width: 100vw;
     transform: translate3d(0, 0, 0);
-    transition: 0.1s all ease-out;
+    transition: 0.5s all ease-out;
 
     .nav-mobile.navigation-button {
       width: 49.5%;
@@ -59,18 +71,24 @@
       a {
         display: flex;
         flex-direction: row;
-        
+
         > img {
           height: 35px;
           width: 35px;
           margin: 0 .6rem 0 0;
         }
       }
-
     }
-  } 
-  .nav-buttons.mobile.navbar--hidden {
-    transform: translate3d(0, -100%, 0);
+  }
+
+  .nav-buttons.navbar--hidden {
+    &.mobile {
+      transform: translate3d(0, -100%, 0);
+    }
+    
+    &.desktop {
+      transform: translatex(0);
+    }
   }
 
   .nav-bar-products {
@@ -85,6 +103,9 @@
   .nav-bar-products.mobile.navbar--hidden {
     transform: translate3d(0, 0, 0);
     visibility: unset;
+<<<<<<< HEAD
+  }
+=======
   } 
 
   .nav-bar-desktop {
@@ -106,4 +127,7 @@
       visibility: unset;
     }
   }  
+>>>>>>> 43206ef658c4af4d37c88de51d4113e9e3635d82
 }
+
+
