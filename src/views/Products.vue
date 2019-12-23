@@ -1,7 +1,12 @@
 <template>
     <div class='products' id="prod">
+<<<<<<< HEAD
       <NavigationBar class="nav-bar-products mobile black"
       :class="{ 'navbar--hidden' : !showNavbar2 }"/>
+=======
+      <NavigationBar class="nav-bar-products mobile black" :class="{ 'navbar--hidden': !showNavbar2 }"/>
+      <NavigationBarDesktop class="nav-bar-desktop desktop black" :class="{ 'navbar--hidden': !showNavbar2 }"/>
+>>>>>>> 43206ef658c4af4d37c88de51d4113e9e3635d82
       <div class="sections-wrapper mobile">
         <Lunch class="lunch-component"/>
         <MenuSection
@@ -13,7 +18,7 @@
       </div>
       <div class="sections-wrapper desktop">
         <section>
-          <Lunch />
+          <Lunch class="lunch-component"/>
           <MenuSection
             v-for="(category, i) in splittedCategories.array1"
             :key="`split-categories1-${i}`"
@@ -52,6 +57,7 @@ import MenuSection from '@/components/MenuComponents/MenuSection.vue';
 import Lunch from '@/components/MenuComponents/Lunch.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
+import NavigationBarDesktop from '@/components/NavigationBarDesktop.vue';
 
 export default {
   name: 'products',
@@ -73,6 +79,7 @@ export default {
     NavigationButton,
     Lunch,
     NavigationBar,
+    NavigationBarDesktop,
   },
   beforeMount() {
     this.$store.dispatch('getMenuItems');
