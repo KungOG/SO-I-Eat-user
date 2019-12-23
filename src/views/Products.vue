@@ -2,7 +2,7 @@
     <div class='products' id="prod">
       <NavigationBar class="nav-bar-products mobile black" :class="{ 'navbar--hidden': !showNavbar2 }"/>
       <div class="sections-wrapper mobile">
-        <Lunch />
+        <Lunch class="lunch-component"/>
         <MenuSection
           v-for="(category, i) in categories"
           :key="`categories-${i}`"
@@ -34,9 +34,9 @@
         <NavigationButton class="nav-mobile" :imageSrc="EatHere" :title="EatHereText" url="/order"/>
       </div>
       <div class="nav-buttons desktop">
-        <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText" />
-        <NavigationButton :imageSrc="MenuIcon" :title="MenuIconText"/>
-        <NavigationButton :imageSrc="Maps" :title="MapsText"/>
+        <NavigationButton :imageSrc="TakeAway" :title="TakeAwayText" url="/order"/>
+        <NavigationButton :imageSrc="Menu" :title="MenuText" url="/order"/>
+        <NavigationButton :imageSrc="Maps" :title="MapsText" url="/"/>
       </div>
     </div>
 </template>
@@ -52,8 +52,8 @@ export default {
   data: () => ({
       TakeAway: require('@/assets/icons/TakeAway.svg'),
       TakeAwayText: 'Ta med',
-      MenuIcon: require('@/assets/icons/MenuIcon.svg'),
-      MenuIconText: 'Se Menyn',
+      Menu: require('@/assets/icons/Menu.svg'),
+      MenuText: 'Se Menyn',
       Maps: require('@/assets/icons/Maps.svg'),
       MapsText: 'Hitta hit',
       EatHere: require('@/assets/icons/EatHere.svg'),
@@ -80,14 +80,14 @@ export default {
   },
   computed: {
     menuItems() {
-      return this.$store.state.menuItems;
+      return this.$store.state.menuItems.filter(x => x.category !== 7);
     },
     categories() {
-      return this.$store.state.categories;
+      return this.$store.state.categories.filter(x => x.categoryId !== 7 );
     },
     splittedCategories() {
-      var items = this.$store.state.categories.map(x => x);
-      var originalArray = this.$store.state.categories;
+      var items = this.$store.state.categories.map(x => x).filter(x => x.categoryId !== 7);
+      var originalArray = this.$store.state.categories.filter(x => x.categoryId !== 7);
       var arrays = {array1: [], array2: []}
 
       for(let i=0; i < originalArray.length; i++) {
