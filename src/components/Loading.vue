@@ -12,6 +12,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 // eslint-disable-next-line import/no-unresolved
 import Icon from '@/assets/icons/FullLogo.svg';
 
@@ -24,9 +25,15 @@ export default {
     icon: Icon,
     loading: false,
     selfDestroy: false,
+    status: null,
+    selectedOpenHour: '',
+    selectedCloseHour: '',
   }),
   methods: {
     activateLoading() {
+      this.$store.state.status === null ? this.getStatus() : '';
+      this.getBusinessHours();
+      this.checkCurrentTime();
       setTimeout(() => {
         this.loading = true;
         this.callDestroy();
@@ -36,6 +43,47 @@ export default {
       setTimeout(() => {
         this.selfDestroy = true;
       }, 3000);
+    },
+    checkCurrentTime() {
+      console.log('Kolla tiden');
+      const d = new Date();
+      const currentTime = Number(d.getHours() + '.' + d.getMinutes());
+      if (this.status === 'open') {
+        this.$store.commit('setOpen', true);
+        if (currentTime > Number(this.selectedOpenHour)
+        && currentTime < Number(this.selectedCloseHour)) {
+          this.$store.commit('setOpen', true);
+        } else {
+          this.$store.commit('setOpen', false);
+        }
+      } else {
+        this.$store.commit('setOpen', false);
+      }
+    },
+    getBusinessHours() {
+      console.log('Kolla Hämta tiden');
+      const url = 'https://so-i-eat-server.herokuapp.com/businessHours';
+      axios
+        .get(url)
+        .then((response) => {
+          this.selectedOpenHour = response.data[0].open;
+          this.selectedCloseHour = response.data[0].closed;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getStatus() {
+      const url = 'https://so-i-eat-server.herokuapp.com/statuses';
+      axios
+        .get(url)
+        .then((response) => {
+          this.status = response.data[0].status;
+          this.$store.commit('setStatus', response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };
