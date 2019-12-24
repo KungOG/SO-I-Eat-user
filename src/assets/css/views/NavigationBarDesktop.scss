@@ -35,9 +35,16 @@
 
       > span {
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: 18px;
         margin: 0 2rem;
       }
+    }
+    .info-enter-active, .info-leave-active {
+      transition: all .3s ease;
+    }
+    .info-enter, .info-leave-to {
+      opacity: 0;
+      transform: translateX(40px);
     }
   }
 }

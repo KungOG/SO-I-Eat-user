@@ -108,7 +108,7 @@ export default {
           this.showMenu = true;
           break;
         case 'logo':
-          this.scrollToTop();
+          this.$nextTick(() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' }))
           break;
       }
     },
@@ -136,9 +136,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    },
-    scrollToTop() {
-      window.scrollTo(0,0);
     },
   },
 };

@@ -1,14 +1,16 @@
 <template>
   <div class="nav-desk-container">
     <div class="nav-item">
-      <img :src="require('@/assets/icons/FullLogo.svg')" @click="scroll()" />
+      <img :src="require('@/assets/icons/FullLogo.svg')" @click="scrollTo('home')" />
     </div>
     <div class="nav-item">
-      <div class="info-menu" v-if="showInfoMenu">
-        <span>Kontakt</span>
-        <span>Om oss</span>
-        <span>Villkor</span>
-      </div>
+      <transition name="info">
+        <div class="info-menu" v-if="showInfoMenu">
+          <span @click="scrollTo('contact')">Kontakt</span>
+          <span @click="scrollTo('about')">Om oss</span>
+          <span>Villkor</span>
+        </div>
+      </transition>
       <img :src="require('@/assets/icons/Info.svg')" @click="showInfoMenu = !showInfoMenu" />
     </div>
   </div>
@@ -20,8 +22,8 @@ export default {
     showInfoMenu: false,
   }),
   methods: {
-    scroll() {
-
+    scrollTo(here) {
+      this.$nextTick(() => document.getElementById(here).scrollIntoView({ behavior: 'smooth' }));
     },
   },
 };
