@@ -87,6 +87,14 @@
   position: relative;
   z-index: 1;
 
+  @media (min-width: 769px) {
+    left: calc(50vw + 200px);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
   @media (min-width: 1400px) {
     left: calc(50vw + 140px);
     display: flex;
