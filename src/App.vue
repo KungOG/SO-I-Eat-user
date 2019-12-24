@@ -52,7 +52,7 @@ export default {
     };
   },
   beforeMount() {
-    setInterval(() => { 
+    setInterval(() => {
       this.getBusinessHours();
       this.checkCurrentTime();
     }, 10000);
