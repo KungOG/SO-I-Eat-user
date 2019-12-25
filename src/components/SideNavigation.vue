@@ -1,7 +1,9 @@
 <template>
   <div class="side-navigation">
     <div class="icon-wrapper">
-      <img :src="require('@/assets/icons/' + icons.logo)" alt="hem">
+      <router-link to="/">
+        <img :src="require('@/assets/icons/' + icons.logo)" alt="hem">
+      </router-link>
       <img v-if="!showTime" :src="require('@/assets/icons/' + icons.clock)"
       alt="info"
       @click="showTheTime">
