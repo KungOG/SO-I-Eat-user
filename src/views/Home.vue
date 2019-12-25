@@ -17,10 +17,9 @@
           <div class="line-wrapper-upper-text desktop">
             <img :src="TextLogotype" class='line-container-image' alt='Logotype'>
             <span class='line-container-text '>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Hos oss upplever du den genuina smaken av Thailand. I vår familjeägda restaurang serveras den hemlagade 
+              thaimaten från de bästa råvarorna. Du kan även beställa online, både vid take away och restaurangbesök.<br> 
+              Vi önskar dig varmt välkommen!
             </span>
           </div>
           <span class='line-wrapper-text'>
@@ -39,7 +38,7 @@
     </div>
     <Products id="products"/>
     <section class="text-section desktop">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+      <p>"Det thailändska köket står för fräscha råvaror med en perfekt balans mellan sött, salt, syrligt, beskt och hetta."</p>
     </section>
     <section class="map-section desktop">
       <Map id="contact"/>
@@ -49,15 +48,13 @@
     </section>
     <section class="about-section desktop" id="about">
       <h3>Genuina smaker från Thailand</h3>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      <p>"Den thailändska maten erbjuder en explosion för smaklökarna. Kyckling, biff och fläskkött serveras ofta i små färdigskurna 
+        bitar och kombineras med grönsaker, ris och nudlar. Salt är Thailändarna skeptiska till, istället används den berömda fisksåsen 
+        för att salta maten, och chilin ger den berömda hettan. 
       </p>
       <div>Bild bild bild</div>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      <p>"Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online 
+        via vår hemsida. Välkommen till oss! 
       </p>
     </section>
   </div>
