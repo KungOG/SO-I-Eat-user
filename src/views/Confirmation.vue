@@ -7,16 +7,13 @@
       <div class='content-confirmation'>
         <section class='upper-confirmation-section'>
           <h1>Tack för ditt köp!</h1>
-          <h4>Ordernummer</h4>
-          <h3>#{{ordernumber}}</h3>
+          <hr>
+          <div class='lower-text-wrapper'>
+            <p>{{text}}</p>
+            <p>Orderbekräftelse och kvitto skickas till din mailadress. <br> Smaklig måltid!</p>
+          </div>
         </section>
         <section class='lower-confirmation-section'>
-          <div class='lower-text-wrapper'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-              ut aliquip ex ea commodo consequat.
-            </p>
-          </div>
           <StandardButton @click.native="$router.push('/')"/>
         </section>
       </div>
@@ -37,6 +34,20 @@ export default {
   data:() => ({
     icon: Icon,
     ordernumber: '87HUFI',
+    textTakeAway: 'Du är välkommen att hämta din beställning hos oss på Kustvägen 46 i Mellbystrand',
+    textEatHere: 'Din beställning serveras inom kort',
   }),
+  computed: {
+    order() {
+      return this.$store.state.order;
+    },
+    text() {
+      if(this.order.table === 'take away') {
+        return this.textTakeAway;
+      } else {
+        return this.textEatHere;
+      } 
+    }
+  }
 };
 </script>

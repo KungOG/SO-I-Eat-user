@@ -20,7 +20,7 @@ $regular-font: 'Carrois Gothic', sans-serif;
 $header-font: 'News Cycle', sans-serif;
 
 #app {
-  color: black;
+  color: $main-base-color;
 
   .mobile {
     @media (min-width: $screen-sm-md) {
