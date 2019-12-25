@@ -1,3 +1,9 @@
-#app > .footer {
+.footer {
   background: grey;
+  height: 130px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2rem;
+
 }

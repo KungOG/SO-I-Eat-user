@@ -58,9 +58,12 @@
         <img :src="imgUrl" alt="restaurangpersonal">
       </div>
       <p>Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online 
-        via vår hemsida. Välkommen till oss! 
+        via vår hemsida. 
       </p>
+      <br>
+      <p>Välkommen till oss! </p>
     </section>
+    <Footer />
   </div>
 </template>
 
@@ -70,6 +73,7 @@ import Map from '@/components/InfoPages/Map.vue';
 import ContactText from '@/components/InfoPages/ContactText.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 import NavigationBarDesktop from '@/components/NavigationBarDesktop.vue';
+import Footer from '@/components/Footer.vue';
 import AboutPic from '@/assets/images/aboutpic.jpg';
 
 export default {
@@ -80,6 +84,7 @@ export default {
     ContactText,
     NavigationButton,
     NavigationBarDesktop,
+    Footer,
   },
 
   data: () => ({
