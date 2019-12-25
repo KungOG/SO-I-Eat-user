@@ -8,6 +8,7 @@
         button-text='Lägg till i beställning'
         @click.native="addLunchToCart"
       />
+      <img class='modal-cross-icon' :src="closeDown" @click="$emit('closeLunchModal')"/>
     </section>
     <div class='home modal-close-button' @click="$emit('closeLunchModal')" />
   </div>
@@ -16,12 +17,16 @@
 <script>
 import StandardButton from './StandardButton.vue';
 import Lunch from '@/components/MenuComponents/Lunch.vue';
+import CloseDown from '@/assets/icons/WhiteCross.svg';
 
 export default {
   components: {
     StandardButton,
     Lunch,
   },
+  data: () => ({
+    closeDown: CloseDown,
+  }),
   methods: {
     addLunchToCart() {
       this.$emit('closeLunchModal');

@@ -9,11 +9,12 @@
 
     &.mobile {
       @media (min-width: $screen-sm-md) { display: none; } 
+    }
 
     .lunch-component {
       padding-top: 6rem;
+      padding-bottom: 4rem;
     }
-  }
 
   section {
     &:first-child {
