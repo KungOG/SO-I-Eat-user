@@ -21,7 +21,6 @@
             <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add.name}}</p>
             <p v-for="(remove, i) in item.value.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
-          <h6 class='amount'>{{item.value.productNr}}</h6>
           <h6 class='price'>
             {{item.value.price + item.value.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-
           </h6>
@@ -137,11 +136,12 @@ export default {
     },
     editCartItem(item, i) {
       if(this.$route.path !== '/order') {
-        this.$router.push(`${item.productName}`);
+        console.log(item)
+        this.$router.push(`${item.value.productName}`);
       }
       this.$store.commit('setShowCart', null)
       this.$store.commit('editCart', true);
-      this.$store.commit('setItemToEdit', {item: item, index: i});
+      this.$store.commit('setItemToEdit', {item: item.value, index: i});
     },
     closeTheCart() {
       const toggleActiveCart = false;
