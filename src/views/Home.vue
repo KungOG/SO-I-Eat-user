@@ -40,8 +40,8 @@
     <section class="text-section desktop">
       <p>"Det thailändska köket står för fräscha råvaror med en perfekt balans mellan sött, salt, syrligt, beskt och hetta."</p>
     </section>
-    <section class="map-section desktop">
-      <Map id="contact"/>
+    <section class="map-section desktop" id="contact">
+      <Map />
       <div class="text-wrapper">
         <ContactText />
       </div>

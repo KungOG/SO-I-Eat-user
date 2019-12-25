@@ -33,18 +33,40 @@
         </section>
       </div>
       <div class="nav-buttons mobile" :class="{ 'navbar--hidden' : !showNavbar }">
-        <NavigationButton class="nav-mobile"
-        :imageSrc="TakeAway" :title="TakeAwayText" url="/order"/>
-        <NavigationButton class="nav-mobile"
-        :imageSrc="EatHere" :title="EatHereText" url="/order"/>
+        <NavigationButton
+          class="nav-mobile"
+          :imageSrc="TakeAway"
+          :title="TakeAwayText"
+          url="/order"
+        />
+        <NavigationButton
+          class="nav-mobile"
+          :imageSrc="EatHere"
+          :title="EatHereText"
+          url="/order"
+        />
       </div>
       <div class="nav-buttons desktop" :class="{ 'navbar--hidden' : !showNavbar }">
-        <NavigationButton class="nav-desktop" :imageSrc="TakeAway"
-        :title="TakeAwayText" url="/order"/>
-        <NavigationButton class="nav-desktop" :imageSrc="Menu"
-        :title="MenuText" url="/order"/>
-        <NavigationButton class="nav-desktop" :imageSrc="Maps"
-        :title="MapsText" url="/"/>
+        <NavigationButton
+          class="nav-desktop"
+          :imageSrc="TakeAway"
+          :title="TakeAwayText"
+          url="/order"
+        />
+        <NavigationButton
+          class="nav-desktop"
+          :imageSrc="Menu"
+          :title="MenuText"
+          url="/"
+          @click.native="scrollTo('products')"
+        />
+        <NavigationButton
+          class="nav-desktop"
+          :imageSrc="Maps"
+          :title="MapsText"
+          url="/"
+          @click.native="scrollTo('contact')"
+        />
       </div>
     </div>
 </template>
@@ -119,6 +141,9 @@ export default {
       this.showNavbar = currentScrollPosition < 600;
       this.showNavbar2 = currentScrollPosition < h;
       this.lastScrollPosition = currentScrollPosition;
+    },
+    scrollTo(here) {
+      this.$nextTick(() => document.getElementById(here).scrollIntoView({ behavior: 'smooth' }));
     },
   },
 };
