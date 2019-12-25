@@ -39,11 +39,11 @@
         :imageSrc="EatHere" :title="EatHereText" url="/order"/>
       </div>
       <div class="nav-buttons desktop" :class="{ 'navbar--hidden' : !showNavbar }">
-        <NavigationButton :imageSrc="TakeAway"
+        <NavigationButton class="nav-desktop" :imageSrc="TakeAway"
         :title="TakeAwayText" url="/order"/>
-        <NavigationButton :imageSrc="Menu"
+        <NavigationButton class="nav-desktop" :imageSrc="Menu"
         :title="MenuText" url="/order"/>
-        <NavigationButton :imageSrc="Maps"
+        <NavigationButton class="nav-desktop" :imageSrc="Maps"
         :title="MapsText" url="/"/>
       </div>
     </div>

@@ -20,16 +20,27 @@
     &:first-child {
       @media (min-width: $screen-sm-lg) { width: 42vw; }
       @media (min-width: $screen-sm-md) { width: 49.3vw; }
+
+      >.menu-section {
+        @media (min-width: 990px) {
+          padding-right: 4rem;
+        }
+      }  
     }
 
     &:last-child {
       width: 100vw;
-
       @media (min-width: $screen-sm-md) { width: 49.3vw; }
         @media (min-width: $screen-sm-lg) {
           width: 57vw;
           margin-left: 10px;
         }
+      
+      >.menu-section {
+          @media (min-width: 990px) {
+            padding-right: 10rem;
+          }
+        }  
       }
     }
   }
@@ -42,9 +53,14 @@
     right: 0;
     z-index: 100;
     top: 200px;
-    height: 400px;
+    height: 350px;
     transform: translatex(200px);
     transition: 0.1s all ease-out;
+
+    .nav-desktop {
+      border-radius: 5px 0px 0px 5px;
+      background: rgba(170, 9, 9, 0.9);
+    }
   }
 
   .nav-buttons.mobile {
