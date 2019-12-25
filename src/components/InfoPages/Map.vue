@@ -43,6 +43,7 @@ export default {
 
   @media (min-width: 768px) {
     height: 700px;
+    margin-top: 0;
   }
   }
 /*   .leaflet-control-container {
