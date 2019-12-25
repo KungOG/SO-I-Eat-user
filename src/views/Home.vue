@@ -22,10 +22,10 @@
               Vi önskar dig varmt välkommen!
             </span>
           </div>
-          <span class='line-wrapper-text'>
-            Öppet tis-sön 11-21<br>
-            Lunch tis-fre 11-14
-          </span>
+          <div class='line-wrapper-text'>
+            <p>Öppet tis-sön 11-21</p>
+            <p>Lunch tis-fre 11-14</p>
+          </div>
           <div class='first-line' />
           <div class='second-line' />
           <div class='third-line' />
@@ -48,12 +48,12 @@
     </section>
     <section class="about-section desktop" id="about">
       <h3>Genuina smaker från Thailand</h3>
-      <p>"Den thailändska maten erbjuder en explosion för smaklökarna. Kyckling, biff och fläskkött serveras ofta i små färdigskurna 
+      <p>Den thailändska maten erbjuder en explosion för smaklökarna. Kyckling, biff och fläskkött serveras ofta i små färdigskurna 
         bitar och kombineras med grönsaker, ris och nudlar. Salt är Thailändarna skeptiska till, istället används den berömda fisksåsen 
         för att salta maten, och chilin ger den berömda hettan. 
       </p>
       <div>Bild bild bild</div>
-      <p>"Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online 
+      <p>Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online 
         via vår hemsida. Välkommen till oss! 
       </p>
     </section>
