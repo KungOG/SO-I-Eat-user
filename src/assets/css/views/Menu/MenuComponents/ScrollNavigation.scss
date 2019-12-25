@@ -8,7 +8,7 @@
   width: 100vw;
   top: 20px;
   z-index: 10;
-  transition: top 1.5s;
+  transition: top .5s;
 
   &.active-production-time {
     top: 60px;

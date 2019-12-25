@@ -106,7 +106,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      if(this.$store.state.order.table !== 'take away') {
+      if(this.$store.state.order.table !== 'take away' && this.$store.state.order.table === null){
         this.$store.commit('setShowModal', true);
         this.$store.commit('setShowInputModal', true);
       }

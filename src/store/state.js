@@ -27,7 +27,7 @@ export default {
     { name: 'Paprika', price: 10 },
   ],
   order: {
-    table: '',
+    table: null,
     foodItems: [],
     drinkItems: [],
   },
