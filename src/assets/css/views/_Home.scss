@@ -65,7 +65,7 @@
 
   .about-section {
     background: white;
-    padding: 3rem 0;
+    padding: 6rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,6 +77,14 @@
 
     > h3 {
       color: black;
+      margin: 2rem;
+    }
+
+    .about-pics {
+      margin: 5rem 0;
+      >img {
+        width: 33.33vw;
+      }
     }
   }
 }

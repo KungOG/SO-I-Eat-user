@@ -20,7 +20,7 @@ export default {
     background: white;
 
     >hr {
-      margin: 0 1.5rem;
+      margin: 1.5rem 1.5rem;
       border: .5px solid #c4c4c4;
     }
   }

@@ -1,31 +1,20 @@
 .about {
   width: 100vw;
-  height: 100vh;
+  padding-top: 60px;
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  .img-about {
-    background: grey;
-    height: 350px;
-    width: 100vw;
-  }
-
-  .about-content {
+  .about-text-wrapper {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    align-items: center;
-    margin: 25px 75px;
-    text-align: left;
-    position: relative;
+    padding: 4rem 3rem 6rem 3rem;
+    background: white;
 
-    .line {
-      background: black;
-      height: 1px;
-      width: 300px;
-      position: absolute;
-      top: 70px;
-      right: 0;
+    >h3 {
+      margin-bottom: 1rem;
+      color: black;
     }
   }
 }

@@ -52,7 +52,11 @@
         bitar och kombineras med grönsaker, ris och nudlar. Salt är Thailändarna skeptiska till, istället används den berömda fisksåsen 
         för att salta maten, och chilin ger den berömda hettan. 
       </p>
-      <div>Bild bild bild</div>
+      <div class="about-pics">
+        <img :src="imgUrl" alt="restaurangpersonal">
+        <img :src="imgUrl" alt="restaurangpersonal">
+        <img :src="imgUrl" alt="restaurangpersonal">
+      </div>
       <p>Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online 
         via vår hemsida. Välkommen till oss! 
       </p>
@@ -66,6 +70,7 @@ import Map from '@/components/InfoPages/Map.vue';
 import ContactText from '@/components/InfoPages/ContactText.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 import NavigationBarDesktop from '@/components/NavigationBarDesktop.vue';
+import AboutPic from '@/assets/images/aboutpic.jpg';
 
 export default {
   name: 'home',
@@ -84,6 +89,7 @@ export default {
     Maps: { url: require('@/assets/icons/Maps.svg'), text: 'hitta hit' },
     EatHere: { url: require('@/assets/icons/EatHere.svg'), text: 'äta här' },
     Arrow: require('@/assets/icons/Arrow.svg'),
+    imgUrl: AboutPic,
   }),
 
   methods: {
