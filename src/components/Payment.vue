@@ -18,7 +18,7 @@
             <span class='button-text'>Betala</span>
           </button>
           <button id='reset-button' @click.prevent="reset()">
-            <span class='button-text'>Reset</span>
+            <span class='button-text'>Återställ</span>
           </button>
         </div>
       </form>

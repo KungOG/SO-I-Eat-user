@@ -10,7 +10,7 @@
           <hr>
           <div class='lower-text-wrapper'>
             <p>{{text}}</p>
-            <p>Orderbekräftelse och kvitto skickas till din mailadress. <br> Smaklig måltid!</p>
+            <p>Orderbekräftelse och kvitto skickas till din mailadress. <br><br>Smaklig måltid!</p>
           </div>
         </section>
         <section class='lower-confirmation-section'>
@@ -34,8 +34,8 @@ export default {
   data:() => ({
     icon: Icon,
     ordernumber: '87HUFI',
-    textTakeAway: 'Du är välkommen att hämta din beställning hos oss på Kustvägen 46 i Mellbystrand',
-    textEatHere: 'Din beställning serveras inom kort',
+    textTakeAway: 'Du är välkommen att hämta din beställning hos oss på Kustvägen 46 i Mellbystrand.',
+    textEatHere: 'Din beställning serveras inom kort.',
   }),
   computed: {
     order() {

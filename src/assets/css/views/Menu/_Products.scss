@@ -16,6 +16,15 @@
       padding-bottom: 4rem;
     }
 
+    .filler-section {
+      height: 18%;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
   section {
     &:first-child {
       @media (min-width: $screen-sm-lg) { width: 42vw; }

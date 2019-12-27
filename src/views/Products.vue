@@ -22,6 +22,9 @@
             :items="menuItems"
             :category="category"
           />
+          <div class="filler-section">
+            <h5>Har du några allergier? <br>Är du vegan?<br>Meddela oss vid beställning</h5>
+          </div>
         </section>
         <section>
           <MenuSection

@@ -12,7 +12,7 @@
   .payment-wrapper {
     background: white;
     position: absolute;
-    height: 300px;
+    height: 200px;
     width: 400px;
     border-radius: 5px;
 
@@ -45,7 +45,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 200px;
+      height: 100px;
 
       > #reset-button {
         height: 20px;
@@ -54,10 +54,16 @@
 
       > #submit-button {
         background: $main-color;
+        border: none;
+        border-radius: 5px;
         color: white;
         height: 40px;
         width: 80%;
         margin-bottom: 10px;
+
+        .button-text {
+          text-transform: uppercase;
+        }
       }
     }
   }
