@@ -29,10 +29,14 @@ export default {
     selectedOpenHour: '',
     selectedCloseHour: '',
   }),
-  created() {
+  async created() {
     let installPrompt;
-    // eslint-disable-next-line no-unused-expressions
-    this.$store.state.status === null ? this.getStatus() : '';
+    this.getStatus();
+    this.getBusinessHours();
+
+    setInterval(() => {
+      this.getBusinessHours();
+    }, 10000);
 
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
@@ -50,12 +54,6 @@ export default {
         console.log('Install denied!');
       });
     };
-  },
-  beforeMount() {
-    setInterval(() => {
-      this.getBusinessHours();
-      this.checkCurrentTime();
-    }, 10000);
   },
   methods: {
     checkCurrentTime() {
@@ -80,6 +78,7 @@ export default {
         .then((response) => {
           this.selectedOpenHour = response.data[0].open;
           this.selectedCloseHour = response.data[0].closed;
+          this.checkCurrentTime();
         })
         .catch((error) => {
           console.log(error);
