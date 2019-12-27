@@ -24,7 +24,7 @@ export default {
   methods: {
     setTakeAway() {
       this.title === 'ta med' ? this.$store.commit('setTableInput', 'take away') : '';
-      this.title === 'äta här' ? this.$store.commit('setTableInput', '') : '';
+      this.title === 'äta här' ? this.$store.commit('setTableInput', null) : '';
     },
   },
 };

@@ -64,7 +64,7 @@ export default {
     selected: null,
     iconsMenu: [{ icon: FullLogo, name: 'logo', urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
     iconsOrder: [{ icon: Logo, urlTo: '/' }, { icon: TakeAway, name: 'takeAway', urlTo: '/order' }, { icon: EatHere, active: EatHereActive, name: 'eatHere', urlTo: '/order' }, { icon: Clock, name: 'clock', urlTo: '' }],
-    iconsOrderItem: [{ icon: Logo, urlTo: '/' }, { icon: Delete, name: 'delete', urlTo: '/order' }],
+    iconsOrderItem: [{ icon: Delete, name: 'delete', urlTo: '/order' }],
     iconsInfo: [{ icon: ReturnArrow, urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
     showMenu: false,
     imgUrl: 'WhiteCross.svg',
@@ -117,9 +117,9 @@ export default {
         this.$store.commit('editCart', false);
         this.$store.commit('setShowCart', true);
         this.$store.commit('resetItemToEdit');
-        this.iconsOrderItem[1].urlTo = '/orderitem/cart';
+        this.iconsOrderItem[0].urlTo = '/orderitem/cart';
       } else {
-        this.iconsOrderItem[1].urlTo = '/order';
+        this.iconsOrderItem[0].urlTo = '/order';
       }
     },
     showProductionTime() {
