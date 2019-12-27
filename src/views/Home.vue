@@ -63,7 +63,7 @@
       <br>
       <p>Välkommen till oss! </p>
     </section>
-    <Footer class="desktop"/>
+    <HomeFooter class="desktop"/>
   </div>
 </template>
 
@@ -73,7 +73,7 @@ import Map from '@/components/InfoPages/Map.vue';
 import ContactText from '@/components/InfoPages/ContactText.vue';
 import NavigationButton from '@/components/NavigationButton.vue';
 import NavigationBarDesktop from '@/components/NavigationBarDesktop.vue';
-import Footer from '@/components/Footer.vue';
+import HomeFooter from '@/components/HomeFooter.vue';
 import AboutPic from '@/assets/images/aboutpic.jpg';
 
 export default {
@@ -84,7 +84,7 @@ export default {
     ContactText,
     NavigationButton,
     NavigationBarDesktop,
-    Footer,
+    HomeFooter,
   },
 
   data: () => ({
