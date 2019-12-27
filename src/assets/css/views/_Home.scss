@@ -189,12 +189,13 @@
       left: 5%;
       width: 400px;
 
-      @media (max-width: 1399px) {
-        display: none;
+      @media (max-width: 1000px) {
+        width: 300px;
       }
 
       > .line-container-image {
         height: 75px;
+        margin-bottom: 2rem;
       }
 
       > .line-container-text {}
