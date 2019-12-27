@@ -63,7 +63,7 @@
       <br>
       <p>Välkommen till oss! </p>
     </section>
-    <Footer />
+    <Footer class="desktop"/>
   </div>
 </template>
 

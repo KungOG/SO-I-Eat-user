@@ -7,7 +7,11 @@ export default {
   sortedMenuItems(state) {
     return state.menuItems.sort((a, b) => ((a.category > b.category) ? 1 : -1));
   },
-  getOriginalMenuItem(state) {
-    return state.menuItems.find(x => x.productName === state.itemToEdit.productName)
-  }
+/*   getOriginalMenuItem(state) {
+    if(state.itemToEdit !== null) {
+      return state.menuItems.find(x => x.productName === state.itemToEdit.productName);
+    } else {
+      return [];
+    }
+  }, */
 };
