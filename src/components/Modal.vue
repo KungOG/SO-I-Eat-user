@@ -32,7 +32,9 @@
         <StandardButton v-if="!open" buttonText="OK"
         @click.native="closedBusiness" />
       </section>
-      <img class='modal-cross-icon' :src="closeDown" />
+      <img v-if="!editCart" class='modal-cross-icon' :src="closeDown" @click="cancelModal" />
+      <img v-if="editCart" class='modal-cross-icon' :src="closeDown" @click="minimizeModal" />
+      <img v-if="!open" class='modal-cross-icon' :src="closeDown" @click="closedBusiness" />
     </section>
     <div v-if="!editCart" class='home modal-close-button' @click="cancelModal" />
     <div v-if="editCart" class='cart modal-close-button' @click="minimizeModal" />
