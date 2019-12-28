@@ -2,17 +2,17 @@
   <div class="loading-page" v-if="!selfDestroy">
     <section class="loading-content">
       <img :src="icon" alt="Full size business logo">
-      <div class='line-divider'>
+<!--       <div class='line-divider'>
         <div class='line' />
         <div class='loading-line'
         :class="loading === true ? '-active' : '' "
         />
-      </div>
+      </div> -->
     </section>
   </div>
 </template>
+
 <script>
-import axios from 'axios';
 // eslint-disable-next-line import/no-unresolved
 import Icon from '@/assets/icons/FullLogo.svg';
 
@@ -32,12 +32,12 @@ export default {
       setTimeout(() => {
         this.loading = true;
         this.callDestroy();
-      }, 2000);
+      }, 1000);
     },
     callDestroy() {
       setTimeout(() => {
         this.selfDestroy = true;
-      }, 3000);
+      }, 2000);
     },
   },
 };
@@ -95,7 +95,11 @@ export default {
     }
 
     img {
-      width: 80%;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        width: 50%;
+      }
     }
   }
 }
