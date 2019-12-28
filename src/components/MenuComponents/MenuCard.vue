@@ -102,9 +102,9 @@ export default {
         } else {
           this.openModal('ange dina val av huvudingredients och styrka');
         }
-      } else if (this.activeSpice === null) {
+      } else if (this.activeSpice === null && this.item.spice !== false) {
         this.openModal('ange ditt val av styrka');
-      } else if (this.activeProtein === '') {
+      } else if (this.activeProtein === '' && this.item.protein.length !== 0) {
         this.openModal('ange ditt val av huvudingredients');
       } else {
         this.$store.dispatch('setOrderItemsFood', this.item);

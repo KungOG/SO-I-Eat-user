@@ -61,7 +61,7 @@
     display: flex;
     flex-direction: column;
     width: 170px;
-    height: 100px;
+    height: 85px;
 
     >.cart-icon-wrapper {
       position: relative;
@@ -85,7 +85,7 @@
 }
 
   h3 {
-    color: $main-border-color;
+    color: $main-secondary-color;
     font-weight: normal;
   }
 
