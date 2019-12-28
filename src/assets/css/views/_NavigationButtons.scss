@@ -1,8 +1,8 @@
 .navigation-button {
   background: rgba(170, 9, 9, 0.7);
-  width: 100px;
-  height: 100px;
-  border-radius: 5px;
+  width: 85px;
+  height: 85px;
+  border-radius: 3px;
   display: flex;
   color: white;
   justify-content: center;
@@ -11,8 +11,8 @@
   text-transform: uppercase;
 
   @media (max-width: 768px) {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     margin-bottom: 25px;
   }
 
@@ -28,14 +28,13 @@
     }
 
     > img {
-      filter: invert(0) sepia(0) saturate(1) hue-rotate(0deg) brightness(50);
-      height: 50px;
-      width: 50px;
+      height: 35px;
+      width: 35px;
       margin-bottom: 6px;
   
       @media (max-width: 768px) {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
       }
     }
   }

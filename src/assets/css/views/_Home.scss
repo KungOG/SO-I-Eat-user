@@ -6,6 +6,8 @@
     background-size: cover;
     height: 100vh;
     width: 100vw;
+    position: relative;
+
 
     header {
       display: flex;
@@ -97,7 +99,7 @@
 
   @media (min-width: 769px) {
     left: calc(50vw + 200px);
-    height: 400px;
+    height: 310px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -106,9 +108,10 @@
   @media (min-width: 1400px) {
     left: calc(50vw + 140px);
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    width: 430px;
-    top: 55vh;
+    width: 310px;
+    top: 66vh;
   }
 }
 
@@ -185,7 +188,7 @@
       flex-direction: column;
       align-items: flex-start;
       position: absolute;
-      top: 40%;
+      top: 37%;
       left: 5%;
       width: 400px;
 
@@ -198,7 +201,10 @@
         margin-bottom: 2rem;
       }
 
-      > .line-container-text {}
+      > .line-container-text {
+        margin-bottom: 2rem;
+        line-height: 1.3;
+      }
     }
 
     > .line-wrapper-text {
@@ -207,7 +213,7 @@
       top: 70%;
       right: 57%;
 
-      @media (min-width: 1400px) {
+      @media (min-width: 768px) {
         left: 5%;
       }
     }

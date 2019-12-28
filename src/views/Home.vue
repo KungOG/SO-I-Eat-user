@@ -21,8 +21,10 @@
               thaimaten från de bästa råvarorna. Du kan även beställa online, både vid take away och restaurangbesök.<br> 
               Vi önskar dig varmt välkommen!
             </span>
+            <p>Öppet tis-sön 11-21</p>
+            <p>Lunch tis-fre 11-14</p>
           </div>
-          <div class='line-wrapper-text'>
+          <div class='line-wrapper-text mobile'>
             <p>Öppet tis-sön 11-21</p>
             <p>Lunch tis-fre 11-14</p>
           </div>

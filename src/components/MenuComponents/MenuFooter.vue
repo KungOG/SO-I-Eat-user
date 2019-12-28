@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
 .menu-footer {
-  height: 60px;
+  height: 55px;
   background: #AA0909;
   color: white;
   display: flex;
