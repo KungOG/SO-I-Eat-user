@@ -102,7 +102,7 @@ export default {
           this.closeItemToEdit();
           break;
         case 'clock':
-          this.showProductionTime();
+          this.$store.dispatch('getProductionTime');
           break;
         case 'info':
           this.showMenu = true;
@@ -121,21 +121,6 @@ export default {
       } else {
         this.iconsOrderItem[0].urlTo = '/order';
       }
-    },
-    showProductionTime() {
-      const url = 'https://so-i-eat-server.herokuapp.com/deliveryTimes';
-      axios
-        .get(url)
-        .then((response) => {
-          this.$store.commit('setProductionTime', response.data[0].time);
-          this.$store.commit('setShowProductionTime', true);
-          setTimeout(() => {
-            this.$store.commit('setShowProductionTime', false);
-          }, 5000);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
     },
   },
 };

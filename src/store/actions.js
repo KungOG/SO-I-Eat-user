@@ -61,4 +61,19 @@ export default {
     };
     ctx.commit('setOrderItemsDrink', orderItem);
   },
+  getProductionTime(ctx) {
+    const url = 'https://so-i-eat-server.herokuapp.com/deliveryTimes';
+    axios
+      .get(url)
+      .then((response) => {
+        ctx.commit('setProductionTime', response.data[0].time);
+        ctx.commit('setShowProductionTime', true);
+        setTimeout(() => {
+          ctx.commit('setShowProductionTime', false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };

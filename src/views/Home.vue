@@ -8,9 +8,9 @@
         <NavigationButton :imageSrc="EatHere.url"
         :title="EatHere.text" class="mobile" url="/order"/>
         <NavigationButton :imageSrc="Maps.url"
-        :title="Maps.text" class="desktop" url="/"/>
+        :title="Maps.text" class="desktop" url="/" @click.native="scrollTo('contact')"/>
         <NavigationButton :imageSrc="Menu.url"
-        :title="Menu.text" url="/" @click.native="scrollToMenu" />
+        :title="Menu.text" url="/" @click.native="scrollTo('products')" />
       </section>
       <div class='line-wrapper'>
         <div class='line-container'>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class='golden-arrow bounce'>
-        <img :src="Arrow" alt="Arrow clickable going to menu" @click="scrollToMenu()">
+        <img :src="Arrow" alt="Arrow clickable going to menu" @click="scrollTo('products')">
       </div>
     </div>
     <Products id="products"/>
@@ -103,8 +103,8 @@ export default {
     getImgUrl() {
       return require('@/assets/images/background.png');
     },
-    scrollToMenu() {
-      this.$nextTick(() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' }))
+    scrollTo(here) {
+      this.$nextTick(() => document.getElementById(here).scrollIntoView({ behavior: 'smooth' }))
     },
   },
 };

@@ -7,7 +7,7 @@
       <img v-if="!showTime" :src="require('@/assets/icons/' + icons.clock)"
       alt="info"
       @click="showTheTime">
-      <div class="show-time" v-if="showTime">
+      <div class="show-time" v-if="showTime" @click="$store.dispatch('getProductionTime')">
         <span>Väntetiden är just <br> nu ca {{productionTime}} min</span>
       </div>
     </div>
