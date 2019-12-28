@@ -11,9 +11,9 @@
       </div>
     <div class='dish-content'>
       <p>{{item.description}}</p>
+      <Icons v-if="displayIcons" :proteinItems="item.protein"/>
     </div>
     <div class="content-filler" />
-    <Icons v-if="displayIcons" :proteinItems="item.protein"/>
     <div class="icon-container">
       <Add v-show="!showAddIcon" class="add-icon"/>
     </div>

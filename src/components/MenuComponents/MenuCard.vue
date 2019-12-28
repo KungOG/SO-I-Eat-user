@@ -19,13 +19,11 @@
       v-if="showCustomize"
       :ingredients="item.ingredients"
       />
-    <div class="button-wrapper">
+    <div class="button-wrapper" v-show="showAlternatives && !editCart">
       <standard-button
-        v-show="showAlternatives && !editCart"
         :buttonText="this.showCustomize ? 'stäng': 'redigera'"
         @click.native="showCustomize = !showCustomize"/>
       <standard-button
-        v-show="showAlternatives && !editCart"
         buttonText="Lägg till"
         class="desktop"
         @click.native.stop = "addItemToCart"/>

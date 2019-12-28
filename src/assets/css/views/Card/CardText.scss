@@ -4,15 +4,15 @@
   justify-content: center;
   padding-top: 20px;
   grid-template-columns: 50px 2fr .3fr;
-  grid-template-rows: 50px 86px 30px;
+  grid-template-rows: 60px auto auto;
   grid-template-areas:
   'filler name price'
   'number content content'
   'number icon icon';
 
-  @media (max-width: 430px) { padding: 10px 10px 0; }
+  @media (max-width: 430px) { padding: 0 10px 0; }
   @media (min-width: 431px) { padding: 20px 50px 0; }
-  @media (min-width: 770px) { padding: 0px 20px 0; flex: 1 }
+  @media (min-width: 770px) { padding: 0 20px 0; flex: 1 }
 
   .content-filler {
     grid-area: filler;
@@ -56,7 +56,7 @@
     grid-area: content;
     display: flex;
     align-items: flex-start;
-    flex-direction: row;
+    flex-direction: column;
     border-left: 1px solid $main-secondary-color;
     
     p {
@@ -70,7 +70,7 @@
   }
 
   .icon-wrapper {
-    grid-area: icon;
+    padding-top: 12px;
   }
 
   .icon-container {
@@ -80,16 +80,11 @@
     .add-icon {
       display: flex;
       justify-content: flex-end;
+      padding: 15px 0;
       
       @media (min-width: 1024px) {
         padding: 20px 15px 0;
       }
     }
   } 
-
-  /* .add-icon {
-    display: flex;
-    justify-content: flex-end;
-    border-left: 1px solid $main-secondary-color;
-  } */
 }
