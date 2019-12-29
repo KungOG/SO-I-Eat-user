@@ -135,7 +135,7 @@ export default {
       this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item.value));
     },
     editCartItem(item, i) {
-      if(this.$route.path !== '/order') {
+      if (this.$route.path !== '/order') {
         console.log(item)
         this.$router.push(`${item.value.productName}`);
       }
