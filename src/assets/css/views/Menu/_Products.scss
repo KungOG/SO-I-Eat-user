@@ -32,6 +32,10 @@
 
       >.menu-section {
         @media (min-width: 990px) {
+          padding-right: 3rem;
+        }
+
+        @media (min-width: 1200px) {
           padding-right: 4rem;
         }
       }  
@@ -47,6 +51,10 @@
       
       >.menu-section {
           @media (min-width: 990px) {
+            padding-right: 5rem;
+          }
+
+          @media (min-width: 1200px) {
             padding-right: 10rem;
           }
         }  
@@ -66,9 +74,23 @@
     transform: translatex(200px);
     transition: 0.1s all ease-out;
 
+    @media (max-width: $screen-sm-lg) {
+      flex-direction: row;
+      width: 300px;
+      height: 70px;
+      right: 20px;
+      bottom: 40px;
+      top: unset;
+      transform: translatex(400px);
+    }
+
     .nav-desktop {
-      border-radius: 5px 0px 0px 5px;
+      border-radius: 3px 0px 0px 3px;
       background: rgba(170, 9, 9, 0.9);
+
+      @media (max-width: $screen-sm-lg) {
+        border-radius: 3px;
+      }
     }
   }
 
