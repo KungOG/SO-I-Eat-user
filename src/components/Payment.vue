@@ -1,5 +1,6 @@
 <template>
-  <div class="payment" @click="closePaymentModal">
+  <div class="payment">
+    <div class="payment-background-overlay" @click="closePaymentModal" />
     <div class='payment-wrapper'>
       <form id="payment-form" class='payment-form'>
         <div class='payment-information'>

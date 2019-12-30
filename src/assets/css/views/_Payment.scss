@@ -1,5 +1,4 @@
 .payment {
-  background: rgba($color: #000000, $alpha: 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +7,19 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 1000;
+
+  .payment-background-overlay {
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 200;
+  }
   
   .payment-wrapper {
     background: white;
@@ -16,6 +27,7 @@
     height: 200px;
     width: 400px;
     border-radius: 5px;
+    z-index: 300;
 
     @media (max-width: 450px) {  
       width: 90vw;
