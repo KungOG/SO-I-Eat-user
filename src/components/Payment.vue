@@ -119,7 +119,6 @@ export default {
           if (result.paymentIntent.status === 'succeeded') {
             console.log('betalningen gick igenom');
             this.sendOrder();
-            this.$store.commit('resetOrder');
             // There's a risk of the customer closing the window before callback
             // execution. Set up a webhook or plugin to listen for the
             // payment_intent.succeeded event that handles any business critical
@@ -128,9 +127,10 @@ export default {
         }
       });
     },
-    sendOrder() {
-      this.$store.dispatch('postOrder');
+    async sendOrder() {
+      await this.$store.dispatch('postOrder');
       this.$router.push('/confirmation');
+      this.$store.commit('resetOrder');
     },
     clearElementsInputs() {
       this.card.clear();
