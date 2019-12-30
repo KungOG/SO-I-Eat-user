@@ -35,7 +35,7 @@
         />
       </div>
       <DrinkCard
-        v-show="selected === 7"
+        v-if="selected === 7 && drink.active === true"
         v-for="drink in drinks"
         :key="`drink-card-${drink.productNr}`"
         :drink="drink"

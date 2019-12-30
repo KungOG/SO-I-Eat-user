@@ -31,19 +31,11 @@ export default {
   }),
   async created() {
     let installPrompt;
-    this.getStatus();
-    this.getBusinessHours();
-
-    setInterval(() => {
-      this.getBusinessHours();
-    }, 10000);
-
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       installPrompt = e;
       this.installBtn = 'block';
     });
-
     this.installer = () => {
       this.installBtn = 'none';
       installPrompt.prompt();
@@ -54,6 +46,14 @@ export default {
         console.log('Install denied!');
       });
     };
+  },
+  async mounted() {
+    await this.getStatus();
+    this.getBusinessHours();
+
+    setInterval(() => {
+      this.getBusinessHours();
+    }, 10000);
   },
   methods: {
     checkCurrentTime() {
