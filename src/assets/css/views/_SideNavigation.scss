@@ -4,6 +4,7 @@
   position: relative;
 
   @media (min-width: 768px) { width: 35%; }
+  @media (min-width: 1367px) { width: 25%; }
 
   .icon-wrapper {
     display: flex;

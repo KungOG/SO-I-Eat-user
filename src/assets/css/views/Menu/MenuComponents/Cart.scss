@@ -1,5 +1,6 @@
 .cart {
   @media (min-width: 1367px) { width: 30%; }
+  @media (min-width: 1367px) { width: 25%; }
   
   .dark-coverage {
   position: absolute;
@@ -36,6 +37,8 @@
       right: -800px;
       height: 100vh;
       width: 55vw;
+      margin: 0;
+      padding: 150px 10px;
 
       &.-active {
         right: 0px;
@@ -43,9 +46,12 @@
       }
     }
 
-    @media (min-width: 768px) {
-      margin: 0;
-      padding: 150px 10px;
+    @media (min-width: 1367px) {
+      position: static;
+      transition: right 1s;
+      right: 0;
+      height: 100vh;
+      width: auto;
     }
 
     .head {

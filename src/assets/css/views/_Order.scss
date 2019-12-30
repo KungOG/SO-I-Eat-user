@@ -21,6 +21,10 @@
       width: 75%;
       padding: 0;
     }
+    
+    @media (min-width: 1367px) {
+      width: 50%;
+    }
 
     > .card-item {
       &:last-child {
