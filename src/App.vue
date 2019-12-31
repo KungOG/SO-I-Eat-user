@@ -47,10 +47,8 @@ export default {
       });
     };
   },
-  async mounted() {
-    await this.getStatus();
-    this.getBusinessHours();
-
+  mounted() {
+    this.getStatus();
     setInterval(() => {
       this.getBusinessHours();
     }, 10000);
@@ -91,12 +89,13 @@ export default {
         .then((response) => {
           this.status = response.data[0].status;
           this.$store.commit('setStatus', response.data);
+          this.getBusinessHours();
         })
         .catch((error) => {
           console.log(error);
         });
     },
-  }
+  },
 };
 </script>
 
