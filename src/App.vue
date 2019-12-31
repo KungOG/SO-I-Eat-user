@@ -47,10 +47,8 @@ export default {
       });
     };
   },
-  async mounted() {
-    await this.getStatus();
-    this.getBusinessHours();
-
+  mounted() {
+    this.getStatus();
     setInterval(() => {
       this.getBusinessHours();
     }, 10000);
@@ -59,6 +57,7 @@ export default {
     checkCurrentTime() {
       const d = new Date();
       const currentTime = Number(d.getHours() + '.' + d.getMinutes());
+      console.log(this.status)
       if (this.status === 'open') {
         this.$store.commit('setOpen', true);
         if (currentTime > Number(this.selectedOpenHour)
@@ -91,6 +90,7 @@ export default {
         .then((response) => {
           this.status = response.data[0].status;
           this.$store.commit('setStatus', response.data);
+          this.getBusinessHours()
         })
         .catch((error) => {
           console.log(error);
