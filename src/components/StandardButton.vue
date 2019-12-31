@@ -19,7 +19,7 @@ export default {
 <style lang="scss">
 .standard-button {
   border: 1px solid #AA0909;
-  border-radius: 5px;
+  border-radius: 3px;
   width: 115px;
   height: 40px;
   display: flex;
