@@ -57,12 +57,16 @@
         <li>H</li>
       </ul>
     </div>
-    <Modal v-if="showModal"/>
+    <transition name="modal">
+      <Modal v-if="showModal"/>
+    </transition>
+     <transition name="modal">
     <LunchModal
       class="mobile"
       v-if="showLunchModal && isItLunchTime"
       @closeLunchModal="showLunchModal = false"
     />
+    </transition>
   </div>
 </template>
 

@@ -6,15 +6,19 @@
       :displayIcons="displayIcons"
       :selectedCard="1"
       :index="1"
-      ref="form"/>
+      ref="form"
+    />
     <menu-footer
       class="mobile"
       :text="showCart ?
       {text: 'Till betalning'} : { text: 'Lägg till i beställning', text2: 'Uppdatera', sum: 0 }"
-      @click.native="cartEvents"/>
-    <modal v-if="showTextModal" :showAbort="showAbort" >
-      <h5>{{modalText}}</h5>
-    </modal>
+      @click.native="cartEvents"
+    />
+    <transition name="modal">
+      <modal v-if="showTextModal" :showAbort="showAbort" >
+        <h5>{{modalText}}</h5>
+      </modal>
+    </transition>
     <Cart v-if="showCart" />
   </div>
 </template>
@@ -81,3 +85,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .modal-enter-active, .modal-leave-active {
+    transition: all .3s ease;
+  }
+  
+  .modal-enter, .modal-leave-to {
+    opacity: 0;
+  }
+</style>

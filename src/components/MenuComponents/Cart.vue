@@ -42,7 +42,9 @@
         <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="toPayment"/>
       </section>
     </div>
-    <Payment v-if="showPayment" />
+    <transition name="modal">
+      <Payment v-if="showPayment" />
+    </transition>
   </div>
 </template>
 
