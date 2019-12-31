@@ -20,6 +20,14 @@
     }
   }
 
+  .time-enter-active, .time-leave-active {
+    transition: all .3s ease;
+  }
+  .time-enter, .time-leave-to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
   .category-wrapper {
     margin: 3rem 0 0 1rem;
     height: 60vh;

@@ -4,12 +4,17 @@
       <router-link to="/">
         <img :src="require('@/assets/icons/' + icons.logo)" alt="hem">
       </router-link>
-      <img v-if="!showTime" :src="require('@/assets/icons/' + icons.clock)"
-      alt="info"
-      @click="showTheTime">
-      <div class="show-time" v-if="showTime" @click="$store.dispatch('getProductionTime')">
-        <span>Väntetiden är just <br> nu ca {{productionTime}} min</span>
-      </div>
+      <transition name="time" mode="out-in">
+        <img 
+          v-if="!showTime" 
+          :src="require('@/assets/icons/' + icons.clock)"
+          alt="info"
+          @click="showTheTime"
+        >
+        <div class="show-time" v-if="showTime" @click="$store.dispatch('getProductionTime')">
+          <span>Väntetiden är just <br> nu ca {{productionTime}} min</span>
+        </div>
+      </transition>
     </div>
     <div class="category-wrapper">
       <div class="side-navigation-line" />
