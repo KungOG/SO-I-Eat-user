@@ -5,6 +5,8 @@
     @media (min-width: $screen-sm-md) {
       display: flex;
       justify-content: space-between;
+      height: 100%;
+      overflow: hidden;
     }
 
     &.mobile {
@@ -17,12 +19,13 @@
     }
 
     .filler-section {
-      height: 14%;
-      width: 100%;
       background-color: white;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 17%;
+      width: 100%;
+      padding: 0 4rem;
     }
 
   section {
