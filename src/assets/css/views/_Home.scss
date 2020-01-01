@@ -7,7 +7,11 @@
     height: 100vh;
     width: 100vw;
     position: relative;
+    /* background-image: url('../../assets/images/background.jpg');
 
+    @media (min-width: 769px) {
+      background-image: url('../../assets/images/background.jpg');
+    } */
 
     header {
       display: flex;
