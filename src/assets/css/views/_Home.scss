@@ -82,9 +82,33 @@
     }
 
     .about-pics {
+      display: flex;
       margin: 5rem 0;
-      >img {
+
+      >.about-img {
+        position: relative;
         width: 33.33vw;
+
+        > .dark,
+        .gold {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 1;
+        }
+
+        > .dark {
+          background-color: rgba($color: #000000, $alpha: .7);
+        }
+        
+        > .gold {
+          background-color: rgba($color: #ac9416, $alpha: .7);
+        }
+
+        > img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }

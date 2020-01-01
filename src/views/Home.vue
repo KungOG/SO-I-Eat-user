@@ -55,9 +55,17 @@
         för att salta maten, och chilin ger den berömda hettan.
       </p>
       <div class="about-pics">
-        <img :src="imgUrl" alt="restaurangpersonal">
-        <img :src="imgUrl" alt="restaurangpersonal">
-        <img :src="imgUrl" alt="restaurangpersonal">
+        <div class="about-img">
+          <div class="dark" />
+          <img :src="imgUrl" alt="restaurangpersonal">
+        </div>
+        <div class="about-img">
+          <img :src="imgUrl" alt="restaurangpersonal">
+        </div>
+        <div class="about-img">
+          <div class="gold" />
+          <img :src="imgUrl" alt="restaurangpersonal">
+        </div>
       </div>
       <p>Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online
         via vår hemsida.
