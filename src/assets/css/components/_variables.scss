@@ -23,13 +23,13 @@ $header-font: 'News Cycle', sans-serif;
   color: $main-base-color;
 
   .mobile {
-    @media (min-width: $screen-sm-md) {
+    @media (min-width: 768px) {
       display: none;
     }
   }
     
   .desktop {
-    @media (max-width: $screen-sm-md) {
+    @media (max-width: 767px) {
       display: none;
     }
   }

@@ -6,7 +6,7 @@
     height: 100vh;
     width: 100vw;
     position: relative;
-    @media (min-width: 769px) { background-image: url('~@/assets/images/background-desktop.jpg'); }
+    @media (min-width: 768px) { background-image: url('~@/assets/images/background-desktop.jpg'); }
 
     header {
       display: flex;
@@ -120,7 +120,7 @@
   position: relative;
   z-index: 1;
 
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     left: calc(50vw + 200px);
     height: 310px;
     display: flex;
