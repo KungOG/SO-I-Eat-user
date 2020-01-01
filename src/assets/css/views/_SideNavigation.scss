@@ -72,6 +72,8 @@
     width: 170px;
     height: 85px;
 
+    @media (min-width: 1367px) { display: none; }
+
     >.cart-icon-wrapper {
       position: relative;
 
