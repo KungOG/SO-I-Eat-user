@@ -1,7 +1,7 @@
 <template>
   <div class='home' id="home">
     <NavigationBarDesktop class="desktop home" />
-    <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
+    <div class='wrapper'>
       <section class="navigation-buttons-container">
         <NavigationButton :imageSrc="TakeAway.url"
         :title="TakeAway.text" url="/order"/>
@@ -100,9 +100,6 @@ export default {
   }),
 
   methods: {
-    getImgUrl() {
-      return require('@/assets/images/background-desktop.jpg');
-    },
     scrollTo(here) {
       this.$nextTick(() => document.getElementById(here).scrollIntoView({ behavior: 'smooth' }));
     },
