@@ -1,13 +1,11 @@
 .home {
   overflow: hidden;
   .wrapper {
-    background-color: hsla(0, 0%, 0%, 0);
-    background: no-repeat center center; 
+    background: no-repeat center center url('~@/assets/images/background-mobile.jpg'); 
     background-size: cover;
     height: 100vh;
     width: 100vw;
     position: relative;
-    background-image: url('~@/assets/images/background-mobile.jpg');
     @media (min-width: 769px) { background-image: url('~@/assets/images/background-desktop.jpg'); }
 
     header {
@@ -117,7 +115,6 @@
 }
 
 .home > .wrapper > .line-wrapper {
-  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   position: absolute;
