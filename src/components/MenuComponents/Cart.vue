@@ -57,11 +57,6 @@ export default {
     StandardButton,
     Payment,
   },
-/*   watch: {
-    showTheCart() {
-      return this.$store.state.showTheCart;
-    },
-  }, */
   computed: {
     showTheCart() {
       return this.$store.state.showTheCart;

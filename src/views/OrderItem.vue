@@ -88,10 +88,10 @@ export default {
 
 <style lang="scss">
   .modal-enter-active, .modal-leave-active {
-    transition: all .3s ease;
+    transition: all .1s ease;
   }
   
   .modal-enter, .modal-leave-to {
-    opacity: 0;
+    opacity: 0.1;
   }
 </style>
