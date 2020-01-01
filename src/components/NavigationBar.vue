@@ -1,7 +1,7 @@
 <template>
   <div class="nav-container"
-    :class="[$route.path == '/' &&
-    !showMenu ? 'transparent' : '-active', $route.path === '/' ? 'home' : '']">
+    :class="[$route.path === '/' &&
+    !showMenu ? 'transparent' : '', $route.path === '/' ? 'home' : '', showMenu ? '-active' : '']">
     <div class="nav-item" v-for="(icon, i) in iconsMenu" :key="i" v-if="$route.path === '/'">
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" />
