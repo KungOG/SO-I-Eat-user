@@ -69,3 +69,19 @@
   height: 100%;
   background: rgba(0,0,0,0.75);
 }
+
+.modal.-active > .modal-wrapper {
+  > .modal-content > .content.desktop {
+    background: white;  
+  }
+
+  > .modal-content > .content.desktop > .menu-card.activeCard.active-edit-card {
+    margin: 0;
+    padding: 0 0 25px;
+  }
+
+  > .modal-buttons {
+    background: white;
+    padding-bottom: 10px;
+  }
+}
