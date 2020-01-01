@@ -5,14 +5,19 @@
   align-items: center;
   flex-direction: column;
 
-  .about-text-wrapper {
+  > .about-img-wrapper > img {
+    height: 100%;
+    width: 100%;
+  }
+
+  > .about-text-wrapper {
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 4rem 3rem 6rem 3rem;
     background: white;
 
-    >h3 {
+    > h3 {
       margin-bottom: 1rem;
       color: black;
     }

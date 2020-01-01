@@ -1,7 +1,7 @@
 <template>
   <div class='home' id="home">
     <NavigationBarDesktop class="desktop home" />
-    <div class='wrapper' :style="{backgroundImage: 'url(' + getImgUrl() + ')'}">
+    <div class='wrapper'>
       <section class="navigation-buttons-container">
         <NavigationButton :imageSrc="TakeAway.url"
         :title="TakeAway.text" url="/order"/>
@@ -17,8 +17,8 @@
           <div class="line-wrapper-upper-text desktop">
             <img :src="TextLogotype" class='line-container-image' alt='Logotype'>
             <span class='line-container-text '>
-              Hos oss upplever du den genuina smaken av Thailand. I vår familjeägda restaurang serveras den hemlagade 
-              thaimaten från de bästa råvarorna. Du kan även beställa online, både vid take away och restaurangbesök.<br> 
+              Hos oss upplever du den genuina smaken av Thailand. I vår familjeägda restaurang serveras den hemlagade
+              thaimaten från de bästa råvarorna. Du kan även beställa online, både vid take away och restaurangbesök.<br>
               Vi önskar dig varmt välkommen!
             </span>
             <p>Öppet tis-sön 11-21</p>
@@ -50,17 +50,25 @@
     </section>
     <section class="about-section desktop" id="about">
       <h3>Genuina smaker från Thailand</h3>
-      <p>Den thailändska maten erbjuder en explosion för smaklökarna. Kyckling, biff och fläskkött serveras ofta i små färdigskurna 
-        bitar och kombineras med grönsaker, ris och nudlar. Salt är Thailändarna skeptiska till, istället används den berömda fisksåsen 
-        för att salta maten, och chilin ger den berömda hettan. 
+      <p>Den thailändska maten erbjuder en explosion för smaklökarna. Kyckling, biff och fläskkött serveras ofta i små färdigskurna
+        bitar och kombineras med grönsaker, ris och nudlar. Salt är Thailändarna skeptiska till, istället används den berömda fisksåsen
+        för att salta maten, och chilin ger den berömda hettan.
       </p>
       <div class="about-pics">
-        <img :src="imgUrl" alt="restaurangpersonal">
-        <img :src="imgUrl" alt="restaurangpersonal">
-        <img :src="imgUrl" alt="restaurangpersonal">
+        <div class="about-img">
+          <div class="dark" />
+          <img :src="imgUrl" alt="restaurangpersonal">
+        </div>
+        <div class="about-img">
+          <img :src="imgUrl" alt="restaurangpersonal">
+        </div>
+        <div class="about-img">
+          <div class="gold" />
+          <img :src="imgUrl" alt="restaurangpersonal">
+        </div>
       </div>
-      <p>Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online 
-        via vår hemsida. 
+      <p>Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online
+        via vår hemsida.
       </p>
       <br>
       <p>Välkommen till oss! </p>
@@ -100,11 +108,8 @@ export default {
   }),
 
   methods: {
-    getImgUrl() {
-      return require('@/assets/images/background.png');
-    },
     scrollTo(here) {
-      this.$nextTick(() => document.getElementById(here).scrollIntoView({ behavior: 'smooth' }))
+      this.$nextTick(() => document.getElementById(here).scrollIntoView({ behavior: 'smooth' }));
     },
   },
 };

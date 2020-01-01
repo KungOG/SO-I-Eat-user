@@ -35,7 +35,7 @@
         />
       </div>
       <DrinkCard
-        v-show="selected === 7"
+        v-if="selected === 7 && drink.active === true"
         v-for="drink in drinks"
         :key="`drink-card-${drink.productNr}`"
         :drink="drink"
@@ -57,12 +57,16 @@
         <li>H</li>
       </ul>
     </div>
-    <Modal v-if="showModal"/>
+    <transition name="modal">
+      <Modal v-if="showModal" :class="{'-active' : editCart}" />
+    </transition>
+     <transition name="modal">
     <LunchModal
       class="mobile"
       v-if="showLunchModal && isItLunchTime"
       @closeLunchModal="showLunchModal = false"
     />
+    </transition>
   </div>
 </template>
 

@@ -12,6 +12,10 @@
     position: absolute;
   }
 
+  &.-active {
+    height: 100vh;
+  }
+
   &.transparent {
     background-color: transparent;
   }

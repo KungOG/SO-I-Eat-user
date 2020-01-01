@@ -51,4 +51,14 @@
       padding: 0;
     }
   }
+
+  .modal-enter-active, .modal-leave-active {
+    transition: all .3s ease;
+    z-index: 200;
+  }
+  
+  .modal-enter, .modal-leave-to {
+    opacity: 0;
+    z-index: 200;
+  }
 }

@@ -31,19 +31,11 @@ export default {
   }),
   async created() {
     let installPrompt;
-    this.getStatus();
-    this.getBusinessHours();
-
-    setInterval(() => {
-      this.getBusinessHours();
-    }, 10000);
-
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       installPrompt = e;
       this.installBtn = 'block';
     });
-
     this.installer = () => {
       this.installBtn = 'none';
       installPrompt.prompt();
@@ -54,6 +46,12 @@ export default {
         console.log('Install denied!');
       });
     };
+  },
+  mounted() {
+    this.getStatus();
+    setInterval(() => {
+      this.getBusinessHours();
+    }, 10000);
   },
   methods: {
     checkCurrentTime() {
@@ -91,12 +89,13 @@ export default {
         .then((response) => {
           this.status = response.data[0].status;
           this.$store.commit('setStatus', response.data);
+          this.getBusinessHours();
         })
         .catch((error) => {
           console.log(error);
         });
     },
-  }
+  },
 };
 </script>
 

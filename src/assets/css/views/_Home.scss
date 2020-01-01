@@ -2,12 +2,12 @@
   overflow: hidden;
 
   .wrapper {
-    background-color: hsla(0, 0%, 0%, 0);
-    background: no-repeat center center; 
+    background: no-repeat center center url('~@/assets/images/background-mobile.jpg'); 
     background-size: cover;
     height: 100vh;
     width: 100vw;
     position: relative;
+    @media (min-width: 769px) { background-image: url('~@/assets/images/background-desktop.jpg'); }
 
     header {
       display: flex;
@@ -83,9 +83,33 @@
     }
 
     .about-pics {
+      display: flex;
       margin: 5rem 0;
-      >img {
+
+      >.about-img {
+        position: relative;
         width: 33.33vw;
+
+        > .dark,
+        .gold {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 1;
+        }
+
+        > .dark {
+          background-color: rgba($color: #000000, $alpha: .7);
+        }
+        
+        > .gold {
+          background-color: rgba($color: #ac9416, $alpha: .7);
+        }
+
+        > img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
@@ -116,7 +140,6 @@
 }
 
 .home > .wrapper > .line-wrapper {
-  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   position: absolute;
