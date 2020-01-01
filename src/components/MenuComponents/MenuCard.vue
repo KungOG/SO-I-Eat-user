@@ -15,10 +15,12 @@
       :proteinItems="item.protein"
       :showSpice="item.spice"
       />
-    <card-customize
-      v-if="showCustomize"
-      :ingredients="item.ingredients"
-      />
+    <transition name="card" mode="out-in">
+      <card-customize
+        v-if="showCustomize"
+        :ingredients="item.ingredients"
+        />
+    </transition>
     <div class="button-wrapper" v-show="showAlternatives && !editCart">
       <standard-button
         :buttonText="this.showCustomize ? 'stäng': 'redigera'"
