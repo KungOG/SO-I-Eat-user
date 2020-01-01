@@ -58,7 +58,7 @@
       </ul>
     </div>
     <transition name="modal">
-      <Modal v-if="showModal"/>
+      <Modal v-if="showModal" :class="{'-active' : editCart}" />
     </transition>
      <transition name="modal">
     <LunchModal
