@@ -101,7 +101,7 @@ export default {
 
   methods: {
     getImgUrl() {
-      return require('@/assets/images/background.png');
+      return require('@/assets/images/background-desktop.jpg');
     },
     scrollTo(here) {
       this.$nextTick(() => document.getElementById(here).scrollIntoView({ behavior: 'smooth' }));
