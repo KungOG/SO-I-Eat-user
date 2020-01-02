@@ -8,7 +8,7 @@
         <h3>{{drink.productName}}</h3>
       </div>
       <div class="price">
-        <h4>{{drink.price}}</h4>
+        <h4>{{drink.price}}:-</h4>
       </div>
       <div class="add-icon">
         <Add class="add-icon"/>
