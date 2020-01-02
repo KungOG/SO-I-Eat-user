@@ -8,6 +8,13 @@
   height: 100vh;
   width: 100vw;
 
+  .modal-cross-icon {
+    position: relative;
+    left: 225px;
+    top: -125px;
+    z-index: 200;
+  }
+
   .payment-background-overlay {
     background: rgba(0, 0, 0, 0.8);
     display: flex;
