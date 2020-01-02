@@ -5,6 +5,11 @@
       :class="showTheCart === true ? '-active' : ''"
       @click="closeTheCart()"
     />
+    <img
+      class='modal-cross-icon desktop'
+      :src="closeDown"
+      :class="showTheCart === true ? '-active' : ''"
+    />
     <div class='cart-wrapper' :class="showTheCart === true ? '-active' : ''">
       <section class='head'>
         <h1>Min beställning</h1>
@@ -51,12 +56,16 @@
 <script>
 import StandardButton from '@/components/StandardButton.vue';
 import Payment from '@/components/Payment.vue';
+import CloseDown from '@/assets/icons/WhiteCross.svg';
 
 export default {
   components: {
     StandardButton,
     Payment,
   },
+  data: () => ({
+    closeDown: CloseDown,
+  }),
   computed: {
     showTheCart() {
       return this.$store.state.showTheCart;
@@ -65,22 +74,22 @@ export default {
       return this.$store.state.order;
     },
     foodOrders() {
-      var filtered = [];
-      var copy = this.orderItems.foodItems.slice(0);
-      for (var i = 0; i < this.orderItems.foodItems.length; i++) {
-        var myCount = 0;	
-        for (var w = 0; w < copy.length; w++) {
+      const filtered = [];
+      const copy = this.orderItems.foodItems.slice(0);
+      for (let i = 0; i < this.orderItems.foodItems.length; i++) {
+        let myCount = 0;
+        for (let w = 0; w < copy.length; w++) {
           if (this.orderItems.foodItems[i].productName === copy[w].productName) {
-            if(copy[w].productName === 'lunchbuffé') {
+            if (copy[w].productName === 'lunchbuffé') {
               myCount++;
-              copy.splice(w, 1, 0) 
+              copy.splice(w, 1, 0);
             } else {
               myCount++;
             }
           }
         }
         if (myCount > 0) {
-          var a = new Object();
+          const a = new Object();
           a.value = this.orderItems.foodItems[i];
           a.count = myCount;
           filtered.push(a);
@@ -89,18 +98,18 @@ export default {
       return filtered;
     },
     drinkOrders() {
-      var filtered = [];
-      var copy = this.orderItems.drinkItems.slice(0);
-      for (var i = 0; i < this.orderItems.drinkItems.length; i++) {
-        var myCount = 0;	
-        for (var w = 0; w < copy.length; w++) {
+      const filtered = [];
+      const copy = this.orderItems.drinkItems.slice(0);
+      for (let i = 0; i < this.orderItems.drinkItems.length; i++) {
+        let myCount = 0;
+        for (let w = 0; w < copy.length; w++) {
           if (this.orderItems.drinkItems[i].productName === copy[w].productName) {
             myCount++;
-            copy.splice(w, 1, 0) 
+            copy.splice(w, 1, 0);
           }
         }
         if (myCount > 0) {
-          var a = new Object();
+          const a = new Object();
           a.value = this.orderItems.drinkItems[i];
           a.count = myCount;
           filtered.push(a);
@@ -112,10 +121,10 @@ export default {
       return this.$store.state.showPayment;
     },
     totalAmount() {
-      let foodBase = this.orderItems.foodItems.map(x => x.price).reduce((a, b) => a + b, 0);
-      let drinkBase = this.orderItems.drinkItems.map(x => x.price).reduce((a, b) => a + b, 0);
+      const foodBase = this.orderItems.foodItems.map(x => x.price).reduce((a, b) => a + b, 0);
+      const drinkBase = this.orderItems.drinkItems.map(x => x.price).reduce((a, b) => a + b, 0);
       let addons = 0;
-      this.orderItems.foodItems.forEach(item => {
+      this.orderItems.foodItems.forEach((item) => {
         addons += item.add.map(x => x.price).reduce((a, b) => a + b, 0);
       });
       return foodBase + drinkBase + addons;
@@ -133,12 +142,12 @@ export default {
     },
     editCartItem(item, i) {
       if (this.$route.path !== '/order') {
-        console.log(item)
+        console.log(item);
         this.$router.push(`${item.value.productName}`);
       }
-      this.$store.commit('setShowCart', null)
+      this.$store.commit('setShowCart', null);
       this.$store.commit('editCart', true);
-      this.$store.commit('setItemToEdit', {item: item.value, index: i});
+      this.$store.commit('setItemToEdit', { item: item.value, index: i });
     },
     closeTheCart() {
       const toggleActiveCart = false;

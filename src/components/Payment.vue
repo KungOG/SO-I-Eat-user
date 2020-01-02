@@ -1,6 +1,7 @@
 <template>
   <div class="payment">
     <div class="payment-background-overlay" @click="closePaymentModal" />
+    <img class='modal-cross-icon' :src="closeDown" />
     <div class='payment-wrapper'>
       <form id="payment-form" class='payment-form'>
         <div class='payment-information'>
@@ -29,6 +30,7 @@
 
 <script>
 import axios from 'axios';
+import CloseDown from '@/assets/icons/WhiteCross.svg';
 
 const style = {
   base: {
@@ -48,8 +50,9 @@ const style = {
 
 export default {
   data: () => ({
+    closeDown: CloseDown,
     orderData: {
-      items: [{ id: "photo-subscription" }],
+      items: [{ id: 'photo-subscription' }],
       // items: [this.totalAmount],
       currency: 'sek',
     },
@@ -73,14 +76,14 @@ export default {
     createPaymentIntent() {
       const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
       axios
-      .post(url, this.orderData, { headers: { ContentType: 'application/json' } })
-      .then((response) => {
-        this.clientSecret = response.data.clientSecret;
-        this.setUpStripe(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        .post(url, this.orderData, { headers: { ContentType: 'application/json' } })
+        .then((response) => {
+          this.clientSecret = response.data.clientSecret;
+          this.setUpStripe(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     setUpStripe(data) {
       if (window.Stripe === undefined) {
@@ -89,7 +92,7 @@ export default {
         const stripe = window.Stripe(data.publishableKey);
         this.stripe = stripe;
         const elements = stripe.elements();
-        this.card = elements.create('card', { style: style });
+        this.card = elements.create('card', { style });
         this.card.mount('#card-element');
         this.listenForErrors();
       }
@@ -99,7 +102,7 @@ export default {
       this.card.addEventListener('change', (event) => {
         vm.toggleError(event);
         vm.cardError = '';
-        vm.cardEvent = event.complete ? true : false;
+        vm.cardEvent = !!event.complete;
       });
     },
     toggleError(event) {
@@ -115,15 +118,13 @@ export default {
       }).then((result) => {
         if (result.error) {
           this.stripeError = result.error.message;
-        } else {
-          if (result.paymentIntent.status === 'succeeded') {
-            console.log('betalningen gick igenom');
-            this.sendOrder();
-            // There's a risk of the customer closing the window before callback
-            // execution. Set up a webhook or plugin to listen for the
-            // payment_intent.succeeded event that handles any business critical
-            // post-payment actions.
-          }
+        } else if (result.paymentIntent.status === 'succeeded') {
+          console.log('betalningen gick igenom');
+          this.sendOrder();
+          // There's a risk of the customer closing the window before callback
+          // execution. Set up a webhook or plugin to listen for the
+          // payment_intent.succeeded event that handles any business critical
+          // post-payment actions.
         }
       });
     },
