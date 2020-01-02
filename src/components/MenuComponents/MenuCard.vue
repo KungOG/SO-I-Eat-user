@@ -89,8 +89,8 @@ export default {
     },
   },
   mounted() {
-      this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
-      this.editCart ? this.showCustomize = true : '';
+    this.selectedCard === this.index ? this.showAlternatives = true : this.showAlternatives = false;
+    this.editCart ? this.showCustomize = true : '';
   },
   methods: {
     showAlternativesOption() {
