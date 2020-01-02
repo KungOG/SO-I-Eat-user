@@ -10,8 +10,8 @@
       <div class="price">
         <h4>{{drink.price}}:-</h4>
       </div>
-      <div class="add-icon" :class="activeClass">
-        <Add class="add-icon"/>
+      <div class="icon-container">
+        <Add class="add-icon" :class="activeClass" />
       </div>
       <div class="drink-info">
         <p>{{drink.description}}</p>
@@ -39,10 +39,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.-active {
-  background: pink;
-}
-  
-</style>

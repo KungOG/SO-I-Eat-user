@@ -37,7 +37,7 @@
     <div class='navigation-button' @click="showTheCart">
       <div class="cart-icon-wrapper">
         <img :src="require('@/assets/icons/' + icons.imgUrl)" alt="varukorg">
-        <div class="cart-content">
+        <div class="cart-content" :class="activeClass">
           <span>{{numberOfCartItems}}</span>
         </div>
       </div>
@@ -70,7 +70,16 @@ export default {
       imgUrl: 'Cart.svg',
     },
     selected: null,
+    activeClass: '',
   }),
+  watch: {
+    numberOfCartItems() {
+      this.activeClass = '-active';
+      setTimeout(() => {
+        this.activeClass = '';
+      }, 500);
+    },
+  },
   computed: {
     productionTime() {
       return this.$store.state.productionTime;

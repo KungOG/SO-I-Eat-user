@@ -178,6 +178,9 @@ export default {
       this.$store.dispatch('setOrderItemsDrink', drink);
       this.selectedDrink = drink.productNr;
       this.activeClass = "-active";
+      setTimeout(() => {
+        this.activeClass = "";
+      }, 500);
     },
     openModal() {
       this.$store.commit('setShowModal', true);

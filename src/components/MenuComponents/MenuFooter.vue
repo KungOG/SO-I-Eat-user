@@ -5,7 +5,7 @@
     <h5 v-if="this.text.sum">{{text.sum}}:-</h5>
     <div v-if="!editCart" class="cart-icon-wrapper">
       <img :src="require('@/assets/icons/' + imgUrl)" alt="Välj">
-      <div class="cart-content">
+      <div class="cart-content" :class="activeClass">
         <span>{{numberOfCartItems}}</span>
       </div>
     </div>
@@ -23,7 +23,16 @@ export default {
   },
   data: () => ({
     imgUrl: 'Cart.svg',
+    activeClass: '',
   }),
+  watch: {
+    numberOfCartItems() {
+      this.activeClass = '-active';
+      setTimeout(() => {
+        this.activeClass = '';
+      }, 500);
+    },
+  },
   computed: {
     editCart() {
       return this.$store.state.editCart;
@@ -65,6 +74,13 @@ export default {
       left: 50px;
       color: black;
       text-align: center;
+      transform: scale(1, 1) translateX(0);
+      transition: transform .5s;
+
+      &.-active {
+        transform: scale(2, 2) translateX(10px);
+        transition: transform .5s;
+      }
     }
   }
 }

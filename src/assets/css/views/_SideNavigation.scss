@@ -74,7 +74,7 @@
 
     @media (min-width: 1367px) { display: none; }
 
-    >.cart-icon-wrapper {
+    > .cart-icon-wrapper {
       position: relative;
 
       > img {
@@ -91,9 +91,16 @@
         left: 30px;
         color: black;
         text-align: center;
+        transform: scale(1, 1) translateX(0);
+        transition: transform .5s;
+  
+        &.-active {
+          transform: scale(2, 2) translateX(10px);
+          transition: transform .5s;
+        }
       }
+    }
   }
-}
 
   h3 {
     color: $main-secondary-color;

@@ -62,12 +62,20 @@
       grid-area: price;
     }
 
-    .add-icon {
-      grid-area: add-icon;    
+    .icon-container {
+      grid-area: add-icon;
     }
 
+    .icon-container > .add-icon {
+      &.-active {
+        > img {
+          transform: rotate(360deg);
+          transition: transform .5s;
+        }
+      }
+    }
     .price,
-    .add-icon {
+    .icon-container {
       justify-content: flex-end;
       display: flex;
     }
