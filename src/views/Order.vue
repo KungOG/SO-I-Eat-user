@@ -39,6 +39,7 @@
         v-for="drink in drinks"
         :key="`drink-card-${drink.productNr}`"
         :drink="drink"
+        :activeClass="selectedDrink === drink.productNr ? activeClass : ''"
         @click.native="addDrinkToCart(drink)"
       />
     </div>
@@ -94,10 +95,12 @@ export default {
   },
   data: () => ({
     selected: 0,
+    selectedDrink: null,
     displayIcons: false,
     selectedCard: -1,
     footerText: { text: 'min beställning' },
     showLunchModal: false,
+    activeClass: '',
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
@@ -173,6 +176,8 @@ export default {
     },
     addDrinkToCart(drink) {
       this.$store.dispatch('setOrderItemsDrink', drink);
+      this.selectedDrink = drink.productNr;
+      this.activeClass = "-active";
     },
     openModal() {
       this.$store.commit('setShowModal', true);

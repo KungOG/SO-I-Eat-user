@@ -10,7 +10,7 @@
       <div class="price">
         <h4>{{drink.price}}:-</h4>
       </div>
-      <div class="add-icon">
+      <div class="add-icon" :class="activeClass">
         <Add class="add-icon"/>
       </div>
       <div class="drink-info">
@@ -33,6 +33,16 @@ export default {
       type: Object,
       required: false,
     },
+    activeClass: {
+      type: String,
+    },
   },
 };
 </script>
+
+<style lang="scss">
+.-active {
+  background: pink;
+}
+  
+</style>
