@@ -5,8 +5,8 @@
         <img :src="require('@/assets/icons/' + icons.logo)" alt="hem">
       </router-link>
       <transition name="time" mode="out-in">
-        <img 
-          v-if="!showTime" 
+        <img
+          v-if="!showTime"
           :src="require('@/assets/icons/' + icons.clock)"
           alt="info"
           @click="showTheTime"
@@ -50,6 +50,9 @@
 import NavigationButton from './NavigationButton.vue';
 
 export default {
+  beforeMount() {
+    this.$store.dispatch('getProductionTime');
+  },
   props: {
     categories: {
       type: Array,

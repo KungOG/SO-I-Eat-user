@@ -78,6 +78,7 @@ export default {
     },
   },
   beforeMount() {
+    this.$store.dispatch('getProductionTime');
     this.table === 'take away' ? this.iconsOrder[1].icon = TakeAwayActive : this.iconsOrder[1].icon = TakeAway;
     this.table !== 'take away' ? this.iconsOrder[2].icon = EatHereActive : this.iconsOrder[2].icon = EatHere;
   },
