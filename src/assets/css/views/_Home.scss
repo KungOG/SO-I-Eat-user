@@ -178,7 +178,7 @@
 
     > .third-line {
       background: $main-secondary-color;
-      top: 63%;
+      bottom: 35%;
       height: 1px;
       width: 210px;
       right: 38%;
@@ -193,7 +193,7 @@
 
     > .fourth-line {
       background: $main-secondary-color;
-      top: 80%;
+      top: 83%;
       height: 1px;
       width: 100%;
       right: 45%;
@@ -211,7 +211,7 @@
       flex-direction: column;
       align-items: flex-start;
       position: absolute;
-      top: 37%;
+      bottom: 31%;
       left: 5%;
       width: 400px;
 
@@ -239,7 +239,7 @@
     > .line-wrapper-text {
       color: white;
       position: absolute;
-      top: 70%;
+      bottom: 24%;
       right: 57%;
 
       @media (min-width: 768px) {
