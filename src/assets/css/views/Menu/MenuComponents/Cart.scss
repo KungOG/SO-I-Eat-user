@@ -1,7 +1,7 @@
 .cart {
   @media (min-width: 1367px) { width: 30%; }
   //@media (min-width: 1367px) { width: 25%; }
-  
+
   .dark-coverage {
   position: absolute;
   background: rgba(0, 0, 0, 0);
@@ -14,6 +14,18 @@
     width: 100vw;
     height: 100%;
     z-index: 50;
+    }
+  }
+
+  .modal-cross-icon {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 200;
+  
+    &.-active {
+      display: block;
     }
   }
 
