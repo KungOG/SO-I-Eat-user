@@ -33,7 +33,7 @@
         @click.native="closedBusiness" />
       </section>
       <img v-if="!editCart" class='modal-cross-icon' :src="closeDown" @click="cancelModal" />
-      <img v-if="editCart" class='modal-cross-icon' :src="closeDown" @click="minimizeModal" />
+      <img v-if="editCart" class='modal-cross-icon edit' :src="closeDown" @click="minimizeModal" />
       <img v-if="!open" class='modal-cross-icon' :src="closeDown" @click="closedBusiness" />
     </section>
     <div v-if="!editCart" class='home modal-close-button' @click="cancelModal" />
