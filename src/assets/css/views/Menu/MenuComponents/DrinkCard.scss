@@ -11,7 +11,7 @@
     margin: 15px 30px;
     width: 100%;
     grid-template-columns: .4fr 2fr .5fr;
-    grid-template-rows: 17px;
+    grid-template-rows: 19px;
     grid-template-areas:
      'filler drink-name price'
      'number info add-icon';
@@ -54,7 +54,7 @@
       > h3 {
         margin: 0;
         margin-left: 10px;
-        line-height: .8;
+        line-height: .9;
       }
     }
 
