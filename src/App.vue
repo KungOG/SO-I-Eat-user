@@ -56,7 +56,7 @@ export default {
   methods: {
     checkCurrentTime() {
       const d = new Date();
-      const currentTime = Number(d.getHours() + '.' + d.getMinutes());
+      const currentTime = Number(`${d.getHours()}.${d.getMinutes()}`);
       if (this.status === 'open') {
         this.$store.commit('setOpen', true);
         if (currentTime > Number(this.selectedOpenHour)
