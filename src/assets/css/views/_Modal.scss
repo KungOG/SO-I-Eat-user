@@ -22,7 +22,13 @@
     .modal-cross-icon {
       position: absolute;
       right: 0;
-      top: -50px;
+      top: -40px;
+
+      &.edit {
+        position: absolute;
+        right: -40px;
+        top: -160px;
+      }
     }
 
     .modal-content > .content {
