@@ -48,8 +48,8 @@ export default {
     };
   },
   mounted() {
-    this.getStatus();
     setInterval(() => {
+      this.getStatus();
       this.getBusinessHours();
     }, 10000);
   },
