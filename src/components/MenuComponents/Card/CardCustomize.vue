@@ -9,13 +9,13 @@
             {{ingredient}}
           </template>
         </CustomizeListItem>
-        <CustomizeListItem v-for="(option,i) in menuOptions" :active="false" :option="option" :key="`menu-options-${i}`" @click.native="addOption(option)">
+        <CustomizeListItem v-for="(option,i) in extras" :active="false" :option="option" :key="`menu-options-${i}`" @click.native="addOption(option)">
           <template v-slot:itemName>
-              {{option.name}}
+              {{option}}
           </template>
           <template v-slot:itemPrice>
               <div class='ingredient-price'>
-                {{option.price}}:-
+                <!-- {{option.price}} -->
               </div>
           </template>
         </CustomizeListItem>
@@ -34,6 +34,10 @@ export default {
   },
   props: {
     ingredients: {
+      type: Array,
+      required: true,
+    },
+    extras: {
       type: Array,
       required: true,
     },

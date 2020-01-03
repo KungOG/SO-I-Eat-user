@@ -19,6 +19,7 @@
       <card-customize
         v-if="showCustomize"
         :ingredients="item.ingredients"
+        :extras="item.extras"
         />
     </transition>
     <div class="button-wrapper" v-show="showAlternatives && !editCart">

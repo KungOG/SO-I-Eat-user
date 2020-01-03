@@ -23,11 +23,11 @@
           @click="item.value.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''">
             <h6>{{item.value.productName}}</h6>
             <p>{{item.value.protein}}</p>
-            <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add.name}}</p>
+            <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add}}</p>
             <p v-for="(remove, i) in item.value.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
           <h6 class='price'>
-            {{item.value.price + item.value.add.map(x => x.price).reduce((a, b) => a + b, 0)}}:-
+            {{item.value.price}}:-
           </h6>
           <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemFood(item)">
         </div>
@@ -123,11 +123,12 @@ export default {
     totalAmount() {
       const foodBase = this.orderItems.foodItems.map(x => x.price).reduce((a, b) => a + b, 0);
       const drinkBase = this.orderItems.drinkItems.map(x => x.price).reduce((a, b) => a + b, 0);
-      let addons = 0;
+      /*       let addons = 0;
       this.orderItems.foodItems.forEach((item) => {
         addons += item.add.map(x => x.price).reduce((a, b) => a + b, 0);
-      });
-      return foodBase + drinkBase + addons;
+        + item.value.add.map(x => x.price).reduce((a, b) => a + b, 0)
+      }); + addons */
+      return foodBase + drinkBase;
     },
   },
   methods: {
