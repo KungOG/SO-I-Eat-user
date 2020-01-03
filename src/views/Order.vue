@@ -61,12 +61,12 @@
     <transition name="modal">
       <Modal v-if="showModal" :class="{'-active' : editCart}" />
     </transition>
-     <transition name="modal">
-    <LunchModal
-      class="mobile"
-      v-if="showLunchModal && isItLunchTime"
-      @closeLunchModal="showLunchModal = false"
-    />
+    <transition name="modal">
+      <LunchModal
+        class="mobile"
+        v-if="showLunchModal && isItLunchTime"
+        @closeLunchModal="showLunchModal = false"
+      />
     </transition>
   </div>
 </template>
@@ -147,8 +147,8 @@ export default {
     isItLunchTime() {
       const d = new Date();
       let currentTime = Number(d.getHours() + '.' + d.getMinutes());
-      if(currentTime > Number(this.$store.state.lunchHour.open) && currentTime < Number(this.$store.state.lunchHour.close)) {
-        if(this.$store.state.open && this.$store.state.order.table !== 'take away') {
+      if (currentTime > Number(this.$store.state.lunchHour.open) && currentTime < Number(this.$store.state.lunchHour.close)) {
+        if (this.$store.state.open && this.$store.state.order.table !== 'take away') {
           return true;
          } else {
            return false;
