@@ -82,6 +82,7 @@ export default {
     state.order.foodItems.length = 0;
     state.order.drinkItems.length = 0;
     state.table = '';
+    state.comment = null;
   },
   resetItemToEdit(state) {
     state.itemToEdit = null;
