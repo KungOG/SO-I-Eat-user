@@ -44,12 +44,16 @@
       <section class='summery'>
         <h6>Totalsumma</h6>
         <h6 class='totalAmount'>{{totalAmount}}:-</h6>
+        <div class='leave-comment' @click="openLeaveCommentModal">
+          <h5>Lämna en kommentar</h5>
+        </div>
         <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="toPayment"/>
       </section>
     </div>
     <transition name="modal">
       <Payment v-if="showPayment" />
     </transition>
+    <LeaveCommentModal v-if="leaveComment" />
   </div>
 </template>
 
@@ -57,11 +61,13 @@
 import StandardButton from '@/components/StandardButton.vue';
 import Payment from '@/components/Payment.vue';
 import CloseDown from '@/assets/icons/WhiteCross.svg';
+import LeaveCommentModal from '@/components/MenuComponents/Card/LeaveCommentModal.vue';
 
 export default {
   components: {
     StandardButton,
     Payment,
+    LeaveCommentModal,
   },
   data: () => ({
     closeDown: CloseDown,
@@ -72,6 +78,12 @@ export default {
     },
     orderItems() {
       return this.$store.state.order;
+    },
+    showPayment() {
+      return this.$store.state.showPayment;
+    },
+    leaveComment() {
+      return this.$store.state.leaveComment;
     },
     foodOrders() {
       const filtered = [];
@@ -117,9 +129,6 @@ export default {
       }
       return filtered;
     },
-    showPayment() {
-      return this.$store.state.showPayment;
-    },
     totalAmount() {
       const foodBase = this.orderItems.foodItems.map(x => x.price).reduce((a, b) => a + b, 0);
       const drinkBase = this.orderItems.drinkItems.map(x => x.price).reduce((a, b) => a + b, 0);
@@ -131,6 +140,9 @@ export default {
     },
   },
   methods: {
+    openLeaveCommentModal() {
+      this.$store.commit('setLeaveCommentModal', true);
+    },
     toPayment() {
       this.$store.state.order.foodItems.length !== 0 || this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
     },
