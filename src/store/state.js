@@ -13,6 +13,7 @@ export default {
   leaveComment: false,
   status: null,
   open: false,
+  comment: null,
   showTheCart: false,
   lunchHour: {
     open: '11',

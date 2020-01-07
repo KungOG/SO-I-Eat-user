@@ -14,6 +14,9 @@ export default {
   setLeaveCommentModal(state, boolean) {
     state.leaveComment = boolean;
   },
+  setSaveComment(state, string) {
+    state.comment = string;
+  },
   deleteOrderItemFood(state, orderItem) {
     state.order.foodItems.splice(orderItem, 1);
   },
