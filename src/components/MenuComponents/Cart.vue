@@ -18,7 +18,9 @@
       </section>
       <section class='cart-order'>
         <div class='order-items' v-for="(item, i) in foodOrders" :key="`order-food-items-${i}`">
-          <h6 v-if="item.value.productName === 'lunchbuffé'" class="amount">{{item.count > 1 ? item.count : ''}}</h6>
+          <h6 v-if="item.value.productName === 'lunchbuffé'" class="amount">
+            {{item.count > 1 ? item.count : ''}}
+          </h6>
           <div class="dish"
           @click="item.value.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''">
             <h6>{{item.value.productName}}</h6>
