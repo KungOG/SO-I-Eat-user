@@ -19,7 +19,9 @@
     </div>
     <div class="nav-item"
       v-for="(icon, i) in iconsInfo"
-      :key="i" v-if="$route.path === '/info' || $route.path === '/contact' || $route.path === '/terms' || $route.path === '/about'" >
+      :key="i"
+      v-if="$route.path === '/info' || $route.path === '/contact' || $route.path === '/terms' || $route.path === '/about'"
+      >
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" />
       </router-link>
