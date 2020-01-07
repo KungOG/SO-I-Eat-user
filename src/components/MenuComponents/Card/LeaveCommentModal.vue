@@ -1,13 +1,19 @@
 <template>
-  <div class='leave-comment-modal' @click="openLeaveCommentModal">
+  <div class='leave-comment-modal'>
     <div class='leave-comment-wrapper'>
       <img
         class='cross-icon'
         :src="closeDown"
+        @click="openLeaveCommentModal"
       />
       <p>Vill du lämna en kommentar till köket?</p>
-      <textarea name="" id="" cols="15" rows="5"></textarea>
+      <textarea
+        type="text"
+        maxlength="150"
+        v-model="comment"
+      />
       <span>Vänligen var sparsam med ord</span>
+      <span @click="saveComment">Klar</span>
     </div>
   </div>
 </template>
@@ -19,6 +25,7 @@ export default {
   name: 'leave-comment-modal',
   data: () => ({
     closeDown: CloseDown,
+    comment: '',
   }),
   computed: {
     leaveComment() {
@@ -28,6 +35,10 @@ export default {
   methods: {
     openLeaveCommentModal() {
       this.$store.commit('setLeaveCommentModal', false);
+    },
+    saveComment() {
+      this.$store.commit('setSaveComment', this.comment);
+      this.openLeaveCommentModal();
     },
   },
 };
@@ -42,8 +53,8 @@ export default {
   position: absolute;
   top: 0;
   z-index: 999;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 
   .leave-comment-wrapper {
     background: white;
