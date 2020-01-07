@@ -10,6 +10,7 @@ export default {
   itemToEditIndex: null,
   showCart: null,
   showPayment: false,
+  leaveComment: false,
   status: null,
   open: false,
   showTheCart: false,
