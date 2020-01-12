@@ -51,7 +51,7 @@ import NavigationButton from './NavigationButton.vue';
 
 export default {
   beforeMount() {
-    this.$store.dispatch('getProductionTime');
+    // this.$store.dispatch('getProductionTime');
   },
   props: {
     categories: {
