@@ -7,7 +7,7 @@
           :key="`protein-items-${i}`"
           @click="chosenProtein(item)"
         >
-          <div class="wrapper" :class="activeProtein === item ? 'active-protein' : ''" >
+          <div class="wrapper protein" :class="activeProtein === item ? 'active-protein' : ''" >
           <img
             v-if="activeProtein === item"
             :src="require(`@/assets/icons/${item}Active.svg`)"
@@ -23,7 +23,7 @@
       </div>
       <div class="spice-wrapper" v-if="showSpice">
         <div v-for="(item, i) in spiceItems" :key="`spice-items-${i}`" @click="chosenSpice(i)">
-          <div class="wrapper" :class="activeSpice === i ? 'active-spice' : ''">
+          <div class="wrapper spice" :class="activeSpice === i ? 'active-spice' : ''">
             <img
               v-if="activeSpice === i"
               :src="require('@/assets/icons/' + item.activeUrl)"
