@@ -19,7 +19,9 @@
     </div>
     <div class="nav-item"
       v-for="(icon, i) in iconsInfo"
-      :key="i" v-if="$route.path === '/info' || $route.path === '/contact' || $route.path === '/terms' || $route.path === '/about'" >
+      :key="i"
+      v-if="$route.path === '/info' || $route.path === '/contact' || $route.path === '/terms' || $route.path === '/about'"
+      >
       <router-link :to="icon.urlTo" active-class="route-active">
         <img :src="icon.icon" @click="clicked(icon.name)" />
       </router-link>
@@ -78,7 +80,6 @@ export default {
     },
   },
   beforeMount() {
-    // this.$store.dispatch('getProductionTime');
     this.table === 'take away' ? this.iconsOrder[1].icon = TakeAwayActive : this.iconsOrder[1].icon = TakeAway;
     this.table !== 'take away' ? this.iconsOrder[2].icon = EatHereActive : this.iconsOrder[2].icon = EatHere;
   },

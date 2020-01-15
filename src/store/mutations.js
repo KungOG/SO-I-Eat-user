@@ -11,6 +11,12 @@ export default {
   setOrderItemsDrink(state, orderItems) {
     state.order.drinkItems.push(orderItems);
   },
+  setLeaveCommentModal(state, boolean) {
+    state.leaveComment = boolean;
+  },
+  setSaveComment(state, string) {
+    state.comment = string;
+  },
   deleteOrderItemFood(state, orderItem) {
     state.order.foodItems.splice(orderItem, 1);
   },
@@ -76,6 +82,7 @@ export default {
     state.order.foodItems.length = 0;
     state.order.drinkItems.length = 0;
     state.table = '';
+    state.comment = null;
   },
   resetItemToEdit(state) {
     state.itemToEdit = null;

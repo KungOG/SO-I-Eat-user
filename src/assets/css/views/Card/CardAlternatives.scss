@@ -2,7 +2,7 @@
   display: grid;
   justify-content: center;
   background: #fff;
-  grid-template-columns: 50px 2fr 1fr;
+  grid-template-columns: 50px 3fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: '. option .';
 
@@ -13,14 +13,17 @@
   .option-wrapper {
     grid-area: option;
     border-left: 1px solid $main-secondary-color;
-    padding: 35px 0 10px 0;
+    padding: 25px 0 10px 0;
     display: flex;
     flex-direction: column;
 
     > .protein-wrapper {
       grid-area: icon;
       display: flex;
+      flex-wrap: wrap;
       margin-bottom: 15px;
+
+      @media (max-width: 768px) { width: 250px; }
     }
     
     > .spice-wrapper {
@@ -33,12 +36,21 @@
   .wrapper {   
     border: 1px solid  $main-border-color;
     border-radius: 5px;
-    width: 65px;
     height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
+
+  }
+  
+  .spice {
+    width: 65px;
+  }
+
+  .protein {
+    width: 103px;
+    margin-top: 10px;
   }
 
   .active-spice {

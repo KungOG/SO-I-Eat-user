@@ -10,8 +10,10 @@ export default {
   itemToEditIndex: null,
   showCart: null,
   showPayment: false,
+  leaveComment: false,
   status: null,
   open: false,
+  comment: null,
   showTheCart: false,
   lunchHour: {
     open: '11',

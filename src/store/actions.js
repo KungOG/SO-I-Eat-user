@@ -24,9 +24,10 @@ export default {
       });
   },
   postOrder(ctx) {
+    const postOrder = { order: this.state.order, comment: this.state.comment };
     const url = 'https://so-i-eat-server.herokuapp.com/orders';
     axios
-      .post(url, this.state.order)
+      .post(url, postOrder)
       .catch((error) => {
         console.log(error);
       });
