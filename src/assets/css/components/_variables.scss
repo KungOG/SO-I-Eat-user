@@ -4,10 +4,10 @@ $screen-xs-left-margin: 28px;
 $screen-sm-left-margin: 110px;
 $screen-lg-left-margin: 190px;
 
-$screen-sm-min: map-get($grid-breakpoints, sm); // 576px
-$screen-sm-md: map-get($grid-breakpoints, md); // 768px
-$screen-sm-lg: map-get($grid-breakpoints, lg); // 992px
-$screen-sm-xl: map-get($grid-breakpoints, xl); // 1200px
+$screen-sm-min: 576px;
+$screen-sm-md: 768px;
+$screen-sm-lg: 992px;
+$screen-sm-xl: 1200px;
 
 $main-color: #AA0909;
 $secondary-color: #AC9416;

@@ -6,11 +6,4 @@ module.exports = {
       swSrc: 'public/service-worker.js',
     },
   },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        src: path.resolve(__dirname, 'src'),
-      },
-    },
-  },
 };
