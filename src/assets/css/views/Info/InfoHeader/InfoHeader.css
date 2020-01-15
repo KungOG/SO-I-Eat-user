@@ -1,0 +1,71 @@
+.info-header {
+  background: red;
+  height: 65px;
+  width: 100vw;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.info-header .icon-one {
+  height: 25px;
+  width: 25px;
+  background: black;
+  margin: 0 25px;
+}
+
+.info-header .icon-two {
+  height: 25px;
+  width: 25px;
+  background: black;
+  margin: 0 25px;
+}
+
+.info-header .icon-two.-active {
+  background: green;
+}
+
+.info-header .burger-menu {
+  background: darkcyan;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: -100vw;
+  visibility: hidden;
+  -webkit-transition: right 1.5s;
+  transition: right 1.5s;
+}
+
+.info-header .burger-menu > .burger-container {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info-header .burger-menu.-active {
+  right: 0;
+  visibility: visible;
+  -webkit-transition: right 1.5s;
+  transition: right 1.5s;
+}
+/*# sourceMappingURL=InfoHeader.css.map */
