@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/eat/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/eat/' : '/eat/',
   pwa: {
     workboxPluginMode: 'injectManifest',
     workboxOptions: {

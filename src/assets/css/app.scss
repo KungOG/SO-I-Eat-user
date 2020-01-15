@@ -4,7 +4,6 @@
 @import 'components/typography';
 @import 'components/functions';
 
-
 @import 'views/Home';
 @import 'views/Footer';
 @import 'views/Loading';
@@ -15,6 +14,8 @@
 @import 'views/Confirmation';
 @import 'views/SideNavigation';
 @import 'views/Payment';
+@import 'views/NavigationButtons';
+
 @import 'views/Menu/Products';
 @import 'views/Menu/MenuComponents/Cart';
 @import 'views/Menu/MenuComponents/CustomizeMenu';
@@ -25,12 +26,11 @@
 @import 'views/Menu/MenuComponents/ScrollNavigation';
 @import 'views/Card/CardAlternatives';
 @import 'views/Card/CardCustomize';
+@import 'views/Card/CardImage';
+@import 'views/Card/CardText';
+@import 'views/Card/Icons';
+
 @import 'views/Info/About';
 @import 'views/Info/Terms';
 @import 'views/Info/Contact';
 @import 'views/Info/InfoHeader/InfoHeader';
-
-@import 'views/Card/CardImage';
-@import 'views/Card/CardText';
-@import 'views/Card/Icons';
-@import 'views/NavigationButtons';
