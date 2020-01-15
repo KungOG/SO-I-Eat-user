@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,IAAI,GAAG,eAAe,CAAC;EACrB,UAAU,EAAE,IAAI;CACjB",
-    "sources": [
-        "CustomizeMenu.scss"
-    ],
-    "names": [],
-    "file": "CustomizeMenu.css"
-}
