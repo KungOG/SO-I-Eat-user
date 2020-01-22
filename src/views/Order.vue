@@ -146,9 +146,10 @@ export default {
     },
     isItLunchTime() {
       const d = new Date();
+      const day = d.getDay()
       let currentTime = Number(d.getHours() + '.' + d.getMinutes());
       if (currentTime > Number(this.$store.state.lunchHour.open) && currentTime < Number(this.$store.state.lunchHour.close)) {
-        if (this.$store.state.open && this.$store.state.order.table !== 'take away') {
+        if (this.$store.state.open && this.$store.state.order.table !== 'take away' && day > 0 && day < 6) {
           return true;
          } else {
            return false;
