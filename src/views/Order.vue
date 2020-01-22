@@ -113,7 +113,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      if(this.$store.state.order.table === null){
+      if(this.$store.state.order.table === null && this.$store.state.open === true){
         this.$store.commit('setShowModal', true);
         this.$store.commit('setShowInputModal', true);
       }
