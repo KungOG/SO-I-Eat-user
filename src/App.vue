@@ -1,11 +1,6 @@
 <template>
   <div id="app">
     <NavigationBar class="mobile"/>
-    <div id="nav">
-      <a style="cursor:pointer" :style="{'display': installBtn}" @click="installer()">
-        <h1>Install!</h1>
-      </a>
-    </div>
     <Loading />
     <router-view />
   </div>
@@ -23,30 +18,10 @@ export default {
     Loading,
   },
   data: () => ({
-    installBtn: 'none',
-    installer: undefined,
     status: null,
     selectedOpenHour: '',
     selectedCloseHour: '',
   }),
-  async created() {
-    let installPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      installPrompt = e;
-      this.installBtn = 'block';
-    });
-    this.installer = () => {
-      this.installBtn = 'none';
-      installPrompt.prompt();
-      installPrompt.userChoice.then((result) => {
-        if (result.outcome === 'accepted') {
-          console.log('Install accepted!');
-        }
-        console.log('Install denied!');
-      });
-    };
-  },
   mounted() {
     this.getStatus();
     setInterval(() => {

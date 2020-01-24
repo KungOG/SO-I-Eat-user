@@ -11,6 +11,10 @@
         :title="Maps.text" class="desktop" url="/" @click.native="scrollTo('contact')"/>
         <NavigationButton :imageSrc="Menu.url"
         :title="Menu.text" url="/" @click.native="scrollTo('products')" />
+        <div class="install-btn desktop" v-if="installBtn" @click="installer()" >
+          <p>app</p>
+        </div>
+
       </section>
       <div class='line-wrapper'>
         <div class='line-container'>
@@ -30,6 +34,9 @@
           </div>
           <div class='first-line' />
           <div class='second-line' />
+          <div class="install-btn mobile" v-if="installBtn" @click="installer()" >
+            <p>app</p>
+          </div>
           <div class='third-line' />
           <div class='fourth-line' />
         </div>
@@ -105,7 +112,28 @@ export default {
     EatHere: { url: require('@/assets/icons/EatHere.svg'), text: 'äta här' },
     Arrow: require('@/assets/icons/Arrow.svg'),
     imgUrl: AboutPic,
+    installBtn: true,
+    installer: undefined,
   }),
+
+  async created() {
+    let installPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      installPrompt = e;
+      this.installBtn = true;
+    });
+    this.installer = () => {
+      this.installBtn = false;
+      installPrompt.prompt();
+      installPrompt.userChoice.then((result) => {
+        if (result.outcome === 'accepted') {
+          console.log('Install accepted!');
+        }
+        console.log('Install denied!');
+      });
+    };
+  },
 
   methods: {
     scrollTo(here) {
