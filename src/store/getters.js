@@ -10,9 +10,8 @@ export default {
   getOriginalMenuItem(state) {
     if (state.itemToEdit !== null) {
       return state.menuItems.find(x => x.productName === state.itemToEdit.productName);
-    } else {
-      return [];
     }
+    return [];
   },
   getLunchItem(state) {
     const menuItems = [...state.menuItems];

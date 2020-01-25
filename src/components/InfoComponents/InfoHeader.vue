@@ -23,7 +23,7 @@ export default {
     showBurger() {
       console.log(this.showBurgerNav);
       this.showBurgerNav = !this.showBurgerNav;
-    }
-  }
-}
+    },
+  },
+};
 </script>

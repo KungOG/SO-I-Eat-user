@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     filteredItems() {
-      return this.items.filter(x => this.category.categoryId === x.category).sort((a, b) => (a.productNr > b.productNr) ? 1 : -1);
+      return this.items.filter(x => this.category.categoryId === x.category).sort((a, b) => ((a.productNr > b.productNr) ? 1 : -1));
     },
   },
 };

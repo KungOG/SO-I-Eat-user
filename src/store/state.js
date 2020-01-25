@@ -1,7 +1,7 @@
 export default {
   menuItems: [],
   addOns: [],
-  modalText: '',
+  modalText: "",
   showTextModal: false,
   showInputModal: false,
   showModal: false,
@@ -17,27 +17,37 @@ export default {
   comment: null,
   showTheCart: false,
   lunchHour: {
-    open: '11',
-    close: '22',
+    open: "11",
+    close: "22"
   },
   productionTime: 20,
   showProductionTime: false,
   menuOptions: [
-    { name: 'Tomat', price: 12 },
-    { name: 'Jordnötter', price: 3 },
-    { name: 'Champinjoner', price: 5 },
-    { name: 'Bambuskott', price: 10 },
-    { name: 'Paprika', price: 10 },
+    { name: "Tomat", price: 12 },
+    { name: "Jordnötter", price: 3 },
+    { name: "Champinjoner", price: 5 },
+    { name: "Bambuskott", price: 10 },
+    { name: "Paprika", price: 10 }
   ],
   order: {
     table: null,
     foodItems: [],
-    drinkItems: [],
+    drinkItems: []
   },
   orderDetails: {
-    protein: '',
+    protein: "",
+    spice: null,
+    add: [],
+    remove: []
+  },
+  lunch: {
+    productName: "lunchbuffé",
+    productNr: "L1",
+    price: 95,
+    protein: "",
     spice: null,
     add: [],
     remove: [],
-  },
+    status: 0
+  }
 };
