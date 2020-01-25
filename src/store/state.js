@@ -48,5 +48,5 @@ export default {
     add: [],
     remove: [],
     status: 0,
-  }
+  },
 };

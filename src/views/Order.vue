@@ -113,7 +113,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      if(this.$store.state.order.table === null && this.$store.state.open === true){
+      if (this.$store.state.order.table === null && this.$store.state.open === true) {
         this.$store.commit('setShowModal', true);
         this.$store.commit('setShowInputModal', true);
       }
@@ -124,10 +124,10 @@ export default {
       return this.$store.getters.sortedMenuItems;
     },
     drinks() {
-      return this.sortedMenuItems.filter((item) => item.category === 7).reverse();
+      return this.sortedMenuItems.filter(item => item.category === 7).reverse();
     },
     filteredMenuitems() {
-      return this.sortedMenuItems.filter((item) => item.category === this.selected).reverse();
+      return this.sortedMenuItems.filter(item => item.category === this.selected).reverse();
     },
     categories() {
       return this.$store.state.categories;
@@ -146,22 +146,20 @@ export default {
     },
     isItLunchTime() {
       const d = new Date();
-      const day = d.getDay()
-      let currentTime = Number(d.getHours() + '.' + d.getMinutes());
+      const day = d.getDay();
+      const currentTime = Number(`${d.getHours()}.${d.getMinutes()}`);
       if (currentTime > Number(this.$store.state.lunchHour.open) && currentTime < Number(this.$store.state.lunchHour.close)) {
         if (this.$store.state.open && this.$store.state.order.table !== 'take away' && day > 0 && day < 6) {
           return true;
-         } else {
-           return false;
-         }
-      } else {
+        }
         return false;
       }
+      return false;
     },
   },
   watch: {
     itemToEdit() {
-      this.editCart ? this.openModal() : console.log('inte edit')
+      this.editCart ? this.openModal() : console.log('inte edit');
     },
   },
   methods: {
@@ -178,16 +176,16 @@ export default {
     addDrinkToCart(drink) {
       this.$store.dispatch('setOrderItemsDrink', drink);
       this.selectedDrink = drink.productNr;
-      this.activeClass = "-active";
+      this.activeClass = '-active';
       setTimeout(() => {
-        this.activeClass = "";
+        this.activeClass = '';
       }, 500);
     },
     openModal() {
       this.$store.commit('setShowModal', true);
     },
     openCart() {
-      this.$store.commit('setShowCart', true)
+      this.$store.commit('setShowCart', true);
     },
   },
 };

@@ -42,7 +42,7 @@ export default {
     },
     showAddIcon: {
       type: Boolean,
-      default: true
+      default: true,
     },
   },
 };

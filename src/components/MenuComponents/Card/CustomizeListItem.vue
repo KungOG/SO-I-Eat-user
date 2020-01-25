@@ -33,7 +33,7 @@ export default {
     this.activeI = this.active;
   },
   mounted() {
-    if(this.itemToEdit) {
+    if (this.itemToEdit) {
       this.itemToEdit.remove.includes(this.ingredient) ? this.activeI = !this.activeI : '';
       this.itemToEdit.add.includes(this.option) ? this.activeI = !this.activeI : '';
     }

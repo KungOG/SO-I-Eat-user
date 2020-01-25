@@ -65,7 +65,9 @@ export default {
   data: () => ({
     selected: null,
     iconsMenu: [{ icon: FullLogo, name: 'logo', urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
-    iconsOrder: [{ icon: Logo, urlTo: '/' }, { icon: TakeAway, name: 'takeAway', urlTo: '/order' }, { icon: EatHere, active: EatHereActive, name: 'eatHere', urlTo: '/order' }, { icon: Clock, name: 'clock', urlTo: '' }],
+    iconsOrder: [{ icon: Logo, urlTo: '/' }, { icon: TakeAway, name: 'takeAway', urlTo: '/order' }, {
+      icon: EatHere, active: EatHereActive, name: 'eatHere', urlTo: '/order',
+    }, { icon: Clock, name: 'clock', urlTo: '' }],
     iconsOrderItem: [{ icon: Delete, name: 'delete', urlTo: '/order' }],
     iconsInfo: [{ icon: ReturnArrow, urlTo: '/' }, { icon: Info, name: 'info', urlTo: '' }],
     showMenu: false,
@@ -92,7 +94,7 @@ export default {
   methods: {
     clicked(icon) {
       this.selected = icon;
-      switch(icon) {
+      switch (icon) {
         case 'eatHere':
           this.$store.commit('setShowModal', true);
           this.$store.commit('setShowInputModal', true);
@@ -110,7 +112,7 @@ export default {
           this.showMenu = true;
           break;
         case 'logo':
-          this.$nextTick(() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' }))
+          this.$nextTick(() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' }));
           break;
       }
     },

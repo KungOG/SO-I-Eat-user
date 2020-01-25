@@ -29,9 +29,9 @@ export default {
   name: 'confirmation',
   components: {
     Icon,
-    StandardButton
+    StandardButton,
   },
-  data:() => ({
+  data: () => ({
     icon: Icon,
     ordernumber: '87HUFI',
     textTakeAway: 'Du är välkommen att hämta din beställning hos oss på Kustvägen 46 i Mellbystrand.',
@@ -42,12 +42,11 @@ export default {
       return this.$store.state.order;
     },
     text() {
-      if(this.order.table === 'take away') {
+      if (this.order.table === 'take away') {
         return this.textTakeAway;
-      } else {
-        return this.textEatHere;
-      } 
-    }
-  }
+      }
+      return this.textEatHere;
+    },
+  },
 };
 </script>

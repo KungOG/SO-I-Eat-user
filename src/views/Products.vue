@@ -126,7 +126,7 @@ export default {
       const arrays = { array1: [], array2: [] };
 
       for (let i = 0; i < originalArray.length; i++) {
-        items.length % 2 == 0 ? arrays.array1.push(items.shift()) : arrays.array2.push(items.shift());
+        items.length % 2 === 0 ? arrays.array1.push(items.shift()) : arrays.array2.push(items.shift());
       }
       return arrays;
     },

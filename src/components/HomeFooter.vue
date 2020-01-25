@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'homefooter',
-    data: () => ({
+  data: () => ({
     TextLogotype: require('@/assets/icons/FullLogo.svg'),
   }),
 };
