@@ -51,11 +51,6 @@ const style = {
 export default {
   data: () => ({
     closeDown: CloseDown,
-    orderData: {
-      items: [{ id: 'photo-subscription' }],
-      // items: [this.totalAmount],
-      currency: 'sek',
-    },
     clientSecret: '',
     card: null,
     stripe: null,
@@ -64,19 +59,23 @@ export default {
     cardEvent: null,
     loading: false,
   }),
-  /* props: {
-    totalAmount: {
-      type: Number,
-    },
-  }, */
   mounted() {
     this.createPaymentIntent();
+  },
+  computed: {
+    itemsId() {
+      const order = this.$store.state.order;
+      const foodId = order.foodItems.map(x => x._id);
+      const drinkId = order.drinkItems.map(x => x._id);
+      return [...drinkId, ...foodId];
+    },
   },
   methods: {
     createPaymentIntent() {
       const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
+      const orderData = { items: this.itemsId, currency: 'sek' };
       axios
-        .post(url, this.orderData, { headers: { ContentType: 'application/json' } })
+        .post(url, orderData, { headers: { ContentType: 'application/json' } })
         .then((response) => {
           this.clientSecret = response.data.clientSecret;
           this.setUpStripe(response.data);

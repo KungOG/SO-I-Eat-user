@@ -39,6 +39,7 @@ export default {
     const orderItem = {
       productNr: payload.productNr,
       productName: payload.productName,
+      _id: payload._id,
       status: 0,
       protein: this.state.orderDetails.protein,
       spice: this.state.orderDetails.spice,
@@ -53,6 +54,7 @@ export default {
     const orderItem = {
       productNr: payload.productNr,
       productName: payload.productName,
+      _id: payload._id,
       status: false,
       protein: payload.protein,
       spice: payload.spice,
