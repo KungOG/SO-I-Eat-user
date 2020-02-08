@@ -2,14 +2,24 @@
   <div class="lunch-section">
     <div class="lunch-content">
       <div>
-        <h3>Lunchbuffé</h3>
-        <h4>95:-</h4>
+        <h3>{{lunchItem.productName}}</h3>
+        <h4>{{lunchItem.price}}:-</h4>
       </div>
-      <p>Smårätter, varmrätter och sallad. Dryck, kaffe och kaka ingår.</p>
+      <p>{{lunchItem.description}}</p>
       <p>Serveras vardagar 11-14.</p>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    lunchItem() {
+      return this.$store.getters.getLunchItem[0];
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 .lunch-section {

@@ -27,10 +27,15 @@ export default {
   data: () => ({
     closeDown: CloseDown,
   }),
+  computed: {
+    lunchItem() {
+      return this.$store.getters.getLunchItem[0];
+    },
+  },
   methods: {
     addLunchToCart() {
       this.$emit('closeLunchModal');
-      this.$store.commit('addLunchToCart');
+      this.$store.dispatch('setOrderItemsFood', this.lunchItem);
     },
   },
 };

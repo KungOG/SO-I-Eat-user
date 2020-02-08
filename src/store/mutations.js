@@ -106,9 +106,6 @@ export default {
     state.order.foodItems[id].add = state.orderDetails.add;
     state.order.foodItems[id].remove = state.orderDetails.remove;
   },
-  addLunchToCart(state) {
-    state.order.foodItems.push(state.lunch);
-  },
   toggleActiveCart(state, boolean) {
     state.showTheCart = boolean;
   },

@@ -14,4 +14,8 @@ export default {
       return [];
     }
   },
+  getLunchItem(state) {
+    const menuItems = [...state.menuItems];
+    return menuItems.splice(menuItems.findIndex(x => x.productNr === 'L1'), 1);
+  }
 };

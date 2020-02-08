@@ -39,14 +39,4 @@ export default {
     add: [],
     remove: [],
   },
-  lunch: {
-    productName: 'lunchbuffé',
-    productNr: 'L1',
-    price: 95,
-    protein: '',
-    spice: null,
-    add: [],
-    remove: [],
-    status: 0,
-  }
 };
