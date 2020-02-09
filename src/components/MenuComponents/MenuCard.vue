@@ -9,8 +9,10 @@
     <card-text class="text"
       :displayIcons="displayIcons"
       :item="item"
-      :showAddIcon="showAlternatives"
       />
+    <div v-if="!showAlternatives" class="icon-container">
+      <Add />
+    </div>  
     <card-alternatives v-if="showAlternatives"
       :proteinItems="item.protein"
       :showSpice="item.spice"
@@ -41,6 +43,7 @@ import CardText from './Card/CardText.vue';
 import CardAlternatives from '@/components/MenuComponents/Card/CardAlternatives.vue';
 import CardCustomize from '@/components/MenuComponents/Card/CardCustomize.vue';
 import StandardButton from '@/components/StandardButton.vue';
+import Add from './Card/Add.vue';
 
 export default {
   name: 'menu-card',
@@ -50,6 +53,7 @@ export default {
     CardAlternatives,
     CardCustomize,
     StandardButton,
+    Add,
   },
   props: {
     item: {

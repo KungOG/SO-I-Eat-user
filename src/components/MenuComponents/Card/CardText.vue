@@ -14,21 +14,16 @@
       <Icons v-if="displayIcons" :proteinItems="item.protein"/>
     </div>
     <div class="content-filler" />
-    <div class="icon-container">
-      <Add v-show="!showAddIcon" class="add-icon"/>
-    </div>
   </div>
 </template>
 
 <script>
 import Icons from './Icons.vue';
-import Add from './Add.vue';
 
 export default {
   name: 'card-text',
   components: {
     Icons,
-    Add,
   },
 
   props: {
@@ -39,10 +34,6 @@ export default {
     displayIcons: {
       type: Boolean,
       required: true,
-    },
-    showAddIcon: {
-      type: Boolean,
-      default: true
     },
   },
 };

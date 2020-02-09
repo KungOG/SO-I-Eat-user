@@ -12,6 +12,10 @@
   &.activeCard {
     padding: 60px 0;
     margin: 0 0 10px;
+
+    .text {
+      padding-bottom: 0;
+    }
   }
 
   @media (min-width: $screen-sm-md) {
@@ -29,10 +33,29 @@
   }
 
   .text {
+    padding-bottom: 35px;
     @media (max-width: $screen-sm-lg) {
       flex: 1;
     }
   }
+
+  .icon-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    .add-icon {
+      display: flex;
+
+      
+      @media (min-width: 1024px) {
+        padding: 20px 15px 0;
+      }
+    }
+  } 
 
   .button-wrapper {
     display: flex;
