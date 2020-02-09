@@ -21,8 +21,9 @@
       />
     <div class="button-wrapper" v-show="showAlternatives && !editCart">
       <standard-button
-        :buttonText="this.showCustomize ? 'stäng': 'redigera'"
-        @click.native="showCustomize = !showCustomize"/>
+        v-if="!showCustomize"
+        buttonText="redigera"
+        @click.native="showCustomize = true"/>
       <standard-button
         buttonText="Lägg till"
         class="desktop"
