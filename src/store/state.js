@@ -1,5 +1,6 @@
 export default {
   menuItems: [],
+  addOns: [],
   modalText: '',
   showTextModal: false,
   showInputModal: false,

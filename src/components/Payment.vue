@@ -63,11 +63,23 @@ export default {
     this.createPaymentIntent();
   },
   computed: {
+    addOns() {
+      return this.$store.state.addOns;
+    },
     itemsId() {
       const order = this.$store.state.order;
+      const allAddOns = order.foodItems.map(x => x.add).flat()
+      const addOns = this.addOns;
+      let addOnIds = []
+
+      for (let i = 0; i< allAddOns.length; i++) {
+        for (let j = 0; j< addOns.length; j++) {
+          allAddOns[i] === addOns[j].name ? addOnIds.push(addOns[j]._id.toString()) : '';
+        }
+      }
       const foodId = order.foodItems.map(x => x._id);
       const drinkId = order.drinkItems.map(x => x._id);
-      return [...drinkId, ...foodId];
+      return [...drinkId, ...foodId, ...addOnIds];
     },
   },
   methods: {

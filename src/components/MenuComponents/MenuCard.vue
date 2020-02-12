@@ -20,6 +20,7 @@
     <card-customize
       v-if="showCustomize"
       :ingredients="item.ingredients"
+      :extras="item.extras"
       />
     <div class="button-wrapper" v-show="showAlternatives && !editCart">
       <standard-button
