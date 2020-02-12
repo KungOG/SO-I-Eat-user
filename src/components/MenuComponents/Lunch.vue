@@ -15,7 +15,11 @@
 export default {
   computed: {
     lunchItem() {
-      return this.$store.getters.getLunchItem[0];
+      if (this.$store.getters.getLunchItem[0]) {
+        return this.$store.getters.getLunchItem[0];
+      } else {
+        return {productName: 'Lunchbuffé'};
+      }
     },
   },
 };
