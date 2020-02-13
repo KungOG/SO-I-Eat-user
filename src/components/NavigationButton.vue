@@ -1,8 +1,8 @@
 <template>
-  <div class='navigation-button' @click="setTakeAway">
+  <div class="navigation-button" @click="setTakeAway">
     <router-link :to="url">
-    <img :src="imageSrc" alt="title">
-    <span>{{title}}</span>
+      <img :src="imageSrc" alt="title" />
+      <span>{{title}}</span>
     </router-link>
   </div>
 </template>
@@ -11,21 +11,25 @@
 export default {
   props: {
     imageSrc: {
-      type: String,
+      type: String
     },
     title: {
-      type: String,
+      type: String
     },
     url: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   methods: {
     setTakeAway() {
-      this.title === 'ta med' ? this.$store.commit('setTableInput', 'take away') : '';
-      this.title === 'äta här' ? this.$store.commit('setTableInput', null) : '';
-    },
-  },
+      if (this.title === "ta med") {
+        this.$store.commit("setTableInput", "take away");
+      }
+      if (this.title === "äta här") {
+        this.$store.commit("setTableInput", null);
+      }
+    }
+  }
 };
 </script>
