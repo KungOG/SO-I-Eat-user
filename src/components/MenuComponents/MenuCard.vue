@@ -104,6 +104,7 @@ export default {
       if (this.activeProtein === '' && this.activeSpice === null) {
         if (this.item.spice === false && this.item.protein.length === 0) {
           this.$store.dispatch('setOrderItemsFood', this.item);
+          this.$emit('setSelectedCard', -1);
           this.$router.push('/order');
         } else {
           this.openModal('ange dina val av huvudingredients och styrka');
@@ -114,9 +115,9 @@ export default {
         this.openModal('ange ditt val av huvudingredients');
       } else {
         this.$store.dispatch('setOrderItemsFood', this.item);
+        this.$emit('setSelectedCard', -1);
         this.$router.push('/order');
       }
-      this.$emit('setSelectedCard', -1);
     },
     openModal(modalText) {
       this.$store.commit('setModalText', modalText);

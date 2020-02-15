@@ -27,33 +27,33 @@
 </template>
 
 <script>
-import axios from "axios";
-import CloseDown from "@/assets/icons/WhiteCross.svg";
+import axios from 'axios';
+import CloseDown from '@/assets/icons/WhiteCross.svg';
 
 const style = {
   base: {
-    color: "#32325d",
+    color: '#32325d',
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-    fontSmoothing: "antialiased",
-    fontSize: "16px",
-    "::placeholder": {
+    fontSmoothing: 'antialiased',
+    fontSize: '16px',
+    '::placeholder': {
       color: "#aab7c4"
     }
   },
   invalid: {
-    color: "#AA0909",
-    iconColor: "#AA0909"
+    color: '#AA0909',
+    iconColor: '#AA0909'
   }
 };
 
 export default {
   data: () => ({
     closeDown: CloseDown,
-    clientSecret: "",
+    clientSecret: '',
     card: null,
     stripe: null,
-    stripeError: "",
-    cardError: "",
+    stripeError: '',
+    cardError: '',
     cardEvent: null,
     loading: false
   }),
@@ -72,20 +72,20 @@ export default {
       const foodId = order.foodItems.map(x => x._id);
       const drinkId = order.drinkItems.map(x => x._id);
 
-      const addOnIds = allAddOns.map(item => {
+      const addOnIds = allAddOns.map((item) => {
         const arrPos = addonsName.indexOf(item);
-        return arrPos > -1 ? addOns[arrPos]._id.toString() : "";
+        return arrPos > -1 ? addOns[arrPos]._id.toString() : '';
       });
       return [...drinkId, ...foodId, ...addOnIds];
-    }
+    },
   },
   methods: {
     createPaymentIntent() {
-      const url = "https://so-i-eat-server.herokuapp.com/create-payment-intent";
-      const orderData = { items: this.itemsId, currency: "sek" };
+      const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
+      const orderData = { items: this.itemsId, currency: 'sek' };
       axios
-        .post(url, orderData, { headers: { ContentType: "application/json" } })
-        .then(response => {
+        .post(url, orderData, { headers: { ContentType: 'application/json' } })
+        .then((response) => {
           this.clientSecret = response.data.clientSecret;
           this.setUpStripe(response.data);
         })
@@ -95,21 +95,21 @@ export default {
     },
     setUpStripe(data) {
       if (window.Stripe === undefined) {
-        alert("Stripe not loaded!");
+        alert('Stripe not loaded!');
       } else {
         const stripe = window.Stripe(data.publishableKey);
         this.stripe = stripe;
         const elements = stripe.elements();
-        this.card = elements.create("card", { style });
-        this.card.mount("#card-element");
+        this.card = elements.create('card', { style });
+        this.card.mount('#card-element');
         this.listenForErrors();
       }
     },
     listenForErrors() {
       const vm = this;
-      this.card.addEventListener("change", event => {
+      this.card.addEventListener('change', (event) => {
         vm.toggleError(event);
-        vm.cardError = "";
+        vm.cardError = '';
         vm.cardEvent = !!event.complete;
       });
     },
@@ -117,19 +117,19 @@ export default {
       if (event.error) {
         this.stripeError = event.error.message;
       } else {
-        this.stripeError = "";
+        this.stripeError = '';
       }
     },
     submitPayment() {
       this.stripe
         .confirmCardPayment(this.clientSecret, {
-          payment_method: { card: this.card }
+          payment_method: { card: this.card },
         })
-        .then(result => {
+        .then((result) => {
           if (result.error) {
             this.stripeError = result.error.message;
-          } else if (result.paymentIntent.status === "succeeded") {
-            console.log("betalningen gick igenom");
+          } else if (result.paymentIntent.status === 'succeeded') {
+            console.log('betalningen gick igenom');
             this.sendOrder();
             // There's a risk of the customer closing the window before callback
             // execution. Set up a webhook or plugin to listen for the
@@ -139,18 +139,18 @@ export default {
         });
     },
     async sendOrder() {
-      await this.$store.dispatch("postOrder");
-      this.$router.push("/confirmation");
-      this.$store.commit("setShowPayment", false);
-      this.$store.commit("toggleActiveCart", false);
-      this.$store.commit("resetOrder");
+      await this.$store.dispatch('postOrder');
+      this.$router.push('/confirmation');
+      this.$store.commit('setShowPayment', false);
+      this.$store.commit('toggleActiveCart', false);
+      this.$store.commit('resetOrder');
     },
     clearElementsInputs() {
       this.card.clear();
     },
     clearCardErrors() {
-      this.stripeError = "";
-      this.cardError = "";
+      this.stripeError = '';
+      this.cardError = '';
     },
     reset() {
       this.clearElementsInputs();

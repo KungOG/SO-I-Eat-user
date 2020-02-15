@@ -33,6 +33,8 @@
 
       h4 {
         color: #676565;
+        line-height: 1;
+        margin-top: 10px;
       }
     }
 
@@ -67,6 +69,7 @@
     }
 
     .icon-container > .add-icon {
+      margin-top: 10px;
       &.-active {
         > img {
           transform: rotate(360deg);

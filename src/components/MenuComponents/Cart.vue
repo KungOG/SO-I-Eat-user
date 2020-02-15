@@ -162,7 +162,6 @@ export default {
     },
     editCartItem(item, i) {
       if (this.$route.path !== '/order') {
-        console.log(item);
         this.$router.push(`${item.value.productName}`);
       }
       this.$store.commit('setShowCart', null);

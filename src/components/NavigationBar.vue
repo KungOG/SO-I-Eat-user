@@ -71,31 +71,31 @@ import FullLogo from "@/assets/icons/FullLogo.svg";
 import ReturnArrow from "@/assets/icons/ReturnArrow.svg";
 
 export default {
-  name: "navigation",
+  name: 'navigation',
   data: () => ({
     selected: null,
     iconsMenu: [
-      { icon: FullLogo, name: "logo", urlTo: "/" },
-      { icon: Info, name: "info", urlTo: "" }
+      { icon: FullLogo, name: 'logo', urlTo: '/' },
+      { icon: Info, name: 'info', urlTo: '' }
     ],
     iconsOrder: [
-      { icon: Logo, urlTo: "/" },
-      { icon: TakeAway, name: "takeAway", urlTo: "/order" },
+      { icon: Logo, urlTo: '/' },
+      { icon: TakeAway, name: 'takeAway', urlTo: '/order' },
       {
         icon: EatHere,
         active: EatHereActive,
-        name: "eatHere",
-        urlTo: "/order"
+        name: 'eatHere',
+        urlTo: '/order',
       },
-      { icon: Clock, name: "clock", urlTo: "" }
+      { icon: Clock, name: 'clock', urlTo: '' }
     ],
-    iconsOrderItem: [{ icon: Delete, name: "delete", urlTo: "/order" }],
+    iconsOrderItem: [{ icon: Delete, name: 'delete', urlTo: '/order' }],
     iconsInfo: [
-      { icon: ReturnArrow, urlTo: "/" },
-      { icon: Info, name: "info", urlTo: "" }
+      { icon: ReturnArrow, urlTo: '/'},
+      { icon: Info, name: 'info', urlTo: '' },
     ],
     showMenu: false,
-    imgUrl: "WhiteCross.svg"
+    imgUrl: 'WhiteCross.svg',
   }),
   computed: {
     editCart() {
@@ -106,12 +106,12 @@ export default {
     }
   },
   beforeMount() {
-    if (this.table === "take away") {
+    if (this.table === 'take away') {
       this.iconsOrder[1].icon = TakeAwayActive;
     } else {
       this.iconsOrder[1].icon = TakeAway;
     }
-    if (this.table !== "take away") {
+    if (this.table !== 'take away') {
       this.iconsOrder[2].icon = EatHereActive;
     } else {
       this.iconsOrder[2].icon = EatHere;
@@ -119,12 +119,12 @@ export default {
   },
   watch: {
     table() {
-      if (this.table === "take away") {
+      if (this.table === 'take away') {
         this.iconsOrder[1].icon = TakeAwayActive;
       } else {
         this.iconsOrder[1].icon = TakeAway;
       }
-      if (this.table !== "take away") {
+      if (this.table !== 'take away') {
         this.iconsOrder[2].icon = EatHereActive;
       } else {
         this.iconsOrder[2].icon = EatHere;
@@ -135,27 +135,27 @@ export default {
     clicked(icon) {
       this.selected = icon;
       switch (icon) {
-        case "eatHere":
-          this.$store.commit("setShowModal", true);
-          this.$store.commit("setShowInputModal", true);
+        case 'eatHere':
+          this.$store.commit('setShowModal', true);
+          this.$store.commit('setShowInputModal', true);
           break;
-        case "takeAway":
-          this.$store.commit("setTableInput", "take away");
+        case 'takeAway':
+          this.$store.commit('setTableInput', 'take away');
           break;
-        case "delete":
+        case 'delete':
           this.closeItemToEdit();
           break;
-        case "clock":
-          this.$store.dispatch("getProductionTime");
+        case 'clock':
+          this.$store.dispatch('getProductionTime');
           break;
-        case "info":
+        case 'info':
           this.showMenu = true;
           break;
-        case "logo":
+        case 'logo':
           this.$nextTick(() =>
             document
-              .getElementById("home")
-              .scrollIntoView({ behavior: "smooth" })
+              .getElementById('home')
+              .scrollIntoView({ behavior: 'smooth' })
           );
           break;
         default:
@@ -164,12 +164,12 @@ export default {
     },
     closeItemToEdit() {
       if (this.editCart) {
-        this.$store.commit("editCart", false);
-        this.$store.commit("setShowCart", true);
-        this.$store.commit("resetItemToEdit");
-        this.iconsOrderItem[0].urlTo = "/orderitem/cart";
+        this.$store.commit('editCart', false);
+        this.$store.commit('setShowCart', true);
+        this.$store.commit('resetItemToEdit');
+        this.iconsOrderItem[0].urlTo = '/orderitem/cart';
       } else {
-        this.iconsOrderItem[0].urlTo = "/order";
+        this.iconsOrderItem[0].urlTo = '/order';
       }
     }
   }
