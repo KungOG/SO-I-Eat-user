@@ -13,9 +13,9 @@
           </div>
         </div>
         <div class="payment-buttons">
-          <button id="submit-button" @click.prevent="submitPayment()">
-            <div class="spinner hidden" id="spinner"></div>
-            <span class="button-text">Betala</span>
+          <button id="submit-button" :class="{ disabled: disabled }" @click.prevent="submitPayment()">
+            <Loader :enabled="loading" />
+            <span v-if="!loading" class="button-text">Betala</span>
           </button>
           <button id="reset-button" @click.prevent="reset()">
             <span class="button-text">Återställ</span>
@@ -29,6 +29,7 @@
 <script>
 import axios from 'axios';
 import CloseDown from '@/assets/icons/WhiteCross.svg';
+import Loader from './Loader'
 
 const style = {
   base: {
@@ -55,8 +56,12 @@ export default {
     stripeError: '',
     cardError: '',
     cardEvent: null,
-    loading: false
+    loading: false,
+    disabled: true,
   }),
+  components: {
+    Loader,
+  },
   mounted() {
     this.createPaymentIntent();
   },
@@ -81,6 +86,7 @@ export default {
   },
   methods: {
     createPaymentIntent() {
+      this.loading = true;
       const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
       const orderData = { items: this.itemsId, currency: 'sek' };
       axios
@@ -88,6 +94,7 @@ export default {
         .then((response) => {
           this.clientSecret = response.data.clientSecret;
           this.setUpStripe(response.data);
+          this.loading = false;
         })
         .catch(error => {
           console.log(error);
@@ -102,6 +109,7 @@ export default {
         const elements = stripe.elements();
         this.card = elements.create('card', { style });
         this.card.mount('#card-element');
+        this.disabled = true;
         this.listenForErrors();
       }
     },
@@ -116,11 +124,14 @@ export default {
     toggleError(event) {
       if (event.error) {
         this.stripeError = event.error.message;
+        this.disabled = true
       } else {
         this.stripeError = '';
+        this.disabled = false
       }
     },
     submitPayment() {
+      this.loading = true;
       this.stripe
         .confirmCardPayment(this.clientSecret, {
           payment_method: { card: this.card },
@@ -130,6 +141,7 @@ export default {
             this.stripeError = result.error.message;
           } else if (result.paymentIntent.status === 'succeeded') {
             console.log('betalningen gick igenom');
+            this.loading = false;
             this.sendOrder();
             // There's a risk of the customer closing the window before callback
             // execution. Set up a webhook or plugin to listen for the

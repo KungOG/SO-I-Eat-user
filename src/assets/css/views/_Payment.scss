@@ -80,6 +80,13 @@
         height: 40px;
         width: 80%;
         margin-bottom: 10px;
+        position: relative;
+        outline: none;
+
+        &.disabled {
+          background: #c4c4c4;
+          pointer-events: none;
+        }
 
         .button-text {
           text-transform: uppercase;
