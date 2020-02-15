@@ -58,6 +58,11 @@
       #card-element {
         width: 100%;
       }
+      
+      .stripe-error {
+        margin: 10px;
+        color: $main-color;
+      }
     }
 
     > .payment-form > .payment-buttons {

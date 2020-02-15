@@ -6,7 +6,7 @@
       <form id="payment-form" class="payment-form">
         <div class="payment-information">
           <div class="payment-error">
-            <p class="stripeError" v-if="stripeError">{{stripeError}}</p>
+            <p class="stripe-error" v-if="stripeError">{{stripeError}}</p>
           </div>
           <div class="payment-card">
             <div class id="card-element"></div>
@@ -102,7 +102,7 @@ export default {
     },
     setUpStripe(data) {
       if (window.Stripe === undefined) {
-        alert('Stripe not loaded!');
+        this.commit('setShowPayment', false);
       } else {
         const stripe = window.Stripe(data.publishableKey);
         this.stripe = stripe;
@@ -139,14 +139,10 @@ export default {
         .then((result) => {
           if (result.error) {
             this.stripeError = result.error.message;
+            this.loading = false;
           } else if (result.paymentIntent.status === 'succeeded') {
-            console.log('betalningen gick igenom');
             this.loading = false;
             this.sendOrder();
-            // There's a risk of the customer closing the window before callback
-            // execution. Set up a webhook or plugin to listen for the
-            // payment_intent.succeeded event that handles any business critical
-            // post-payment actions.
           }
         });
     },
