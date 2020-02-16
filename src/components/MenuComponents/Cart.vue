@@ -86,6 +86,9 @@ export default {
     orderItems() {
       return this.$store.state.order;
     },
+    addOns() {
+      return this.$store.state.addOns;
+    },
     showPayment() {
       return this.$store.state.showPayment;
     },
@@ -139,12 +142,13 @@ export default {
     totalAmount() {
       const foodBase = this.orderItems.foodItems.map(x => x.price).reduce((a, b) => a + b, 0);
       const drinkBase = this.orderItems.drinkItems.map(x => x.price).reduce((a, b) => a + b, 0);
-      /*       let addons = 0;
-      this.orderItems.foodItems.forEach((item) => {
-        addons += item.add.map(x => x.price).reduce((a, b) => a + b, 0);
-        + item.value.add.map(x => x.price).reduce((a, b) => a + b, 0)
-      }); + addons */
-      return foodBase + drinkBase;
+      const orderAddOns = this.orderItems.foodItems.map(x => x.add).flat();
+      const allAddOns = this.addOns.map(x => x.name);
+      let addOns = orderAddOns.reduce((acc, item) => {
+        let arrPos = allAddOns.indexOf(item);
+        return arrPos > -1 ? acc + this.addOns[arrPos].price : acc;
+      }, 0)
+      return foodBase + drinkBase + addOns;
     },
   },
   methods: {

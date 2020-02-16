@@ -14,7 +14,7 @@ export default {
   }),
   props: {
     option: {
-      type: Object,
+      type: String,
     },
     ingredient: {
       type: String,
