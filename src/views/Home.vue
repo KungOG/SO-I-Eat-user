@@ -23,41 +23,32 @@
           url="/"
           @click.native="scrollTo('products')"
         />
+      </section>
+      <section class="welcome-wrapper">
+        <div class="welcome-text-image desktop">
+          <img :src="TextLogotype" class="line-container-image" alt="Logotype" />
+          <span class="line-container-text">
+            Hos oss upplever du den genuina smaken av Thailand. I vår familjeägda restaurang serveras den hemlagade
+            thaimaten från de bästa råvarorna. Du kan även beställa online, både vid take away och restaurangbesök.
+            <br />Vi önskar dig varmt välkommen!
+          </span>
+          <p>Öppet tis-sön 11-21</p>
+          <p>Lunch tis-fre 11-14</p>
+        </div>
+        <div class="welcome-text mobile">
+          <p>Öppet tis-sön 11-21</p>
+          <p>Lunch tis-fre 11-14</p>
+        </div>
         <div class="install-btn desktop" v-if="installBtn" @click="installer()">
-          <p>app</p>
+          <p>Installera som app</p>
+        </div>
+        <div class="install-btn mobile" v-if="installBtn" @click="installer()">
+          <p>Installera som app</p>
         </div>
       </section>
-      <div class="line-wrapper">
-        <div class="line-container">
-          <div class="line-wrapper-upper-text desktop">
-            <img :src="TextLogotype" class="line-container-image" alt="Logotype" />
-            <span class="line-container-text">
-              Hos oss upplever du den genuina smaken av Thailand. I vår familjeägda restaurang serveras den hemlagade
-              thaimaten från de bästa råvarorna. Du kan även beställa online, både vid take away och restaurangbesök.
-              <br />Vi önskar dig varmt välkommen!
-            </span>
-            <p>Öppet tis-sön 11-21</p>
-            <p>Lunch tis-fre 11-14</p>
-          </div>
-          <div class="line-wrapper-text mobile">
-            <p>Öppet tis-sön 11-21</p>
-            <p>Lunch tis-fre 11-14</p>
-          </div>
-          <div class="first-line" />
-          <div class="second-line" />
-          <div class="install-btn mobile" v-if="installBtn" @click="installer()">
-            <p>app</p>
-          </div>
-          <div class="third-line" />
-          <div class="fourth-line" />
-        </div>
-      </div>
       <div id="scroll-indicator" @click="scrollTo('products')">
         <div id="arrow" />
         <div class="indicator-line" />
-      </div>
-      <div class="golden-arrow bounce">
-        <img :src="Arrow" alt="Arrow clickable going to menu" @click="scrollTo('products')" />
       </div>
     </div>
     <Products id="products" />
