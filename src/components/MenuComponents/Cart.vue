@@ -1,28 +1,31 @@
 <template>
-  <div class='cart'>
+  <div class="cart">
     <div
-      class='dark-coverage'
+      class="dark-coverage"
       :class="showTheCart === true ? '-active' : ''"
       @click="closeTheCart()"
     />
     <img
-      class='modal-cross-icon desktop'
+      class="modal-cross-icon desktop"
       :src="closeDown"
       :class="showTheCart === true ? '-active' : ''"
     />
-    <div class='cart-wrapper' :class="showTheCart === true ? '-active' : ''">
-      <section class='head'>
+    <div class="cart-wrapper" :class="showTheCart === true ? '-active' : ''">
+      <section class="head">
         <h1>Min beställning</h1>
-        <h5 v-if="orderItems.table === 'take away'" class='bord'>Take Away</h5>
-        <h5 v-else class='bord'>Bord {{orderItems.table}}</h5>
+        <h5 v-if="orderItems.table === 'take away'" class="bord">Take Away</h5>
+        <h5 v-else class="bord">Bord {{orderItems.table}}</h5>
       </section>
-      <section class='cart-order'>
-        <div class='order-items' v-for="(item, i) in foodOrders" :key="`order-food-items-${i}`">
-          <h6 v-if="item.value.productName === 'lunchbuffé'" class="amount">
-            {{item.count > 1 ? item.count : ''}}
-          </h6>
-          <div class="dish"
-          @click="item.value.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''">
+      <section class="cart-order">
+        <div class="order-items" v-for="(item, i) in foodOrders" :key="`order-food-items-${i}`">
+          <h6
+            v-if="item.value.productName === 'lunchbuffé'"
+            class="amount"
+          >{{item.count > 1 ? item.count : ''}}</h6>
+          <div
+            class="dish"
+            @click="item.value.productName !== 'lunchbuffé' ? editCartItem(item, i) : ''"
+          >
             <h6>{{item.value.productName}}</h6>
             <p v-if="item.value.protein === 'Chicken'">Kyckling</p>
             <p v-if="item.value.protein === 'Beef'">Biff</p>
@@ -33,28 +36,26 @@
             <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add}}</p>
             <p v-for="(remove, i) in item.value.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
-          <h6 class='price'>
-            {{item.value.price}}:-
-          </h6>
-          <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemFood(item)">
+          <h6 class="price">{{item.value.price}}:-</h6>
+          <img class="icon" src="@/assets/icons/delete.svg" @click="deleteOrderItemFood(item)" />
         </div>
-        <div class='order-items' v-for="(item, i) in drinkOrders" :key="`order-drink-items-${i}`">
+        <div class="order-items" v-for="(item, i) in drinkOrders" :key="`order-drink-items-${i}`">
           <h6 class="amount">{{item.count > 1 ? item.count : ''}}</h6>
           <div class="dish">
             <h6>{{item.value.productName}}</h6>
             <p>{{item.value.description}}</p>
           </div>
-          <h6 class='price'>{{item.value.price * item.count}}:-</h6>
-          <img class='icon' src="@/assets/icons/delete.svg" @click="deleteOrderItemDrink(item)">
+          <h6 class="price">{{item.value.price * item.count}}:-</h6>
+          <img class="icon" src="@/assets/icons/delete.svg" @click="deleteOrderItemDrink(item)" />
         </div>
       </section>
-      <section class='summery'>
+      <section class="summery">
         <h6>Totalsumma</h6>
-        <h6 class='totalAmount'>{{totalAmount}}:-</h6>
-        <div class='leave-comment' @click="openLeaveCommentModal">
-          <h5>Lämna en kommentar</h5>
+        <h6 class="totalAmount">{{totalAmount}}:-</h6>
+        <div class="leave-comment" @click="openLeaveCommentModal">
+          <img class="icon" src="@/assets/icons/comment.svg" />
         </div>
-        <StandardButton class='desktop btn' :buttonText="'Betala'" @click.native="toPayment"/>
+        <StandardButton class="desktop btn" :buttonText="'Betala'" @click.native="toPayment" />
       </section>
     </div>
     <transition name="modal">
@@ -65,19 +66,19 @@
 </template>
 
 <script>
-import StandardButton from '@/components/StandardButton.vue';
-import Payment from '@/components/Payment.vue';
-import CloseDown from '@/assets/icons/WhiteCross.svg';
-import LeaveCommentModal from '@/components/MenuComponents/Card/LeaveCommentModal.vue';
+import StandardButton from "@/components/StandardButton.vue";
+import Payment from "@/components/Payment.vue";
+import CloseDown from "@/assets/icons/WhiteCross.svg";
+import LeaveCommentModal from "@/components/MenuComponents/Card/LeaveCommentModal.vue";
 
 export default {
   components: {
     StandardButton,
     Payment,
-    LeaveCommentModal,
+    LeaveCommentModal
   },
   data: () => ({
-    closeDown: CloseDown,
+    closeDown: CloseDown
   }),
   computed: {
     showTheCart() {
@@ -101,8 +102,10 @@ export default {
       for (let i = 0; i < this.orderItems.foodItems.length; i++) {
         let myCount = 0;
         for (let w = 0; w < copy.length; w++) {
-          if (this.orderItems.foodItems[i].productName === copy[w].productName) {
-            if (copy[w].productName === 'lunchbuffé') {
+          if (
+            this.orderItems.foodItems[i].productName === copy[w].productName
+          ) {
+            if (copy[w].productName === "lunchbuffé") {
               myCount++;
               copy.splice(w, 1, 0);
             } else {
@@ -125,7 +128,9 @@ export default {
       for (let i = 0; i < this.orderItems.drinkItems.length; i++) {
         let myCount = 0;
         for (let w = 0; w < copy.length; w++) {
-          if (this.orderItems.drinkItems[i].productName === copy[w].productName) {
+          if (
+            this.orderItems.drinkItems[i].productName === copy[w].productName
+          ) {
             myCount++;
             copy.splice(w, 1, 0);
           }
@@ -140,42 +145,56 @@ export default {
       return filtered;
     },
     totalAmount() {
-      const foodBase = this.orderItems.foodItems.map(x => x.price).reduce((a, b) => a + b, 0);
-      const drinkBase = this.orderItems.drinkItems.map(x => x.price).reduce((a, b) => a + b, 0);
+      const foodBase = this.orderItems.foodItems
+        .map(x => x.price)
+        .reduce((a, b) => a + b, 0);
+      const drinkBase = this.orderItems.drinkItems
+        .map(x => x.price)
+        .reduce((a, b) => a + b, 0);
       const orderAddOns = this.orderItems.foodItems.map(x => x.add).flat();
       const allAddOns = this.addOns.map(x => x.name);
       let addOns = orderAddOns.reduce((acc, item) => {
         let arrPos = allAddOns.indexOf(item);
         return arrPos > -1 ? acc + this.addOns[arrPos].price : acc;
-      }, 0)
+      }, 0);
       return foodBase + drinkBase + addOns;
-    },
+    }
   },
   methods: {
     openLeaveCommentModal() {
-      this.$store.commit('setLeaveCommentModal', true);
+      this.$store.commit("setLeaveCommentModal", true);
+      console.log("setLeaveCommentModal");
     },
     toPayment() {
-      this.$store.state.order.foodItems.length !== 0 || this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
+      this.$store.state.order.foodItems.length !== 0 ||
+      this.$store.state.order.drinkItems.length !== 0
+        ? this.$store.commit("setShowPayment", true)
+        : "";
     },
     deleteOrderItemFood(item) {
-      this.$store.commit('deleteOrderItemFood', this.orderItems.foodItems.indexOf(item.value));
+      this.$store.commit(
+        "deleteOrderItemFood",
+        this.orderItems.foodItems.indexOf(item.value)
+      );
     },
     deleteOrderItemDrink(item) {
-      this.$store.commit('deleteOrderItemDrink', this.orderItems.drinkItems.indexOf(item.value));
+      this.$store.commit(
+        "deleteOrderItemDrink",
+        this.orderItems.drinkItems.indexOf(item.value)
+      );
     },
     editCartItem(item, i) {
-      if (this.$route.path !== '/order') {
+      if (this.$route.path !== "/order") {
         this.$router.push(`${item.value.productName}`);
       }
-      this.$store.commit('setShowCart', null);
-      this.$store.commit('editCart', true);
-      this.$store.commit('setItemToEdit', { item: item.value, index: i });
+      this.$store.commit("setShowCart", null);
+      this.$store.commit("editCart", true);
+      this.$store.commit("setItemToEdit", { item: item.value, index: i });
     },
     closeTheCart() {
       const toggleActiveCart = false;
-      this.$store.commit('toggleActiveCart', toggleActiveCart);
-    },
-  },
+      this.$store.commit("toggleActiveCart", toggleActiveCart);
+    }
+  }
 };
 </script>
