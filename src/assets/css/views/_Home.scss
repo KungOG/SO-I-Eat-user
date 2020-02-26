@@ -2,14 +2,15 @@
   overflow: hidden;
 
   .wrapper {
-    background: no-repeat center center url('~@/assets/images/background-mobile.jpg');
+    background: no-repeat center center
+      url("~@/assets/images/background-mobile.jpg");
     background-size: cover;
     height: 100vh;
     width: 100vw;
     position: relative;
 
     @media (min-width: 768px) {
-      background-image: url('~@/assets/images/background-desktop.jpg');
+      background-image: url("~@/assets/images/background-desktop.jpg");
     }
 
     header {
@@ -18,25 +19,6 @@
       align-items: flex-end;
       margin: 0 20px;
       padding: 10px 0 0;
-    }
-
-    .golden-arrow {
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      bottom: 5px;
-      left: 50%;
-      right: 50%;
-    }
-
-    .bounce {
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      50% {
-        transform: translateY(-10px);
-      }
     }
   }
 
@@ -47,7 +29,7 @@
     align-items: center;
     justify-content: center;
 
-    >p {
+    > p {
       color: white;
       margin: 0;
     }
@@ -78,11 +60,11 @@
     justify-content: center;
     flex-direction: column;
 
-    >p {
+    > p {
       width: 50vw;
     }
 
-    >h3 {
+    > h3 {
       color: black;
       margin: 2rem;
     }
@@ -91,11 +73,11 @@
       display: flex;
       margin: 5rem 0;
 
-      >.about-img {
+      > .about-img {
         position: relative;
         width: 33.33vw;
 
-        >.dark,
+        > .dark,
         .gold {
           position: absolute;
           height: 100%;
@@ -103,15 +85,15 @@
           z-index: 1;
         }
 
-        >.dark {
-          background-color: rgba($color: #000000, $alpha: .7);
+        > .dark {
+          background-color: rgba($color: #000000, $alpha: 0.7);
         }
 
-        >.gold {
-          background-color: rgba($color: #ac9416, $alpha: .7);
+        > .gold {
+          background-color: rgba($color: #ac9416, $alpha: 0.7);
         }
 
-        >img {
+        > img {
           width: 100%;
           height: 100%;
         }
@@ -120,7 +102,7 @@
   }
 }
 
-.home>.wrapper>.navigation-buttons-container {
+.home > .wrapper > .navigation-buttons-container {
   left: calc(50vw + 70px);
   top: 50vh;
   position: relative;
@@ -138,16 +120,16 @@
     left: calc(50vw + 140px);
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 430px;
     top: 66vh;
   }
 }
 
-.home>.wrapper>.welcome-wrapper {
+.home > .wrapper > .welcome-wrapper {
   width: 100vw;
 
-  >.welcome-text {
+  > .welcome-text {
     color: white;
     position: absolute;
     left: 50px;
@@ -158,7 +140,7 @@
     }
   }
 
-  >.welcome-text-image {
+  > .welcome-text-image {
     color: white;
     display: flex;
     flex-direction: column;
@@ -172,12 +154,12 @@
       width: 340px;
     }
 
-    >.line-container-image {
+    > .line-container-image {
       height: 75px;
       margin-bottom: 2rem;
     }
 
-    >.line-container-text {
+    > .line-container-text {
       margin-bottom: 2rem;
       line-height: 1.3;
       font-size: 14px;
@@ -194,7 +176,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 3px;
     position: absolute;
     color: white;
     cursor: pointer;
@@ -236,7 +217,7 @@
     display: block;
     height: 2px;
     width: 80px;
-    background-color: rgba(172, 147, 22, .8);
+    background-color: rgba(172, 147, 22, 0.8);
   }
 
   &.-hide {
@@ -268,11 +249,11 @@
   }
 
   20% {
-    background-color: rgba(172, 147, 22, .8);
+    background-color: rgba(172, 147, 22, 0.8);
   }
 
   100% {
-    width: 80px
+    width: 80px;
   }
 }
 
@@ -296,13 +277,23 @@
 @keyframes background-movement {
   to {
     background: rgba(172, 147, 22, 1);
-    background: linear-gradient(to right, rgba(172, 147, 22, 1) 0%, rgba(172, 147, 22, 0.99) 1%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(
+      to right,
+      rgba(172, 147, 22, 1) 0%,
+      rgba(172, 147, 22, 0.99) 1%,
+      rgba(255, 255, 255, 0) 100%
+    );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c19e67', endColorstr='#ffffff', GradientType=0);
   }
 
   from {
     background: rgba(255, 255, 255, 0.02);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 0%, rgba(172, 147, 22, 1) 100%);
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(172, 147, 22, 1) 100%
+    );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#c19e67', GradientType=0);
   }
 }
