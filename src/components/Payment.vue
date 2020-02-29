@@ -66,21 +66,14 @@ export default {
     this.createPaymentIntent();
   },
   computed: {
-    addOns() {
-      return this.$store.state.addOns;
-    },
     itemsId() {
       const { order } = this.$store.state;
-      const { addOns } = this;
       const allAddOns = order.foodItems.map(x => x.add).flat();
-      const addonsName = addOns.map(item => item.name);
       const foodId = order.foodItems.map(x => x._id);
       const drinkId = order.drinkItems.map(x => x._id);
 
-      const addOnIds = allAddOns.map((item) => {
-        const arrPos = addonsName.indexOf(item);
-        return arrPos > -1 ? addOns[arrPos]._id.toString() : '';
-      });
+      const addOnIds = allAddOns.map(item => item._id)
+      console.log(addOnIds)
       return [...drinkId, ...foodId, ...addOnIds];
     },
   },
