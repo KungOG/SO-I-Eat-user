@@ -71,7 +71,8 @@ export default {
   },
   setAddedOption(state, option) {
     const { add } = state.orderDetails;
-    add.includes(option) ? add.splice(add.indexOf(option), 1) : add.push(option);
+    const index = add.findIndex(x => x.name === option.name)
+    index !== -1 ? add.splice(index, 1) : add.push(option)
   },
   resetOrderDetails(state) {
     state.orderDetails = {

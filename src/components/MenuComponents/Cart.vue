@@ -33,7 +33,7 @@
             <p v-if="item.value.protein === 'Shrimp'">Räkor</p>
             <p v-if="item.value.protein === 'Duck'">Anka</p>
             <p v-if="item.value.protein === 'Tofu'">Tofu</p>
-            <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add}}</p>
+            <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add.name}}<span v-show="add.price !== 0" class="add-price">{{add.price}}:-</span></p>
             <p v-for="(remove, i) in item.value.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
           <h6 class="price">{{item.value.price}}:-</h6>
