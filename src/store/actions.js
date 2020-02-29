@@ -12,17 +12,6 @@ export default {
         console.log(error);
       });
   },
-  getAddOns(ctx) {
-    const url = 'https://so-i-eat-server.herokuapp.com/addons';
-    axios
-      .get(url)
-      .then((response) => {
-        ctx.commit('setAddOns', response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
   getCategories(ctx) {
     const url = 'https://so-i-eat-server.herokuapp.com/categories';
     axios

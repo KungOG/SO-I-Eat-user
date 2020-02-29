@@ -104,7 +104,6 @@ export default {
   }),
   beforeMount() {
     this.$store.dispatch('getMenuItems');
-    this.$store.dispatch('getAddOns');
     this.$store.dispatch('getCategories');
     if (this.$store.state.open === false) {
       this.$store.commit('setShowModal', true);

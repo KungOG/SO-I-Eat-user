@@ -2,9 +2,6 @@ export default {
   setMenuItems(state, menuItems) {
     state.menuItems = menuItems;
   },
-  setAddOns(state, addOns) {
-    state.addOns = addOns;
-  },
   setCategories(state, categories) {
     state.categories = categories;
   },
