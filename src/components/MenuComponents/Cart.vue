@@ -33,10 +33,18 @@
             <p v-if="item.value.protein === 'Shrimp'">Räkor</p>
             <p v-if="item.value.protein === 'Duck'">Anka</p>
             <p v-if="item.value.protein === 'Tofu'">Tofu</p>
-            <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add.name}}<span v-show="add.price !== 0" class="add-price">{{add.price}}:-</span></p>
+            <p v-for="(add,i) in item.value.add" :key="`item-add-${i}`">+ {{add.name}}</p>
             <p v-for="(remove, i) in item.value.remove" :key="`item-remove-${i}`">- {{remove}}</p>
           </div>
-          <h6 class="price">{{item.value.price}}:-</h6>
+          <div class="price">
+            <h6>{{item.value.price}}:-</h6>
+            <p
+              v-for="(add,i) in item.value.add"
+              :key="`item-add-amount-${i}`"
+              v-show="add.price !== 0"
+              class="add-price"
+            >{{add.price}}:-</p>
+          </div>
           <img class="icon" src="@/assets/icons/delete.svg" @click="deleteOrderItemFood(item)" />
         </div>
         <div class="order-items" v-for="(item, i) in drinkOrders" :key="`order-drink-items-${i}`">
@@ -148,7 +156,9 @@ export default {
       const drinkBase = this.orderItems.drinkItems
         .map(x => x.price)
         .reduce((a, b) => a + b, 0);
-      const addOns = this.orderItems.foodItems.map(x => x.add).flat()
+      const addOns = this.orderItems.foodItems
+        .map(x => x.add)
+        .flat()
         .map(x => x.price)
         .reduce((a, b) => a + b, 0);
       return foodBase + drinkBase + addOns;
