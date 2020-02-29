@@ -21,11 +21,11 @@
           :key="`menu-options-${i}`"
           @click.native="addOption(option)">
           <template v-slot:itemName>
-              {{option}}
+              {{option.name}}
           </template>
           <template v-slot:itemPrice>
-              <div class='ingredient-price'>
-                <!-- {{option.price}} -->
+              <div v-show="option.price !== 0" class='ingredient-price'>
+                {{option.price}}:-
               </div>
           </template>
         </CustomizeListItem>
