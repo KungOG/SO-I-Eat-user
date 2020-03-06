@@ -88,7 +88,7 @@ export default {
       const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
       const orderData = { items: this.itemsId, currency: 'sek', email: this.email };
       axios
-        .post(url, orderData, { headers: { ContentType: 'application/json' } })
+        .post(url, orderData, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } })
         .then((response) => {
           this.clientSecret = response.data.clientSecret;
           this.setUpStripe(response.data);

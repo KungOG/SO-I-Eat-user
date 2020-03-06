@@ -40,20 +40,27 @@
       width: 90vw;
     }
 
-    > .payment-form > .payment-information {
+    > .payment-form {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      margin-top: 20px;
     }
 
-    > .payment-form > .payment-information >
+    > .payment-form >
     .payment-error,
     .payment-card {
       display: flex;
       justify-content: center;
       height: 50px;
       width: 80%;
+      margin-top: 20px;
+
+      .email-error {
+        margin: 10px;
+        color: $main-color;
+      }
     }
 
     > .payment-form > .payment-buttons {
