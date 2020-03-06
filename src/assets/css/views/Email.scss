@@ -1,4 +1,4 @@
-.payment {
+.email-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@
     z-index: 200;
   }
 
-  .payment-background-overlay {
+  .email-background-overlay {
     background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
@@ -28,29 +28,35 @@
     z-index: 200;
   }
   
-  .payment-wrapper {
+  .email-wrapper {
     background: white;
     position: absolute;
-    height: 200px;
+    height: 250px;
     width: 400px;
     border-radius: 5px;
     z-index: 300;
+    padding: 1rem 0;
 
     @media (max-width: 450px) {  
       width: 90vw;
     }
 
-    > .payment-form {
+    >p {
+      text-align: center;
+    }
+
+    > .email-form {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin-top: 20px;
+      justify-content: space-between;
+      height: 100%;
     }
 
-    > .payment-form >
-    .payment-error,
-    .payment-card {
+    > .email-form >
+    .email-error,
+    .email-card {
       display: flex;
       justify-content: center;
       height: 50px;
@@ -63,12 +69,24 @@
       }
     }
 
-    > .payment-form > .payment-buttons {
+    .checkbox-wrapper {
+      display: flex;
+
+      #checkbox {
+        margin-right: 15px;
+      }
+
+      >label {
+        font-family: $header-font;
+      }
+    }
+
+    > .email-form > .email-buttons {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100px;
+      width: 80%;
 
       > #submit-button {
         background: $main-color;
@@ -76,7 +94,7 @@
         border-radius: 5px;
         color: white;
         height: 40px;
-        width: 80%;
+        width: 100%;
         margin-bottom: 10px;
         position: relative;
         outline: none;

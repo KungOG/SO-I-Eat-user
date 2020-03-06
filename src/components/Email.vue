@@ -1,27 +1,25 @@
 <template>
-  <div class="payment">
-    <div class="payment-background-overlay" @click="closeEmailModal" />
+  <div class="email-container">
+    <div class="email-background-overlay" @click="closeEmailModal" />
     <img class="modal-cross-icon" :src="closeDown" />
-
-    <div class="payment-wrapper">
-      <p>Vänligen fyll i din mailadress för kvitto</p>
-      <form class="payment-form">
-          <div class="payment-error">
-            <p class="email-error" v-if="errorEmail">{{errorEmail}}</p>
-          </div>
-          <div class="payment-card">
-            <input class="email-input" type="text" v-model="email" placeholder="Email">
-          </div>
+    <div class="email-wrapper">
+      <form class="email-form">
+        <p>Vänligen fyll i din mailadress för kvitto</p>
+        <p class="email-error" v-if="errorEmail">{{errorEmail}}</p>
+        <div class="email-card">
+          <input class="email-input" type="text" v-model="email" placeholder="Email">
+        </div>
+        <div class="checkbox-wrapper">
           <input type="checkbox" id="checkbox" v-model="checked">
           <label for="checkbox">Jag behöver inget kvitto</label>
-        <div class="payment-buttons">
+        </div>
+        <div class="email-buttons">
           <button id="submit-button" :class="{ disabled: disabled }" @click.prevent="toPayment">
             <span class="button-text">OK</span>
           </button>
         </div>
       </form>
     </div>
-    
   </div>
 </template>
 
@@ -32,12 +30,16 @@ import CloseDown from '@/assets/icons/WhiteCross.svg';
 export default {
   data: () => ({
     closeDown: CloseDown,
-    email: null,
-    disabled: false,
+    email: '',
     errorEmail: null,
     checked: false,
     reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
   }),
+  computed: {
+    disabled() {
+      if(this.email.length > 3 || this.checked === true) {return false} else {return true};
+    },
+  },
   methods: {
     closeEmailModal() {
       this.$store.commit('setShowEmail', false)
@@ -71,6 +73,6 @@ export default {
         .email-input {
         background: pink;
         border: none;
-        width: 80%;
+        width: 100%;
       }
 </style>
