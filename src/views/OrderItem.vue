@@ -65,7 +65,7 @@ export default {
   methods: {
     cartEvents() {
       if (this.showCart) {
-        this.toPayment();
+        this.toEmail();
       } else if (this.editCart) {
         this.$store.commit('setShowCart', true);
         this.$store.commit('editCart', false);
@@ -79,8 +79,8 @@ export default {
     addFoodToCart() {
       this.$refs.form.addItemToCart();
     },
-    toPayment() {
-      this.$store.state.order.foodItems.length !== 0 || this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowPayment', true) : '';
+    toEmail() {
+      this.$store.state.order.foodItems.length !== 0 || this.$store.state.order.drinkItems.length !== 0 ? this.$store.commit('setShowEmail', true) : '';
     },
   },
 };

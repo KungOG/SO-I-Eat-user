@@ -2,6 +2,7 @@
   <div class="payment">
     <div class="payment-background-overlay" @click="closePaymentModal" />
     <img class="modal-cross-icon" :src="closeDown" />
+
     <div class="payment-wrapper">
       <form id="payment-form" class="payment-form">
         <div class="payment-information">
@@ -23,6 +24,7 @@
         </div>
       </form>
     </div>
+    
   </div>
 </template>
 
@@ -66,6 +68,9 @@ export default {
     this.createPaymentIntent();
   },
   computed: {
+    email() {
+      return this.$store.state.email;
+    },
     itemsId() {
       const { order } = this.$store.state;
       const allAddOns = order.foodItems.map(x => x.add).flat();
@@ -81,7 +86,7 @@ export default {
     createPaymentIntent() {
       this.loading = true;
       const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
-      const orderData = { items: this.itemsId, currency: 'sek' };
+      const orderData = { items: this.itemsId, currency: 'sek', email: this.email };
       axios
         .post(url, orderData, { headers: { ContentType: 'application/json' } })
         .then((response) => {

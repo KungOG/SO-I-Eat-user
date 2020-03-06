@@ -63,12 +63,13 @@
         <div class="leave-comment" @click="openLeaveCommentModal">
           <img class="icon" src="@/assets/icons/comment.svg" />
         </div>
-        <StandardButton class="desktop btn" :buttonText="'Betala'" @click.native="toPayment" />
+        <StandardButton class="desktop btn" :buttonText="'Betala'" @click.native="toEmail" />
       </section>
     </div>
     <transition name="modal">
       <Payment v-if="showPayment" />
     </transition>
+      <Email v-if="showEmail"/>
     <LeaveCommentModal v-if="leaveComment" />
   </div>
 </template>
@@ -76,6 +77,7 @@
 <script>
 import StandardButton from "@/components/StandardButton.vue";
 import Payment from "@/components/Payment.vue";
+import Email from "@/components/Email.vue";
 import CloseDown from "@/assets/icons/WhiteCross.svg";
 import LeaveCommentModal from "@/components/MenuComponents/Card/LeaveCommentModal.vue";
 
@@ -83,6 +85,7 @@ export default {
   components: {
     StandardButton,
     Payment,
+    Email,
     LeaveCommentModal
   },
   data: () => ({
@@ -97,6 +100,9 @@ export default {
     },
     showPayment() {
       return this.$store.state.showPayment;
+    },
+    showEmail() {
+      return this.$store.state.showEmail;
     },
     leaveComment() {
       return this.$store.state.leaveComment;
@@ -170,10 +176,16 @@ export default {
       console.log("setLeaveCommentModal");
     },
     toPayment() {
+      console.log('toPayment')  
+     this.$store.commit("setShowPayment", true);  
+    },
+    toEmail() {
+      console.log('toEmail')  
       this.$store.state.order.foodItems.length !== 0 ||
       this.$store.state.order.drinkItems.length !== 0
-        ? this.$store.commit("setShowPayment", true)
+        ? this.$store.commit("setShowEmail", true)
         : "";
+      console.log('toEmail')  
     },
     deleteOrderItemFood(item) {
       this.$store.commit(

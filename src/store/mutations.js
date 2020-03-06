@@ -44,6 +44,12 @@ export default {
   setShowPayment(state, boolean) {
     state.showPayment = boolean;
   },
+  setShowEmail(state, boolean) {
+    state.showEmail = boolean;
+  },
+  setEmail(state, email) {
+    state.email = email;
+  },
   setProductionTime(state, time) {
     state.productionTime = time;
   },
