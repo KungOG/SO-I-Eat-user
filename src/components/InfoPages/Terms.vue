@@ -5,22 +5,16 @@
       Thai Corner reserverar sig för fel och oförutsedda händelser relaterade till produkttillgång, prisjusteringar, prisangivelser, produktbeskrivningar och tekniska problem. </p>
       <br>
       <h5>Betalning</h5>
-      <p>Thai Corner godkänner betalning genom större betalkort, administrerat genom Stripe. Genom att utge information vid betalning, godkänner kunden de villkor som föreskrivs av Stripe. </p>
+      <p>Thai Corner godkänner betalning genom större betalkort, administrerat genom Stripe. Genom att delge information vid betalning, godkänner kunden de villkor som föreskrivs av Stripe. </p>
       <br>
       <h5>Kvitto</h5>
       <p>Kvitto på genomfört köp skickas till den emailadress som uppges vid betalning.</p>
       <br>
-      <h5>Privacy Policy</h5>
-      <p>Personlig data är information som kan kopplas till en individ. In the context of One Dear Thing, personal data is defined as:
-      Email address
-      IP address
-      When visiting our web site and placing an order with us, we store data supplied with you. We use this data for the following purposes:
-      Kvitto
-      Payment handling
-      Bookkeeping as per Swedish legislation
-      We protect your privacy in relation to the above by never knowingly passing on your information to any other party. Your data is stored with us until you ask to have it removed.</p>
+      <h5>Personlig data</h5>
+      <p>Personlig data är information som kan kopplas till en individ. Thai Corner sparar ingen sådan data.
       <br>
-      <p>Vänligen kontakta Thai Corner om du har några frågor, or wish to see or erase your data</p>
+      <br>
+      <p>Vänligen kontakta Thai Corner om du har några frågor.</p>
     </div>
 </template>
 

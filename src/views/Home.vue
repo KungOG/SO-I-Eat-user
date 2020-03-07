@@ -109,7 +109,7 @@ export default {
     ContactText,
     NavigationButton,
     NavigationBarDesktop,
-    HomeFooter
+    HomeFooter,
   },
 
   data: () => ({
@@ -121,7 +121,7 @@ export default {
     Arrow: require("@/assets/icons/Arrow.svg"),
     imgUrl: AboutPic,
     installBtn: true,
-    installer: undefined
+    installer: undefined,
   }),
 
   async created() {
