@@ -4,7 +4,7 @@
     <img class="modal-cross-icon" :src="closeDown" />
     <div class="email-wrapper">
       <form class="email-form">
-        <p>Vänligen fyll i din mailadress för kvitto</p>
+        <h5>Vänligen fyll i din mailadress <br> för kvitto</h5>
         <p class="email-error" v-if="errorEmail">{{errorEmail}}</p>
         <div class="email-card">
           <input class="email-input" type="text" v-model="email" placeholder="Email">
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     closeEmailModal() {
-      this.$store.commit('setShowEmail', false)
+      this.$store.commit('setShowEmail', false);
     },
     toPayment() {
       if(this.checked === false) {
@@ -59,20 +59,12 @@ export default {
           this.errorEmail = null;
         }
       } else {
-          this.$store.commit('setEmail', this.email);
+          this.$store.commit('setEmail', null);
           this.$store.commit('setShowEmail', false);
           this.$store.commit('setShowPayment', true);
           this.errorEmail = null;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
-
-<style lang="scss" scoped>
-        .email-input {
-        background: pink;
-        border: none;
-        width: 100%;
-      }
-</style>

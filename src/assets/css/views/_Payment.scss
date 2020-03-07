@@ -54,9 +54,13 @@
       justify-content: center;
       height: 50px;
       width: 80%;
+      align-items: center;
 
       #card-element {
         width: 100%;
+        border: 1px solid #c4c4c4;
+        border-radius: 5px;
+        padding: 15px 10px;
       }
       
       .stripe-error {
@@ -95,6 +99,7 @@
 
         .button-text {
           text-transform: uppercase;
+          font-size: 16px;
         }
       }
     }

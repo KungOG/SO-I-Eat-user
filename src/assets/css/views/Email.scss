@@ -41,10 +41,7 @@
       width: 90vw;
     }
 
-    >p {
-      text-align: center;
-    }
-
+    
     > .email-form {
       display: flex;
       justify-content: center;
@@ -52,10 +49,20 @@
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
+
+        >p {
+          text-align: center;
+        }
+
+        >h5 {
+          margin: 10px 0 0 0;
+        }
+    }
+    .email-error {
+      margin-top: 10px;
+      color: $main-color;
     }
 
-    > .email-form >
-    .email-error,
     .email-card {
       display: flex;
       justify-content: center;
@@ -63,17 +70,28 @@
       width: 80%;
       margin-top: 20px;
 
-      .email-error {
-        margin: 10px;
-        color: $main-color;
+      .email-input {
+        border: 1px solid #c4c4c4;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 16px;
+        padding: 0 10px;
+        font-family: $regular-font;
+      }
+      ::placeholder {
+        color: #c4c4c4;
+        font-family: $regular-font;
       }
     }
 
     .checkbox-wrapper {
       display: flex;
+      align-items: center;
+      margin-bottom: 20px;
 
       #checkbox {
         margin-right: 15px;
+        background-color: pink;
       }
 
       >label {
@@ -106,6 +124,7 @@
 
         .button-text {
           text-transform: uppercase;
+          font-size: 16px;
         }
       }
     }

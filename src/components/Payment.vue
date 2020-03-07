@@ -36,11 +36,11 @@ import Loader from './Loader'
 const style = {
   base: {
     color: '#32325d',
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    fontFamily: '"Carrois Gothic", sans-serif',
     fontSmoothing: 'antialiased',
     fontSize: '16px',
     '::placeholder': {
-      color: "#aab7c4"
+      color: "#c4c4c4"
     }
   },
   invalid: {
@@ -60,6 +60,7 @@ export default {
     cardEvent: null,
     loading: false,
     disabled: true,
+    orderNumber: null,
   }),
   components: {
     Loader,
@@ -84,9 +85,10 @@ export default {
   },
   methods: {
     createPaymentIntent() {
+      this.createOrderNumber();
       this.loading = true;
       const url = 'https://so-i-eat-server.herokuapp.com/create-payment-intent';
-      const orderData = { items: this.itemsId, currency: 'sek', email: this.email };
+      const orderData = { items: this.itemsId, currency: 'sek', email: this.email, ordernumber: this.orderNumber };
       axios
         .post(url, orderData, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } })
         .then((response) => {
@@ -164,7 +166,15 @@ export default {
     },
     closePaymentModal() {
       this.$store.state.showPayment = false;
-    }
+    },
+    createOrderNumber() {
+      let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+      let Arr = [];
+      for(let i=0; i<6; i++){
+        Arr.push(chars[Math.floor(Math.random()*chars.length)]);
+      }
+      this.orderNumber = Arr.join(''); 
+    },
   }
 };
 </script>
