@@ -23,8 +23,8 @@ export default {
         console.log(error);
       });
   },
-  postOrder(ctx) {
-    const postOrder = { order: this.state.order, comment: this.state.comment, ordernumber: this.state.ordernumber };
+  postOrder(ctx, payload) {
+    const postOrder = { order: this.state.order, comment: this.state.comment, ordernumber: payload.orderNumber, amount: payload.amount };
     const url = 'https://so-i-eat-server.herokuapp.com/orders';
     axios
       .post(url, postOrder)

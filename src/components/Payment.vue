@@ -61,6 +61,7 @@ export default {
     loading: false,
     disabled: true,
     orderNumber: null,
+    amount: null,
   }),
   components: {
     Loader,
@@ -94,6 +95,7 @@ export default {
         .then((response) => {
           this.clientSecret = response.data.clientSecret;
           this.setUpStripe(response.data);
+          this.amount = response.data.amount / 10;
           this.loading = false;
         })
         .catch(error => {
@@ -147,7 +149,7 @@ export default {
         });
     },
     async sendOrder() {
-      await this.$store.dispatch('postOrder');
+      await this.$store.dispatch('postOrder', {orderNumber: this.orderNumber, amount: this.amount});
       this.$router.push(`/confirmation/${this.orderNumber}`);
       this.$store.commit('setShowPayment', false);
       this.$store.commit('toggleActiveCart', false);
@@ -174,6 +176,7 @@ export default {
         Arr.push(chars[Math.floor(Math.random()*chars.length)]);
       }
       this.orderNumber = Arr.join(''); 
+      return;
     },
   }
 };
