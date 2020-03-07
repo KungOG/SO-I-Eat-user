@@ -12,7 +12,7 @@ export default new Router({
       component: () => import('./views/Home.vue'),
     },
     {
-      path: '/confirmation',
+      path: '/confirmation/:nr',
       name: 'confirmation',
       component: () => import('./views/Confirmation.vue'),
     },

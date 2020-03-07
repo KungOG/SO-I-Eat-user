@@ -7,10 +7,12 @@
       <div class='content-confirmation'>
         <section class='upper-confirmation-section'>
           <h1>Tack för ditt köp!</h1>
+          <h5>Ditt ordernummer är</h5>
+          <h3>{{orderNumber}}</h3>
           <hr>
           <div class='lower-text-wrapper'>
             <p>{{text}}</p>
-            <p>Orderbekräftelse och kvitto skickas till din mailadress. <br><br>Smaklig måltid!</p>
+            <p>Kvitto skickas per mail om du uppgav din mailadress vid betalning. <br><br>Smaklig måltid!</p>
           </div>
         </section>
         <section class='lower-confirmation-section'>
@@ -40,6 +42,9 @@ export default {
   computed: {
     order() {
       return this.$store.state.order;
+    },
+    orderNumber() {
+      return this.$route.params.nr;
     },
     text() {
       if (this.order.table === 'take away') {

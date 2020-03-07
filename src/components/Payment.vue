@@ -148,7 +148,7 @@ export default {
     },
     async sendOrder() {
       await this.$store.dispatch('postOrder');
-      this.$router.push('/confirmation');
+      this.$router.push(`/confirmation/${this.orderNumber}`);
       this.$store.commit('setShowPayment', false);
       this.$store.commit('toggleActiveCart', false);
       this.$store.commit('resetOrder');
