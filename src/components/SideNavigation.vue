@@ -59,7 +59,7 @@ export default {
       clock: "Clock.svg",
       imgUrl: "Cart.svg"
     },
-    selected: null,
+    selected: 0,
     activeClass: ""
   }),
   watch: {
