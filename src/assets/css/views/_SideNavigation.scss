@@ -3,8 +3,13 @@
   width: 20%;
   position: relative;
 
-  @media (min-width: 768px) { width: 35%; }
-  @media (min-width: 1367px) { width: 20%; }
+  @media (min-width: 768px) {
+    width: 35%;
+  }
+
+  @media (min-width: 1367px) {
+    width: 20%;
+  }
 
   .icon-wrapper {
     display: flex;
@@ -14,16 +19,19 @@
 
   .show-time {
     text-align: right;
-    
-    > span {
+
+    >span {
       font-size: 14px;
     }
   }
 
-  .time-enter-active, .time-leave-active {
+  .time-enter-active,
+  .time-leave-active {
     transition: all .3s ease;
   }
-  .time-enter, .time-leave-to {
+
+  .time-enter,
+  .time-leave-to {
     opacity: 0;
     transform: translateX(20px);
   }
@@ -32,23 +40,24 @@
     margin: 3rem 0 0 1rem;
     height: 60vh;
 
-    > .side-navigation-container {
+    >.side-navigation-container {
       position: relative;
     }
 
-    > .side-navigation-line {
+    >.side-navigation-line {
       background: $main-border-color;
       position: absolute;
       height: 54%;
+      min-height: 440px;
       width: 1px;
       left: 33px;
     }
 
-    > .side-navigation-container > .side-navigation-list {
+    >.side-navigation-container>.side-navigation-list {
       padding-top: 10px;
       position: relative;
 
-      > .line {
+      >.line {
         background: $main-border-color;
         position: absolute;
         height: 1px;
@@ -72,16 +81,18 @@
     width: 170px;
     height: 85px;
 
-    @media (min-width: 1367px) { display: none; }
+    @media (min-width: 1367px) {
+      display: none;
+    }
 
-    > .cart-icon-wrapper {
+    >.cart-icon-wrapper {
       position: relative;
 
-      > img {
+      >img {
         margin-bottom: 6px;
       }
-  
-      > .cart-content {
+
+      >.cart-content {
         height: 20px;
         width: 20px;
         border-radius: 999px;
@@ -93,7 +104,7 @@
         text-align: center;
         transform: scale(1, 1) translateX(0);
         transition: transform .5s;
-  
+
         &.-active {
           transform: scale(2, 2) translateX(10px);
           transition: transform .5s;
