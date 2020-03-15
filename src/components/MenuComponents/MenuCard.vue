@@ -24,7 +24,7 @@
       />
     <div class="button-wrapper" v-show="showAlternatives && !editCart">
       <standard-button
-        v-if="!showCustomize"
+        v-if="!showCustomize && item.extras.length !== 0 && item.ingredients.length !== 0"
         buttonText="redigera"
         @click.native="showCustomize = true"/>
       <standard-button
