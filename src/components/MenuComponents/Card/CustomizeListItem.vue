@@ -33,9 +33,10 @@ export default {
     this.activeI = this.active;
   },
   mounted() {
-    if (this.itemToEdit) {
+    if (this.itemToEdit && this.option) {
       this.itemToEdit.remove.includes(this.ingredient) ? this.activeI = !this.activeI : '';
-      this.itemToEdit.add.includes(this.option) ? this.activeI = !this.activeI : '';
+      const index = this.itemToEdit.add.findIndex(x => x.productName === this.option.productName);
+      index !== -1 ? this.activeI = !this.activeI : '';
     }
   },
   methods: {

@@ -21,7 +21,7 @@
           :key="`menu-options-${i}`"
           @click.native="addOption(option)">
           <template v-slot:itemName>
-              {{option.name}}
+              {{option.productName}}
           </template>
           <template v-slot:itemPrice>
               <div v-show="option.price !== 0" class='ingredient-price'>

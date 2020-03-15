@@ -80,7 +80,6 @@ export default {
       const drinkId = order.drinkItems.map(x => x._id);
 
       const addOnIds = allAddOns.map(item => item._id)
-      console.log(addOnIds)
       return [...drinkId, ...foodId, ...addOnIds];
     },
   },

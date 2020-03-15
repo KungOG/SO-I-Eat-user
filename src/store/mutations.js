@@ -74,7 +74,7 @@ export default {
   },
   setAddedOption(state, option) {
     const { add } = state.orderDetails;
-    const index = add.findIndex(x => x.name === option.name)
+    const index = add.findIndex(x => x.productName === option.productName)
     index !== -1 ? add.splice(index, 1) : add.push(option)
   },
   resetOrderDetails(state) {
