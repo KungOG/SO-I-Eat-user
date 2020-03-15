@@ -5,7 +5,11 @@
       <p>Vill du lämna en kommentar till köket?</p>
       <textarea type="text" maxlength="150" v-model="comment" />
       <span>Vänligen var sparsam med ord</span>
-      <StandardButton class="desktop btn comment-button" :buttonText="'Klar'" @click="saveComment" />
+      <StandardButton
+        class="desktop btn comment-button"
+        :buttonText="'Klar'"
+        @click.native="saveComment"
+      />
     </div>
   </div>
 </template>
@@ -19,8 +23,11 @@ export default {
   components: {
     StandardButton
   },
+  beforeMount() {
+    this.comment = this.$store.state.comment;
+  },
   data: () => ({
-    StandardButton: StandardButton,
+    standardButton: StandardButton,
     closeDown: CloseDown,
     comment: ""
   }),

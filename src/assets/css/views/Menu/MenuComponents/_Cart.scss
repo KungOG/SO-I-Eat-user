@@ -156,7 +156,7 @@
       grid-template-areas: "comment total amount .";
 
       @media (min-width: 768px) {
-        grid-template-rows: 0.1fr 1fr;
+        grid-template-rows: 0.1fr 0.1fr;
         grid-template-areas:
           "comment total amount ."
           ". btn btn .";
@@ -166,10 +166,9 @@
         grid-area: comment;
         display: flex;
         justify-content: center;
+        align-items: flex-start;
+        margin: 2.33em 0;
 
-        > h5 {
-          margin: 0;
-        }
       }
 
       .btn {
