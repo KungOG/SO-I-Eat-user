@@ -54,7 +54,7 @@
 
   .about-section {
     background: white;
-    padding: 5rem 0 15rem 0;
+    padding: 5rem 0 5rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,6 +67,10 @@
     > h3 {
       color: black;
       margin: 2rem;
+    }
+
+    .phone-number {
+      color: #aa0909;
     }
 
     .about-pics {
@@ -199,25 +203,35 @@
 #scroll-indicator {
   position: absolute;
   color: rgba(172, 147, 22, 0.8);
-  right: calc(100% - 110px);
-  bottom: 80px;
+  left: calc(100% - 35px);
+  bottom: 55px;
   z-index: 15;
-  height: 20px;
+  height: 70px;
   width: 90px;
   transform: rotate(90deg);
   transform-origin: left;
   opacity: 1;
   transition: opacity 1s ease, z-index 0s ease 0s;
+  cursor: pointer;
 
   .indicator-line {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    bottom: 36%;
     animation: scroll-indicator-line 2s linear infinite;
     display: block;
     height: 2px;
     width: 80px;
     background-color: rgba(172, 147, 22, 0.8);
+  }
+
+  .indicator-text {
+    transform: rotate(-90deg);
+    position: absolute;
+    word-break: break-all;
+    width: 1em;
+    bottom: 15px;
+    left: 29px;
+    text-align: center;
   }
 
   &.-hide {
@@ -232,7 +246,8 @@
 }
 
 #arrow {
-  top: -3px;
+  bottom: 22px;
+  left: 0px;
   position: absolute;
   animation: arrow-movement 2s linear infinite;
   border-right: 2px solid rgba(172, 147, 22, 0.8);

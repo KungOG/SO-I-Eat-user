@@ -2,34 +2,12 @@
   <div class="home" id="home">
     <NavigationBarDesktop class="desktop home" />
     <div class="wrapper">
-      <section class="navigation-buttons-container">
-        <NavigationButton :imageSrc="TakeAway.url" :title="TakeAway.text" url="/order" />
-        <NavigationButton
-          :imageSrc="EatHere.url"
-          :title="EatHere.text"
-          class="mobile"
-          url="/order"
-        />
-        <NavigationButton
-          :imageSrc="Maps.url"
-          :title="Maps.text"
-          class="desktop"
-          url="/"
-          @click.native="scrollTo('contact')"
-        />
-        <NavigationButton
-          :imageSrc="Menu.url"
-          :title="Menu.text"
-          url="/"
-          @click.native="scrollTo('products')"
-        />
-      </section>
       <section class="welcome-wrapper">
         <div class="welcome-text-image desktop">
           <img :src="TextLogotype" class="line-container-image" alt="Logotype" />
           <span class="line-container-text">
-            Hos oss upplever du den genuina smaken av Thailand. I vår familjeägda restaurang serveras den hemlagade
-            thaimaten från de bästa råvarorna. Du kan även beställa online, både vid take away och restaurangbesök.
+            Hos oss upplever du den genuina smaken av Thailand. I vår familjeägda restaurang
+            serveras den hemlagade thaimaten från de bästa råvarorna.
             <br />Vi önskar dig varmt välkommen!
           </span>
           <p>Öppet tis-sön 11-21</p>
@@ -39,21 +17,25 @@
           <p>Öppet tis-sön 11-21</p>
           <p>Lunch tis-fre 11-14</p>
         </div>
-        <div class="install-btn desktop" v-if="installBtn" @click="installer()">
-          <p>Installera som app</p>
+        <!-- <div class="install-btn desktop" v-if="installBtn" @click="installer()">
+          <p>Spara menyn som app</p>
         </div>
         <div class="install-btn mobile" v-if="installBtn" @click="installer()">
-          <p>Installera som app</p>
-        </div>
+          <p>Spara menyn som app</p>
+        </div>-->
       </section>
       <div id="scroll-indicator" @click="scrollTo('products')">
         <div id="arrow" />
         <div class="indicator-line" />
+        <span class="indicator-text">MENY</span>
       </div>
     </div>
     <Products id="products" />
     <section class="text-section desktop">
-      <p>"Det thailändska köket står för fräscha råvaror med en perfekt balans mellan sött, salt, syrligt, beskt och hetta."</p>
+      <p>
+        "Det thailändska köket står för fräscha råvaror med en perfekt balans mellan sött, salt,
+        syrligt, beskt och hetta."
+      </p>
     </section>
     <section class="map-section desktop" id="contact">
       <Map />
@@ -64,9 +46,10 @@
     <section class="about-section desktop" id="about">
       <h3>Genuina smaker från Thailand</h3>
       <p>
-        Den thailändska maten erbjuder en explosion för smaklökarna. Kyckling, biff och fläskkött serveras ofta i små färdigskurna
-        bitar och kombineras med grönsaker, ris och nudlar. Salt är Thailändarna skeptiska till, istället används den berömda fisksåsen
-        för att salta maten, och chilin ger den berömda hettan.
+        Den thailändska maten erbjuder en explosion för smaklökarna. Kyckling, biff och fläskkött
+        serveras ofta i små färdigskurna bitar och kombineras med grönsaker, ris och nudlar. Salt är
+        Thailändarna skeptiska till, istället används den berömda fisksåsen för att salta maten, och
+        chilin ger den berömda hettan.
       </p>
       <div class="about-pics">
         <div class="about-img">
@@ -82,8 +65,10 @@
         </div>
       </div>
       <p>
-        Vi har lagat mat till hungriga halländare och turister i 10 år och erbjuder numera möjligheten att beställa och betala maten online
-        via vår hemsida.
+        Vi har lagat mat till hungriga halländare och turister i 10 år. Är ni sugna på Laholms
+        kanske bästa thaimat, hör gärna av er till oss på
+        <br />
+        <a class="phone-number" href="tel:+46 430 28300">+46 430 28300</a>
       </p>
       <br />
       <p>Välkommen till oss!</p>
@@ -109,7 +94,7 @@ export default {
     ContactText,
     NavigationButton,
     NavigationBarDesktop,
-    HomeFooter,
+    HomeFooter
   },
 
   data: () => ({
@@ -121,7 +106,7 @@ export default {
     Arrow: require("@/assets/icons/Arrow.svg"),
     imgUrl: AboutPic,
     installBtn: true,
-    installer: undefined,
+    installer: undefined
   }),
 
   async created() {

@@ -49,9 +49,9 @@
         <router-link to="/about">
           <h2>Om oss</h2>
         </router-link>
-        <router-link to="/terms">
+        <!-- <router-link to="/terms">
           <h2>Villkor</h2>
-        </router-link>
+        </router-link>-->
       </div>
     </div>
   </div>
