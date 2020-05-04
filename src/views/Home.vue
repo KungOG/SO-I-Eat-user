@@ -13,7 +13,16 @@
           <p>Lunch tis-fre 11-14</p>
         </div>
         <div class="button-container">
-          <button class="large-navigation-button find-us" @click="scrollTo('contact')">
+          <router-link class="mobile" to="/contact" style="margin-right: 15px">
+            <button class="large-navigation-button find-us" @click="scrollTo('contact')">
+              <span>HITTA</span>
+              <span>I</span>
+              <span>T</span>
+              <img class="pin" :src="Maps" />
+              <div class="button-line" />
+            </button>
+          </router-link>
+          <button class="large-navigation-button find-us desktop" @click="scrollTo('contact')">
             <span>HITTA</span>
             <span>I</span>
             <span>T</span>
@@ -30,12 +39,20 @@
               <div class="indicator-line" />
             </div>
           </button>
-          <button class="large-navigation-button about-us" @click="scrollTo('about')">
-            <span>OM</span>
-            <span>S</span>
-            <span>S</span>
-            <img class="spice" :src="Spice" />
-          </button>
+          <router-link class="mobile" to="/about">
+            <button class="large-navigation-button about-us" @click="scrollTo('about')">
+              <span>OM</span>
+              <span>S</span>
+              <span>S</span>
+              <img class="spice" :src="Spice" />
+            </button>
+          </router-link>
+          <button class="large-navigation-button about-us desktop" @click="scrollTo('about')">
+              <span>OM</span>
+              <span>S</span>
+              <span>S</span>
+              <img class="spice" :src="Spice" />
+            </button>
         </div>
 
         <!-- <div class="install-btn desktop" v-if="installBtn" @click="installer()">
