@@ -29,8 +29,8 @@
 
   section {
     &:first-child {
-      @media (min-width: $screen-sm-lg) { width: 42vw; }
-      @media (min-width: $screen-sm-md) { width: 49.3vw; }
+      @media (min-width: $screen-sm-lg) { width: 50vw; }
+      @media (min-width: $screen-sm-md) { width: 50vw; }
 
       >.menu-section {
         @media (min-width: 990px) {
@@ -45,9 +45,9 @@
 
     &:last-child {
       width: 100vw;
-      @media (min-width: $screen-sm-md) { width: 49.3vw; }
+      @media (min-width: $screen-sm-md) { width: 50vw; }
         @media (min-width: $screen-sm-lg) {
-          width: 57vw;
+          width: 50vw;
           margin-left: 10px;
         }
       

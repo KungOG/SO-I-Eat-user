@@ -15,6 +15,7 @@
         :key="`categories-${i}`"
         :items="menuItems"
         :category="category"
+        :image="i"
       />
     </div>
     <div class="sections-wrapper desktop">
@@ -25,6 +26,7 @@
           :key="`split-categories1-${i}`"
           :items="menuItems"
           :category="category"
+          :image="i"
         />
         <div class="filler-section">
           <h5>
@@ -40,6 +42,7 @@
           :key="`split-categories2-${i}`"
           :items="menuItems"
           :category="category"
+          :image="i + 3"
         />
       </section>
     </div>

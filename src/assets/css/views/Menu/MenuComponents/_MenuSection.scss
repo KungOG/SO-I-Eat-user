@@ -1,22 +1,26 @@
-.menu-section {
-  background: white;
-  padding: 3rem 1rem 6rem 1rem;
+.menu1 {
   margin-bottom: .7rem;
 
   &:last-child {
     margin: 0;
   }
 
+.menu-section {
+  background: white;
+  padding: 3rem 1rem 6rem 1rem;
+  
   @media (min-width: $screen-sm-lg) {
     justify-content: flex-start;
   }
 
   @media (min-width: 990px) {
     padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   @media (min-width: 1200px) {
     padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .menu-section-wrapper {
@@ -26,3 +30,13 @@
       }
     }
   }
+  .section-image {
+    width: 100%;
+
+    @media (max-width: $screen-sm-lg) {
+      height: 100%;
+      width: auto;
+
+    }
+  }
+}  
