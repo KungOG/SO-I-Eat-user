@@ -109,7 +109,7 @@
         <a class="phone-number" href="tel:+46 430 28300">+46 430 28300</a>
       </p>
       <br />
-      <p>Välkommen till oss!</p>
+      <p>Välkommen in till oss!</p>
     </section>
     <HomeFooter />
   </div>
