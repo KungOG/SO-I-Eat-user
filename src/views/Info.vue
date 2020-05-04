@@ -1,13 +1,18 @@
 <template>
-    <div class='info'>
-      <div class="component-wrapper">
-        <router-view />
-      </div>
+  <div class="info">
+    <NavigationBar class="mobile" />
+    <div class="component-wrapper">
+      <router-view />
     </div>
+  </div>
 </template>
 
 <script>
+import NavigationBar from "@/components/NavigationBar.vue";
 export default {
-  name: 'info',
+  name: "info",
+  components: {
+    NavigationBar
+  }
 };
 </script>

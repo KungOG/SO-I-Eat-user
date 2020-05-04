@@ -1,9 +1,8 @@
 <template>
   <div class="home" id="home">
-    <NavigationBarDesktop class="desktop home" />
     <div class="wrapper">
       <section class="welcome-wrapper">
-        <div class="welcome-text-image desktop">
+        <div class="welcome-text-image">
           <img :src="TextLogotype" class="line-container-image" alt="Logotype" />
           <span class="line-container-text">
             Hos oss upplever du den genuina smaken av Thailand. I vår familjeägda restaurang
@@ -13,10 +12,32 @@
           <p>Öppet tis-sön 11-21</p>
           <p>Lunch tis-fre 11-14</p>
         </div>
-        <div class="welcome-text mobile">
-          <p>Öppet tis-sön 11-21</p>
-          <p>Lunch tis-fre 11-14</p>
+        <div class="button-container">
+          <button class="large-navigation-button find-us" @click="scrollTo('contact')">
+            <span>HITTA</span>
+            <span>I</span>
+            <span>T</span>
+            <img class="pin" :src="Maps" />
+            <div class="button-line" />
+          </button>
+          <button class="large-navigation-button menu" @click="scrollTo('products')">
+            <span>M</span>
+            <span>E</span>
+            <span>N</span>
+            <span>Y</span>
+            <div id="scroll-indicator">
+              <div id="arrow" />
+              <div class="indicator-line" />
+            </div>
+          </button>
+          <button class="large-navigation-button about-us" @click="scrollTo('about')">
+            <span>OM</span>
+            <span>S</span>
+            <span>S</span>
+            <img class="spice" :src="Spice" />
+          </button>
         </div>
+
         <!-- <div class="install-btn desktop" v-if="installBtn" @click="installer()">
           <p>Spara menyn som app</p>
         </div>
@@ -24,11 +45,11 @@
           <p>Spara menyn som app</p>
         </div>-->
       </section>
-      <div id="scroll-indicator" @click="scrollTo('products')">
+      <!-- <div id="scroll-indicator" @click="scrollTo('products')">
         <div id="arrow" />
         <div class="indicator-line" />
         <span class="indicator-text">MENY</span>
-      </div>
+      </div>-->
     </div>
     <Products id="products" />
     <section class="text-section desktop">
@@ -73,7 +94,7 @@
       <br />
       <p>Välkommen till oss!</p>
     </section>
-    <HomeFooter class="desktop" />
+    <HomeFooter />
   </div>
 </template>
 
@@ -104,6 +125,8 @@ export default {
     Maps: { url: require("@/assets/icons/Maps.svg"), text: "hitta hit" },
     EatHere: { url: require("@/assets/icons/EatHere.svg"), text: "äta här" },
     Arrow: require("@/assets/icons/Arrow.svg"),
+    Spice: require("@/assets/icons/SpiceGold.svg"),
+    Maps: require("@/assets/icons/Contact.svg"),
     imgUrl: AboutPic,
     installBtn: true,
     installer: undefined

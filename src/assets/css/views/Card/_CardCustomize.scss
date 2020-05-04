@@ -1,152 +1,103 @@
-  .card-customize {
-    background: #fff;
-    display: grid;
-    position: relative;
-    justify-content: center;
-    padding: 0 11px 10px 10px;
-    grid-template-columns: 50px 2fr .3fr;
-    grid-template-rows: auto;
-    grid-template-areas: 'filler content .';
+.card-customize {
+  background: #fff;
+  display: grid;
+  position: relative;
+  justify-content: center;
+  padding: 0 11px 10px 10px;
+  grid-template-columns: 50px 2fr 0.3fr;
+  grid-template-rows: auto;
+  grid-template-areas: "filler content .";
 
-    @media (min-width: 431px) {
-      padding: 0 50px;
-    }
+  @media (min-width: 431px) {
+    padding: 0 50px;
+  }
 
-    @media (min-width: 770px) {
-      padding: 0 20px;
-    }
+  @media (min-width: 770px) {
+    padding: 0 20px;
+  }
 
-    .filler {
-      grid-area: filler;
-    }
+  .filler {
+    grid-area: filler;
+  }
 
-    .fade-gradient {
-      position: absolute;
-      width: 70%;
-      height: 50px;
-      z-index: 1;
-      @include white-gradient;
+  .fade-gradient {
+    position: absolute;
+    width: 70%;
+    height: 50px;
+    z-index: 1;
+    @include white-gradient;
 
-      &.lower {
-        transform: rotate(180deg);
-        bottom: 24px;
+    &.lower {
+      transform: rotate(180deg);
+      bottom: 24px;
 
-        @media (min-width: 431px) {
-          bottom: 15px;
-        }
+      @media (min-width: 431px) {
+        bottom: 15px;
       }
     }
+  }
 
-    .ingredients-content {
-      grid-area: content;
-      border-left: 1px solid $main-secondary-color;
+  .ingredients-content {
+    grid-area: content;
+    border-left: 1px solid $main-secondary-color;
 
-      .ingredients-list {
-        font-size: 16px;
-        height: 30vh;
-        overflow-x: auto;
+    .ingredients-list {
+      font-size: 16px;
+      height: 30vh;
+      overflow-x: auto;
 
-        .ingredient {
+      .ingredient {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 13px;
+        color: black;
+
+        &:first-child {
+          padding-top: 24px;
+        }
+
+        &:last-child {
+          padding-bottom: 50px;
+        }
+
+        &.active .ingredient-price {
+          font-size: 16px;
+        }
+
+        &.active .ingredient-name {
+          padding: 0;
+
+          &::before {
+            background: $secondary-color;
+            content: "+";
+          }
+        }
+
+        > .ingredient-price {
+          font-size: 16px;
+        }
+
+        > .ingredient-name {
           display: flex;
-          justify-content: space-between;
           align-items: center;
-          margin-bottom: 13px;
-          color: black;
 
-          &:first-child {
-            padding-top: 24px;
-          }
-
-          &:last-child {
-            padding-bottom: 50px;
-          }
-
-          &.active .ingredient-price {
-            font-size: 16px;
-          }
-
-          &.active .ingredient-name {
-            padding: 0;
-
-            &::before {
-              background: $secondary-color;
-              content: '+';
-            }
-          }
-
-          >.ingredient-price {
-            font-size: 16px;
-          }
-
-          >.ingredient-name {
+          &::before {
+            content: "-";
+            display: inline-block;
+            border-radius: 999px;
+            background: $main-secondary-color;
+            width: 25px;
+            height: 25px;
+            margin-right: 20px;
             display: flex;
             align-items: center;
-
-            &::before {
-              content: '-';
-              display: inline-block;
-              border-radius: 999px;
-              background: $main-secondary-color;
-              width: 25px;
-              height: 25px;
-              margin-right: 20px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-size: 20px;
-            }
+            justify-content: center;
+            color: white;
+            font-size: 20px;
           }
         }
       }
     }
   }
-
-  /* 
-.card-customize > .ingredient-content > .ingredients-list > .ingredients {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 13px;
-  color: black;
-
-  &.active .ingredient-price {
-    font-size: 16px;
-  }
-
-  &.active .ingredient-name {
-    &::before {
-      background: $main-secondary-color;
-      border: none;
-    }
-  }
-
-  &.inactive .ingredient-name {
-    font-size: 14px;
-
-    &::before {
-      width: 21px;
-      height: 21px;
-      margin: 0 24px 0 2px;
-    }
-  }
-
-  > .ingredient-price {
-    font-size: 14px;
-  }
-
-  > .ingredient-name {
-    display: flex;
-    align-items: center;
-
-    &::before {
-      content: '';
-      display: inline-block;
-      border-radius: 999px;
-      border: 1px solid black;
-      width: 25px;
-      height: 25px;
-      margin-right: 20px;
-    }
-  }
-} */
+}
