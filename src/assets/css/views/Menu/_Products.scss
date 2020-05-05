@@ -10,7 +10,9 @@
     }
 
     &.mobile {
-      @media (min-width: $screen-sm-md) { display: none; } 
+      @media (min-width: $screen-sm-md) {
+        display: none;
+      }
     }
 
     .lunch-component {
@@ -27,31 +29,39 @@
       padding: 0 4rem;
     }
 
-  section {
-    &:first-child {
-      @media (min-width: $screen-sm-lg) { width: 50vw; }
-      @media (min-width: $screen-sm-md) { width: 50vw; }
-
-      >.menu-section {
-        @media (min-width: 990px) {
-          padding-right: 3rem;
-        }
-
-        @media (min-width: 1200px) {
-          padding-right: 4rem;
-        }
-      }  
-    }
-
-    &:last-child {
-      width: 100vw;
-      @media (min-width: $screen-sm-md) { width: 50vw; }
+    section {
+      &:first-child {
         @media (min-width: $screen-sm-lg) {
-          width: 50vw;
+          width: 49.5vw;
+          overflow: hidden;
+        }
+        @media (min-width: $screen-sm-md) {
+          width: 49.5vw;
+          overflow: hidden;
+        }
+
+        > .menu-section {
+          @media (min-width: 990px) {
+            padding-right: 3rem;
+          }
+
+          @media (min-width: 1200px) {
+            padding-right: 4rem;
+          }
+        }
+      }
+
+      &:last-child {
+        width: 100vw;
+        @media (min-width: $screen-sm-md) {
+          width: 49.5vw;
+        }
+        @media (min-width: $screen-sm-lg) {
+          width: 49.5vw;
           margin-left: 10px;
         }
-      
-      >.menu-section {
+
+        > .menu-section {
           @media (min-width: 990px) {
             padding-right: 5rem;
           }
@@ -59,7 +69,7 @@
           @media (min-width: 1200px) {
             padding-right: 10rem;
           }
-        }  
+        }
       }
     }
   }
@@ -119,15 +129,19 @@
         > img {
           height: 30px;
           width: 30px;
-          margin: 0 .7rem 0 0;
+          margin: 0 0.7rem 0 0;
         }
       }
     }
   }
 
   .nav-buttons.navbar--hidden {
-    &.mobile { transform: translate3d(0, -100%, 0); }
-    &.desktop { transform: translatex(0); }
+    &.mobile {
+      transform: translate3d(0, -100%, 0);
+    }
+    &.desktop {
+      transform: translatex(0);
+    }
   }
 
   .nav-bar-products {
@@ -142,7 +156,7 @@
   .nav-bar-products.mobile.navbar--hidden {
     transform: translate3d(0, 0, 0);
     visibility: unset;
-  } 
+  }
 
   .nav-bar-desktop {
     position: fixed;
@@ -156,11 +170,11 @@
   .nav-bar-desktop.desktop.navbar--hidden {
     transform: translate3d(0, 0, 0);
     visibility: unset;
-  } 
+  }
 
   .nav-bar-desktop.nav-desk-container > .nav-item {
     &:first-child {
       visibility: unset;
     }
-  }  
+  }
 }
